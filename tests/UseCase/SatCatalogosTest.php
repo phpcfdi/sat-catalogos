@@ -59,4 +59,10 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $metodoDePago = $this->satCatalogos->metodosDePago()->obtain('PUE');
         $this->assertSame('PUE', $metodoDePago->id());
     }
+
+    public function testCanObtainExistentMoneda()
+    {
+        $moneda = $this->satCatalogos->monedas()->obtain('MXN');
+        $this->assertSame('MXN', $moneda->id());
+    }
 }

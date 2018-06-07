@@ -32,6 +32,8 @@ class Repository
 
     const CFDI_METODOS_PAGO = 'cfdi_metodos_pago';
 
+    const CFDI_MONEDAS = 'cfdi_monedas';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -40,6 +42,7 @@ class Repository
         self::CFDI_IMPUESTOS,
         self::CFDI_FORMAS_PAGO,
         self::CFDI_METODOS_PAGO,
+        self::CFDI_MONEDAS,
     ];
 
     public function __construct(PDO $pdo)
