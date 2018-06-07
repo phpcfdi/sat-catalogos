@@ -10,6 +10,7 @@ use PhpCfdi\SatCatalogos\CFDI\ClavesUnidades;
 use PhpCfdi\SatCatalogos\CFDI\CodigosPostales;
 use PhpCfdi\SatCatalogos\CFDI\FormasDePago;
 use PhpCfdi\SatCatalogos\CFDI\Impuestos;
+use PhpCfdi\SatCatalogos\CFDI\MetodosDePago;
 use PhpCfdi\SatCatalogos\CFDI\ProductosServicios;
 
 class SatCatalogos
@@ -35,6 +36,9 @@ class SatCatalogos
     /** @var FormasDePago */
     private $formasDePago;
 
+    /** @var MetodosDePago */
+    private $metodosDePago;
+
     public function __construct(Repository $repository)
     {
         $this->repository = $repository;
@@ -44,6 +48,7 @@ class SatCatalogos
         $this->codigosPostales = new CodigosPostales($this->repository);
         $this->impuestos = new Impuestos($this->repository);
         $this->formasDePago = new FormasDePago($this->repository);
+        $this->metodosDePago = new MetodosDePago($this->repository);
     }
 
     /*
@@ -91,5 +96,10 @@ class SatCatalogos
     public function formasDePago(): FormasDePago
     {
         return $this->formasDePago;
+    }
+
+    public function metodosDePago(): MetodosDePago
+    {
+        return $this->metodosDePago;
     }
 }
