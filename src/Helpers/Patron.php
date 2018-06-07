@@ -18,11 +18,12 @@ class Patron
     private $alEstarVacio;
 
     const VACIO_PERMITE_NADA = 'NADA';
+
     const VACIO_PERMITE_TODO = 'TODO';
 
     public function __construct(string $origen, string $alEstarVacio = self::VACIO_PERMITE_TODO)
     {
-        if ('' === $origen && $alEstarVacio === self::VACIO_PERMITE_TODO) {
+        if ('' === $origen && self::VACIO_PERMITE_TODO === $alEstarVacio) {
             // cualquier caracter no espaciado vertical, de 0 a N veces
             $expresion = '\V*';
         } else {
