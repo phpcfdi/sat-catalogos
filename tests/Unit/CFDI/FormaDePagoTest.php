@@ -4,12 +4,18 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
+use PhpCfdi\SatCatalogos\CFDI\Builders\FormaDePagoBuilder;
 use PhpCfdi\SatCatalogos\CFDI\FormaDePago;
 use PhpCfdi\SatCatalogos\EntryInterface;
 use PHPUnit\Framework\TestCase;
 
 class FormaDePagoTest extends TestCase
 {
+    protected function makeFormaDePago(array $values, string $id = 'foo')
+    {
+        return (new FormaDePagoBuilder())->make($id, $values);
+    }
+
     public function testCreateInstance()
     {
         $id = '03';
@@ -37,27 +43,15 @@ class FormaDePagoTest extends TestCase
         $this->assertSame($vigenteHasta, $FormaDePago->vigenteHasta());
     }
 
-    /**
-     * @param bool $esBancarizado
-     * @testWith [true]
-     *           [false]
-     */
-    public function testEsBancarizado(bool $esBancarizado)
+    public function testEsBancarizado()
     {
-        $impuesto = new FormaDePago('x', 'x', $esBancarizado, false, 0, 0);
-
-        $this->assertSame($esBancarizado, $impuesto->esBancarizado());
+        $this->assertTrue($this->makeFormaDePago(['esBancarizado' => true])->esBancarizado());
+        $this->assertFalse($this->makeFormaDePago(['esBancarizado' => false])->esBancarizado());
     }
 
-    /**
-     * @param bool $requiereNumeroDeOperacion
-     * @testWith [true]
-     *           [false]
-     */
-    public function testRequiereNumeroDeOperacion(bool $requiereNumeroDeOperacion)
+    public function testRequiereNumeroDeOperacion()
     {
-        $impuesto = new FormaDePago('x', 'x', false, $requiereNumeroDeOperacion, 0, 0);
-
-        $this->assertSame($requiereNumeroDeOperacion, $impuesto->esBancarizado());
+        $this->assertTrue($this->makeFormaDePago(['requiereNumeroDeOperacion' => true])->requiereNumeroDeOperacion());
+        $this->assertFalse($this->makeFormaDePago(['requiereNumeroDeOperacion' => false])->requiereNumeroDeOperacion());
     }
 }
