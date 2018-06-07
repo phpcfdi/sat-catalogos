@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\Pais;
 use PhpCfdi\SatCatalogos\EntryInterface;
-use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
+use PhpCfdi\SatCatalogos\Exceptions\PatronException;
 use PHPUnit\Framework\TestCase;
 
 class PaisTest extends TestCase
@@ -32,47 +32,43 @@ class PaisTest extends TestCase
         $this->assertInstanceOf(EntryInterface::class, $pais);
         $this->assertSame($id, $pais->id());
         $this->assertSame($texto, $pais->texto());
-        $this->assertContains($patronCodigoPostal, $pais->patronCodigoPostal());
-        $this->assertContains($patronIdentidadTributaria, $pais->patronIdentidadTributaria());
+        $this->assertSame($patronCodigoPostal, $pais->patronCodigoPostal()->origen());
+        $this->assertSame($patronIdentidadTributaria, $pais->patronIdentidadTributaria()->origen());
         $this->assertSame($validacionIdentidadTributaria, $pais->validacionIdentidadTributaria());
         $this->assertSame($agrupaciones, $pais->agrupaciones());
     }
 
     /**
      * @param string $value
-     * @param string $expected
-     * @testWith ["", "/^\\V*$/"]
-     *           ["[0-9]{10}", "/^[0-9]{10}$/"]
+     * @testWith [""]
+     *           ["[0-9]{10}"]
      */
-    public function testPatronCodigoPostal(string $value, string $expected)
+    public function testPatronCodigoPostal(string $value)
     {
         $pais = new Pais('x', 'x', $value, '', '', '');
-        $this->assertSame($expected, $pais->patronCodigoPostal());
+        $this->assertSame($value, $pais->patronCodigoPostal()->origen());
     }
 
     public function testPatronCodigoPostalInvalidPattern()
     {
-        $this->expectException(SatCatalogosLogicException::class);
-        $this->expectExceptionMessage('expresión regular');
+        $this->expectException(PatronException::class);
         new Pais('x', 'x', ') invalid regexp (', '', '', '');
     }
 
     /**
      * @param string $value
-     * @param string $expected
-     * @testWith ["", "/^\\V*$/"]
-     *           ["[0-9]{10}", "/^[0-9]{10}$/"]
+     * @testWith [""]
+     *           ["[0-9]{10}"]
      */
-    public function testPatronIdentidadTributaria(string $value, string $expected)
+    public function testPatronIdentidadTributaria(string $value)
     {
         $pais = new Pais('x', 'x', '', $value, '', '');
-        $this->assertSame($expected, $pais->patronIdentidadTributaria());
+        $this->assertSame($value, $pais->patronIdentidadTributaria()->origen());
     }
 
     public function testPatronIdentidadTributariaInvalidPattern()
     {
-        $this->expectException(SatCatalogosLogicException::class);
-        $this->expectExceptionMessage('expresión regular');
+        $this->expectException(PatronException::class);
         new Pais('x', 'x', '', ') invalid regexp (', '', '');
     }
 }

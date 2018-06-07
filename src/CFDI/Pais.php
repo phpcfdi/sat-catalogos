@@ -7,13 +7,14 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 use PhpCfdi\SatCatalogos\AbstractEntry;
 use PhpCfdi\SatCatalogos\EntryInterface;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
+use PhpCfdi\SatCatalogos\Helpers\Patron;
 
 class Pais extends AbstractEntry implements EntryInterface
 {
-    /** @var string */
+    /** @var Patron */
     private $patronCodigoPostal;
 
-    /** @var string */
+    /** @var Patron */
     private $patronIdentidadTributaria;
 
     /** @var string */
@@ -31,8 +32,8 @@ class Pais extends AbstractEntry implements EntryInterface
         string $agrupaciones
     ) {
         parent::__construct($id, $texto, 0, 0);
-        $this->patronCodigoPostal = $this->parsePatronOpcional($patronCodigoPostal);
-        $this->patronIdentidadTributaria = $this->parsePatronOpcional($patronIdentidadTributaria);
+        $this->patronCodigoPostal = new Patron($patronCodigoPostal, Patron::VACIO_PERMITE_TODO);
+        $this->patronIdentidadTributaria = new Patron($patronIdentidadTributaria, Patron::VACIO_PERMITE_TODO);
         $this->validacionIdentidadTributaria = $validacionIdentidadTributaria;
         $this->agrupaciones = $agrupaciones;
     }
@@ -50,12 +51,12 @@ class Pais extends AbstractEntry implements EntryInterface
         return $pattern;
     }
 
-    public function patronCodigoPostal(): string
+    public function patronCodigoPostal(): Patron
     {
         return $this->patronCodigoPostal;
     }
 
-    public function patronIdentidadTributaria(): string
+    public function patronIdentidadTributaria(): Patron
     {
         return $this->patronIdentidadTributaria;
     }
