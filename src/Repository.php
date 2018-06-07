@@ -28,12 +28,15 @@ class Repository
 
     const CFDI_IMPUESTOS = 'cfdi_impuestos';
 
+    const CFDI_FORMAS_PAGO = 'cfdi_formas_pago';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
         self::CFDI_PRODUCTOS_SERVICIOS,
         self::CFDI_CODIGOS_POSTALES,
         self::CFDI_IMPUESTOS,
+        self::CFDI_FORMAS_PAGO,
     ];
 
     public function __construct(PDO $pdo)

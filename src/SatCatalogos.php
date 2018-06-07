@@ -8,6 +8,7 @@ namespace PhpCfdi\SatCatalogos;
 use PhpCfdi\SatCatalogos\CFDI\Aduanas;
 use PhpCfdi\SatCatalogos\CFDI\ClavesUnidades;
 use PhpCfdi\SatCatalogos\CFDI\CodigosPostales;
+use PhpCfdi\SatCatalogos\CFDI\FormasDePago;
 use PhpCfdi\SatCatalogos\CFDI\Impuestos;
 use PhpCfdi\SatCatalogos\CFDI\ProductosServicios;
 
@@ -31,6 +32,9 @@ class SatCatalogos
     /** @var Impuestos */
     private $impuestos;
 
+    /** @var FormasDePago */
+    private $formasDePago;
+
     public function __construct(Repository $repository)
     {
         $this->repository = $repository;
@@ -39,6 +43,7 @@ class SatCatalogos
         $this->productosServicios = new ProductosServicios($this->repository);
         $this->codigosPostales = new CodigosPostales($this->repository);
         $this->impuestos = new Impuestos($this->repository);
+        $this->formasDePago = new FormasDePago($this->repository);
     }
 
     /*
@@ -81,5 +86,10 @@ class SatCatalogos
     public function impuestos(): Impuestos
     {
         return $this->impuestos;
+    }
+
+    public function formasDePago(): FormasDePago
+    {
+        return $this->formasDePago;
     }
 }
