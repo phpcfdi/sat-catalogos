@@ -65,4 +65,10 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $moneda = $this->satCatalogos->monedas()->obtain('MXN');
         $this->assertSame('MXN', $moneda->id());
     }
+
+    public function testCanObtainExistentPais()
+    {
+        $pais = $this->satCatalogos->paises()->obtain('MEX');
+        $this->assertSame('MEX', $pais->id());
+    }
 }
