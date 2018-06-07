@@ -1,0 +1,71 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpCfdi\SatCatalogos\Helpers;
+
+use PhpCfdi\SatCatalogos\Exceptions\PatronException;
+
+class Patron
+{
+    /** @var string */
+    private $origen;
+
+    /** @var string */
+    private $expresion;
+
+    /** @var string */
+    private $alEstarVacio;
+
+    const VACIO_PERMITE_NADA = 'NADA';
+    const VACIO_PERMITE_TODO = 'TODO';
+
+    public function __construct(string $origen, string $alEstarVacio = self::VACIO_PERMITE_TODO)
+    {
+        if ('' === $origen && $alEstarVacio === self::VACIO_PERMITE_TODO) {
+            // cualquier caracter no espaciado vertical, de 0 a N veces
+            $expresion = '\V*';
+        } else {
+            $expresion = $origen;
+        }
+        $expresion = '/^' . $expresion . '$/';
+        if (! $this->expresionEsValida($expresion)) {
+            throw new PatronException($expresion);
+        }
+
+        $this->origen = $origen;
+        $this->expresion = $expresion;
+        $this->alEstarVacio = $alEstarVacio;
+    }
+
+    public function origen(): string
+    {
+        return $this->origen;
+    }
+
+    public function expresion(): string
+    {
+        return $this->expresion;
+    }
+
+    public function alEstarVacio(): string
+    {
+        return $this->alEstarVacio;
+    }
+
+    public function evalua(string $texto): bool
+    {
+        $expresion = $this->expresion();
+        return (bool) preg_match($expresion, $texto);
+    }
+
+    public function expresionEsValida(string $expresion): bool
+    {
+        return (false !== @preg_match($expresion, ''));
+    }
+
+    public function __toString(): string
+    {
+        return $this->origen();
+    }
+}
