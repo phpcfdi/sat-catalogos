@@ -43,9 +43,9 @@
             "vendor/bin/phpcs --colors -sp src/ tests/"
         ],
         "test": [
-            "vendor/bin/phpstan.phar analyse --no-progress --level max src/ tests/",
             "vendor/bin/phplint",
-            "vendor/bin/phpunit"
+            "vendor/bin/phpunit",
+            "vendor/bin/phpstan.phar analyse --no-progress --level max src/ tests/"
         ],
         "coverage": [
             "@php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-text --coverage-html build/coverage/html/"
