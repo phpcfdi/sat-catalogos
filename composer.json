@@ -1,0 +1,54 @@
+{
+    "name": "phpcfdi/satcatalogos",
+    "description": "Catalogos de SAT para CFDI 3.3 (spanish)",
+    "keywords": [],
+    "homepage": "https://github.com/phpCfdi/SatCatalogos",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos C Soto",
+            "email": "eclipxe13@gmail.com",
+            "homepage": "http://eclipxe.com.mx"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2",
+        "overtrue/phplint": "^1.0",
+        "squizlabs/php_codesniffer": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.4",
+        "phpstan/phpstan-shim": "^0.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpCfdi\\SatCatalogos\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpCfdi\\SatCatalogos\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "build": [
+            "@style",
+            "@test"
+        ],
+        "style": [
+            "vendor/bin/php-cs-fixer fix --verbose",
+            "vendor/bin/phpcbf --colors -sp src/ tests/",
+            "vendor/bin/php-cs-fixer fix --dry-run --verbose",
+            "vendor/bin/phpcs --colors -sp src/ tests/"
+        ],
+        "test": [
+            "vendor/bin/phpstan.phar analyse --no-progress --level max src/ tests/",
+            "vendor/bin/phplint",
+            "vendor/bin/phpunit"
+        ],
+        "coverage": [
+            "@php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-text --coverage-html build/coverage/html/"
+        ]
+    }
+}
