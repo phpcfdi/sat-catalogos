@@ -7,6 +7,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 use PhpCfdi\SatCatalogos\CFDI\Builders\FormaDePagoBuilder;
 use PhpCfdi\SatCatalogos\CFDI\FormaDePago;
 use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
 class FormaDePagoTest extends TestCase
@@ -20,8 +21,16 @@ class FormaDePagoTest extends TestCase
     {
         $id = '03';
         $texto = 'Transferencia electrónica de fondos';
-        $esBancarizado = true;
-        $requiereNumeroDeOperacion = true;
+        $esBancarizado = false;
+        $requiereNumeroDeOperacion = false;
+        $permiteBancoOrdenanteRfc = false;
+        $permiteCuentaOrdenante = false;
+        $patronCuentaOrdenante = '';
+        $permiteBancoBeneficiarioRfc = false;
+        $permiteCuentaBeneficiario = false;
+        $patronCuentaBeneficiario = '';
+        $permiteTipoCadenaPago = false;
+        $requiereBancoOrdenanteNombreExt = false;
         $vigenteDesde = strtotime('2017-01-01');
         $vigenteHasta = strtotime('2018-12-31');
 
@@ -30,6 +39,14 @@ class FormaDePagoTest extends TestCase
             $texto,
             $esBancarizado,
             $requiereNumeroDeOperacion,
+            $permiteBancoOrdenanteRfc,
+            $permiteCuentaOrdenante,
+            $patronCuentaOrdenante,
+            $permiteBancoBeneficiarioRfc,
+            $permiteCuentaBeneficiario,
+            $patronCuentaBeneficiario,
+            $permiteTipoCadenaPago,
+            $requiereBancoOrdenanteNombreExt,
             $vigenteDesde,
             $vigenteHasta
         );
@@ -53,5 +70,87 @@ class FormaDePagoTest extends TestCase
     {
         $this->assertTrue($this->makeFormaDePago(['requiereNumeroDeOperacion' => true])->requiereNumeroDeOperacion());
         $this->assertFalse($this->makeFormaDePago(['requiereNumeroDeOperacion' => false])->requiereNumeroDeOperacion());
+    }
+
+    public function testPermiteBancoOrdenanteRfc()
+    {
+        $this->assertTrue($this->makeFormaDePago(['permiteBancoOrdenanteRfc' => true])->permiteBancoOrdenanteRfc());
+        $this->assertFalse($this->makeFormaDePago(['permiteBancoOrdenanteRfc' => false])->permiteBancoOrdenanteRfc());
+    }
+
+    public function testPermiteCuentaOrdenante()
+    {
+        $this->assertTrue($this->makeFormaDePago(['permiteCuentaOrdenante' => true])->permiteCuentaOrdenante());
+        $this->assertFalse($this->makeFormaDePago(['permiteCuentaOrdenante' => false])->permiteCuentaOrdenante());
+    }
+
+    /**
+     * @param string $value
+     * @param string $expected
+     * @testWith ["", "/^$/"]
+     *           ["[0-9]{10}", "/^[0-9]{10}$/"]
+     */
+    public function testPatronCuentaOrdenante(string $value, string $expected)
+    {
+        $formaDePago = $this->makeFormaDePago(['patronCuentaOrdenante' => $value]);
+        $this->assertSame($expected, $formaDePago->patronCuentaOrdenante());
+    }
+
+    public function testPatronCuentaOrdenanteInvalidPattern()
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage('expresión regular');
+        $this->makeFormaDePago(['patronCuentaOrdenante' => '[0-9]{1,10)']);
+    }
+
+    public function testPermiteBancoBeneficiarioRfc()
+    {
+        $this->assertTrue(
+            $this->makeFormaDePago(['permiteBancoBeneficiarioRfc' => true])->permiteBancoBeneficiarioRfc()
+        );
+        $this->assertFalse(
+            $this->makeFormaDePago(['permiteBancoBeneficiarioRfc' => false])->permiteBancoBeneficiarioRfc()
+        );
+    }
+
+    public function testPermiteCuentaBeneficiario()
+    {
+        $this->assertTrue($this->makeFormaDePago(['permiteCuentaBeneficiario' => true])->permiteCuentaBeneficiario());
+        $this->assertFalse($this->makeFormaDePago(['permiteCuentaBeneficiario' => false])->permiteCuentaBeneficiario());
+    }
+
+    /**
+     * @param string $value
+     * @param string $expected
+     * @testWith ["", "/^$/"]
+     *           ["[0-9]{10}", "/^[0-9]{10}$/"]
+     */
+    public function testPatronCuentaBeneficiario(string $value, string $expected)
+    {
+        $formaDePago = $this->makeFormaDePago(['patronCuentaBeneficiario' => $value]);
+        $this->assertSame($expected, $formaDePago->patronCuentaBeneficiario());
+    }
+
+    public function testPatronCuentaBeneficiarioInvalidPattern()
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage('expresión regular');
+        $this->makeFormaDePago(['patronCuentaBeneficiario' => '[0-9]{1,10)']);
+    }
+
+    public function testPermiteTipoCadenaPago()
+    {
+        $this->assertTrue($this->makeFormaDePago(['permiteTipoCadenaPago' => true])->permiteTipoCadenaPago());
+        $this->assertFalse($this->makeFormaDePago(['permiteTipoCadenaPago' => false])->permiteTipoCadenaPago());
+    }
+
+    public function testRequiereBancoOrdenanteNombreExt()
+    {
+        $this->assertTrue(
+            $this->makeFormaDePago(['requiereBancoOrdenanteNombreExt' => true])->requiereBancoOrdenanteNombreExt()
+        );
+        $this->assertFalse(
+            $this->makeFormaDePago(['requiereBancoOrdenanteNombreExt' => false])->requiereBancoOrdenanteNombreExt()
+        );
     }
 }
