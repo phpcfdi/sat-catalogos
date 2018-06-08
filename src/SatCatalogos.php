@@ -4,122 +4,64 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos;
 
-// use PDO;
-use PhpCfdi\SatCatalogos\CFDI\Aduanas;
-use PhpCfdi\SatCatalogos\CFDI\ClavesUnidades;
-use PhpCfdi\SatCatalogos\CFDI\CodigosPostales;
-use PhpCfdi\SatCatalogos\CFDI\FormasDePago;
-use PhpCfdi\SatCatalogos\CFDI\Impuestos;
-use PhpCfdi\SatCatalogos\CFDI\MetodosDePago;
-use PhpCfdi\SatCatalogos\CFDI\Monedas;
-use PhpCfdi\SatCatalogos\CFDI\Paises;
-use PhpCfdi\SatCatalogos\CFDI\ProductosServicios;
+use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
+/**
+ * Class SatCatalogos
+ *
+ * @method Repository               repository();
+ * @method CFDI\Aduanas             aduanas();
+ * @method CFDI\ClavesUnidades      clavesUnidades();
+ * @method CFDI\CodigosPostales     codigosPostales();
+ * @method CFDI\FormasDePago        formasDePago();
+ * @method CFDI\Impuestos           impuestos();
+ * @method CFDI\MetodosDePago       metodosDePago();
+ * @method CFDI\Monedas             monedas();
+ * @method CFDI\Paises              paises();
+ * @method CFDI\ProductosServicios  productosServicios();
+*/
 class SatCatalogos
 {
-    /** @var Repository */
-    private $repository;
-
-    /** @var Aduanas */
-    private $aduanas;
-
-    /** @var ClavesUnidades */
-    private $clavesUnidades;
-
-    /** @var ProductosServicios */
-    private $productosServicios;
-
-    /** @var CodigosPostales */
-    private $codigosPostales;
-
-    /** @var Impuestos */
-    private $impuestos;
-
-    /** @var FormasDePago */
-    private $formasDePago;
-
-    /** @var MetodosDePago */
-    private $metodosDePago;
-
-    /** @var Monedas */
-    private $monedas;
-
-    /** @var Paises */
-    private $paises;
+    /** @var array */
+    protected $container;
 
     public function __construct(Repository $repository)
     {
-        $this->repository = $repository;
-        $this->aduanas = new Aduanas($this->repository);
-        $this->clavesUnidades = new ClavesUnidades($this->repository);
-        $this->productosServicios = new ProductosServicios($this->repository);
-        $this->codigosPostales = new CodigosPostales($this->repository);
-        $this->impuestos = new Impuestos($this->repository);
-        $this->formasDePago = new FormasDePago($this->repository);
-        $this->metodosDePago = new MetodosDePago($this->repository);
-        $this->monedas = new Monedas($this->repository);
-        $this->paises = new Paises($this->repository);
+        $this->container = [];
+        $this->container['repository'] = $repository;
     }
 
-    /*
-    public function __construct(Repository $repository = null)
+    public function __call($name, $arguments)
     {
-        $this->repository = $repository ?: $this->createDefaultRepository();
-        // ... $this->{catalogo} = new {Catalogo}($this->repository);
+        if (isset($this->container[$name])) {
+            return $this->container[$name];
+        }
+
+        if (null !== $created = $this->create($name)) {
+            $this->container[$name] = $created;
+            return $created;
+        }
+
+        throw new SatCatalogosLogicException("No se pudo encontrar el catálogo '$name'");
     }
 
-    protected function createDefaultRepository()
+    /**
+     * @param string $propertyName
+     * @return CatalogInterface|null
+     */
+    protected function create(string $propertyName)
     {
-        return new Repository(
-            new PDO('slite:' . dirname(__DIR__) . '/lib/SatCatalogos.db', '', '', [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            ])
-        );
-    }
-    */
+        foreach (['CFDI'] as $space) {
+            $className = '\\' . __NAMESPACE__ . '\\' . $space . '\\' . ucfirst($propertyName);
+            if (! class_exists($className)) {
+                continue;
+            }
+            if (! in_array(CatalogInterface::class, class_implements($className), true)) {
+                continue;
+            }
+            return new $className($this->container['repository']);
+        }
 
-    public function aduanas(): Aduanas
-    {
-        return $this->aduanas;
-    }
-
-    public function clavesUnidades(): ClavesUnidades
-    {
-        return $this->clavesUnidades;
-    }
-
-    public function productosServicios(): ProductosServicios
-    {
-        return $this->productosServicios;
-    }
-
-    public function codigosPostales(): CodigosPostales
-    {
-        return $this->codigosPostales;
-    }
-
-    public function impuestos(): Impuestos
-    {
-        return $this->impuestos;
-    }
-
-    public function formasDePago(): FormasDePago
-    {
-        return $this->formasDePago;
-    }
-
-    public function metodosDePago(): MetodosDePago
-    {
-        return $this->metodosDePago;
-    }
-
-    public function monedas(): Monedas
-    {
-        return $this->monedas;
-    }
-
-    public function paises(): Paises
-    {
-        return $this->paises;
+        return null;
     }
 }
