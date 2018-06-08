@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\UseCase;
 
+use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\SatCatalogos;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
@@ -16,6 +17,34 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
     {
         parent::setUp();
         $this->satCatalogos = new SatCatalogos($this->getRepository());
+    }
+
+    public function testWithACatalogBadName()
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage("No se pudo encontrar el catálogo 'weird-name'");
+        $this->satCatalogos->{'weird-name'}();
+    }
+
+    public function testWithACatalogNonExistent()
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage("No se pudo encontrar el catálogo 'thisCatalogDoesNotExists'");
+        $this->satCatalogos->{'thisCatalogDoesNotExists'}();
+    }
+
+    public function testRetrieveACatalogTwiceReturnTheSameInstance()
+    {
+        $first = $this->satCatalogos->aduanas();
+        $second = $this->satCatalogos->aduanas();
+        $this->assertSame($first, $second);
+    }
+
+    public function testWithAnObjectThatIsNotACatalog()
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage("No se pudo encontrar el catálogo 'aduana'");
+        $this->satCatalogos->{'aduana'}();
     }
 
     public function testCanObtainExistentAduana()
