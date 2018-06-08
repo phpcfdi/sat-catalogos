@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 use PhpCfdi\SatCatalogos\CFDI\Builders\FormaDePagoBuilder;
 use PhpCfdi\SatCatalogos\CFDI\FormaDePago;
 use PhpCfdi\SatCatalogos\EntryInterface;
-use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
+use PhpCfdi\SatCatalogos\Helpers\Patron;
 use PHPUnit\Framework\TestCase;
 
 class FormaDePagoTest extends TestCase
@@ -86,21 +86,14 @@ class FormaDePagoTest extends TestCase
 
     /**
      * @param string $value
-     * @param string $expected
      * @testWith ["", "/^$/"]
      *           ["[0-9]{10}", "/^[0-9]{10}$/"]
      */
-    public function testPatronCuentaOrdenante(string $value, string $expected)
+    public function testPatronCuentaOrdenante(string $value)
     {
         $formaDePago = $this->makeFormaDePago(['patronCuentaOrdenante' => $value]);
-        $this->assertSame($expected, $formaDePago->patronCuentaOrdenante());
-    }
-
-    public function testPatronCuentaOrdenanteInvalidPattern()
-    {
-        $this->expectException(SatCatalogosLogicException::class);
-        $this->expectExceptionMessage('expresión regular');
-        $this->makeFormaDePago(['patronCuentaOrdenante' => '[0-9]{1,10)']);
+        $this->assertSame($value, $formaDePago->patronCuentaOrdenante()->origen());
+        $this->assertSame(Patron::VACIO_PERMITE_NADA, $formaDePago->patronCuentaOrdenante()->alEstarVacio());
     }
 
     public function testPermiteBancoBeneficiarioRfc()
@@ -121,21 +114,14 @@ class FormaDePagoTest extends TestCase
 
     /**
      * @param string $value
-     * @param string $expected
-     * @testWith ["", "/^$/"]
-     *           ["[0-9]{10}", "/^[0-9]{10}$/"]
+     * @testWith [""]
+     *           ["[0-9]{10}"]
      */
-    public function testPatronCuentaBeneficiario(string $value, string $expected)
+    public function testPatronCuentaBeneficiario(string $value)
     {
         $formaDePago = $this->makeFormaDePago(['patronCuentaBeneficiario' => $value]);
-        $this->assertSame($expected, $formaDePago->patronCuentaBeneficiario());
-    }
-
-    public function testPatronCuentaBeneficiarioInvalidPattern()
-    {
-        $this->expectException(SatCatalogosLogicException::class);
-        $this->expectExceptionMessage('expresión regular');
-        $this->makeFormaDePago(['patronCuentaBeneficiario' => '[0-9]{1,10)']);
+        $this->assertSame($value, $formaDePago->patronCuentaBeneficiario()->origen());
+        $this->assertSame(Patron::VACIO_PERMITE_NADA, $formaDePago->patronCuentaBeneficiario()->alEstarVacio());
     }
 
     public function testPermiteTipoCadenaPago()
