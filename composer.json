@@ -32,10 +32,7 @@
         }
     },
     "scripts": {
-        "build": [
-            "@style",
-            "@test"
-        ],
+        "build": ["@style", "@test"],
         "style": [
             "vendor/bin/php-cs-fixer fix --verbose",
             "vendor/bin/phpcbf --colors -sp src/ tests/",
