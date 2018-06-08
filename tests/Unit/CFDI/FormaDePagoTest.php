@@ -86,14 +86,13 @@ class FormaDePagoTest extends TestCase
 
     /**
      * @param string $value
-     * @param string $expected
      * @testWith ["", "/^$/"]
      *           ["[0-9]{10}", "/^[0-9]{10}$/"]
      */
-    public function testPatronCuentaOrdenante(string $value, string $expected)
+    public function testPatronCuentaOrdenante(string $value)
     {
         $formaDePago = $this->makeFormaDePago(['patronCuentaOrdenante' => $value]);
-        $this->assertSame($expected, $formaDePago->patronCuentaOrdenante()->expresion());
+        $this->assertSame($value, $formaDePago->patronCuentaOrdenante()->origen());
         $this->assertSame(Patron::VACIO_PERMITE_NADA, $formaDePago->patronCuentaOrdenante()->alEstarVacio());
     }
 

@@ -34,6 +34,7 @@ class PatronTest extends TestCase
     public function testPatronWhenEmptyMeansForbidden()
     {
         $patron = new Patron('', Patron::VACIO_PERMITE_NADA);
+        $this->assertSame(Patron::VACIO_PERMITE_NADA, $patron->alEstarVacio());
         $this->assertTrue($patron->evalua(''));
         $this->assertFalse($patron->evalua('xxx'));
     }
@@ -41,6 +42,7 @@ class PatronTest extends TestCase
     public function testPatronWhenEmptyMeansAnything()
     {
         $patron = new Patron('', Patron::VACIO_PERMITE_TODO);
+        $this->assertSame(Patron::VACIO_PERMITE_TODO, $patron->alEstarVacio());
         $this->assertTrue($patron->evalua(''));
         $this->assertTrue($patron->evalua('xxx'));
     }
