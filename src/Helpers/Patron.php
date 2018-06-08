@@ -29,7 +29,7 @@ class Patron
         } else {
             $expresion = $origen;
         }
-        $expresion = '/^' . $expresion . '$/';
+        $expresion = '/^' . $expresion . '$/u';
         if (! $this->expresionEsValida($expresion)) {
             throw new PatronException($expresion);
         }
