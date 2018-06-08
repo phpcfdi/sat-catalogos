@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\AbstractEntry;
 use PhpCfdi\SatCatalogos\EntryInterface;
-use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
+use PhpCfdi\SatCatalogos\Helpers\Patron;
 
 class FormaDePago extends AbstractEntry implements EntryInterface
 {
@@ -22,7 +22,7 @@ class FormaDePago extends AbstractEntry implements EntryInterface
     /** @var bool */
     private $permiteCuentaOrdenante;
 
-    /** @var string */
+    /** @var Patron */
     private $patronCuentaOrdenante;
 
     /** @var bool */
@@ -31,7 +31,7 @@ class FormaDePago extends AbstractEntry implements EntryInterface
     /** @var bool */
     private $permiteCuentaBeneficiario;
 
-    /** @var string */
+    /** @var Patron */
     private $patronCuentaBeneficiario;
 
     /** @var bool */
@@ -61,21 +61,12 @@ class FormaDePago extends AbstractEntry implements EntryInterface
         $this->requiereNumeroDeOperacion = $requiereNumeroDeOperacion;
         $this->permiteBancoOrdenanteRfc = $permiteBancoOrdenanteRfc;
         $this->permiteCuentaOrdenante = $permiteCuentaOrdenante;
-        $this->patronCuentaOrdenante = $this->resolveRegularExpression($patronCuentaOrdenante);
+        $this->patronCuentaOrdenante = new Patron($patronCuentaOrdenante, Patron::VACIO_PERMITE_NADA);
         $this->permiteBancoBeneficiarioRfc = $permiteBancoBeneficiarioRfc;
         $this->permiteCuentaBeneficiario = $permiteCuentaBeneficiario;
-        $this->patronCuentaBeneficiario = $this->resolveRegularExpression($patronCuentaBeneficiario);
+        $this->patronCuentaBeneficiario = new Patron($patronCuentaBeneficiario, Patron::VACIO_PERMITE_NADA);
         $this->permiteTipoCadenaPago = $permiteTipoCadenaPago;
         $this->requiereBancoOrdenanteNombreExt = $requiereBancoOrdenanteNombreExt;
-    }
-
-    private function resolveRegularExpression(string $partial): string
-    {
-        $pattern = '/^' . $partial . '$/';
-        if (false === @preg_match($pattern, '')) {
-            throw new SatCatalogosLogicException("La expresión regular '$pattern' no es válida");
-        }
-        return $pattern;
     }
 
     public function esBancarizado(): bool
@@ -98,7 +89,7 @@ class FormaDePago extends AbstractEntry implements EntryInterface
         return $this->permiteCuentaOrdenante;
     }
 
-    public function patronCuentaOrdenante(): string
+    public function patronCuentaOrdenante(): Patron
     {
         return $this->patronCuentaOrdenante;
     }
@@ -113,7 +104,7 @@ class FormaDePago extends AbstractEntry implements EntryInterface
         return $this->permiteCuentaBeneficiario;
     }
 
-    public function patronCuentaBeneficiario(): string
+    public function patronCuentaBeneficiario(): Patron
     {
         return $this->patronCuentaBeneficiario;
     }
