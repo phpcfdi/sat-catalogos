@@ -106,4 +106,11 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $regimenFiscal = $this->satCatalogos->regimenesFiscales()->obtain('601');
         $this->assertSame('601', $regimenFiscal->id());
     }
+
+    public function testCanObtainExistentTipoRelacion()
+    {
+        $tipoRelacion = $this->satCatalogos->tiposRelaciones()->obtain('05');
+        $this->assertSame('05', $tipoRelacion->id());
+    }
+
 }
