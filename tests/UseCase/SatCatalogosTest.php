@@ -113,4 +113,9 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('05', $tipoRelacion->id());
     }
 
+    public function testCanObtainExistentUsoCfdi()
+    {
+        $usoCfdi = $this->satCatalogos->usosCfdi()->obtain('G02');
+        $this->assertSame('G02', $usoCfdi->id());
+    }
 }
