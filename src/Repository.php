@@ -42,6 +42,8 @@ class Repository
 
     const CFDI_USOS_CFDI = 'cfdi_usos_cfdi';
 
+    const CFDI_TIPOS_FACTOR = 'cfdi_tipos_factor';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -55,6 +57,7 @@ class Repository
         self::CFDI_REGIMENES_FISCALES,
         self::CFDI_TIPOS_RELACIONES,
         self::CFDI_USOS_CFDI,
+        self::CFDI_TIPOS_FACTOR,
     ];
 
     public function __construct(PDO $pdo)

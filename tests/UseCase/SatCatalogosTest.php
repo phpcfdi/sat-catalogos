@@ -118,4 +118,10 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $usoCfdi = $this->satCatalogos->usosCfdi()->obtain('G02');
         $this->assertSame('G02', $usoCfdi->id());
     }
+
+    public function testCanObtainExistentTipoFactor()
+    {
+        $tipoFactor = $this->satCatalogos->tiposFactor()->obtain('Tasa');
+        $this->assertSame('Tasa', $tipoFactor->id());
+    }
 }

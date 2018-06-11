@@ -22,6 +22,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\RegimenesFiscales   regimenesFiscales();
  * @method CFDI\TiposRelaciones     tiposRelaciones();
  * @method CFDI\UsosCfdi             usosCfdi();
+ * @method CFDI\TiposFactor         tiposFactor();
 */
 class SatCatalogos
 {
