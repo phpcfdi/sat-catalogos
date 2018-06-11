@@ -36,6 +36,8 @@ class Repository
 
     const CFDI_PAISES = 'cfdi_paises';
 
+    const CFDI_REGIMENES_FISCALES = 'cfdi_regimenes_fiscales';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -46,6 +48,7 @@ class Repository
         self::CFDI_METODOS_PAGO,
         self::CFDI_MONEDAS,
         self::CFDI_PAISES,
+        self::CFDI_REGIMENES_FISCALES,
     ];
 
     public function __construct(PDO $pdo)

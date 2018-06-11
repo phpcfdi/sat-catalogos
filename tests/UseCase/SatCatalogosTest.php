@@ -100,4 +100,10 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $pais = $this->satCatalogos->paises()->obtain('MEX');
         $this->assertSame('MEX', $pais->id());
     }
+
+    public function testCanObtainExistentRegimenFiscal()
+    {
+        $regimenFiscal = $this->satCatalogos->regimenesFiscales()->obtain('601');
+        $this->assertSame('601', $regimenFiscal->id());
+    }
 }
