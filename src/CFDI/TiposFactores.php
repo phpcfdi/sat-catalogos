@@ -9,10 +9,10 @@ use PhpCfdi\SatCatalogos\EntryInterface;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
- * Class TiposFactor
+ * Class TiposFactores
  * @method TipoFactor obtain(string $id)
  */
-class TiposFactor extends AbstractCatalog
+class TiposFactores extends AbstractCatalog
 {
     protected function catalogName(): string
     {

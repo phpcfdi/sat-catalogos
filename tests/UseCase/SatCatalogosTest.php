@@ -121,7 +121,7 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentTipoFactor()
     {
-        $tipoFactor = $this->satCatalogos->tiposFactor()->obtain('Tasa');
+        $tipoFactor = $this->satCatalogos->tiposFactores()->obtain('Tasa');
         $this->assertSame('Tasa', $tipoFactor->id());
     }
 }
