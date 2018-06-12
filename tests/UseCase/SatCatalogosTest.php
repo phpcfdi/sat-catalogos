@@ -100,4 +100,28 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $pais = $this->satCatalogos->paises()->obtain('MEX');
         $this->assertSame('MEX', $pais->id());
     }
+
+    public function testCanObtainExistentRegimenFiscal()
+    {
+        $regimenFiscal = $this->satCatalogos->regimenesFiscales()->obtain('601');
+        $this->assertSame('601', $regimenFiscal->id());
+    }
+
+    public function testCanObtainExistentTipoRelacion()
+    {
+        $tipoRelacion = $this->satCatalogos->tiposRelaciones()->obtain('05');
+        $this->assertSame('05', $tipoRelacion->id());
+    }
+
+    public function testCanObtainExistentUsoCfdi()
+    {
+        $usoCfdi = $this->satCatalogos->usosCfdi()->obtain('G02');
+        $this->assertSame('G02', $usoCfdi->id());
+    }
+
+    public function testCanObtainExistentTipoFactor()
+    {
+        $tipoFactor = $this->satCatalogos->tiposFactores()->obtain('Tasa');
+        $this->assertSame('Tasa', $tipoFactor->id());
+    }
 }
