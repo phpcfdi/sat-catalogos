@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
+
+use PhpCfdi\SatCatalogos\CFDI\CodigosPostales;
+use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
+
+class CodigosPostalesTest extends UsingTestingDatabaseTestCase
+{
+    public function testObtainCodigoPostal00000()
+    {
+        $codigosPostales = new CodigosPostales($this->getRepository());
+        $generic = $codigosPostales->obtain('00000');
+
+        $this->assertSame('00000', $generic->id());
+        $this->assertSame('00000', $generic->texto());
+        $this->assertSame('*', $generic->estado());
+        $this->assertSame('000', $generic->municipio());
+        $this->assertSame('00', $generic->localidad());
+    }
+}
