@@ -89,13 +89,18 @@ class Repository
         return (1 === (int) $value);
     }
 
+    public function escapeName(string $name): string
+    {
+        return '"' . str_replace('"', '""', $name) . '"';
+    }
+
     public function catalogName(string $catalog): string
     {
         if (! in_array($catalog, self::CATALOGS, true)) {
             throw new SatCatalogosLogicException("The catalog name $catalog is not recognized by the repository");
         }
 
-        return $catalog;
+        return $this->escapeName($catalog);
     }
 
     /**
