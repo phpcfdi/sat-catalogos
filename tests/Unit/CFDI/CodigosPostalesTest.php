@@ -11,7 +11,7 @@ class CodigosPostalesTest extends UsingTestingDatabaseTestCase
 {
     public function testObtainCodigoPostal00000()
     {
-        $codigosPostales = new CodigosPostales($this->getRepository());
+        $codigosPostales = new CodigosPostales();
         $generic = $codigosPostales->obtain('00000');
 
         $this->assertSame('00000', $generic->id());

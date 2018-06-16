@@ -124,4 +124,33 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $tipoFactor = $this->satCatalogos->tiposFactores()->obtain('Tasa');
         $this->assertSame('Tasa', $tipoFactor->id());
     }
+
+    public function testCanObtainExistentNumeroPedimentoAduana()
+    {
+        $aduana = '43'; // 43 -> c_Aduanas
+        $patente = '3420'; // 3420 -> c_PatenteAduanal
+        $ejercicio = 2018; // pedimento: 18
+
+        $pedimentoAduanaPatente = $this->satCatalogos->numerosPedimentoAduana()->obtain(
+            $aduana,
+            $patente,
+            $ejercicio
+        );
+
+        $this->assertSame($aduana, $pedimentoAduanaPatente->aduana());
+        $this->assertSame($patente, $pedimentoAduanaPatente->patente());
+        $this->assertSame($ejercicio, $pedimentoAduanaPatente->ejercicio());
+        $this->assertSame(999999, $pedimentoAduanaPatente->cantidad());
+    }
+
+    public function testCanFindMatchingReglaTasaCuota()
+    {
+        $rules = $this->satCatalogos->reglasTasaCuota();
+        $this->assertTrue(
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.160000')
+        );
+        $this->assertFalse(
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.16')
+        );
+    }
 }

@@ -34,7 +34,7 @@ class FormaDePagoTest extends TestCase
         $vigenteDesde = strtotime('2017-01-01');
         $vigenteHasta = strtotime('2018-12-31');
 
-        $FormaDePago = new FormaDePago(
+        $formaDePago = new FormaDePago(
             $id,
             $texto,
             $esBancarizado,
@@ -50,14 +50,14 @@ class FormaDePagoTest extends TestCase
             $vigenteDesde,
             $vigenteHasta
         );
-        $this->assertInstanceOf(EntryInterface::class, $FormaDePago);
+        $this->assertInstanceOf(EntryInterface::class, $formaDePago);
 
-        $this->assertSame($id, $FormaDePago->id());
-        $this->assertSame($texto, $FormaDePago->texto());
-        $this->assertSame($esBancarizado, $FormaDePago->esBancarizado());
-        $this->assertSame($requiereNumeroDeOperacion, $FormaDePago->requiereNumeroDeOperacion());
-        $this->assertSame($vigenteDesde, $FormaDePago->vigenteDesde());
-        $this->assertSame($vigenteHasta, $FormaDePago->vigenteHasta());
+        $this->assertSame($id, $formaDePago->id());
+        $this->assertSame($texto, $formaDePago->texto());
+        $this->assertSame($esBancarizado, $formaDePago->esBancarizado());
+        $this->assertSame($requiereNumeroDeOperacion, $formaDePago->requiereNumeroDeOperacion());
+        $this->assertSame($vigenteDesde, $formaDePago->vigenteDesde());
+        $this->assertSame($vigenteHasta, $formaDePago->vigenteHasta());
     }
 
     public function testEsBancarizado()

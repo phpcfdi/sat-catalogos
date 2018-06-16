@@ -25,14 +25,15 @@ class AbstractCatalogTest extends TestCase
         /** @var Repository|\PHPUnit\Framework\MockObject\MockObject */
         $repository = $this->createMock(Repository::class);
         $this->repository = $repository;
-        $this->catalog = new CatalogImplementation($this->repository);
+        $this->catalog = new CatalogImplementation();
+        $this->catalog->withRepository($this->repository);
     }
 
     public function testConstructor()
     {
         $this->assertInstanceOf(AbstractCatalog::class, $this->catalog);
         $this->assertInstanceOf(CatalogInterface::class, $this->catalog);
-        $this->assertSame($this->repository, $this->catalog->getRepository());
+        $this->assertSame($this->repository, $this->catalog->repository());
     }
 
     public function testCreate()

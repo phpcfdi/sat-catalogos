@@ -44,6 +44,10 @@ class Repository
 
     const CFDI_TIPOS_FACTOR = 'cfdi_tipos_factor';
 
+    const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
+
+    const CFDI_REGLAS_TASA_CUOTA = 'cfdi_reglas_tasa_cuota';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -58,6 +62,8 @@ class Repository
         self::CFDI_TIPOS_RELACIONES,
         self::CFDI_USOS_CFDI,
         self::CFDI_TIPOS_FACTOR,
+        self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
+        self::CFDI_REGLAS_TASA_CUOTA,
     ];
 
     public function __construct(PDO $pdo)
@@ -72,10 +78,60 @@ class Repository
             . ' where (id = :id);';
         $data = $this->queryRow($sql, ['id' => $id]);
         if (! count($data)) {
-            throw new SatCatalogosNotFoundException("Cannot found $catalog using '$id'");
+            throw $this->createSatCatalogosNotFoundException($catalog, ['id' => $id]);
         }
 
         return $data;
+    }
+
+    public function queryRowsByFields(string $catalog, array $values, int $limit = 0): array
+    {
+        $keys = array_keys($values);
+        $sql = 'select * '
+            . ' from ' . $this->catalogName($catalog)
+            . call_user_func(function (array $keys): string {
+                if (count($keys)) {
+                    return ' where ' . implode(' and ', array_map(function ($field) {
+                        return $this->escapeName($field) . ' = :' . $field;
+                    }, $keys));
+                }
+                return '';
+            }, $keys)
+            . (($limit > 0) ? ' limit ' . $limit : '')
+            . ';';
+        $stmt = $this->query($sql, $values);
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return (is_array($data)) ? $data : [];
+    }
+
+    public function queryRowByFields(string $catalog, array $values): array
+    {
+        $data = $this->queryRowsByFields($catalog, $values, 1);
+        if (1 !== count($data)) {
+            throw $this->createSatCatalogosNotFoundException($catalog, $values);
+        }
+
+        return $data[0];
+    }
+
+    private function createSatCatalogosNotFoundException(string $catalog, array $values)
+    {
+        $valuesCount = count($values);
+        $keys = array_keys($values);
+        if ($valuesCount > 1) {
+            $exMessage = sprintf(
+                'Cannot found %s using (%s) with values (%s)',
+                $catalog,
+                implode(', ', $keys),
+                implode(', ', $values)
+            );
+        } elseif (1 === $valuesCount) {
+            $exMessage = sprintf('Cannot found %s using %s \'%s\'', $catalog, $keys[0], $values[$keys[0]]);
+        } else {
+            $exMessage = sprintf('Cannot found any %s without filter', $catalog);
+        }
+
+        return new SatCatalogosNotFoundException($exMessage);
     }
 
     public function existsId(string $catalog, string $id): bool

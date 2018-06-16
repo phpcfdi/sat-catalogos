@@ -17,7 +17,8 @@ class ClavesUnidadesTest extends UsingTestingDatabaseTestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->clavesUnidades = new ClavesUnidades($this->getRepository());
+        $this->clavesUnidades = new ClavesUnidades();
+        $this->clavesUnidades->withRepository($this->getRepository());
     }
 
     public function testObtainExistentEntry()

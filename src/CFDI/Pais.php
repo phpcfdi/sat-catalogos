@@ -6,7 +6,6 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\AbstractEntry;
 use PhpCfdi\SatCatalogos\EntryInterface;
-use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Helpers\Patron;
 
 class Pais extends AbstractEntry implements EntryInterface
@@ -36,19 +35,6 @@ class Pais extends AbstractEntry implements EntryInterface
         $this->patronIdentidadTributaria = new Patron($patronIdentidadTributaria, Patron::VACIO_PERMITE_TODO);
         $this->validacionIdentidadTributaria = $validacionIdentidadTributaria;
         $this->agrupaciones = $agrupaciones;
-    }
-
-    private function parsePatronOpcional(string $partial): string
-    {
-        if ('' === $partial) {
-            $partial = '\V*'; // cualquier caracter no espaciado vertial, de 0 a N veces
-        }
-        $pattern = '/^' . $partial . '$/';
-        if (false === @preg_match($pattern, '')) {
-            throw new SatCatalogosLogicException("La expresión regular '$pattern' no es válida");
-        }
-
-        return $pattern;
     }
 
     public function patronCodigoPostal(): Patron
