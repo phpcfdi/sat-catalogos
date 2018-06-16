@@ -26,4 +26,6 @@ CREATE TABLE cfdi_tipos_relaciones (id text not null primary key, texto text not
 INSERT INTO cfdi_tipos_relaciones VALUES('05','Traslados de mercancias facturados previamente','2017-01-01','');
 CREATE TABLE cfdi_tipos_factor (id text not null primary key, texto text not null, vigencia_desde text not null, vigencia_hasta text not null);
 INSERT INTO cfdi_tipos_factor VALUES('Tasa','Tasa','','');
+CREATE TABLE cfdi_numeros_pedimento_aduana (aduana text not null, patente text not null, ejercicio int not null, cantidad int not null, vigencia_desde text not null, vigencia_hasta text not null, primary key (aduana, patente, ejercicio));
+INSERT INTO cfdi_numeros_pedimento_aduana VALUES('43','3420',2018,999999,'2017-01-01','');
 COMMIT;

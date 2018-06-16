@@ -44,6 +44,8 @@ class Repository
 
     const CFDI_TIPOS_FACTOR = 'cfdi_tipos_factor';
 
+    const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -58,6 +60,7 @@ class Repository
         self::CFDI_TIPOS_RELACIONES,
         self::CFDI_USOS_CFDI,
         self::CFDI_TIPOS_FACTOR,
+        self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
     ];
 
     public function __construct(PDO $pdo)

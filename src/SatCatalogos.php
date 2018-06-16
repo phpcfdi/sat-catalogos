@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos;
 
+use PhpCfdi\SatCatalogos\CFDI\NumerosPedimentoAduana;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
 /**
@@ -33,6 +34,12 @@ class SatCatalogos
     {
         $this->container = [];
         $this->container['repository'] = $repository;
+    }
+
+    public function numerosPedimentoAduana(): NumerosPedimentoAduana
+    {
+        // TODO: Add to container
+        return new NumerosPedimentoAduana($this->repository());
     }
 
     public function __call($name, $arguments)
