@@ -81,7 +81,7 @@ class Repository
         return $data;
     }
 
-    public function queryRowByFields(string $catalog, array $values): array
+    public function queryRowsByFields(string $catalog, array $values, int $limit = 0): array
     {
         $keys = array_keys($values);
         $sql = 'select * '
@@ -94,13 +94,21 @@ class Repository
                 }
                 return '';
             }, $keys)
+            . (($limit > 0) ? ' limit ' . $limit : '')
             . ';';
-        $data = $this->queryRow($sql, $values);
-        if (! count($data)) {
+        $stmt = $this->query($sql, $values);
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return (is_array($data)) ? $data : [];
+    }
+
+    public function queryRowByFields(string $catalog, array $values): array
+    {
+        $data = $this->queryRowsByFields($catalog, $values, 1);
+        if (1 !== count($data)) {
             throw $this->createSatCatalogosNotFoundException($catalog, $values);
         }
 
-        return $data;
+        return $data[0];
     }
 
     private function createSatCatalogosNotFoundException(string $catalog, array $values)
