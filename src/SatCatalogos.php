@@ -24,6 +24,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\UsosCfdi                usosCfdi();
  * @method CFDI\TiposFactores           tiposFactores();
  * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
+ * @method CFDI\ReglasTasaCuota         reglasTasaCuota();
 */
 class SatCatalogos
 {

@@ -46,6 +46,8 @@ class Repository
 
     const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
 
+    const CFDI_REGLAS_TASA_CUOTA = 'cfdi_reglas_tasa_cuota';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -61,6 +63,7 @@ class Repository
         self::CFDI_USOS_CFDI,
         self::CFDI_TIPOS_FACTOR,
         self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
+        self::CFDI_REGLAS_TASA_CUOTA,
     ];
 
     public function __construct(PDO $pdo)

@@ -142,4 +142,15 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame($ejercicio, $pedimentoAduanaPatente->ejercicio());
         $this->assertSame(999999, $pedimentoAduanaPatente->cantidad());
     }
+
+    public function testCanFindMatchingReglaTasaCuota()
+    {
+        $rules = $this->satCatalogos->reglasTasaCuota();
+        $this->assertTrue(
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.160000')
+        );
+        $this->assertFalse(
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.16')
+        );
+    }
 }
