@@ -19,7 +19,7 @@ class NumeroPedimentoAduanaTest extends TestCase
         $vigenteDesde = strtotime('2017-01-01');
         $vigenteHasta = strtotime('2018-12-31');
 
-        $NumeroPedimentoAduana = new NumeroPedimentoAduana(
+        $numeroPedimentoAduana = new NumeroPedimentoAduana(
             $aduana,
             $patente,
             $ejercicio,
@@ -28,13 +28,13 @@ class NumeroPedimentoAduanaTest extends TestCase
             $vigenteHasta
         );
 
-        $this->assertInstanceOf(VigenciasInterface::class, $NumeroPedimentoAduana);
+        $this->assertInstanceOf(VigenciasInterface::class, $numeroPedimentoAduana);
 
-        $this->assertSame($aduana, $NumeroPedimentoAduana->aduana());
-        $this->assertSame($patente, $NumeroPedimentoAduana->patente());
-        $this->assertSame($ejercicio, $NumeroPedimentoAduana->ejercicio());
-        $this->assertSame($cantidad, $NumeroPedimentoAduana->cantidad());
-        $this->assertSame($vigenteDesde, $NumeroPedimentoAduana->vigenteDesde());
-        $this->assertSame($vigenteHasta, $NumeroPedimentoAduana->vigenteHasta());
+        $this->assertSame($aduana, $numeroPedimentoAduana->aduana());
+        $this->assertSame($patente, $numeroPedimentoAduana->patente());
+        $this->assertSame($ejercicio, $numeroPedimentoAduana->ejercicio());
+        $this->assertSame($cantidad, $numeroPedimentoAduana->cantidad());
+        $this->assertSame($vigenteDesde, $numeroPedimentoAduana->vigenteDesde());
+        $this->assertSame($vigenteHasta, $numeroPedimentoAduana->vigenteHasta());
     }
 }

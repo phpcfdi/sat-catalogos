@@ -29,14 +29,14 @@ class NumerosPedimentoAduanaTest extends TestCase
         $numerosPedimentoAduana = new NumerosPedimentoAduana();
         $numerosPedimentoAduana->withRepository($repository);
 
-        $NumeroPedimentoAduana = $numerosPedimentoAduana->obtain('24', '3420', 2018);
-        $this->assertSame(999999, $NumeroPedimentoAduana->cantidad());
+        $numeroPedimentoAduana = $numerosPedimentoAduana->obtain('24', '3420', 2018);
+        $this->assertSame(999999, $numeroPedimentoAduana->cantidad());
     }
 
     public function testCreate()
     {
-        $NumerosPedimentoAduana = new NumerosPedimentoAduana();
-        $created = $NumerosPedimentoAduana->create($this->validRow);
+        $numerosPedimentoAduana = new NumerosPedimentoAduana();
+        $created = $numerosPedimentoAduana->create($this->validRow);
 
         $this->assertSame($created->aduana(), $this->validRow['aduana']);
         $this->assertSame($created->patente(), $this->validRow['patente']);
