@@ -72,10 +72,52 @@ class Repository
             . ' where (id = :id);';
         $data = $this->queryRow($sql, ['id' => $id]);
         if (! count($data)) {
-            throw new SatCatalogosNotFoundException("Cannot found $catalog using '$id'");
+            throw $this->createSatCatalogosNotFoundException($catalog, ['id' => $id]);
         }
 
         return $data;
+    }
+
+    public function queryRowByFields(string $catalog, array $values): array
+    {
+        $keys = array_keys($values);
+        $sql = 'select * '
+            . ' from ' . $this->catalogName($catalog)
+            . call_user_func(function (array $keys): string {
+                if (count($keys)) {
+                    return ' where ' . implode(' and ', array_map(function ($field) {
+                        return $this->escapeName($field) . ' = :' . $field;
+                    }, $keys));
+                }
+                return '';
+            }, $keys)
+            . ';';
+        $data = $this->queryRow($sql, $values);
+        if (! count($data)) {
+            throw $this->createSatCatalogosNotFoundException($catalog, $values);
+        }
+
+        return $data;
+    }
+
+    private function createSatCatalogosNotFoundException(string $catalog, array $values)
+    {
+        $valuesCount = count($values);
+        $keys = array_keys($values);
+        if ($valuesCount > 1) {
+            $exMessage = sprintf(
+                'Cannot found %s using (%s) with values (%s)',
+                $catalog,
+                implode(', ', $keys),
+                implode(', ', $values)
+            );
+        } elseif (1 === $valuesCount) {
+            $exMessage = sprintf('Cannot found %s using %s \'%s\'', $catalog, $keys[0], $values[$keys[0]]);
+        } else {
+            $exMessage = sprintf('Cannot found any %s without filter', $catalog);
+        }
+
+        return new SatCatalogosNotFoundException($exMessage);
     }
 
     public function existsId(string $catalog, string $id): bool
