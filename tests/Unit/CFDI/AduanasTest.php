@@ -24,7 +24,8 @@ class AduanasTest extends TestCase
         $repository = $this->createMock(Repository::class);
         $repository->method('queryById')->willReturn($this->validRow);
 
-        $aduanas = new Aduanas($repository);
+        $aduanas = new Aduanas();
+        $aduanas->withRepository($repository);
 
         $aduana = $aduanas->obtain('24');
         $this->assertContains('LAREDO', $aduana->texto());
@@ -32,9 +33,7 @@ class AduanasTest extends TestCase
 
     public function testCreate()
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
-        $repository = $this->createMock(Repository::class);
-        $aduanas = new Aduanas($repository);
+        $aduanas = new Aduanas();
         $created = $aduanas->create($this->validRow);
 
         $this->assertSame($created->id(), $this->validRow['id']);

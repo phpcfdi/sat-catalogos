@@ -26,7 +26,8 @@ class NumerosPedimentoAduanaTest extends TestCase
         $repository = $this->createMock(Repository::class);
         $repository->method('queryRowByFields')->willReturn($this->validRow);
 
-        $numerosPedimentoAduana = new NumerosPedimentoAduana($repository);
+        $numerosPedimentoAduana = new NumerosPedimentoAduana();
+        $numerosPedimentoAduana->withRepository($repository);
 
         $NumeroPedimentoAduana = $numerosPedimentoAduana->obtain('24', '3420', 2018);
         $this->assertSame(999999, $NumeroPedimentoAduana->cantidad());
@@ -34,9 +35,7 @@ class NumerosPedimentoAduanaTest extends TestCase
 
     public function testCreate()
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
-        $repository = $this->createMock(Repository::class);
-        $NumerosPedimentoAduana = new NumerosPedimentoAduana($repository);
+        $NumerosPedimentoAduana = new NumerosPedimentoAduana();
         $created = $NumerosPedimentoAduana->create($this->validRow);
 
         $this->assertSame($created->aduana(), $this->validRow['aduana']);

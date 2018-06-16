@@ -17,7 +17,8 @@ class AduanasTest extends UsingTestingDatabaseTestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->aduanas = new Aduanas($this->getRepository());
+        $this->aduanas = new Aduanas();
+        $this->aduanas->withRepository($this->getRepository());
     }
 
     public function testObtainExistentEntry()

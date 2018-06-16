@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos;
 
-use PhpCfdi\SatCatalogos\CFDI\NumerosPedimentoAduana;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
 /**
  * Class SatCatalogos
  *
- * @method Repository               repository();
- * @method CFDI\Aduanas             aduanas();
- * @method CFDI\ClavesUnidades      clavesUnidades();
- * @method CFDI\CodigosPostales     codigosPostales();
- * @method CFDI\FormasDePago        formasDePago();
- * @method CFDI\Impuestos           impuestos();
- * @method CFDI\MetodosDePago       metodosDePago();
- * @method CFDI\Monedas             monedas();
- * @method CFDI\Paises              paises();
- * @method CFDI\ProductosServicios  productosServicios();
- * @method CFDI\RegimenesFiscales   regimenesFiscales();
- * @method CFDI\TiposRelaciones     tiposRelaciones();
- * @method CFDI\UsosCfdi            usosCfdi();
- * @method CFDI\TiposFactores       tiposFactores();
+ * @method Repository                   repository();
+ * @method CFDI\Aduanas                 aduanas();
+ * @method CFDI\ClavesUnidades          clavesUnidades();
+ * @method CFDI\CodigosPostales         codigosPostales();
+ * @method CFDI\FormasDePago            formasDePago();
+ * @method CFDI\Impuestos               impuestos();
+ * @method CFDI\MetodosDePago           metodosDePago();
+ * @method CFDI\Monedas                 monedas();
+ * @method CFDI\Paises                  paises();
+ * @method CFDI\ProductosServicios      productosServicios();
+ * @method CFDI\RegimenesFiscales       regimenesFiscales();
+ * @method CFDI\TiposRelaciones         tiposRelaciones();
+ * @method CFDI\UsosCfdi                usosCfdi();
+ * @method CFDI\TiposFactores           tiposFactores();
+ * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
 */
 class SatCatalogos
 {
@@ -34,12 +34,6 @@ class SatCatalogos
     {
         $this->container = [];
         $this->container['repository'] = $repository;
-    }
-
-    public function numerosPedimentoAduana(): NumerosPedimentoAduana
-    {
-        // TODO: Add to container
-        return new NumerosPedimentoAduana($this->repository());
     }
 
     public function __call($name, $arguments)
@@ -58,7 +52,7 @@ class SatCatalogos
 
     /**
      * @param string $propertyName
-     * @return CatalogInterface|null
+     * @return WithRepositoryInterface|null
      */
     protected function create(string $propertyName)
     {
@@ -67,10 +61,13 @@ class SatCatalogos
             if (! class_exists($className)) {
                 continue;
             }
-            if (! in_array(CatalogInterface::class, class_implements($className), true)) {
+            if (! in_array(WithRepositoryInterface::class, class_implements($className), true)) {
                 continue;
             }
-            return new $className($this->container['repository']);
+            /** @var WithRepositoryInterface $object */
+            $object = new $className();
+            $object->withRepository($this->container['repository']);
+            return $object;
         }
 
         return null;

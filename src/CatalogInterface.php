@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos;
 
-interface CatalogInterface
+interface CatalogInterface extends WithRepositoryInterface
 {
     public function create(array $data): EntryInterface;
 
