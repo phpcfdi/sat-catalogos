@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
+use PhpCfdi\SatCatalogos\VigenciasInterface;
+use PhpCfdi\SatCatalogos\VigenciasTrait;
 
-class NumeroPedimentoAduana
+class NumeroPedimentoAduana implements VigenciasInterface
 {
+    use VigenciasTrait;
+
     /** @var string */
     private $aduana;
 
@@ -19,12 +23,6 @@ class NumeroPedimentoAduana
 
     /** @var int */
     private $cantidad;
-
-    /** @var int */
-    private $vigenteDesde;
-
-    /** @var int */
-    private $vigenteHasta;
 
     public function __construct(
         string $aduana,
@@ -46,18 +44,11 @@ class NumeroPedimentoAduana
         if ($cantidad < 0) {
             throw new SatCatalogosLogicException('El campo ejercicio no puede ser menor a cero');
         }
-        if ($vigenteDesde < 0) {
-            throw new SatCatalogosLogicException('El campo vigente desde no puede ser menor a cero');
-        }
-        if ($vigenteHasta < 0) {
-            throw new SatCatalogosLogicException('El campo vigente hasta no puede ser menor a cero');
-        }
         $this->aduana = $aduana;
         $this->patente = $patente;
         $this->ejercicio = $ejercicio;
         $this->cantidad = $cantidad;
-        $this->vigenteDesde = $vigenteDesde;
-        $this->vigenteHasta = $vigenteHasta;
+        $this->setUpVigencias($vigenteDesde, $vigenteHasta);
     }
 
     public function aduana(): string
@@ -78,15 +69,5 @@ class NumeroPedimentoAduana
     public function cantidad(): int
     {
         return $this->cantidad;
-    }
-
-    public function vigenteDesde(): int
-    {
-        return $this->vigenteDesde;
-    }
-
-    public function vigenteHasta(): int
-    {
-        return $this->vigenteHasta;
     }
 }

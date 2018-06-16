@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\NumeroPedimentoAduana;
+use PhpCfdi\SatCatalogos\VigenciasInterface;
 use PHPUnit\Framework\TestCase;
 
 class NumeroPedimentoAduanaTest extends TestCase
@@ -27,8 +28,7 @@ class NumeroPedimentoAduanaTest extends TestCase
             $vigenteHasta
         );
 
-        // TODO: Should this be an instance of something ?
-        // $this->assertInstanceOf(EntryInterface::class, $NumeroPedimentoAduana);
+        $this->assertInstanceOf(VigenciasInterface::class, $NumeroPedimentoAduana);
 
         $this->assertSame($aduana, $NumeroPedimentoAduana->aduana());
         $this->assertSame($patente, $NumeroPedimentoAduana->patente());
