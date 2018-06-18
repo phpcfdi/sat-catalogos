@@ -153,4 +153,16 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
             $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.16')
         );
     }
+
+    public function testCanObtainExistentPatenteAduanal()
+    {
+        $patenteAduanal = $this->satCatalogos->patentesAduanales()->obtain('0000');
+        $this->assertSame('0000', $patenteAduanal->id());
+    }
+
+    public function testCanObtainExistentTipoComprobante()
+    {
+        $tipoDeComprobante = $this->satCatalogos->tiposDeComprobante()->obtain('I');
+        $this->assertSame('I', $tipoDeComprobante->id());
+    }
 }

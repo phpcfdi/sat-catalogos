@@ -49,4 +49,10 @@ INSERT INTO cfdi_reglas_tasa_cuota VALUES ('Fijo', '', '0.160000', 'IVA', 'Tasa'
 INSERT INTO cfdi_reglas_tasa_cuota VALUES ('Rango', '0.000000', '43.770000', 'IEPS', 'Cuota', 1, 1, '2017-01-01', '');
 INSERT INTO cfdi_reglas_tasa_cuota VALUES ('Rango', '0.000000', '0.350000', 'ISR', 'Tasa', 0, 1, '2017-01-01', '');
 
+CREATE TABLE cfdi_patentes_aduanales (id text not null primary key, texto text not null, vigencia_desde text not null, vigencia_hasta text not null);
+INSERT INTO cfdi_patentes_aduanales VALUES('0000','0000','2000-01-01','');
+
+CREATE TABLE cfdi_tipos_comprobante (id text not null primary key, texto text not null, valor_maximo text not null, vigencia_desde text not null, vigencia_hasta text not null);
+INSERT INTO cfdi_tipos_comprobante VALUES('I','Ingreso', '999999999999999999.999999', '2000-07-29','');
+
 COMMIT;
