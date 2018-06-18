@@ -16,7 +16,7 @@ class TiposFactores extends AbstractCatalog
 {
     protected function catalogName(): string
     {
-        return Repository::CFDI_TIPOS_FACTOR;
+        return Repository::CFDI_TIPOS_FACTORES;
     }
 
     /**
