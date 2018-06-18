@@ -162,7 +162,7 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentTipoComprobante()
     {
-        $tipoDeComprobante = $this->satCatalogos->tiposDeComprobante()->obtain('I');
-        $this->assertSame('I', $tipoDeComprobante->id());
+        $tipoComprobante = $this->satCatalogos->tiposComprobantes()->obtain('I');
+        $this->assertSame('I', $tipoComprobante->id());
     }
 }

@@ -6,7 +6,7 @@
 
 - Agregar catálogo PatenteAduanal (catálogo simple)
 
-- Agregar catálogo TipoDeComprobante (catálogo simple, se omitirán los valores raros en tipo N - Nómina)
+- Agregar catálogo TipoComprobante (catálogo simple, se omitirán los valores raros en tipo N - Nómina)
 
 - Reorganizar el proyecto
     - Mover las interfaces, abstracts y traits. La única clase de primer nivel debe ser SatCatalogos

@@ -14,7 +14,7 @@
 | CFDI | c_PatenteAduanal | patentes |
 | CFDI | c_RegimenFiscal | regimenesFiscales |
 | CFDI | c_TasaOCuota | * |
-| CFDI | c_TipoDeComprobante | tiposDeComprobante |
+| CFDI | c_TipoComprobante | tiposComprobantes |
 | CFDI | c_TipoFactor | tiposDeFactor |
 | CFDI | c_TipoRelacion | tiposDeRelacion |
 | CFDI | c_UsoCFDI | usosCfdi |

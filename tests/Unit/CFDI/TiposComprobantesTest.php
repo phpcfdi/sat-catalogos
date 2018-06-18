@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
-use PhpCfdi\SatCatalogos\CFDI\TiposDeComprobante;
+use PhpCfdi\SatCatalogos\CFDI\TiposComprobantes;
 use PHPUnit\Framework\TestCase;
 
-class TiposDeComprobanteTest extends TestCase
+class TiposComprobantesTest extends TestCase
 {
     protected $validRow = [
         'id' => 'I',
@@ -19,8 +19,8 @@ class TiposDeComprobanteTest extends TestCase
 
     public function testCreate()
     {
-        $tiposDeComprobante = new TiposDeComprobante();
-        $created = $tiposDeComprobante->create($this->validRow);
+        $tiposComprobantes = new TiposComprobantes();
+        $created = $tiposComprobantes->create($this->validRow);
 
         $this->assertSame($created->id(), $this->validRow['id']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
