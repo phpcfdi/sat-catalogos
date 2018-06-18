@@ -10,22 +10,22 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de comprobante
- * @method TipoDeComprobante obtain(string $id)
+ * @method TipoComprobante obtain(string $id)
  */
-class TiposDeComprobante extends AbstractCatalog
+class TiposComprobantes extends AbstractCatalog
 {
     protected function catalogName(): string
     {
-        return Repository::CFDI_TIPOS_COMPROBANTE;
+        return Repository::CFDI_TIPOS_COMPROBANTES;
     }
 
     /**
      * @param array $data
-     * @return TipoDeComprobante
+     * @return TipoComprobante
      */
     public function create(array $data): EntryInterface
     {
-        return new TipoDeComprobante(
+        return new TipoComprobante(
             $data['id'],
             $data['texto'],
             $data['valor_maximo'],

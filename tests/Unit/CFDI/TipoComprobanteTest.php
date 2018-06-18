@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
-use PhpCfdi\SatCatalogos\CFDI\TipoDeComprobante;
+use PhpCfdi\SatCatalogos\CFDI\TipoComprobante;
 use PhpCfdi\SatCatalogos\EntryInterface;
 use PHPUnit\Framework\TestCase;
 
-class TipoDeComprobanteTest extends TestCase
+class TipoComprobanteTest extends TestCase
 {
     public function testCreateInstance()
     {
@@ -18,7 +18,7 @@ class TipoDeComprobanteTest extends TestCase
         $vigenteDesde = strtotime('2017-01-01');
         $vigenteHasta = 0;
 
-        $tipoComprobante = new TipoDeComprobante($id, $texto, $valorMaximo, $vigenteDesde, $vigenteHasta);
+        $tipoComprobante = new TipoComprobante($id, $texto, $valorMaximo, $vigenteDesde, $vigenteHasta);
 
         $this->assertInstanceOf(EntryInterface::class, $tipoComprobante);
         $this->assertSame($id, $tipoComprobante->id());

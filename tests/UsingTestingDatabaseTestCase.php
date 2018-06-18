@@ -23,13 +23,7 @@ class UsingTestingDatabaseTestCase extends TestCase
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ]);
         $this->repository = new Repository($this->pdo);
-        $seed = new \SplFileObject(__DIR__ . '/database-seed.sql');
-        foreach ($seed as $line) {
-            $line = trim($line);
-            if ('' !== trim($line)) {
-                $this->pdo->exec($line);
-            }
-        }
+        $this->pdo->exec(file_get_contents(__DIR__ . '/database-seed.sql'));
     }
 
     public function getPdo(): PDO

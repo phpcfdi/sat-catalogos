@@ -42,7 +42,7 @@ class Repository
 
     const CFDI_USOS_CFDI = 'cfdi_usos_cfdi';
 
-    const CFDI_TIPOS_FACTOR = 'cfdi_tipos_factor';
+    const CFDI_TIPOS_FACTORES = 'cfdi_tipos_factores';
 
     const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
 
@@ -50,7 +50,7 @@ class Repository
 
     const CFDI_PATENTES_ADUANALES = 'cfdi_patentes_aduanales';
 
-    const CFDI_TIPOS_COMPROBANTE = 'cfdi_tipos_comprobante';
+    const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
 
     const CATALOGS = [
         self::CFDI_ADUANAS,
@@ -65,11 +65,11 @@ class Repository
         self::CFDI_REGIMENES_FISCALES,
         self::CFDI_TIPOS_RELACIONES,
         self::CFDI_USOS_CFDI,
-        self::CFDI_TIPOS_FACTOR,
+        self::CFDI_TIPOS_FACTORES,
         self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
         self::CFDI_REGLAS_TASA_CUOTA,
         self::CFDI_PATENTES_ADUANALES,
-        self::CFDI_TIPOS_COMPROBANTE,
+        self::CFDI_TIPOS_COMPROBANTES,
     ];
 
     public function __construct(PDO $pdo)

@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\AbstractEntry;
 
-class TipoDeComprobante extends AbstractEntry
+class TipoComprobante extends AbstractEntry
 {
     /** @var string */
     private $valorMaximo;
