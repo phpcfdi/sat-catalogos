@@ -160,4 +160,9 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('0000', $patenteAduanal->id());
     }
 
+    public function testCanObtainExistentTipoComprobante()
+    {
+        $tipoDeComprobante = $this->satCatalogos->tiposDeComprobante()->obtain('I');
+        $this->assertSame('I', $tipoDeComprobante->id());
+    }
 }

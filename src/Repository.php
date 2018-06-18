@@ -50,6 +50,8 @@ class Repository
 
     const CFDI_PATENTES_ADUANALES = 'cfdi_patentes_aduanales';
 
+    const CFDI_TIPOS_COMPROBANTE = 'cfdi_tipos_comprobante';
+
     const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -67,6 +69,7 @@ class Repository
         self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
         self::CFDI_REGLAS_TASA_CUOTA,
         self::CFDI_PATENTES_ADUANALES,
+        self::CFDI_TIPOS_COMPROBANTE,
     ];
 
     public function __construct(PDO $pdo)
