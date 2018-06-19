@@ -97,7 +97,7 @@ CREATE TABLE cfdi_paises (
   validacion_identidad_tributaria text not null,
   agrupaciones text not null
 );
-INSERT INTO cfdi_paises VALUES('MEX','México','[0-9]{5}',replace('[A-Z&Ñ]{3,4}[0-9]{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])[A-Z0-9]{2}[0\n-9A]','\n',char(10)),'Lista del SAT','TLCAN');
+INSERT INTO cfdi_paises VALUES('MEX','México','[0-9]{5}','[A-Z&Ñ]{3,4}[0-9]{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])[A-Z0-9]{2}[0-9A]','Lista del SAT','TLCAN');
 
 CREATE TABLE cfdi_regimenes_fiscales (
   id text not null primary key,
