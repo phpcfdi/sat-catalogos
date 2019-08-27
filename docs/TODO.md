@@ -2,6 +2,10 @@
 
 - Poner docblocks en las clases a las que se tiene acceso
 
+- Poner docblock methods tal como en ProductosServicios
+
+- Separar las clases de catálogos de las clases de entradas
+
 - Documentar cómo se interpretan los catálogos y los catálogos especiales
 
 - Agregar catálogo PatenteAduanal (catálogo simple)
@@ -14,8 +18,7 @@
 
 - SatCatalogos no debe exponer el Repository.
 
-- SatCatalogos no debe recibir el Repository,
-  crear mejor una clase heredada en entorno de pruebas. 
+- SatCatalogos no debe recibir obligadamente el Repository para su construcción.
 
 - Revisar el resultado del issue https://github.com/phpstan/phpstan/issues/1065
   y modificar el código
