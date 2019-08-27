@@ -35,4 +35,20 @@ trait VigenciasTrait
     {
         return $this->vigenteHasta;
     }
+
+    public function vigenteEn(int $time): bool
+    {
+        if (0 !== $this->vigenteDesde && $time < $this->vigenteDesde) {
+            return false;
+        }
+        if (0 !== $this->vigenteHasta && $time > $this->vigenteHasta) {
+            return false;
+        }
+        return true;
+    }
+
+    public function vigenteAhora(): bool
+    {
+        return $this->vigenteEn(time());
+    }
 }
