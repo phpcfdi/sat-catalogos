@@ -165,4 +165,10 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $tipoComprobante = $this->satCatalogos->tiposComprobantes()->obtain('I');
         $this->assertSame('I', $tipoComprobante->id());
     }
+
+    public function testSearchProductosServicios()
+    {
+        $searchResults = $this->satCatalogos->productosServicios()->searchByText('%cerdo%');
+        $this->assertCount(2, $searchResults);
+    }
 }

@@ -9,8 +9,12 @@ use PhpCfdi\SatCatalogos\EntryInterface;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
- * Class ProductosServicios
+ * ProductosServicios
+ *
  * @method ProductoServicio obtain(string $id)
+ * @method ProductoServicio[] obtainByIds(array $ids): array;
+ * @method ProductoServicio[] searchByText(string $search, int $limit = 0): array;
+ * @method ProductoServicio[] searchByField(string $fieldName, string $search, int $limit = 0): array;
  */
 class ProductosServicios extends AbstractCatalog
 {
