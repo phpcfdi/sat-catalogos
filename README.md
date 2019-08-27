@@ -86,7 +86,7 @@ La tarea de actualizar los catálogos estará en otro proyecto separado que:
 
 ## Soporte de PHP
 
-Esta librería es compatible con PHP versions 7.0 y superior.
+Esta librería es compatible con PHP versions 7.1 y superior.
 Por favor, intente usar el mayor potencial del lenguaje.
 La librería intenta seguir la compatibilidad de versiones con Debian/GNU Linux versión estable.
 
