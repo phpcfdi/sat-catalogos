@@ -21,6 +21,10 @@ CREATE TABLE cfdi_productos_servicios (
 );
 INSERT INTO cfdi_productos_servicios VALUES
 ('10101511','Cerdos',0,0,'','Cerdo montés, Chanchos, Chanchos almizcleros, Chanchos de monte, Cochinillos, Cochinos, Cochinos de monte, Cuche, Cuinos, Gorrinos, Jabalíes americanos, Lechones, Cochinos de monte, Pecaríes, Porcinos, Puercos, Puercos de monte, Tayatos','2017-01-01','');
+INSERT INTO cfdi_productos_servicios VALUES
+('10122101','Comida para cerdos',0,0,'','Comida para chanchos, Comida para cochinillos, Comida para cochinos, Comida para cuche, Comida para cuinos, Comida para gorrinos, Comida para lechones, Comida para marranos, Comida para porcinos, Comida para puercos, Comida para lechones','2017-08-14','');
+INSERT INTO cfdi_productos_servicios VALUES
+('43231500','Software funcional específico de la empresa',0,0,'','','2017-08-14','');
 
 CREATE TABLE cfdi_codigos_postales (
   id text not null primary key,
