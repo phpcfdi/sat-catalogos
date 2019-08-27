@@ -32,7 +32,9 @@ composer require phpcfdi/satcatalogos
 
 ```php
 <?php
-$satCatalogos = new \PhpCfdi\SatCatalogos\SatCatalogos();
+$dsn = sprintf('sqlite://%s/catalogos.db', __DIR__);
+$factory = new \PhpCfdi\SatCatalogos\Factory();
+$satCatalogos = $factory->catalogosFromDsn($dsn);
 $aduanas = $satCatalogos->aduanas();
 $aduana = $aduanas->obtain('24');
 echo $aduana->texto(); // NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.
