@@ -65,15 +65,3 @@ y está en formato xls (BIFF 8 / MS Excel 97).
         * Tipo factor
 - Complemento de concepto: Acreditamiento del IEPS
     * Catálogos simples
-
-
-
-
-
-
-
-
-
-
-
-.
