@@ -13,19 +13,19 @@ class ReglasTasaCuota implements WithRepositoryInterface
 {
     use WithRepositoryTrait;
 
-    const FACTOR_TASA = 'Tasa';
+    public const FACTOR_TASA = 'Tasa';
 
-    const FACTOR_CUOTA = 'Cuota';
+    public const FACTOR_CUOTA = 'Cuota';
 
-    const IMPUESTO_IEPS = 'IEPS';
+    public const IMPUESTO_IEPS = 'IEPS';
 
-    const IMPUESTO_IVA = 'IVA';
+    public const IMPUESTO_IVA = 'IVA';
 
-    const IMPUESTO_ISR = 'ISR';
+    public const IMPUESTO_ISR = 'ISR';
 
-    const USO_TRASLADO = 'traslado';
+    public const USO_TRASLADO = 'traslado';
 
-    const USO_RETENCION = 'retencion';
+    public const USO_RETENCION = 'retencion';
 
     /**
      * @param string $impuesto

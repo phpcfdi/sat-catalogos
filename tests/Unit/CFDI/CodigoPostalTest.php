@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class CodigoPostalTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '52000';
         $texto = '52000';
@@ -33,7 +33,7 @@ class CodigoPostalTest extends TestCase
         $this->assertSame($vigenteHasta, $codigoPostal->vigenteHasta());
     }
 
-    public function testPropertyEstadoCannotBeEmpty()
+    public function testPropertyEstadoCannotBeEmpty(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo estado no puede ser una cadena de caracteres vacía');

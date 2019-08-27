@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class AbstractEntryTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'FOO';
         $texto = 'BAR BAZ';
@@ -27,28 +27,28 @@ class AbstractEntryTest extends TestCase
         $this->assertSame($vigenteHasta, $entry->vigenteHasta());
     }
 
-    public function testCreateWithInvalidId()
+    public function testCreateWithInvalidId(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo ID');
         new EntryImplementation('', 'foo', 0, 0);
     }
 
-    public function testCreateWithInvalidTexto()
+    public function testCreateWithInvalidTexto(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo texto');
         new EntryImplementation('foo', '', 0, 0);
     }
 
-    public function testCreateWithInvalidVigenciaDesde()
+    public function testCreateWithInvalidVigenciaDesde(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo vigente desde');
         new EntryImplementation('foo', 'bar', -1, 0);
     }
 
-    public function testCreateWithInvalidVigenciaHasta()
+    public function testCreateWithInvalidVigenciaHasta(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo vigente hasta');

@@ -18,41 +18,41 @@ class Repository
     /** @var PDOStatement[] */
     private $statements = [];
 
-    const CFDI_ADUANAS = 'cfdi_aduanas';
+    public const CFDI_ADUANAS = 'cfdi_aduanas';
 
-    const CFDI_CLAVES_UNIDADES = 'cfdi_claves_unidades';
+    public const CFDI_CLAVES_UNIDADES = 'cfdi_claves_unidades';
 
-    const CFDI_PRODUCTOS_SERVICIOS = 'cfdi_productos_servicios';
+    public const CFDI_PRODUCTOS_SERVICIOS = 'cfdi_productos_servicios';
 
-    const CFDI_CODIGOS_POSTALES = 'cfdi_codigos_postales';
+    public const CFDI_CODIGOS_POSTALES = 'cfdi_codigos_postales';
 
-    const CFDI_IMPUESTOS = 'cfdi_impuestos';
+    public const CFDI_IMPUESTOS = 'cfdi_impuestos';
 
-    const CFDI_FORMAS_PAGO = 'cfdi_formas_pago';
+    public const CFDI_FORMAS_PAGO = 'cfdi_formas_pago';
 
-    const CFDI_METODOS_PAGO = 'cfdi_metodos_pago';
+    public const CFDI_METODOS_PAGO = 'cfdi_metodos_pago';
 
-    const CFDI_MONEDAS = 'cfdi_monedas';
+    public const CFDI_MONEDAS = 'cfdi_monedas';
 
-    const CFDI_PAISES = 'cfdi_paises';
+    public const CFDI_PAISES = 'cfdi_paises';
 
-    const CFDI_REGIMENES_FISCALES = 'cfdi_regimenes_fiscales';
+    public const CFDI_REGIMENES_FISCALES = 'cfdi_regimenes_fiscales';
 
-    const CFDI_TIPOS_RELACIONES = 'cfdi_tipos_relaciones';
+    public const CFDI_TIPOS_RELACIONES = 'cfdi_tipos_relaciones';
 
-    const CFDI_USOS_CFDI = 'cfdi_usos_cfdi';
+    public const CFDI_USOS_CFDI = 'cfdi_usos_cfdi';
 
-    const CFDI_TIPOS_FACTORES = 'cfdi_tipos_factores';
+    public const CFDI_TIPOS_FACTORES = 'cfdi_tipos_factores';
 
-    const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
+    public const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
 
-    const CFDI_REGLAS_TASA_CUOTA = 'cfdi_reglas_tasa_cuota';
+    public const CFDI_REGLAS_TASA_CUOTA = 'cfdi_reglas_tasa_cuota';
 
-    const CFDI_PATENTES_ADUANALES = 'cfdi_patentes_aduanales';
+    public const CFDI_PATENTES_ADUANALES = 'cfdi_patentes_aduanales';
 
-    const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
+    public const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
 
-    const CATALOGS = [
+    public const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
         self::CFDI_PRODUCTOS_SERVICIOS,

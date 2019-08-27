@@ -20,7 +20,7 @@ class NumerosPedimentoAduanaTest extends TestCase
         'vigencia_hasta' => '',
     ];
 
-    public function testObtain()
+    public function testObtain(): void
     {
         /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
@@ -33,7 +33,7 @@ class NumerosPedimentoAduanaTest extends TestCase
         $this->assertSame(999999, $numeroPedimentoAduana->cantidad());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $numerosPedimentoAduana = new NumerosPedimentoAduana();
         $created = $numerosPedimentoAduana->create($this->validRow);

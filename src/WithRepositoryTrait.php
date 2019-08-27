@@ -12,7 +12,7 @@ trait WithRepositoryTrait
      */
     private $repository;
 
-    public function withRepository(Repository $repository)
+    public function withRepository(Repository $repository): void
     {
         if (null !== $this->repository) {
             throw new \LogicException(

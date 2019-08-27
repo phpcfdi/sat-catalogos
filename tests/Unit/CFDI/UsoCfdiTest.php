@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class UsoCfdiTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'G02';
         $texto = 'Devoluciones, descuentos o bonificaciones';
@@ -35,7 +35,7 @@ class UsoCfdiTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyAplicaFisica(bool $aplicaFisica)
+    public function testPropertyAplicaFisica(bool $aplicaFisica): void
     {
         $usoCfdi = new UsoCfdi('x', 'x', $aplicaFisica, false, 0, 0);
 
@@ -47,7 +47,7 @@ class UsoCfdiTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyAplicaMoral(bool $aplicaMoral)
+    public function testPropertyAplicaMoral(bool $aplicaMoral): void
     {
         $usoCfdi = new UsoCfdi('x', 'x', false, $aplicaMoral, 0, 0);
 

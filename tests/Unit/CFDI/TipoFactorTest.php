@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class TipoFactorTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'Tasa';
 

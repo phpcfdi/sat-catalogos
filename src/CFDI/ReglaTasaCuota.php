@@ -12,9 +12,9 @@ class ReglaTasaCuota implements VigenciasInterface
 {
     use VigenciasTrait;
 
-    const TIPO_FIJO = 'Fijo';
+    public const TIPO_FIJO = 'Fijo';
 
-    const TIPO_RANGO = 'Rango';
+    public const TIPO_RANGO = 'Rango';
 
     /** @var string */
     private $tipo;

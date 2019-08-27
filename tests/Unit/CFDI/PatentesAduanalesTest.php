@@ -18,7 +18,7 @@ class PatentesAduanalesTest extends TestCase
         'vigencia_hasta' => '',
     ];
 
-    public function testObtainWithMock()
+    public function testObtainWithMock(): void
     {
         /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
@@ -31,7 +31,7 @@ class PatentesAduanalesTest extends TestCase
         $this->assertContains('0000', $patenteAduanal->texto());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $patentesAduanales = new PatentesAduanales();
         $created = $patentesAduanales->create($this->validRow);

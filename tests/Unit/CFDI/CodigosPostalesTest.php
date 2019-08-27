@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
 class CodigosPostalesTest extends UsingTestingDatabaseTestCase
 {
-    public function testObtainCodigoPostal00000()
+    public function testObtainCodigoPostal00000(): void
     {
         $codigosPostales = new CodigosPostales();
         $generic = $codigosPostales->obtain('00000');

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class ImpuestoTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '002';
         $texto = 'IVA';
@@ -39,7 +39,7 @@ class ImpuestoTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyTraslado(bool $traslado)
+    public function testPropertyTraslado(bool $traslado): void
     {
         $impuesto = new Impuesto('x', 'x', false, $traslado, '', '');
 
@@ -51,7 +51,7 @@ class ImpuestoTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyRetencion(bool $retencion)
+    public function testPropertyRetencion(bool $retencion): void
     {
         $impuesto = new Impuesto('x', 'x', $retencion, false, '', '');
 

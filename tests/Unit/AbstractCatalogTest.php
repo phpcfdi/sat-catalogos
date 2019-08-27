@@ -20,7 +20,7 @@ class AbstractCatalogTest extends TestCase
     /** @var CatalogImplementation */
     protected $catalog;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         /** @var MockObject&Repository $repository */
@@ -30,14 +30,14 @@ class AbstractCatalogTest extends TestCase
         $this->catalog->withRepository($this->repository);
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(AbstractCatalog::class, $this->catalog);
         $this->assertInstanceOf(CatalogInterface::class, $this->catalog);
         $this->assertSame($this->repository, $this->catalog->repository());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $created = $this->catalog->create([
             'id' => 'foo',
@@ -52,7 +52,7 @@ class AbstractCatalogTest extends TestCase
         $this->assertSame('2018-01-01', date('Y-m-d', $created->vigenteHasta()));
     }
 
-    public function testObtainWithData()
+    public function testObtainWithData(): void
     {
         $this->repository->method('queryById')->willReturn([
             'id' => 'foo',
@@ -65,7 +65,7 @@ class AbstractCatalogTest extends TestCase
         $this->assertInstanceOf(EntryInterface::class, $obtained);
     }
 
-    public function testExists()
+    public function testExists(): void
     {
         $this->repository->method('existsId')->willReturnMap([
             ['catalog', 'existent', true],

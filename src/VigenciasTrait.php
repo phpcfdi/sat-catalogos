@@ -14,7 +14,7 @@ trait VigenciasTrait
     /** @var int */
     private $vigenteHasta;
 
-    protected function setUpVigencias(int $vigenteDesde, int $vigenteHasta)
+    protected function setUpVigencias(int $vigenteDesde, int $vigenteHasta): void
     {
         if ($vigenteDesde < 0) {
             throw new SatCatalogosLogicException('El campo vigente desde no puede ser menor a cero');

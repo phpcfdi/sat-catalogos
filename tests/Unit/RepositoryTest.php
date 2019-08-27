@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
 class RepositoryTest extends UsingTestingDatabaseTestCase
 {
-    public function testQueryById()
+    public function testQueryById(): void
     {
         $data = $this->getRepository()->queryById(Repository::CFDI_ADUANAS, '24');
 
@@ -31,21 +31,21 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->assertEquals($expected, $data);
     }
 
-    public function testThrowExceptionOnInvalidCatalogName()
+    public function testThrowExceptionOnInvalidCatalogName(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('catalog name');
         $this->getRepository()->queryById('foo_bar_baz', '');
     }
 
-    public function testThrowExceptionWhenQueryByIdAndNotFound()
+    public function testThrowExceptionWhenQueryByIdAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
         $this->expectExceptionMessage('FooBar');
         $this->getRepository()->queryById(Repository::CFDI_PAISES, 'FooBar');
     }
 
-    public function testQueryRowByFields()
+    public function testQueryRowByFields(): void
     {
         $data = $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, ['texto' => 'México']);
 
@@ -56,7 +56,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->assertArraySubset($expected, $data);
     }
 
-    public function testThrowExceptionWhenQueryRowByFieldsAndNotFound()
+    public function testThrowExceptionWhenQueryRowByFieldsAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
         $this->expectExceptionMessage("Cannot found cfdi_paises using texto 'Banania'");

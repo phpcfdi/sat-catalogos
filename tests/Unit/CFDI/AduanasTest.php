@@ -18,7 +18,7 @@ class AduanasTest extends TestCase
         'vigencia_hasta' => '',
     ];
 
-    public function testObtain()
+    public function testObtain(): void
     {
         /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
@@ -31,7 +31,7 @@ class AduanasTest extends TestCase
         $this->assertContains('LAREDO', $aduana->texto());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $aduanas = new Aduanas();
         $created = $aduanas->create($this->validRow);

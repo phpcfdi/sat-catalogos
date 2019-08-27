@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class ClaveUnidadTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'MTK';
         $texto = 'Metro cuadrado';

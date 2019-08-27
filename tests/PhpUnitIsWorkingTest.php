@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PhpUnitIsWorkingTest extends TestCase
 {
-    public function testIsWorking()
+    public function testIsWorking(): void
     {
         $this->assertFalse(false);
     }

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class AduanaTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '24';
         $texto = 'ADUANA NUEVO LAREDO';

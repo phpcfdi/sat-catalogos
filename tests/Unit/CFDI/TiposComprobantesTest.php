@@ -17,7 +17,7 @@ class TiposComprobantesTest extends TestCase
         'vigencia_hasta' => 0,
     ];
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $tiposComprobantes = new TiposComprobantes();
         $created = $tiposComprobantes->create($this->validRow);

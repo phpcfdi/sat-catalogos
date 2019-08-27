@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class PatenteAduanalTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '0000';
         $texto = '0000';

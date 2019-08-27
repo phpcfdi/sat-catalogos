@@ -14,14 +14,14 @@ class ClavesUnidadesTest extends UsingTestingDatabaseTestCase
     /** @var ClavesUnidades */
     protected $clavesUnidades;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->clavesUnidades = new ClavesUnidades();
         $this->clavesUnidades->withRepository($this->getRepository());
     }
 
-    public function testObtainExistentEntry()
+    public function testObtainExistentEntry(): void
     {
         $claveUnidad = $this->clavesUnidades->obtain('MTK');
 
@@ -34,14 +34,14 @@ class ClavesUnidadesTest extends UsingTestingDatabaseTestCase
         $this->assertSame(0, $claveUnidad->vigenteHasta());
     }
 
-    public function testObtainNonExistentEntry()
+    public function testObtainNonExistentEntry(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
         $this->expectExceptionMessage(Repository::CFDI_CLAVES_UNIDADES);
         $this->clavesUnidades->obtain('foo');
     }
 
-    public function testEntryExists()
+    public function testEntryExists(): void
     {
         $this->assertTrue($this->clavesUnidades->exists('MTK'));
         $this->assertFalse($this->clavesUnidades->exists('foo'));

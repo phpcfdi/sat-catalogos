@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class RegimenFiscalTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '601';
         $texto = 'General de Ley Personas Morales';
@@ -35,7 +35,7 @@ class RegimenFiscalTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyAplicaFisica(bool $aplicaFisica)
+    public function testPropertyAplicaFisica(bool $aplicaFisica): void
     {
         $regimenFiscal = new RegimenFiscal('x', 'x', $aplicaFisica, false, 0, 0);
 
@@ -47,7 +47,7 @@ class RegimenFiscalTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyAplicaMoral(bool $aplicaMoral)
+    public function testPropertyAplicaMoral(bool $aplicaMoral): void
     {
         $regimenFiscal = new RegimenFiscal('x', 'x', false, $aplicaMoral, 0, 0);
 

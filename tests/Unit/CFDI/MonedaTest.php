@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class MonedaTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'MXN';
         $texto = 'Peso Mexicano';
@@ -31,14 +31,14 @@ class MonedaTest extends TestCase
         $this->assertSame($vigenteHasta, $moneda->vigenteHasta());
     }
 
-    public function testPropertyDecimalesCannotBeLessThanZero()
+    public function testPropertyDecimalesCannotBeLessThanZero(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo decimales no puede ser menor a cero');
         new Moneda('x', 'x', -1, 0, 0, 0);
     }
 
-    public function testPropertyPorcentajeVariacionCannotBeLessThanZero()
+    public function testPropertyPorcentajeVariacionCannotBeLessThanZero(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo porcentaje de variación no puede ser menor a cero');

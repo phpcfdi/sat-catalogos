@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProductoServicioTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '10101511';
         $texto = 'Cerdos';
@@ -50,7 +50,7 @@ class ProductoServicioTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyRequiereIvaTrasladado(bool $requiereIvaTrasladado)
+    public function testPropertyRequiereIvaTrasladado(bool $requiereIvaTrasladado): void
     {
         $productoServicio = new ProductoServicio('x', 'x', $requiereIvaTrasladado, false, '', '', 0, 0);
 
@@ -62,7 +62,7 @@ class ProductoServicioTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyRequiereIepsTrasladado(bool $requiereIepsTrasladado)
+    public function testPropertyRequiereIepsTrasladado(bool $requiereIepsTrasladado): void
     {
         $productoServicio = new ProductoServicio('x', 'x', false, $requiereIepsTrasladado, '', '', 0, 0);
 
@@ -75,7 +75,7 @@ class ProductoServicioTest extends TestCase
      * @testWith [false, ""]
      *           [true, "Algun complemento"]
      */
-    public function testPropertyRequiereComplemento(bool $expectedValue, string $complemento)
+    public function testPropertyRequiereComplemento(bool $expectedValue, string $complemento): void
     {
         $productoServicio = new ProductoServicio('x', 'x', false, false, $complemento, '', 0, 0);
 

@@ -13,14 +13,14 @@ class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
     /** @var ReglasTasaCuota */
     private $reglas;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->reglas = new ReglasTasaCuota();
         $this->reglas->withRepository($this->getRepository());
     }
 
-    public function testObtainRules()
+    public function testObtainRules(): void
     {
         $rules = $this->reglas->obtainRules('IVA', 'Tasa', ReglasTasaCuota::USO_TRASLADO);
         $this->assertCount(2, $rules);
@@ -35,14 +35,14 @@ class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
         $this->assertContainsOnlyInstancesOf(ReglaTasaCuota::class, $rules);
     }
 
-    public function testFindMatchingRule()
+    public function testFindMatchingRule(): void
     {
         $this->assertNull($this->reglas->findMatchingRule('IVA', 'Tasa', ReglasTasaCuota::USO_TRASLADO, '0.16'));
         $this->assertNotNull($this->reglas->findMatchingRule('IVA', 'Tasa', ReglasTasaCuota::USO_TRASLADO, '0.160000'));
         $this->assertNotNull($this->reglas->findMatchingRule('IVA', 'Tasa', ReglasTasaCuota::USO_TRASLADO, '0.000000'));
     }
 
-    public function testHasValidRule()
+    public function testHasValidRule(): void
     {
         $this->assertFalse($this->reglas->hasMatchingRule('IVA', 'Tasa', ReglasTasaCuota::USO_TRASLADO, '0.16'));
         $this->assertTrue($this->reglas->hasMatchingRule('IVA', 'Tasa', ReglasTasaCuota::USO_TRASLADO, '0.160000'));

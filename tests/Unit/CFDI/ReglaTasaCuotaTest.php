@@ -65,7 +65,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @testWith ["Foo"]
      *           [""]
      */
-    public function testConstructWithInvalidTipo(string $input)
+    public function testConstructWithInvalidTipo(string $input): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo tipo no tiene uno de los valores permitidos');
@@ -77,7 +77,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @testWith ["Foo"]
      *           [""]
      */
-    public function testConstructWithInvalidImpuesto(string $input)
+    public function testConstructWithInvalidImpuesto(string $input): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo impuesto no tiene uno de los valores permitidos');
@@ -89,7 +89,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @testWith ["Foo"]
      *           [""]
      */
-    public function testConstructWithInvalidFactor(string $input)
+    public function testConstructWithInvalidFactor(string $input): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo factor no tiene uno de los valores permitidos');
@@ -101,7 +101,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyTraslado(bool $traslado)
+    public function testPropertyTraslado(bool $traslado): void
     {
         $regimenFiscal = new ReglaTasaCuota('Fijo', 'IVA', 'Tasa', $traslado, true, '0', '1', 0, 0);
 
@@ -113,14 +113,14 @@ class ReglaTasaCuotaTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyRetencion(bool $retencion)
+    public function testPropertyRetencion(bool $retencion): void
     {
         $regimenFiscal = new ReglaTasaCuota('Fijo', 'IVA', 'Tasa', true, $retencion, '0', '1', 0, 0);
 
         $this->assertSame($retencion, $regimenFiscal->retencion());
     }
 
-    public function testConstructWithFalseTrasladoFalseRetencion()
+    public function testConstructWithFalseTrasladoFalseRetencion(): void
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('Los campos retención y traslado no pueden ser falsos ambos');
@@ -131,7 +131,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @param ReglaTasaCuota $reglaTasaCuota
      * @depends testCreateRango
      */
-    public function testRangoValidValues(ReglaTasaCuota $reglaTasaCuota)
+    public function testRangoValidValues(ReglaTasaCuota $reglaTasaCuota): void
     {
         $values = [
             'min value' => '1',
@@ -153,7 +153,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @param ReglaTasaCuota $reglaTasaCuota
      * @depends testCreateRango
      */
-    public function testRangoInvalidValues(ReglaTasaCuota $reglaTasaCuota)
+    public function testRangoInvalidValues(ReglaTasaCuota $reglaTasaCuota): void
     {
         $values = [
             'below min limit' => '0.999999',
@@ -177,7 +177,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @param ReglaTasaCuota $reglaTasaCuota
      * @depends testCreateFijo
      */
-    public function testFijoValidValues(ReglaTasaCuota $reglaTasaCuota)
+    public function testFijoValidValues(ReglaTasaCuota $reglaTasaCuota): void
     {
         $this->assertTrue($reglaTasaCuota->valorIsValid('0.160000'));
     }
@@ -186,7 +186,7 @@ class ReglaTasaCuotaTest extends TestCase
      * @param ReglaTasaCuota $reglaTasaCuota
      * @depends testCreateFijo
      */
-    public function testFijoInvalidValues(ReglaTasaCuota $reglaTasaCuota)
+    public function testFijoInvalidValues(ReglaTasaCuota $reglaTasaCuota): void
     {
         $this->assertFalse($reglaTasaCuota->valorIsValid('0.160001'));
     }

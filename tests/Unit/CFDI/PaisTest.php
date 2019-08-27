@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class PaisTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'MEX';
         $texto = 'Cerdos';
@@ -43,13 +43,13 @@ class PaisTest extends TestCase
      * @testWith [""]
      *           ["[0-9]{10}"]
      */
-    public function testPatronCodigoPostal(string $value)
+    public function testPatronCodigoPostal(string $value): void
     {
         $pais = new Pais('x', 'x', $value, '', '', '');
         $this->assertSame($value, $pais->patronCodigoPostal()->origen());
     }
 
-    public function testPatronCodigoPostalInvalidPattern()
+    public function testPatronCodigoPostalInvalidPattern(): void
     {
         $this->expectException(PatronException::class);
         new Pais('x', 'x', ') invalid regexp (', '', '', '');
@@ -60,13 +60,13 @@ class PaisTest extends TestCase
      * @testWith [""]
      *           ["[0-9]{10}"]
      */
-    public function testPatronIdentidadTributaria(string $value)
+    public function testPatronIdentidadTributaria(string $value): void
     {
         $pais = new Pais('x', 'x', '', $value, '', '');
         $this->assertSame($value, $pais->patronIdentidadTributaria()->origen());
     }
 
-    public function testPatronIdentidadTributariaInvalidPattern()
+    public function testPatronIdentidadTributariaInvalidPattern(): void
     {
         $this->expectException(PatronException::class);
         new Pais('x', 'x', '', ') invalid regexp (', '', '');
