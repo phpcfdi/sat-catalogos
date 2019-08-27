@@ -1,37 +1,31 @@
 language: php
 
-# php compatibility
-php:
-  - 7.0
-  - 7.1
-  - 7.2
-
-env:
-    - COVERAGE_PHP_VERSION: "none" # enable until closest to release
-
 # This triggers builds to run on the new TravisCI infrastructure.
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: false
 
+# php compatibility
+php:
+  - "7.0"
+  - "7.1"
+  - "7.2"
+  - "7.3"
+
+cache:
+  - directories:
+      - $HOME/.composer
+
 before_script:
-  # - travis_retry composer self-update
   - phpenv config-rm xdebug.ini
   - travis_retry composer install --no-interaction --prefer-dist
+  - mkdir -p build
 
 script:
   - vendor/bin/phplint
-  - vendor/bin/php-cs-fixer fix --verbose
-  - vendor/bin/phpcbf --colors -sp src/ tests/
-  - vendor/bin/phpunit --testdox
-  - vendor/bin/phpstan.phar analyse --no-progress --level max src/ tests/
-
-after_success:
-  - |
-    if [[ "${COVERAGE_PHP_VERSION}" == "${TRAVIS_PHP_VERSION}" ]]; then
-      wget --no-verbose https://scrutinizer-ci.com/ocular.phar
-      php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-text --coverage-clover=build/tests/coverage.xml
-      php ocular.phar code-coverage:upload --format=php-clover build/tests/coverage.xml
-    fi
+  - vendor/bin/php-cs-fixer fix --verbose --dry-run
+  - vendor/bin/phpcs --colors -sp src/ tests/
+  - vendor/bin/phpunit --testdox --verbose
+  - vendor/bin/phpstan.phar analyse --no-progress --verbose --level max src/ tests/
 
 notifications:
   email: false
