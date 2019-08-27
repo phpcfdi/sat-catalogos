@@ -79,7 +79,7 @@ class Repository
 
     public function queryById(string $catalog, string $id): array
     {
-        $sql = 'select * '
+        $sql = 'select *'
             . ' from ' . $this->catalogName($catalog)
             . ' where (id = :id);';
         $data = $this->queryRow($sql, ['id' => $id]);
@@ -168,6 +168,7 @@ class Repository
         if (null === $value = $this->queryValue($sql, ['id' => $id])) {
             throw new SatCatalogosLogicException("Cannot check if exists '$id' inside $catalog");
         }
+
         return (1 === (int) $value);
     }
 
@@ -208,6 +209,7 @@ class Repository
     {
         $stmt = $this->query($query, $arguments);
         $value = $stmt->fetchColumn();
+
         return (false !== $value) ? $value : $defaultValue;
     }
 
@@ -215,6 +217,7 @@ class Repository
     {
         $stmt = $this->query($query, $arguments);
         $values = $stmt->fetch(PDO::FETCH_ASSOC);
+
         return (is_array($values)) ? $values : [];
     }
 

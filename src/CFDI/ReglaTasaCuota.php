@@ -130,9 +130,11 @@ class ReglaTasaCuota implements VigenciasInterface
         if (! (bool) preg_match('/^\d{0,2}(\.\d{0,6})?$/', $valor)) {
             return false;
         }
+
         if (self::TIPO_FIJO === $this->tipo) {
             return $valor === $this->valor;
         }
+
         if (self::TIPO_RANGO === $this->tipo) {
             $delta = 1000000;
             $current = (int) ($delta * $valor);
@@ -141,6 +143,8 @@ class ReglaTasaCuota implements VigenciasInterface
             return ($current >= $min && $current <= $max);
         }
 
-        throw new \LogicException("Don't know how to compare the current rule: " . json_encode($this));
+        throw new \LogicException(
+            "Don't know how to compare the current rule, it is not TIPO_FIJO or TIPO_RANGO"
+        );
     }
 }
