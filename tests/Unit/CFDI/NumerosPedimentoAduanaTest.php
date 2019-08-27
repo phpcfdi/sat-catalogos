@@ -22,7 +22,7 @@ class NumerosPedimentoAduanaTest extends TestCase
 
     public function testObtain()
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
+        /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
         $repository->method('queryRowByFields')->willReturn($this->validRow);
 

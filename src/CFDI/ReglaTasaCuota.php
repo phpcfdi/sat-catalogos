@@ -137,9 +137,9 @@ class ReglaTasaCuota implements VigenciasInterface
 
         if (self::TIPO_RANGO === $this->tipo) {
             $delta = 1000000;
-            $current = (int) ($delta * $valor);
-            $min = (int) ($delta * $this->minimo);
-            $max = (int) ($delta * $this->valor);
+            $current = (int) ($delta * floatval($valor));
+            $min = (int) ($delta * floatval($this->minimo));
+            $max = (int) ($delta * floatval($this->valor));
             return ($current >= $min && $current <= $max);
         }
 

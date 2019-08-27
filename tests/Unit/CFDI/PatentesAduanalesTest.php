@@ -20,7 +20,7 @@ class PatentesAduanalesTest extends TestCase
 
     public function testObtainWithMock()
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
+        /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
         $repository->method('queryById')->willReturn($this->validRow);
 

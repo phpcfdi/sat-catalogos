@@ -1,13 +1,10 @@
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
-         bootstrap="./tests/bootstrap.php"
-         colors="true">
+<phpunit bootstrap="./tests/bootstrap.php" colors="true" verbose="true">
     <testsuites>
-        <testsuite>
+        <testsuite name="Default">
             <directory suffix="Test.php">./tests/</directory>
         </testsuite>
     </testsuites>
-    <!-- exclude composer vendor folder -->
+    <!-- only include source files from code coverage -->
     <filter>
         <whitelist>
             <directory suffix=".php">./src/</directory>

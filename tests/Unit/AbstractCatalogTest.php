@@ -9,11 +9,12 @@ use PhpCfdi\SatCatalogos\CatalogInterface;
 use PhpCfdi\SatCatalogos\EntryInterface;
 use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\Unit\Fixtures\CatalogImplementation;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class AbstractCatalogTest extends TestCase
 {
-    /** @var Repository|\PHPUnit\Framework\MockObject\MockObject $repository */
+    /** @var MockObject&Repository $repository */
     protected $repository;
 
     /** @var CatalogImplementation */
@@ -22,7 +23,7 @@ class AbstractCatalogTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        /** @var Repository|\PHPUnit\Framework\MockObject\MockObject */
+        /** @var MockObject&Repository $repository */
         $repository = $this->createMock(Repository::class);
         $this->repository = $repository;
         $this->catalog = new CatalogImplementation();

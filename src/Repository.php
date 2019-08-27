@@ -234,6 +234,7 @@ class Repository
             return $statement;
         }
 
+        /** @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE */
         $statement = $this->pdo->prepare($query);
         if (false === $statement) {
             throw new \LogicException("Cannot prepare the statement: $query");
