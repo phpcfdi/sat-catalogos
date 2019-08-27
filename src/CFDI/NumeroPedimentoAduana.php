@@ -42,7 +42,7 @@ class NumeroPedimentoAduana implements VigenciasInterface
             throw new SatCatalogosLogicException('El campo ejercicio no puede ser menor a cero');
         }
         if ($cantidad < 0) {
-            throw new SatCatalogosLogicException('El campo ejercicio no puede ser menor a cero');
+            throw new SatCatalogosLogicException('El campo cantidad no puede ser menor a cero');
         }
         $this->aduana = $aduana;
         $this->patente = $patente;
