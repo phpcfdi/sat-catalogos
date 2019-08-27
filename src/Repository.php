@@ -90,19 +90,39 @@ class Repository
         return $data;
     }
 
-    public function queryRowsByFields(string $catalog, array $values, int $limit = 0): array
+    public function queryByIds(string $catalog, array $ids): array
+    {
+        return $this->queryRowsInField($catalog, 'id', $ids);
+    }
+
+    public function queryRowsInField(string $catalog, string $fieldName, array $values): array
+    {
+        $values = array_values($values);
+        $questionMarks = implode(',', array_fill(0, count($values), '?'));
+        $sql = 'select *'
+            . ' from ' . $this->catalogName($catalog)
+            . ' where (' . $this->escapeName($fieldName) . ' IN ' . $questionMarks . ')'
+            . ';';
+        $stmt = $this->query($sql, $values);
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return (is_array($data)) ? $data : [];
+    }
+
+    public function queryRowsByFields(string $catalog, array $values, int $limit = 0, bool $exactSearch = true): array
     {
         $keys = array_keys($values);
-        $sql = 'select * '
+        $operator = ($exactSearch) ? '=' : 'like';
+        $sql = 'select *'
             . ' from ' . $this->catalogName($catalog)
-            . call_user_func(function (array $keys): string {
+            . call_user_func(function (array $keys, string $operator): string {
                 if (count($keys)) {
-                    return ' where ' . implode(' and ', array_map(function ($field) {
-                        return $this->escapeName($field) . ' = :' . $field;
+                    return ' where ' . implode(' and ', array_map(function ($field) use ($operator) {
+                        return '(' . $this->escapeName($field) . ' ' . $operator . ' :' . $field . ')';
                     }, $keys));
                 }
                 return '';
-            }, $keys)
+            }, $keys, $operator)
             . (($limit > 0) ? ' limit ' . $limit : '')
             . ';';
         $stmt = $this->query($sql, $values);

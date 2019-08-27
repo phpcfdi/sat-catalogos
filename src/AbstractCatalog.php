@@ -22,4 +22,35 @@ abstract class AbstractCatalog implements CatalogInterface
     {
         return $this->repository()->existsId($this->catalogName(), $id);
     }
+
+    public function obtainByIds(array $ids): array
+    {
+        return $this->arrayToEntries(
+            $this->repository()->queryByIds($this->catalogName(), $ids)
+        );
+    }
+
+    public function searchByField(string $fieldName, string $search, int $limit = 0): array
+    {
+        $results = $this->repository()->queryRowsByFields(
+            $this->catalogName(),
+            [$fieldName => $search],
+            $limit,
+            false
+        );
+
+        return $this->arrayToEntries($results);
+    }
+
+    public function searchByText(string $search, int $limit = 0): array
+    {
+        return $this->searchByField('texto', $search, $limit);
+    }
+
+    private function arrayToEntries(array $entries): array
+    {
+        return array_map(function (array $data): EntryInterface {
+            return $this->create($data);
+        }, $entries);
+    }
 }
