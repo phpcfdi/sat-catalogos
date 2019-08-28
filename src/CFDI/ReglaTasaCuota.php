@@ -143,6 +143,7 @@ class ReglaTasaCuota implements EntryWithVigencias
             return ($current >= $min && $current <= $max);
         }
 
+        /** @codeCoverageIgnore This is a safeguard since the object cannot be constructed with other type */
         throw new \LogicException(
             "Don't know how to compare the current rule, it is not TIPO_FIJO or TIPO_RANGO"
         );

@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\ReglasTasaCuota;
 use PhpCfdi\SatCatalogos\CFDI\ReglaTasaCuota;
+use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
 class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
@@ -33,6 +34,13 @@ class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
         $rules = $this->reglas->obtainRules('ISR', 'Tasa', ReglasTasaCuota::USO_RETENCION);
         $this->assertCount(1, $rules);
         $this->assertContainsOnlyInstancesOf(ReglaTasaCuota::class, $rules);
+    }
+
+    public function testObtainRulesWithInvalidUso(): void
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage('El campo uso no tiene uno de los valores permitidos');
+        $this->reglas->obtainRules('IVA', 'Tasa', 'invalid');
     }
 
     public function testFindMatchingRule(): void

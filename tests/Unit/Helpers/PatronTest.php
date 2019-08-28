@@ -19,6 +19,7 @@ class PatronTest extends TestCase
 
         $patron = new Patron($origen);
         $this->assertSame($origen, $patron->origen());
+        $this->assertSame($origen, strval($patron));
         $this->assertSame($regularExpression, $patron->expresion());
         $this->assertSame(Patron::VACIO_PERMITE_TODO, $patron->alEstarVacio());
         $this->assertTrue($patron->evalua($correcto));
