@@ -101,7 +101,7 @@ class Repository
         $questionMarks = implode(',', array_fill(0, count($values), '?'));
         $sql = 'select *'
             . ' from ' . $this->catalogName($catalog)
-            . ' where (' . $this->escapeName($fieldName) . ' IN ' . $questionMarks . ')'
+            . ' where ' . $this->escapeName($fieldName) . ' IN (' . $questionMarks . ')'
             . ';';
         $stmt = $this->query($sql, $values);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
