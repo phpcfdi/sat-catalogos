@@ -5,14 +5,10 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit;
 
 use PDO;
-use PDOException;
-use PDOStatement;
-use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
 use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
-use PHPUnit\Framework\MockObject\MockObject;
 
 class RepositoryTest extends UsingTestingDatabaseTestCase
 {
@@ -101,7 +97,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
     public function testThrowExceptionWhenQueryRowByFieldsAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
-        $this->expectExceptionMessage("Cannot found cfdi_paises using (texto, id) with values (Banania, ###)");
+        $this->expectExceptionMessage('Cannot found cfdi_paises using (texto, id) with values (Banania, ###)');
         $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, ['texto' => 'Banania', 'id' => '###']);
     }
 
@@ -111,13 +107,13 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $pdo->exec(sprintf('delete from %s;', Repository::CFDI_PAISES));
 
         $this->expectException(SatCatalogosNotFoundException::class);
-        $this->expectExceptionMessage("Cannot found any cfdi_paises without filter");
+        $this->expectExceptionMessage('Cannot found any cfdi_paises without filter');
         $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, []);
     }
 
     public function testQueryByIds(): void
     {
-        /** @var EntryIdentifiable[] $entries */
+        /** @var array[] $entries */
         $entries = $this->getRepository()->queryByIds(
             Repository::CFDI_PRODUCTOS_SERVICIOS,
             ['10101510', '10101511', '10122101'] // only 10101511 and 10122101 must exists
