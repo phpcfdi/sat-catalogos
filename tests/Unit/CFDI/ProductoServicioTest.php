@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\ProductoServicio;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class ProductoServicioTest extends TestCase
@@ -33,7 +33,7 @@ class ProductoServicioTest extends TestCase
             $vigenteHasta
         );
 
-        $this->assertInstanceOf(EntryInterface::class, $productoServicio);
+        $this->assertInstanceOf(EntryIdentifiable::class, $productoServicio);
         $this->assertSame($id, $productoServicio->id());
         $this->assertSame($texto, $productoServicio->texto());
         $this->assertSame($requiereIvaTrasladado, $productoServicio->requiereIvaTrasladado());

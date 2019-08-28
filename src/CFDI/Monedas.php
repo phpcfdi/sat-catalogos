@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Class Monedas
  * @method Moneda obtain(string $id)
  */
-class Monedas extends AbstractCatalog
+class Monedas extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -23,7 +23,7 @@ class Monedas extends AbstractCatalog
      * @param array $data
      * @return Moneda
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new Moneda(
             $data['id'],

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\TipoFactor;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class TipoFactorTest extends TestCase
@@ -16,7 +16,7 @@ class TipoFactorTest extends TestCase
 
         $tipoFactor = new TipoFactor($id);
 
-        $this->assertInstanceOf(EntryInterface::class, $tipoFactor);
+        $this->assertInstanceOf(EntryIdentifiable::class, $tipoFactor);
         $this->assertSame($id, $tipoFactor->id());
     }
 }

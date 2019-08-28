@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\Aduana;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class AduanaTest extends TestCase
@@ -18,7 +18,7 @@ class AduanaTest extends TestCase
         $vigenteHasta = strtotime('2018-12-31');
 
         $aduana = new Aduana($id, $texto, $vigenteDesde, $vigenteHasta);
-        $this->assertInstanceOf(EntryInterface::class, $aduana);
+        $this->assertInstanceOf(EntryIdentifiable::class, $aduana);
 
         $this->assertSame($id, $aduana->id());
         $this->assertSame($texto, $aduana->texto());

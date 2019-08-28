@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
+use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
+use PhpCfdi\SatCatalogos\Common\EntryWithVigenciasTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
-use PhpCfdi\SatCatalogos\VigenciasInterface;
-use PhpCfdi\SatCatalogos\VigenciasTrait;
 
-class NumeroPedimentoAduana implements VigenciasInterface
+class NumeroPedimentoAduana implements EntryWithVigencias
 {
-    use VigenciasTrait;
+    use EntryWithVigenciasTrait;
 
     /** @var string */
     private $aduana;

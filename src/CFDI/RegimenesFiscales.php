@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Class RegimenesFiscales
  * @method RegimenFiscal obtain(string $id)
  */
-class RegimenesFiscales extends AbstractCatalog
+class RegimenesFiscales extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -23,7 +23,7 @@ class RegimenesFiscales extends AbstractCatalog
      * @param array $data
      * @return RegimenFiscal
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new RegimenFiscal(
             $data['id'],

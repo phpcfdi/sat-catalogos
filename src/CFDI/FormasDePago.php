@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de FormasDePago
  * @method FormaDePago obtain(string $id)
  */
-class FormasDePago extends AbstractCatalog
+class FormasDePago extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -23,7 +23,7 @@ class FormasDePago extends AbstractCatalog
      * @param array $data
      * @return FormaDePago
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new FormaDePago(
             $data['id'],

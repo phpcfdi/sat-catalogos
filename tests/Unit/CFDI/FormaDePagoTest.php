@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\Builders\FormaDePagoBuilder;
 use PhpCfdi\SatCatalogos\CFDI\FormaDePago;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Helpers\Patron;
 use PHPUnit\Framework\TestCase;
 
@@ -50,7 +50,7 @@ class FormaDePagoTest extends TestCase
             $vigenteDesde,
             $vigenteHasta
         );
-        $this->assertInstanceOf(EntryInterface::class, $formaDePago);
+        $this->assertInstanceOf(EntryIdentifiable::class, $formaDePago);
 
         $this->assertSame($id, $formaDePago->id());
         $this->assertSame($texto, $formaDePago->texto());

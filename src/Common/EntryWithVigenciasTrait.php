@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogos;
+namespace PhpCfdi\SatCatalogos\Common;
 
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
-trait VigenciasTrait
+trait EntryWithVigenciasTrait
 {
     /** @var int */
     private $vigenteDesde;

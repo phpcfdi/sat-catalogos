@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\Pais;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\PatronException;
 use PHPUnit\Framework\TestCase;
 
@@ -29,7 +29,7 @@ class PaisTest extends TestCase
             $agrupaciones
         );
 
-        $this->assertInstanceOf(EntryInterface::class, $pais);
+        $this->assertInstanceOf(EntryIdentifiable::class, $pais);
         $this->assertSame($id, $pais->id());
         $this->assertSame($texto, $pais->texto());
         $this->assertSame($patronCodigoPostal, $pais->patronCodigoPostal()->origen());

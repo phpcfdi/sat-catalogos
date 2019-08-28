@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogos;
+namespace PhpCfdi\SatCatalogos\Common;
 
-trait WithRepositoryTrait
+use PhpCfdi\SatCatalogos\Repository;
+
+trait BaseCatalogTrait
 {
     /**
      * @var Repository|null

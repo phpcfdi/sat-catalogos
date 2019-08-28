@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
-class CodigoPostal extends AbstractEntry implements EntryInterface
+class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
     /** @var string */
     private $estado;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\TipoComprobante;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class TipoComprobanteTest extends TestCase
@@ -20,7 +20,7 @@ class TipoComprobanteTest extends TestCase
 
         $tipoComprobante = new TipoComprobante($id, $texto, $valorMaximo, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $tipoComprobante);
+        $this->assertInstanceOf(EntryIdentifiable::class, $tipoComprobante);
         $this->assertSame($id, $tipoComprobante->id());
         $this->assertSame($texto, $tipoComprobante->texto());
         $this->assertSame($valorMaximo, $tipoComprobante->valorMaximo());

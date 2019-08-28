@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogos;
+namespace PhpCfdi\SatCatalogos\Common;
 
-interface EntryInterface extends VigenciasInterface
+interface EntryIdentifiable extends EntryWithVigencias
 {
     public function id(): string;
 

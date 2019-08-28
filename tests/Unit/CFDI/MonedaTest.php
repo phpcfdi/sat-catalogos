@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\Moneda;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
@@ -22,7 +22,7 @@ class MonedaTest extends TestCase
 
         $moneda = new Moneda($id, $texto, $decimales, $porcentajeVariacion, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $moneda);
+        $this->assertInstanceOf(EntryIdentifiable::class, $moneda);
         $this->assertSame($id, $moneda->id());
         $this->assertSame($texto, $moneda->texto());
         $this->assertSame($decimales, $moneda->decimales());

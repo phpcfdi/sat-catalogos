@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\ReglaTasaCuota;
+use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
-use PhpCfdi\SatCatalogos\VigenciasInterface;
 use PHPUnit\Framework\TestCase;
 
 class ReglaTasaCuotaTest extends TestCase
@@ -35,7 +35,7 @@ class ReglaTasaCuotaTest extends TestCase
             $vigenteHasta
         );
 
-        $this->assertInstanceOf(VigenciasInterface::class, $reglaTasaCuota);
+        $this->assertInstanceOf(EntryWithVigencias::class, $reglaTasaCuota);
 
         $this->assertSame($tipo, $reglaTasaCuota->tipo());
         $this->assertSame($impuesto, $reglaTasaCuota->impuesto());

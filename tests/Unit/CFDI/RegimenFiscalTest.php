@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\RegimenFiscal;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class RegimenFiscalTest extends TestCase
@@ -21,7 +21,7 @@ class RegimenFiscalTest extends TestCase
 
         $regimenFiscal = new RegimenFiscal($id, $texto, $aplicaFisica, $aplicaMoral, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $regimenFiscal);
+        $this->assertInstanceOf(EntryIdentifiable::class, $regimenFiscal);
         $this->assertSame($id, $regimenFiscal->id());
         $this->assertSame($texto, $regimenFiscal->texto());
         $this->assertSame($aplicaFisica, $regimenFiscal->aplicaFisica());

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\CodigoPostal;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +23,7 @@ class CodigoPostalTest extends TestCase
 
         $codigoPostal = new CodigoPostal($id, $estado, $municipio, $localidad);
 
-        $this->assertInstanceOf(EntryInterface::class, $codigoPostal);
+        $this->assertInstanceOf(EntryIdentifiable::class, $codigoPostal);
         $this->assertSame($id, $codigoPostal->id());
         $this->assertSame($texto, $codigoPostal->texto());
         $this->assertSame($estado, $codigoPostal->estado());

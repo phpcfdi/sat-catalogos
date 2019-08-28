@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
-class TipoRelacion extends AbstractEntry implements EntryInterface
+class TipoRelacion extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
 }

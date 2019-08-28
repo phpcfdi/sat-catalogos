@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogos;
+namespace PhpCfdi\SatCatalogos\Common;
 
-interface VigenciasInterface
+interface EntryWithVigencias extends BaseEntry
 {
     public function vigenteDesde(): int;
 

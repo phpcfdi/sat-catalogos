@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\ClaveUnidad;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class ClaveUnidadTest extends TestCase
@@ -22,7 +22,7 @@ class ClaveUnidadTest extends TestCase
 
         $claveUnidad = new ClaveUnidad($id, $texto, $descripcion, $nota, $simbolo, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $claveUnidad);
+        $this->assertInstanceOf(EntryIdentifiable::class, $claveUnidad);
         $this->assertSame($id, $claveUnidad->id());
         $this->assertSame($texto, $claveUnidad->texto());
         $this->assertSame($descripcion, $claveUnidad->descripcion());

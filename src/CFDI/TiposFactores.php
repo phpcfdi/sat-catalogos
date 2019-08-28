@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Class TiposFactores
  * @method TipoFactor obtain(string $id)
  */
-class TiposFactores extends AbstractCatalog
+class TiposFactores extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -23,7 +23,7 @@ class TiposFactores extends AbstractCatalog
      * @param array $data
      * @return TipoFactor
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new TipoFactor(
             $data['id']

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -16,7 +16,7 @@ use PhpCfdi\SatCatalogos\Repository;
  * @method ProductoServicio[] searchByText(string $search, int $limit = 0): array;
  * @method ProductoServicio[] searchByField(string $fieldName, string $search, int $limit = 0): array;
  */
-class ProductosServicios extends AbstractCatalog
+class ProductosServicios extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -27,7 +27,7 @@ class ProductosServicios extends AbstractCatalog
      * @param array $data
      * @return ProductoServicio
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new ProductoServicio(
             $data['id'],

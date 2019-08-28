@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\PatenteAduanal;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class PatenteAduanalTest extends TestCase
@@ -19,7 +19,7 @@ class PatenteAduanalTest extends TestCase
 
         $patenteAduanal = new PatenteAduanal($id, $texto, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $patenteAduanal);
+        $this->assertInstanceOf(EntryIdentifiable::class, $patenteAduanal);
         $this->assertSame($id, $patenteAduanal->id());
         $this->assertSame($texto, $patenteAduanal->texto());
         $this->assertSame($vigenteDesde, $patenteAduanal->vigenteDesde());

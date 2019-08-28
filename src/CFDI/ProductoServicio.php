@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
-class ProductoServicio extends AbstractEntry implements EntryInterface
+class ProductoServicio extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
     /** @var bool */
     private $requiereIvaTrasladado;

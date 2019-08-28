@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\UsoCfdi;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class UsoCfdiTest extends TestCase
@@ -21,7 +21,7 @@ class UsoCfdiTest extends TestCase
 
         $usoCfdi = new UsoCfdi($id, $texto, $aplicaFisica, $aplicaMoral, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $usoCfdi);
+        $this->assertInstanceOf(EntryIdentifiable::class, $usoCfdi);
         $this->assertSame($id, $usoCfdi->id());
         $this->assertSame($texto, $usoCfdi->texto());
         $this->assertSame($aplicaFisica, $usoCfdi->aplicaFisica());

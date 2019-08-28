@@ -11,6 +11,7 @@ class FormaDePagoBuilder
     public function make(string $id, array $values): FormaDePago
     {
         unset($values['id']);
+        // the order of the arguments **must** be the same as in FormaDePago constructor
         $defaults = [
             'id' => $id,
             'texto' => $id,

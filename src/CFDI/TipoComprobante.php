@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
 
-class TipoComprobante extends AbstractEntry
+class TipoComprobante extends AbstractEntryIdentifiable
 {
     /** @var string */
     private $valorMaximo;

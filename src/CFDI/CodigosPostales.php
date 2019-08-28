@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de CodigosPostales
  */
-class CodigosPostales extends AbstractCatalog
+class CodigosPostales extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -22,7 +22,7 @@ class CodigosPostales extends AbstractCatalog
      * @param array $data
      * @return CodigoPostal
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new CodigoPostal($data['id'], $data['estado'], $data['municipio'], $data['localidad']);
     }
@@ -31,7 +31,7 @@ class CodigosPostales extends AbstractCatalog
      * @param string $id
      * @return CodigoPostal
      */
-    public function obtain(string $id): EntryInterface
+    public function obtain(string $id): EntryIdentifiable
     {
         /*
          * Caso especial, el registro no existe en la tabla de códigos postales

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogos;
+namespace PhpCfdi\SatCatalogos\Common;
 
-abstract class AbstractCatalog implements CatalogInterface
+abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
 {
-    use WithRepositoryTrait;
+    use BaseCatalogTrait;
 
-    abstract public function create(array $data): EntryInterface;
+    abstract public function create(array $data): EntryIdentifiable;
 
     abstract protected function catalogName(): string;
 
-    public function obtain(string $id): EntryInterface
+    public function obtain(string $id): EntryIdentifiable
     {
         $data = $this->repository()->queryById($this->catalogName(), $id);
         return $this->create($data);
@@ -49,7 +49,7 @@ abstract class AbstractCatalog implements CatalogInterface
 
     private function arrayToEntries(array $entries): array
     {
-        return array_map(function (array $data): EntryInterface {
+        return array_map(function (array $data): EntryIdentifiable {
             return $this->create($data);
         }, $entries);
     }

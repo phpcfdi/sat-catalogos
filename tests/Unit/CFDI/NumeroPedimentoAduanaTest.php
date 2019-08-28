@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\NumeroPedimentoAduana;
+use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
-use PhpCfdi\SatCatalogos\VigenciasInterface;
 use PHPUnit\Framework\TestCase;
 
 class NumeroPedimentoAduanaTest extends TestCase
@@ -29,7 +29,7 @@ class NumeroPedimentoAduanaTest extends TestCase
             $vigenteHasta
         );
 
-        $this->assertInstanceOf(VigenciasInterface::class, $numeroPedimentoAduana);
+        $this->assertInstanceOf(EntryWithVigencias::class, $numeroPedimentoAduana);
 
         $this->assertSame($aduana, $numeroPedimentoAduana->aduana());
         $this->assertSame($patente, $numeroPedimentoAduana->patente());

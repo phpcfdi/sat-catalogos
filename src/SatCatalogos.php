@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos;
 
+use PhpCfdi\SatCatalogos\Common\BaseCatalog;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
 /**
@@ -55,7 +56,7 @@ class SatCatalogos
 
     /**
      * @param string $propertyName
-     * @return WithRepositoryInterface|null
+     * @return BaseCatalog|null
      */
     protected function create(string $propertyName)
     {
@@ -64,10 +65,10 @@ class SatCatalogos
             if (! class_exists($className)) {
                 continue;
             }
-            if (! in_array(WithRepositoryInterface::class, class_implements($className), true)) {
+            if (! in_array(BaseCatalog::class, class_implements($className), true)) {
                 continue;
             }
-            /** @var WithRepositoryInterface $object */
+            /** @var BaseCatalog $object */
             $object = new $className();
             $object->withRepository($this->container['repository']);
             return $object;

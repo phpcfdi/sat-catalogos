@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
 
-class Impuesto extends AbstractEntry
+class Impuesto extends AbstractEntryIdentifiable
 {
     /** @var bool */
     private $retencion;
