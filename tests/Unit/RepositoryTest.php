@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit;
 
+use PDO;
+use PDOException;
+use PDOStatement;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
 use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class RepositoryTest extends UsingTestingDatabaseTestCase
 {
@@ -38,6 +43,36 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->getRepository()->queryById('foo_bar_baz', '');
     }
 
+    public function providerQueryThrowExceptionWhenStatementPrepareFails(): array
+    {
+        return [
+            'PDO::ERRMODE_SILENT' => [PDO::ERRMODE_SILENT],
+            'PDO::ERRMODE_WARNING' => [PDO::ERRMODE_WARNING],
+            'PDO::ERRMODE_EXCEPTION' => [PDO::ERRMODE_EXCEPTION],
+        ];
+    }
+
+    /**
+     * @param int $mode
+     * @dataProvider providerQueryThrowExceptionWhenStatementPrepareFails
+     */
+    public function testQueryThrowExceptionWhenStatementPrepareFails(int $mode): void
+    {
+        /*
+         * This test produces the error on query by id to CFDI_NUMEROS_PEDIMENTO_ADUANA
+         * since the table does not contains id
+         */
+        $pdo = new PDO('sqlite::memory:', '', '', [
+            PDO::ATTR_ERRMODE => $mode,
+        ]);
+        $this->seedPdo($pdo);
+        $repository = new Repository($pdo);
+
+        $this->expectException(\LogicException::class);
+        $this->expectExceptionMessage('Cannot prepare the statement');
+        $repository->queryById(Repository::CFDI_NUMEROS_PEDIMENTO_ADUANA, 'foo');
+    }
+
     public function testThrowExceptionWhenQueryByIdAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
@@ -56,10 +91,39 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->assertArraySubset($expected, $data);
     }
 
-    public function testThrowExceptionWhenQueryRowByFieldsAndNotFound(): void
+    public function testThrowExceptionWhenQueryRowByFieldAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
         $this->expectExceptionMessage("Cannot found cfdi_paises using texto 'Banania'");
         $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, ['texto' => 'Banania']);
+    }
+
+    public function testThrowExceptionWhenQueryRowByFieldsAndNotFound(): void
+    {
+        $this->expectException(SatCatalogosNotFoundException::class);
+        $this->expectExceptionMessage("Cannot found cfdi_paises using (texto, id) with values (Banania, ###)");
+        $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, ['texto' => 'Banania', 'id' => '###']);
+    }
+
+    public function testThrowExceptionWhenQueryRowByFieldsWithoutFilter(): void
+    {
+        $pdo = $this->getPdo();
+        $pdo->exec(sprintf('delete from %s;', Repository::CFDI_PAISES));
+
+        $this->expectException(SatCatalogosNotFoundException::class);
+        $this->expectExceptionMessage("Cannot found any cfdi_paises without filter");
+        $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, []);
+    }
+
+    public function testQueryByIds(): void
+    {
+        /** @var EntryIdentifiable[] $entries */
+        $entries = $this->getRepository()->queryByIds(
+            Repository::CFDI_PRODUCTOS_SERVICIOS,
+            ['10101510', '10101511', '10122101'] // only 10101511 and 10122101 must exists
+        );
+        $this->assertCount(2, $entries);
+        $this->assertSame('10101511', $entries[0]['id']);
+        $this->assertSame('10122101', $entries[1]['id']);
     }
 }

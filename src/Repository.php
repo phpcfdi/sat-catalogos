@@ -165,10 +165,7 @@ class Repository
         $sql = 'select count(*) '
             . ' from ' . $this->catalogName($catalog)
             . ' where (id = :id);';
-        if (null === $value = $this->queryValue($sql, ['id' => $id])) {
-            throw new SatCatalogosLogicException("Cannot check if exists '$id' inside $catalog");
-        }
-
+        $value = $this->queryValue($sql, ['id' => $id], 0);
         return (1 === (int) $value);
     }
 
@@ -197,11 +194,7 @@ class Repository
     private function query(string $query, array $arguments = [], string $exceptionMessage = ''): PDOStatement
     {
         $statement = $this->statement($query);
-        if (! $statement->execute($arguments)) {
-            $exceptionMessage = $exceptionMessage ? : 'Error retrieving data from database';
-            throw new PDOException($exceptionMessage);
-        }
-
+        $statement->execute($arguments);
         return $statement;
     }
 
@@ -234,8 +227,12 @@ class Repository
             return $statement;
         }
 
-        /** @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE */
-        $statement = $this->pdo->prepare($query);
+        try {
+            /** @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE */
+            $statement = @$this->pdo->prepare($query);
+        } catch (PDOException $exception) {
+            throw new \LogicException("Cannot prepare the statement: $query", 0, $exception);
+        }
         if (false === $statement) {
             throw new \LogicException("Cannot prepare the statement: $query");
         }
