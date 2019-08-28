@@ -1,3 +1,5 @@
+# Información general de catálogos
+
 Los catálogos del CFDI versión 3.3 son publicados en
 <https://www.sat.gob.mx/consultas/35025/formato-de-factura-electronica-(anexo-20)> y
 <http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20_version3-3.htm>
@@ -19,8 +21,7 @@ El archivo principal `catCFDI.xls` de los catálogos está en
 <http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI.xls>
 y está en formato xls (BIFF 8 / MS Excel 97).
 
-
-# Origen de catálogos:
+## Origen de catálogos:
 
 - CFDI
     * Catálogos base.
