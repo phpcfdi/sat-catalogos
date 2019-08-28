@@ -188,10 +188,9 @@ class Repository
      * with the corresponding message (if working on silent mode)
      * @param string $query
      * @param array $arguments
-     * @param string $exceptionMessage
      * @return PDOStatement
      */
-    private function query(string $query, array $arguments = [], string $exceptionMessage = ''): PDOStatement
+    private function query(string $query, array $arguments = []): PDOStatement
     {
         $statement = $this->statement($query);
         $statement->execute($arguments);
