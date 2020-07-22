@@ -232,6 +232,9 @@ class Repository
     }
 
     /**
+     * Get one and only one value after executing a query.
+     * NOTICE: Do not use this function for boolean values
+     *
      * @param string $query
      * @param mixed[] $arguments
      * @param mixed $defaultValue
@@ -240,7 +243,7 @@ class Repository
     private function queryValue(string $query, array $arguments = [], $defaultValue = null)
     {
         $stmt = $this->query($query, $arguments);
-        $value = $stmt->fetchColumn();
+        $value = $stmt->fetchColumn(0);
 
         return (false !== $value) ? $value : $defaultValue;
     }
