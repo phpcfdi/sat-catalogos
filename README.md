@@ -33,8 +33,10 @@ desde el proyecto [phpcfdi/resources-sat-catalogs](https://github.com/phpcfdi/re
 
 ```php
 <?php
+declare(strict_types=1);
+use PhpCfdi\SatCatalogos\Factory;
 $dsn = sprintf('sqlite://%s/catalogos.db', __DIR__);
-$factory = new \PhpCfdi\SatCatalogos\Factory();
+$factory = new Factory();
 $satCatalogos = $factory->catalogosFromDsn($dsn);
 $aduanas = $satCatalogos->aduanas();
 $aduana = $aduanas->obtain('24');
