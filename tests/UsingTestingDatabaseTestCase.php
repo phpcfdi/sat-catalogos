@@ -19,11 +19,20 @@ class UsingTestingDatabaseTestCase extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->pdo = new PDO('sqlite::memory:', '', '', [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        ]);
-        $this->repository = new Repository($this->pdo);
-        $this->seedPdo($this->pdo);
+        $dbfile = realpath(__DIR__ . '/catalogos.sqlite3') ?: '';
+        if ('' !== $dbfile && file_exists($dbfile) && ! is_dir($dbfile)) {
+            $pdo = new PDO('sqlite:' . $dbfile, '', '', [
+                PDO::SQLITE_ATTR_OPEN_FLAGS => SQLITE3_OPEN_READONLY,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            ]);
+        } else {
+            $pdo = new PDO('sqlite::memory:', '', '', [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            ]);
+            $this->seedPdo($pdo);
+        }
+        $this->pdo = $pdo;
+        $this->repository = new Repository($pdo);
     }
 
     public function getPdo(): PDO
