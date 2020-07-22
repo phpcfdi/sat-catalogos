@@ -11,11 +11,12 @@ use PHPUnit\Framework\TestCase;
 
 class AduanasTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'id' => '24',
         'texto' => 'NUEVO LAREDO',
         'vigencia_desde' => '2017-01-01',
-        'vigencia_hasta' => '',
+        'vigencia_hasta' => 0,
     ];
 
     public function testObtain(): void

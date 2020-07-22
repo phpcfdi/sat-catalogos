@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit;
 
+use LogicException;
 use PDO;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
@@ -65,7 +66,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->seedPdo($pdo);
         $repository = new Repository($pdo);
 
-        $this->expectException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $this->expectExceptionMessage('Cannot prepare the statement');
         $repository->queryById(Repository::CFDI_NUMEROS_PEDIMENTO_ADUANA, 'foo');
     }

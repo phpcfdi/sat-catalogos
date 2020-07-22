@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\Common;
 
+use LogicException;
 use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\Fixtures\BaseCatalogTraitImplementation;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -37,7 +38,7 @@ class BaseCatalogTest extends TestCase
         $catalog = new BaseCatalogTraitImplementation();
         $catalog->withRepository($repository);
 
-        $this->expectException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $this->expectExceptionMessage('already contains a repository');
         /** @var Repository&MockObject $otherRepository */
         $otherRepository = $this->createMock(Repository::class);
@@ -48,7 +49,7 @@ class BaseCatalogTest extends TestCase
     {
         $catalog = new BaseCatalogTraitImplementation();
 
-        $this->expectException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $this->expectExceptionMessage('does not contains a repository');
         $catalog->repository();
     }

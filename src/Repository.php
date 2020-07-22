@@ -272,7 +272,10 @@ class Repository
         }
 
         try {
-            /** @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE */
+            /**
+             * @noinspection PhpUsageOfSilenceOperatorInspection
+             * @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE
+             */
             $statement = @$this->pdo->prepare($query);
         } catch (PDOException $exception) {
             throw new LogicException("Cannot prepare the statement: $query", 0, $exception);

@@ -44,9 +44,10 @@ class ReglasTasaCuota implements BaseCatalog
             $uso => true,
         ];
 
-        /** @var ReglaTasaCuota[] $rules */
         $rules = array_map(
-            [$this, 'createRule'],
+            function (array $data): ReglaTasaCuota {
+                return $this->createRule($data);
+            },
             $this->repository()->queryRowsByFields(Repository::CFDI_REGLAS_TASA_CUOTA, $filters)
         );
 
