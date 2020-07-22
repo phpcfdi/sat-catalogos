@@ -10,6 +10,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
 use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class RepositoryTest extends UsingTestingDatabaseTestCase
 {
@@ -105,12 +106,16 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
 
     public function testThrowExceptionWhenQueryRowByFieldsWithoutFilter(): void
     {
-        $pdo = $this->getPdo();
-        $pdo->exec(sprintf('delete from %s;', Repository::CFDI_PAISES));
+        /** @var Repository&MockObject $repository */
+        $repository = $this->getMockBuilder(Repository::class)
+            ->disableOriginalConstructor()
+            ->setMethodsExcept(['queryRowByFields'])
+            ->getMock();
+        $repository->method('queryRowsByFields')->willReturn([]);
 
         $this->expectException(SatCatalogosNotFoundException::class);
         $this->expectExceptionMessage('Cannot found any cfdi_paises without filter');
-        $this->getRepository()->queryRowByFields(Repository::CFDI_PAISES, []);
+        $repository->queryRowByFields(Repository::CFDI_PAISES, []);
     }
 
     public function testQueryByIds(): void
@@ -118,7 +123,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         /** @var array[] $entries */
         $entries = $this->getRepository()->queryByIds(
             Repository::CFDI_PRODUCTOS_SERVICIOS,
-            ['10101510', '10101511', '10122101'] // only 10101511 and 10122101 must exists
+            ['10101511', '10109999', '10122101'] // only 10101511 and 10122101 must exists
         );
         $this->assertCount(2, $entries);
         $this->assertSame('10101511', $entries[0]['id']);

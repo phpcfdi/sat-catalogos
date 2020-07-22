@@ -156,8 +156,8 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentPatenteAduanal(): void
     {
-        $patenteAduanal = $this->satCatalogos->patentesAduanales()->obtain('0000');
-        $this->assertSame('0000', $patenteAduanal->id());
+        $patenteAduanal = $this->satCatalogos->patentesAduanales()->obtain('9039');
+        $this->assertSame('9039', $patenteAduanal->id());
     }
 
     public function testCanObtainExistentTipoComprobante(): void
@@ -168,7 +168,8 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testSearchProductosServicios(): void
     {
+        // seed database has 2 records, real database has more than 2
         $searchResults = $this->satCatalogos->productosServicios()->searchByText('%cerdo%');
-        $this->assertCount(2, $searchResults);
+        $this->assertGreaterThanOrEqual(2, count($searchResults));
     }
 }
