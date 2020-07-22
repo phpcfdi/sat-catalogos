@@ -16,7 +16,7 @@ Esta librería permite usar los catálogos del SAT para CFDI version 3.3 publica
 Los catálogos no solo son los que se publican directamente para CFDI, también están los catálogos de los complementos
 y los complementos de conceptos.
 
-Consulte el [wiki][] para mayor información.
+Vea la [Información general de catálogos](docs/Catalogos.md) para mayor información.
 
 ## Instalación
 
