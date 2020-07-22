@@ -28,7 +28,7 @@ class AduanasTest extends TestCase
         $aduanas->withRepository($repository);
 
         $aduana = $aduanas->obtain('24');
-        $this->assertContains('LAREDO', $aduana->texto());
+        $this->assertStringContainsString('LAREDO', $aduana->texto());
     }
 
     public function testCreate(): void

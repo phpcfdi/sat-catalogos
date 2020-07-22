@@ -26,7 +26,7 @@ class AduanasTest extends UsingTestingDatabaseTestCase
         $aduana = $this->aduanas->obtain('24');
 
         $this->assertSame('24', $aduana->id());
-        $this->assertContains('NUEVO LAREDO', $aduana->texto());
+        $this->assertStringContainsString('NUEVO LAREDO', $aduana->texto());
         $this->assertSame('2017-01-01', date('Y-m-d', $aduana->vigenteDesde()));
         $this->assertSame(0, $aduana->vigenteHasta());
     }

@@ -29,7 +29,7 @@ class PatentesAduanalesTest extends TestCase
         $patentesAduanales->withRepository($repository);
 
         $patenteAduanal = $patentesAduanales->obtain('0000');
-        $this->assertContains('0000', $patenteAduanal->texto());
+        $this->assertStringContainsString('0000', $patenteAduanal->texto());
     }
 
     public function testCreate(): void

@@ -16,7 +16,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
     {
         $data = $this->getRepository()->queryById(Repository::CFDI_ADUANAS, '24');
 
-        $this->assertInternalType('array', $data);
+        $this->assertIsArray($data);
         $this->assertArrayHasKey('id', $data);
         $this->assertArrayHasKey('texto', $data);
         $this->assertArrayHasKey('vigencia_desde', $data);
@@ -39,6 +39,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->getRepository()->queryById('foo_bar_baz', '');
     }
 
+    /** @return array<array<int>> */
     public function providerQueryThrowExceptionWhenStatementPrepareFails(): array
     {
         return [
@@ -84,7 +85,7 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
             'id' => 'MEX',
             'texto' => 'México',
         ];
-        $this->assertArraySubset($expected, $data);
+        $this->assertEquals($expected, array_intersect_key($data, $expected));
     }
 
     public function testThrowExceptionWhenQueryRowByFieldAndNotFound(): void
