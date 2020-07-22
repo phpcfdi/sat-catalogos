@@ -24,6 +24,9 @@ class ProductoServicio extends AbstractEntryIdentifiable implements EntryIdentif
     /** @var string */
     private $similares;
 
+    /** @var bool */
+    private $estimuloFrontera;
+
     public function __construct(
         string $id,
         string $texto,
@@ -31,6 +34,7 @@ class ProductoServicio extends AbstractEntryIdentifiable implements EntryIdentif
         bool $requiereIepsTrasladado,
         string $complemento,
         string $similares,
+        bool $estimuloFrontera,
         int $vigenteDesde,
         int $vigenteHasta
     ) {
@@ -40,6 +44,7 @@ class ProductoServicio extends AbstractEntryIdentifiable implements EntryIdentif
         $this->requiereComplemento = ('' !== $complemento);
         $this->complemento = $complemento;
         $this->similares = $similares;
+        $this->estimuloFrontera = $estimuloFrontera;
     }
 
     public function requiereIvaTrasladado(): bool
@@ -65,5 +70,10 @@ class ProductoServicio extends AbstractEntryIdentifiable implements EntryIdentif
     public function similares(): string
     {
         return $this->similares;
+    }
+
+    public function estimuloFrontera(): bool
+    {
+        return $this->estimuloFrontera;
     }
 }

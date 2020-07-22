@@ -21,6 +21,7 @@ class ProductoServicioTest extends TestCase
         $similares = 'Cerdo montés, Chanchos, Chanchos almizcleros';
         $vigenteDesde = strtotime('2017-01-01');
         $vigenteHasta = 0;
+        $estimuloFrontera = true;
 
         $productoServicio = new ProductoServicio(
             $id,
@@ -29,6 +30,7 @@ class ProductoServicioTest extends TestCase
             $requiereIepsTrasladado,
             $complemento,
             $similares,
+            $estimuloFrontera,
             $vigenteDesde,
             $vigenteHasta
         );
@@ -41,6 +43,7 @@ class ProductoServicioTest extends TestCase
         $this->assertSame($requiereComplemento, $productoServicio->requiereComplemento());
         $this->assertSame($complemento, $productoServicio->complemento());
         $this->assertSame($similares, $productoServicio->similares());
+        $this->assertSame($estimuloFrontera, $productoServicio->estimuloFrontera());
         $this->assertSame($vigenteDesde, $productoServicio->vigenteDesde());
         $this->assertSame($vigenteHasta, $productoServicio->vigenteHasta());
     }
@@ -52,7 +55,7 @@ class ProductoServicioTest extends TestCase
      */
     public function testPropertyRequiereIvaTrasladado(bool $requiereIvaTrasladado): void
     {
-        $productoServicio = new ProductoServicio('x', 'x', $requiereIvaTrasladado, false, '', '', 0, 0);
+        $productoServicio = new ProductoServicio('x', 'x', $requiereIvaTrasladado, false, '', '', false, 0, 0);
 
         $this->assertSame($requiereIvaTrasladado, $productoServicio->requiereIvaTrasladado());
     }
@@ -64,7 +67,7 @@ class ProductoServicioTest extends TestCase
      */
     public function testPropertyRequiereIepsTrasladado(bool $requiereIepsTrasladado): void
     {
-        $productoServicio = new ProductoServicio('x', 'x', false, $requiereIepsTrasladado, '', '', 0, 0);
+        $productoServicio = new ProductoServicio('x', 'x', false, $requiereIepsTrasladado, '', '', false, 0, 0);
 
         $this->assertSame($requiereIepsTrasladado, $productoServicio->requiereIepsTrasladado());
     }
@@ -77,8 +80,19 @@ class ProductoServicioTest extends TestCase
      */
     public function testPropertyRequiereComplemento(bool $expectedValue, string $complemento): void
     {
-        $productoServicio = new ProductoServicio('x', 'x', false, false, $complemento, '', 0, 0);
+        $productoServicio = new ProductoServicio('x', 'x', false, false, $complemento, '', false, 0, 0);
 
         $this->assertSame($expectedValue, $productoServicio->requiereComplemento());
+    }
+
+    /**
+     * @param bool $estimuloFrontera
+     * @testWith [true]
+     *           [false]
+     */
+    public function testPropertyEstimuloFrontera(bool $estimuloFrontera): void
+    {
+        $productoServicio = new ProductoServicio('x', 'x', false, false, '', '', $estimuloFrontera, 0, 0);
+        $this->assertSame($estimuloFrontera, $productoServicio->estimuloFrontera());
     }
 }
