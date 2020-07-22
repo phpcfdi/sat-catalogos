@@ -78,6 +78,12 @@ class ReglasTasaCuota implements BaseCatalog
         return (null !== $this->findMatchingRule($impuesto, $factor, $uso, $valor));
     }
 
+    /**
+     * Create a ReglaTasaCuota based on the array values
+     *
+     * @param array<string, mixed> $data
+     * @return ReglaTasaCuota
+     */
     public function createRule(array $data): ReglaTasaCuota
     {
         return new ReglaTasaCuota(

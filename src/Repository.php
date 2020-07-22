@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos;
 
+use LogicException;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -77,6 +78,11 @@ class Repository
         $this->pdo = $pdo;
     }
 
+    /**
+     * @param string $catalog
+     * @param string $id
+     * @return array<string, mixed>
+     */
     public function queryById(string $catalog, string $id): array
     {
         $sql = 'select *'
@@ -90,11 +96,22 @@ class Repository
         return $data;
     }
 
+    /**
+     * @param string $catalog
+     * @param string[] $ids
+     * @return array<array<string, mixed>>
+     */
     public function queryByIds(string $catalog, array $ids): array
     {
         return $this->queryRowsInField($catalog, 'id', $ids);
     }
 
+    /**
+     * @param string $catalog
+     * @param string $fieldName
+     * @param mixed[] $values
+     * @return array<int, array<string, mixed>>
+     */
     public function queryRowsInField(string $catalog, string $fieldName, array $values): array
     {
         $values = array_values($values);
@@ -109,6 +126,13 @@ class Repository
         return (is_array($data)) ? $data : [];
     }
 
+    /**
+     * @param string $catalog
+     * @param array<string, mixed> $values
+     * @param int $limit
+     * @param bool $exactSearch
+     * @return array<int, array<string, mixed>>
+     */
     public function queryRowsByFields(string $catalog, array $values, int $limit = 0, bool $exactSearch = true): array
     {
         $keys = array_keys($values);
@@ -130,6 +154,11 @@ class Repository
         return (is_array($data)) ? $data : [];
     }
 
+    /**
+     * @param string $catalog
+     * @param array<string, mixed> $values
+     * @return array<string, mixed>
+     */
     public function queryRowByFields(string $catalog, array $values): array
     {
         $data = $this->queryRowsByFields($catalog, $values, 1);
@@ -140,7 +169,12 @@ class Repository
         return $data[0];
     }
 
-    private function createSatCatalogosNotFoundException(string $catalog, array $values)
+    /**
+     * @param string $catalog
+     * @param array<string, mixed> $values
+     * @return SatCatalogosNotFoundException
+     */
+    private function createSatCatalogosNotFoundException(string $catalog, array $values): SatCatalogosNotFoundException
     {
         $valuesCount = count($values);
         $keys = array_keys($values);
@@ -187,7 +221,7 @@ class Repository
      * Execute a sql statement, it will use the preparedStatements cache, set the arguments and throw an exception
      * with the corresponding message (if working on silent mode)
      * @param string $query
-     * @param array $arguments
+     * @param mixed[] $arguments
      * @return PDOStatement
      */
     private function query(string $query, array $arguments = []): PDOStatement
@@ -197,6 +231,12 @@ class Repository
         return $statement;
     }
 
+    /**
+     * @param string $query
+     * @param mixed[] $arguments
+     * @param mixed $defaultValue
+     * @return mixed
+     */
     private function queryValue(string $query, array $arguments = [], $defaultValue = null)
     {
         $stmt = $this->query($query, $arguments);
@@ -205,6 +245,11 @@ class Repository
         return (false !== $value) ? $value : $defaultValue;
     }
 
+    /**
+     * @param string $query
+     * @param mixed[] $arguments
+     * @return array<string, mixed>
+     */
     private function queryRow(string $query, array $arguments = []): array
     {
         $stmt = $this->query($query, $arguments);
@@ -230,10 +275,10 @@ class Repository
             /** @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE */
             $statement = @$this->pdo->prepare($query);
         } catch (PDOException $exception) {
-            throw new \LogicException("Cannot prepare the statement: $query", 0, $exception);
+            throw new LogicException("Cannot prepare the statement: $query", 0, $exception);
         }
         if (false === $statement) {
-            throw new \LogicException("Cannot prepare the statement: $query");
+            throw new LogicException("Cannot prepare the statement: $query");
         }
         $this->statements[$query] = $statement;
 

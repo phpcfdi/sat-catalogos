@@ -20,7 +20,7 @@ class Impuestos extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return Impuesto
      */
     public function create(array $data): EntryIdentifiable

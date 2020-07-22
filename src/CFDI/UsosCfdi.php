@@ -20,7 +20,7 @@ class UsosCfdi extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return UsoCfdi
      */
     public function create(array $data): EntryIdentifiable

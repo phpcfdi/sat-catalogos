@@ -20,7 +20,7 @@ class TiposFactores extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return TipoFactor
      */
     public function create(array $data): EntryIdentifiable

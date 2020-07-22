@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class PatentesAduanalesTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'id' => '0000',
         'texto' => '0000',

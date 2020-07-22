@@ -20,7 +20,7 @@ class ClavesUnidades extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return ClaveUnidad
      */
     public function create(array $data): EntryIdentifiable

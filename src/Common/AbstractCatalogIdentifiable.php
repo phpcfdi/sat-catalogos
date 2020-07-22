@@ -8,6 +8,10 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
 {
     use BaseCatalogTrait;
 
+    /**
+     * @param array<string, mixed> $data
+     * @return EntryIdentifiable
+     */
     abstract public function create(array $data): EntryIdentifiable;
 
     abstract protected function catalogName(): string;
@@ -23,6 +27,10 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
         return $this->repository()->existsId($this->catalogName(), $id);
     }
 
+    /**
+     * @param string[] $ids
+     * @return EntryIdentifiable[]
+     */
     public function obtainByIds(array $ids): array
     {
         return $this->arrayToEntries(
@@ -47,6 +55,10 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
         return $this->searchByField('texto', $search, $limit);
     }
 
+    /**
+     * @param array<array<string, mixed>> $entries
+     * @return EntryIdentifiable[]
+     */
     private function arrayToEntries(array $entries): array
     {
         return array_map(function (array $data): EntryIdentifiable {

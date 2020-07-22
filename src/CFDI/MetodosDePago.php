@@ -20,7 +20,7 @@ class MetodosDePago extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return MetodoDePago
      */
     public function create(array $data): EntryIdentifiable

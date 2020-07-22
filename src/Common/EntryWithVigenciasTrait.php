@@ -36,12 +36,12 @@ trait EntryWithVigenciasTrait
         return $this->vigenteHasta;
     }
 
-    public function vigenteEn(int $time): bool
+    public function vigenteEn(int $timestamp): bool
     {
-        if (0 !== $this->vigenteDesde && $time < $this->vigenteDesde) {
+        if (0 !== $this->vigenteDesde && $timestamp < $this->vigenteDesde) {
             return false;
         }
-        if (0 !== $this->vigenteHasta && $time > $this->vigenteHasta) {
+        if (0 !== $this->vigenteHasta && $timestamp > $this->vigenteHasta) {
             return false;
         }
         return true;

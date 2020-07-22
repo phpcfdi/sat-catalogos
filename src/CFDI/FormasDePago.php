@@ -20,7 +20,7 @@ class FormasDePago extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return FormaDePago
      */
     public function create(array $data): EntryIdentifiable

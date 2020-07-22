@@ -12,7 +12,12 @@ use PHPUnit\Framework\TestCase;
 
 class FormaDePagoTest extends TestCase
 {
-    protected function makeFormaDePago(array $values, string $id = 'foo')
+    /**
+     * @param array<string, mixed> $values
+     * @param string $id
+     * @return FormaDePago
+     */
+    protected function makeFormaDePago(array $values, string $id = 'foo'): FormaDePago
     {
         return (new FormaDePagoBuilder())->make($id, $values);
     }

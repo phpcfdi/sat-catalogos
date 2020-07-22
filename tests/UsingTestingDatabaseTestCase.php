@@ -13,7 +13,7 @@ class UsingTestingDatabaseTestCase extends TestCase
     /** @var PDO */
     private $pdo;
 
-    /** @var \PhpCfdi\SatCatalogos\Repository */
+    /** @var Repository */
     private $repository;
 
     protected function setUp(): void

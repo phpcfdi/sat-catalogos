@@ -20,7 +20,7 @@ class TiposRelaciones extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return TipoRelacion
      */
     public function create(array $data): EntryIdentifiable

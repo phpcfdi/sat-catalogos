@@ -22,6 +22,10 @@ class NumerosPedimentoAduana implements BaseCatalog
         return $this->create($data);
     }
 
+    /**
+     * @param array<string, mixed> $data
+     * @return NumeroPedimentoAduana
+     */
     public function create(array $data): NumeroPedimentoAduana
     {
         return new NumeroPedimentoAduana(

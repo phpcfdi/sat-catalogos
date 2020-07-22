@@ -19,7 +19,7 @@ class CodigosPostales extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return CodigoPostal
      */
     public function create(array $data): EntryIdentifiable

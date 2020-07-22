@@ -31,7 +31,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 */
 class SatCatalogos
 {
-    /** @var array */
+    /** @var array<string, mixed> */
     protected $container;
 
     public function __construct(Repository $repository)
@@ -40,13 +40,22 @@ class SatCatalogos
         $this->container['repository'] = $repository;
     }
 
-    public function __call($name, $arguments)
+    /**
+     * Magic method to return a catalog using the method name
+     *
+     * @param string $name
+     * @param mixed[] $arguments
+     * @return mixed
+     * @throws SatCatalogosLogicException if cannot find a matching catalog with the method name
+     */
+    public function __call(string $name, $arguments)
     {
         if (isset($this->container[$name])) {
             return $this->container[$name];
         }
 
-        if (null !== $created = $this->create($name)) {
+        $created = $this->create($name);
+        if (null !== $created) {
             $this->container[$name] = $created;
             return $created;
         }

@@ -24,7 +24,7 @@ class ProductosServicios extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return ProductoServicio
      */
     public function create(array $data): EntryIdentifiable
@@ -36,6 +36,7 @@ class ProductosServicios extends AbstractCatalogIdentifiable
             (bool) $data['ieps_trasladado'],
             $data['complemento'],
             $data['similares'],
+            (bool) $data['estimulo_frontera'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
             ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
         );

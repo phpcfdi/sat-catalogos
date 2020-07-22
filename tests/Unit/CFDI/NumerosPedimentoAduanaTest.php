@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class NumerosPedimentoAduanaTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'aduana' => '24',
         'patente' => '3420',

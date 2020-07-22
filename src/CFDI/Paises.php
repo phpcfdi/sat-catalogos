@@ -20,7 +20,7 @@ class Paises extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return Pais
      */
     public function create(array $data): EntryIdentifiable

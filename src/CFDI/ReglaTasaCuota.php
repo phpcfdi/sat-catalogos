@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
+use LogicException;
 use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
 use PhpCfdi\SatCatalogos\Common\EntryWithVigenciasTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
@@ -137,14 +138,14 @@ class ReglaTasaCuota implements EntryWithVigencias
 
         if (self::TIPO_RANGO === $this->tipo) {
             $delta = 1000000;
-            $current = (int) ($delta * floatval($valor));
-            $min = (int) ($delta * floatval($this->minimo));
-            $max = (int) ($delta * floatval($this->valor));
+            $current = intval($delta * floatval($valor));
+            $min = intval($delta * floatval($this->minimo));
+            $max = intval($delta * floatval($this->valor));
             return ($current >= $min && $current <= $max);
         }
 
         /** @codeCoverageIgnore This is a safeguard since the object cannot be constructed with other type */
-        throw new \LogicException(
+        throw new LogicException(
             "Don't know how to compare the current rule, it is not TIPO_FIJO or TIPO_RANGO"
         );
     }

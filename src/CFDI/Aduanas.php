@@ -20,7 +20,7 @@ class Aduanas extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return Aduana
      */
     public function create(array $data): EntryIdentifiable

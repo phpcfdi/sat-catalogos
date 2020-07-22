@@ -20,14 +20,14 @@ class PatentesAduanales extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return PatenteAduanal
      */
     public function create(array $data): EntryIdentifiable
     {
         return new PatenteAduanal(
             $data['id'],
-            $data['texto'],
+            $data['id'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
             ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
         );

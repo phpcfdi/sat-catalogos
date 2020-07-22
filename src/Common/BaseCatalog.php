@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 interface BaseCatalog
 {
-    public function withRepository(Repository $repository);
+    public function withRepository(Repository $repository): void;
 
     public function repository(): Repository;
 }

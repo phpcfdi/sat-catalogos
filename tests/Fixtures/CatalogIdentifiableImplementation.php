@@ -9,6 +9,10 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
 class CatalogIdentifiableImplementation extends AbstractCatalogIdentifiable
 {
+    /**
+     * @param array<string, mixed> $data
+     * @return EntryIdentifiable
+     */
     public function create(array $data): EntryIdentifiable
     {
         return new EntryIdentifiableImplementation(

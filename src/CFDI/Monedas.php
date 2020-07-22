@@ -20,7 +20,7 @@ class Monedas extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return Moneda
      */
     public function create(array $data): EntryIdentifiable
