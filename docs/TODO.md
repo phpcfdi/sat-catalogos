@@ -1,16 +1,12 @@
 # phpcfdi/sat-catalogos To Do List
 
-- Poner docblocks en las clases a las que se tiene acceso
+- Poner docblocks en las clases a las que se tiene acceso.
 
-- Poner docblock methods tal como en ProductosServicios
+- Poner docblock a metodos tal como en `ProductosServicios`.
 
-- Separar las clases de catálogos de las clases de entradas
+- Separar las clases de catálogos de las clases de entradas.
 
 - Documentar cómo se interpretan los catálogos y los catálogos especiales
-
-- Agregar catálogo PatenteAduanal (catálogo simple)
-
-- Agregar catálogo TipoComprobante (catálogo simple, se omitirán los valores raros en tipo N - Nómina)
 
 - Reorganizar el proyecto
     - Mover las interfaces, abstracts y traits. La única clase de primer nivel debe ser SatCatalogos
