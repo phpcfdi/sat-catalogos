@@ -1,14 +1,17 @@
 {
-    "name": "phpcfdi/satcatalogos",
-    "description": "Catalogos de SAT para CFDI 3.3 (spanish)",
-    "keywords": [],
-    "homepage": "https://github.com/phpCfdi/SatCatalogos",
+    "name": "phpcfdi/sat-catalogos",
+    "description": "Catálogos de SAT para CFDI 3.3",
+    "keywords": ["sat", "cfdi", "catalogos"],
+    "homepage": "https://github.com/phpcfdi/sat-catalogos",
     "license": "MIT",
+    "support": {
+        "source": "https://github.com/phpcfdi/sat-catalogos",
+        "issues": "https://github.com/phpcfdi/sat-catalogos/issues"
+    },
     "authors": [
         {
             "name": "Carlos C Soto",
-            "email": "eclipxe13@gmail.com",
-            "homepage": "http://eclipxe.com.mx"
+            "email": "eclipxe13@gmail.com"
         }
     ],
     "require": {

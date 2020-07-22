@@ -1,4 +1,4 @@
-# PhpCfdi/SatCatalogos To Do List
+# phpcfdi/sat-catalogos To Do List
 
 - Poner docblocks en las clases a las que se tiene acceso
 

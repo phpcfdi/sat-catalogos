@@ -1,2 +1,3 @@
-# Version x.y.z yyyy-mm-dd
+# phpcfdi/sat-catalogos CHANGELOG
+
 - Document changes
