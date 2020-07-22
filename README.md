@@ -11,7 +11,7 @@
 > Catálogos de SAT para CFDI 3.3
 
 Esta librería permite usar los catálogos del SAT para CFDI version 3.3 publicados en
-[http://www.sat.gob.mx/informacion_fiscal/factura_electronica/Paginas/Anexo_20_version3.3.aspx].
+<http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20_version3-3.htm>.
 
 Los catálogos no solo son los que se publican directamente para CFDI, también están los catálogos de los complementos
 y los complementos de conceptos.
