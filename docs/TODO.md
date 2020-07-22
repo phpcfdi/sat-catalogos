@@ -1,5 +1,8 @@
 # phpcfdi/sat-catalogos To Do List
 
+- Crear procedimiento/script para actualizar la base de datos actual, los datos sql están en
+  [phpcfdi/resources-sat-catalogs](https://github.com/phpcfdi/resources-sat-catalogs).
+
 - Poner docblocks en las clases a las que se tiene acceso.
 
 - Poner docblock a metodos tal como en `ProductosServicios`.
