@@ -24,7 +24,30 @@ class CodigosPostales extends AbstractCatalogIdentifiable
      */
     public function create(array $data): EntryIdentifiable
     {
-        return new CodigoPostal($data['id'], $data['estado'], $data['municipio'], $data['localidad']);
+        return new CodigoPostal(
+            $data['id'],
+            $data['estado'],
+            $data['municipio'],
+            $data['localidad'],
+            boolval($data['estimulo_frontera']),
+            new HusoHorario(
+                $data['huso_descripcion'],
+                new HusoHorarioEstacion(
+                    $data['huso_verano_mes_inicio'],
+                    $data['huso_verano_dia_inicio'],
+                    $data['huso_verano_hora_inicio'],
+                    intval($data['huso_verano_diferencia'])
+                ),
+                new HusoHorarioEstacion(
+                    $data['huso_invierno_mes_inicio'],
+                    $data['huso_invierno_dia_inicio'],
+                    $data['huso_invierno_hora_inicio'],
+                    intval($data['huso_invierno_diferencia'])
+                )
+            ),
+            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+        );
     }
 
     /**
@@ -38,7 +61,24 @@ class CodigosPostales extends AbstractCatalogIdentifiable
          * Se devuelve el registro sin estado porque es válido para cualquier estado
          */
         if ('00000' === $id) {
-            return $this->create(['id' => '00000', 'estado' => '*', 'municipio' => '000', 'localidad' => '00']);
+            return $this->create([
+                'id' => '00000',
+                'estado' => '*',
+                'municipio' => '000',
+                'localidad' => '00',
+                'estimulo_frontera' => false,
+                'huso_descripcion' => '',
+                'huso_verano_mes_inicio' => '',
+                'huso_verano_dia_inicio' => '',
+                'huso_verano_hora_inicio' => '',
+                'huso_verano_diferencia' => '-6',
+                'huso_invierno_mes_inicio' => '',
+                'huso_invierno_dia_inicio' => '',
+                'huso_invierno_hora_inicio' => '',
+                'huso_invierno_diferencia' => '-6',
+                'vigencia_desde' => '0',
+                'vigencia_hasta' => '2019-10-14',
+            ]);
         }
 
         // have to do this to avoid phpstan compain, issue: https://github.com/phpstan/phpstan/issues/1065

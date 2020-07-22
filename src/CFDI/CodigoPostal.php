@@ -19,15 +19,31 @@ class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiabl
     /** @var string */
     private $localidad;
 
-    public function __construct(string $id, string $estado, string $municipio, string $localidad)
-    {
-        parent::__construct($id, $id, 0, 0);
+    /** @var bool */
+    private $estimuloFrontera;
+
+    /** @var HusoHorario */
+    private $husoHorario;
+
+    public function __construct(
+        string $id,
+        string $estado,
+        string $municipio,
+        string $localidad,
+        bool $estimuloFrontera,
+        HusoHorario $husoHorario,
+        int $vigenteDesde,
+        int $vigenteHasta
+    ) {
+        parent::__construct($id, $id, $vigenteDesde, $vigenteHasta);
         if ('' === $estado) {
             throw new SatCatalogosLogicException('El campo estado no puede ser una cadena de caracteres vacía');
         }
         $this->estado = $estado;
         $this->municipio = $municipio;
         $this->localidad = $localidad;
+        $this->estimuloFrontera = $estimuloFrontera;
+        $this->husoHorario = $husoHorario;
     }
 
     public function estado(): string
@@ -43,5 +59,15 @@ class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiabl
     public function localidad(): string
     {
         return $this->localidad;
+    }
+
+    public function estimuloFrontera(): bool
+    {
+        return $this->estimuloFrontera;
+    }
+
+    public function husoHorario(): HusoHorario
+    {
+        return $this->husoHorario;
     }
 }
