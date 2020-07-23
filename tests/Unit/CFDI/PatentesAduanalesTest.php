@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class PatentesAduanalesTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'id' => '0000',
         'texto' => '0000',
@@ -18,9 +19,9 @@ class PatentesAduanalesTest extends TestCase
         'vigencia_hasta' => '',
     ];
 
-    public function testObtainWithMock()
+    public function testObtainWithMock(): void
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
+        /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
         $repository->method('queryById')->willReturn($this->validRow);
 
@@ -28,10 +29,10 @@ class PatentesAduanalesTest extends TestCase
         $patentesAduanales->withRepository($repository);
 
         $patenteAduanal = $patentesAduanales->obtain('0000');
-        $this->assertContains('0000', $patenteAduanal->texto());
+        $this->assertStringContainsString('0000', $patenteAduanal->texto());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $patentesAduanales = new PatentesAduanales();
         $created = $patentesAduanales->create($this->validRow);

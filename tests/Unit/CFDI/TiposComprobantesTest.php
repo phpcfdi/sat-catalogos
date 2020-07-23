@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class TiposComprobantesTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'id' => 'I',
         'texto' => 'Ingreso',
@@ -17,7 +18,7 @@ class TiposComprobantesTest extends TestCase
         'vigencia_hasta' => 0,
     ];
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $tiposComprobantes = new TiposComprobantes();
         $created = $tiposComprobantes->create($this->validRow);

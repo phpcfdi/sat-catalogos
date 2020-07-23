@@ -4,28 +4,28 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
+use PhpCfdi\SatCatalogos\Common\BaseCatalog;
+use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Repository;
-use PhpCfdi\SatCatalogos\WithRepositoryInterface;
-use PhpCfdi\SatCatalogos\WithRepositoryTrait;
 
-class ReglasTasaCuota implements WithRepositoryInterface
+class ReglasTasaCuota implements BaseCatalog
 {
-    use WithRepositoryTrait;
+    use BaseCatalogTrait;
 
-    const FACTOR_TASA = 'Tasa';
+    public const FACTOR_TASA = 'Tasa';
 
-    const FACTOR_CUOTA = 'Cuota';
+    public const FACTOR_CUOTA = 'Cuota';
 
-    const IMPUESTO_IEPS = 'IEPS';
+    public const IMPUESTO_IEPS = 'IEPS';
 
-    const IMPUESTO_IVA = 'IVA';
+    public const IMPUESTO_IVA = 'IVA';
 
-    const IMPUESTO_ISR = 'ISR';
+    public const IMPUESTO_ISR = 'ISR';
 
-    const USO_TRASLADO = 'traslado';
+    public const USO_TRASLADO = 'traslado';
 
-    const USO_RETENCION = 'retencion';
+    public const USO_RETENCION = 'retencion';
 
     /**
      * @param string $impuesto
@@ -44,9 +44,10 @@ class ReglasTasaCuota implements WithRepositoryInterface
             $uso => true,
         ];
 
-        /** @var ReglaTasaCuota[] $rules */
         $rules = array_map(
-            [$this, 'createRule'],
+            function (array $data): ReglaTasaCuota {
+                return $this->createRule($data);
+            },
             $this->repository()->queryRowsByFields(Repository::CFDI_REGLAS_TASA_CUOTA, $filters)
         );
 
@@ -78,6 +79,12 @@ class ReglasTasaCuota implements WithRepositoryInterface
         return (null !== $this->findMatchingRule($impuesto, $factor, $uso, $valor));
     }
 
+    /**
+     * Create a ReglaTasaCuota based on the array values
+     *
+     * @param array<string, mixed> $data
+     * @return ReglaTasaCuota
+     */
     public function createRule(array $data): ReglaTasaCuota
     {
         return new ReglaTasaCuota(

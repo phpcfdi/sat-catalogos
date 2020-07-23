@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
-class Moneda extends AbstractEntry
+class Moneda extends AbstractEntryIdentifiable
 {
     /** @var int */
     private $decimales;

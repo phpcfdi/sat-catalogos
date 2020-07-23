@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
 
-class ClaveUnidad extends AbstractEntry
+class ClaveUnidad extends AbstractEntryIdentifiable
 {
     /** @var string */
     private $descripcion;

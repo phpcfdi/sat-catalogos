@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\Impuesto;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class ImpuestoTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = '002';
         $texto = 'IVA';
@@ -23,7 +23,7 @@ class ImpuestoTest extends TestCase
 
         $impuesto = new Impuesto($id, $texto, $retencion, $traslado, $ambito, $entidad);
 
-        $this->assertInstanceOf(EntryInterface::class, $impuesto);
+        $this->assertInstanceOf(EntryIdentifiable::class, $impuesto);
         $this->assertSame($id, $impuesto->id());
         $this->assertSame($texto, $impuesto->texto());
         $this->assertSame($retencion, $impuesto->retencion());
@@ -39,7 +39,7 @@ class ImpuestoTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyTraslado(bool $traslado)
+    public function testPropertyTraslado(bool $traslado): void
     {
         $impuesto = new Impuesto('x', 'x', false, $traslado, '', '');
 
@@ -51,7 +51,7 @@ class ImpuestoTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyRetencion(bool $retencion)
+    public function testPropertyRetencion(bool $retencion): void
     {
         $impuesto = new Impuesto('x', 'x', $retencion, false, '', '');
 

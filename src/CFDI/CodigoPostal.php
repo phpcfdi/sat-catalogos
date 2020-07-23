@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
-class CodigoPostal extends AbstractEntry implements EntryInterface
+class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
     /** @var string */
     private $estado;
@@ -19,15 +19,31 @@ class CodigoPostal extends AbstractEntry implements EntryInterface
     /** @var string */
     private $localidad;
 
-    public function __construct(string $id, string $estado, string $municipio, string $localidad)
-    {
-        parent::__construct($id, $id, 0, 0);
+    /** @var bool */
+    private $estimuloFrontera;
+
+    /** @var HusoHorario */
+    private $husoHorario;
+
+    public function __construct(
+        string $id,
+        string $estado,
+        string $municipio,
+        string $localidad,
+        bool $estimuloFrontera,
+        HusoHorario $husoHorario,
+        int $vigenteDesde,
+        int $vigenteHasta
+    ) {
+        parent::__construct($id, $id, $vigenteDesde, $vigenteHasta);
         if ('' === $estado) {
             throw new SatCatalogosLogicException('El campo estado no puede ser una cadena de caracteres vacía');
         }
         $this->estado = $estado;
         $this->municipio = $municipio;
         $this->localidad = $localidad;
+        $this->estimuloFrontera = $estimuloFrontera;
+        $this->husoHorario = $husoHorario;
     }
 
     public function estado(): string
@@ -43,5 +59,15 @@ class CodigoPostal extends AbstractEntry implements EntryInterface
     public function localidad(): string
     {
         return $this->localidad;
+    }
+
+    public function estimuloFrontera(): bool
+    {
+        return $this->estimuloFrontera;
+    }
+
+    public function husoHorario(): HusoHorario
+    {
+        return $this->husoHorario;
     }
 }

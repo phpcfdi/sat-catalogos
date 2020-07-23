@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class NumerosPedimentoAduanaTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'aduana' => '24',
         'patente' => '3420',
@@ -20,9 +21,9 @@ class NumerosPedimentoAduanaTest extends TestCase
         'vigencia_hasta' => '',
     ];
 
-    public function testObtain()
+    public function testObtain(): void
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
+        /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
         $repository->method('queryRowByFields')->willReturn($this->validRow);
 
@@ -33,7 +34,7 @@ class NumerosPedimentoAduanaTest extends TestCase
         $this->assertSame(999999, $numeroPedimentoAduana->cantidad());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $numerosPedimentoAduana = new NumerosPedimentoAduana();
         $created = $numerosPedimentoAduana->create($this->validRow);

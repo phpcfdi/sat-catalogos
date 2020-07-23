@@ -11,16 +11,17 @@ use PHPUnit\Framework\TestCase;
 
 class AduanasTest extends TestCase
 {
+    /** @var array<string, mixed> */
     protected $validRow = [
         'id' => '24',
         'texto' => 'NUEVO LAREDO',
         'vigencia_desde' => '2017-01-01',
-        'vigencia_hasta' => '',
+        'vigencia_hasta' => 0,
     ];
 
-    public function testObtain()
+    public function testObtain(): void
     {
-        /** @var MockObject|\PhpCfdi\SatCatalogos\Repository $repository */
+        /** @var Repository&MockObject $repository */
         $repository = $this->createMock(Repository::class);
         $repository->method('queryById')->willReturn($this->validRow);
 
@@ -28,10 +29,10 @@ class AduanasTest extends TestCase
         $aduanas->withRepository($repository);
 
         $aduana = $aduanas->obtain('24');
-        $this->assertContains('LAREDO', $aduana->texto());
+        $this->assertStringContainsString('LAREDO', $aduana->texto());
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $aduanas = new Aduanas();
         $created = $aduanas->create($this->validRow);

@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogos;
+namespace PhpCfdi\SatCatalogos\Common;
 
-trait WithRepositoryTrait
+use PhpCfdi\SatCatalogos\Repository;
+
+trait BaseCatalogTrait
 {
     /**
      * @var Repository|null
@@ -12,8 +14,12 @@ trait WithRepositoryTrait
      */
     private $repository;
 
-    public function withRepository(Repository $repository)
+    public function withRepository(Repository $repository): void
     {
+        if ($repository === $this->repository) {
+            return;
+        }
+
         if (null !== $this->repository) {
             throw new \LogicException(
                 sprintf('This instance of %s already contains a repository', get_class($this))
@@ -27,7 +33,7 @@ trait WithRepositoryTrait
     {
         if (null === $this->repository) {
             throw new \LogicException(
-                sprintf('This instance of %s does not contains a valid repository', get_class($this))
+                sprintf('This instance of %s does not contains a repository', get_class($this))
             );
         }
 

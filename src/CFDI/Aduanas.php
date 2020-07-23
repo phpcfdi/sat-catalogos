@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de aduanas
  * @method Aduana obtain(string $id)
  */
-class Aduanas extends AbstractCatalog
+class Aduanas extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -20,10 +20,10 @@ class Aduanas extends AbstractCatalog
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return Aduana
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new Aduana(
             $data['id'],

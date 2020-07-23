@@ -14,31 +14,31 @@ class AduanasTest extends UsingTestingDatabaseTestCase
     /** @var Aduanas */
     protected $aduanas;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->aduanas = new Aduanas();
         $this->aduanas->withRepository($this->getRepository());
     }
 
-    public function testObtainExistentEntry()
+    public function testObtainExistentEntry(): void
     {
         $aduana = $this->aduanas->obtain('24');
 
         $this->assertSame('24', $aduana->id());
-        $this->assertContains('NUEVO LAREDO', $aduana->texto());
+        $this->assertStringContainsString('NUEVO LAREDO', $aduana->texto());
         $this->assertSame('2017-01-01', date('Y-m-d', $aduana->vigenteDesde()));
         $this->assertSame(0, $aduana->vigenteHasta());
     }
 
-    public function testObtainNonExistentEntry()
+    public function testObtainNonExistentEntry(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
         $this->expectExceptionMessage(Repository::CFDI_ADUANAS);
         $this->aduanas->obtain('foo');
     }
 
-    public function testEntryExists()
+    public function testEntryExists(): void
     {
         $this->assertTrue($this->aduanas->exists('24'));
         $this->assertFalse($this->aduanas->exists('foo'));

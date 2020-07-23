@@ -8,9 +8,15 @@ use PhpCfdi\SatCatalogos\CFDI\FormaDePago;
 
 class FormaDePagoBuilder
 {
+    /**
+     * @param string $id
+     * @param array<string, mixed> $values
+     * @return FormaDePago
+     */
     public function make(string $id, array $values): FormaDePago
     {
         unset($values['id']);
+        // the order of the arguments **must** be the same as in FormaDePago constructor
         $defaults = [
             'id' => $id,
             'texto' => $id,

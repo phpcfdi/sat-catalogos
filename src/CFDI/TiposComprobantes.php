@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractCatalog;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de comprobante
  * @method TipoComprobante obtain(string $id)
  */
-class TiposComprobantes extends AbstractCatalog
+class TiposComprobantes extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
@@ -20,10 +20,10 @@ class TiposComprobantes extends AbstractCatalog
     }
 
     /**
-     * @param array $data
+     * @param array<string, mixed> $data
      * @return TipoComprobante
      */
-    public function create(array $data): EntryInterface
+    public function create(array $data): EntryIdentifiable
     {
         return new TipoComprobante(
             $data['id'],

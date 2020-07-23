@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class PatronTest extends TestCase
 {
-    public function testPatronCreate()
+    public function testPatronCreate(): void
     {
         $origen = '[0-9]{6}';
         $regularExpression = '/^[0-9]{6}$/u';
@@ -19,19 +19,20 @@ class PatronTest extends TestCase
 
         $patron = new Patron($origen);
         $this->assertSame($origen, $patron->origen());
+        $this->assertSame($origen, strval($patron));
         $this->assertSame($regularExpression, $patron->expresion());
         $this->assertSame(Patron::VACIO_PERMITE_TODO, $patron->alEstarVacio());
         $this->assertTrue($patron->evalua($correcto));
         $this->assertFalse($patron->evalua($incorrecto));
     }
 
-    public function testPatronWithInvalidSource()
+    public function testPatronWithInvalidSource(): void
     {
         $this->expectException(PatronException::class);
         new Patron('/');
     }
 
-    public function testPatronWhenEmptyMeansForbidden()
+    public function testPatronWhenEmptyMeansForbidden(): void
     {
         $patron = new Patron('', Patron::VACIO_PERMITE_NADA);
         $this->assertSame(Patron::VACIO_PERMITE_NADA, $patron->alEstarVacio());
@@ -39,7 +40,7 @@ class PatronTest extends TestCase
         $this->assertFalse($patron->evalua('xxx'));
     }
 
-    public function testPatronWhenEmptyMeansAnything()
+    public function testPatronWhenEmptyMeansAnything(): void
     {
         $patron = new Patron('', Patron::VACIO_PERMITE_TODO);
         $this->assertSame(Patron::VACIO_PERMITE_TODO, $patron->alEstarVacio());
@@ -47,7 +48,7 @@ class PatronTest extends TestCase
         $this->assertTrue($patron->evalua('xxx'));
     }
 
-    public function testPatronWithLettterEnie()
+    public function testPatronWithLettterEnie(): void
     {
         $patron = new Patron('\w');
         $this->assertTrue($patron->evalua('N'));

@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
+use LogicException;
+use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
+use PhpCfdi\SatCatalogos\Common\EntryWithVigenciasTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
-use PhpCfdi\SatCatalogos\VigenciasInterface;
-use PhpCfdi\SatCatalogos\VigenciasTrait;
 
-class ReglaTasaCuota implements VigenciasInterface
+class ReglaTasaCuota implements EntryWithVigencias
 {
-    use VigenciasTrait;
+    use EntryWithVigenciasTrait;
 
-    const TIPO_FIJO = 'Fijo';
+    public const TIPO_FIJO = 'Fijo';
 
-    const TIPO_RANGO = 'Rango';
+    public const TIPO_RANGO = 'Rango';
 
     /** @var string */
     private $tipo;
@@ -130,17 +131,22 @@ class ReglaTasaCuota implements VigenciasInterface
         if (! (bool) preg_match('/^\d{0,2}(\.\d{0,6})?$/', $valor)) {
             return false;
         }
+
         if (self::TIPO_FIJO === $this->tipo) {
             return $valor === $this->valor;
         }
+
         if (self::TIPO_RANGO === $this->tipo) {
             $delta = 1000000;
-            $current = (int) ($delta * $valor);
-            $min = (int) ($delta * $this->minimo);
-            $max = (int) ($delta * $this->valor);
+            $current = intval($delta * floatval($valor));
+            $min = intval($delta * floatval($this->minimo));
+            $max = intval($delta * floatval($this->valor));
             return ($current >= $min && $current <= $max);
         }
 
-        throw new \LogicException("Don't know how to compare the current rule: " . json_encode($this));
+        /** @codeCoverageIgnore This is a safeguard since the object cannot be constructed with other type */
+        throw new LogicException(
+            "Don't know how to compare the current rule, it is not TIPO_FIJO or TIPO_RANGO"
+        );
     }
 }

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Helpers\Patron;
 
-class FormaDePago extends AbstractEntry implements EntryInterface
+class FormaDePago extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
     /** @var bool */
     private $esBancarizado;

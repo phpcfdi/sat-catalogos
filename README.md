@@ -1,4 +1,4 @@
-# PhpCfdi/SatCatalogos
+# phpcfdi/sat-catalogos
 
 [![Source Code][badge-source]][source]
 [![Latest Version][badge-release]][release]
@@ -7,37 +7,41 @@
 [![Scrutinizer][badge-quality]][quality]
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
-[![SensioLabsInsight][badge-sensiolabs]][sensiolabs]
 
-> Catálogos de SAT para CFDI 3.3 (spanish)
+> Catálogos de SAT para CFDI 3.3
 
 Esta librería permite usar los catálogos del SAT para CFDI version 3.3 publicados en
-[http://www.sat.gob.mx/informacion_fiscal/factura_electronica/Paginas/Anexo_20_version3.3.aspx].
+<http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20_version3-3.htm>.
 
 Los catálogos no solo son los que se publican directamente para CFDI, también están los catálogos de los complementos
 y los complementos de conceptos.
 
-Consulte el [wiki][] para mayor información.
-
+Vea la [Información general de catálogos](docs/Catalogos.md) para mayor información.
 
 ## Instalación
 
-Use [composer](https://getcomposer.org/), so please run
+Utiliza composer [composer](https://getcomposer.org/):
+
 ```shell
-composer require phpcfdi/satcatalogos
+composer require phpcfdi/sat-catalogos
 ```
 
+También vas a requerir la base de datos relacionada con los catálogos, que puedes obtener
+desde el proyecto [phpcfdi/resources-sat-catalogs](https://github.com/phpcfdi/resources-sat-catalogs).
 
 ## Uso básico
 
 ```php
 <?php
-$satCatalogos = new \PhpCfdi\SatCatalogos\SatCatalogos();
+declare(strict_types=1);
+use PhpCfdi\SatCatalogos\Factory;
+$dsn = sprintf('sqlite://%s/catalogos.db', __DIR__);
+$factory = new Factory();
+$satCatalogos = $factory->catalogosFromDsn($dsn);
 $aduanas = $satCatalogos->aduanas();
 $aduana = $aduanas->obtain('24');
 echo $aduana->texto(); // NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.
 ```
-
 
 ## Acerca de los catálogos y las entradas de los mismos
 
@@ -65,7 +69,6 @@ Esta librería incrementará de versión siguiendo el concepto de *semantic vers
 - Es probable que, en una nueva versión no cambie el código fuente pero sí el archivo de base de datos donde
   se almacenan los catálogos
 
-
 ## Actualización automatizada de catálogos
 
 La actualización de los catálogos está fuera de los límites de esta librería.
@@ -83,13 +86,11 @@ La tarea de actualizar los catálogos estará en otro proyecto separado que:
     - La estructura es la misma y los datos cambiarion, reportar los cambios.
     - La estructura cambió, generar una incidencia.
  
-
 ## Soporte de PHP
 
-Esta librería es compatible con PHP versions 7.0 y superior.
+Esta librería es compatible con PHP versions 7.3 y superior.
 Por favor, intente usar el mayor potencial del lenguaje.
 La librería intenta seguir la compatibilidad de versiones con Debian/GNU Linux versión estable.
-
 
 ## Colaborar con este proyecto
 
@@ -97,35 +98,31 @@ La librería intenta seguir la compatibilidad de versiones con Debian/GNU Linux 
 Por favor, lea el documento [CONTRIBUTING][] (en inglés) para más detalles.
 No olvide leer también la documentación de [TODO][] y el archivo de [CHANGELOG][].
 
-
 ## Licencia y derechos de autor
 
-La librería PhpCfdi/SatCatalogos tiene copyright © [Carlos C Soto](http://eclipxe.com.mx)
+La librería `phpcfdi/sat-catalogos` tiene copyright © [PhpCfdi](https://www.phpcfdi.com)
 y está publicada bajo la licencia MIT License (MIT). Lea el archivo [LICENSE][] para mayor información.
 
-The PhpCfdi/SatCatalogos library is copyright © [Carlos C Soto](http://eclipxe.com.mx)
+The `phpcfdi/sat-catalogos` library is copyright © [PhpCfdi](https://www.phpcfdi.com)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
+[contributing]: https://github.com/phpcfdi/sat-catalogos/blob/master/CONTRIBUTING.md
+[changelog]: https://github.com/phpcfdi/sat-catalogos/blob/master/docs/CHANGELOG.md
+[todo]: https://github.com/phpcfdi/sat-catalogos/blob/master/docs/TODO.md
 
-[contributing]: https://github.com/phpCfdi/SatCatalogos/blob/master/CONTRIBUTING.md
-[changelog]: https://github.com/phpCfdi/SatCatalogos/blob/master/docs/CHANGELOG.md
-[todo]: https://github.com/phpCfdi/SatCatalogos/blob/master/docs/TODO.md
+[wiki]: https://github.com/phpcfdi/sat-catalogos/wiki
+[source]: https://github.com/phpcfdi/sat-catalogos
+[release]: https://github.com/phpcfdi/sat-catalogos/releases
+[license]: https://github.com/phpcfdi/sat-catalogos/blob/master/LICENSE
+[build]: https://travis-ci.com/phpcfdi/sat-catalogos?branch=master
+[quality]: https://scrutinizer-ci.com/g/phpcfdi/sat-catalogos/
+[coverage]: https://scrutinizer-ci.com/g/phpcfdi/sat-catalogos/code-structure/master/code-coverage
+[downloads]: https://packagist.org/packages/phpcfdi/sat-catalogos
 
-[wiki]: https://github.com/phpCfdi/SatCatalogos/wiki
-[source]: https://github.com/phpCfdi/SatCatalogos
-[release]: https://github.com/phpCfdi/SatCatalogos/releases
-[license]: https://github.com/phpCfdi/SatCatalogos/blob/master/LICENSE
-[build]: https://travis-ci.org/phpCfdi/SatCatalogos?branch=master
-[quality]: https://scrutinizer-ci.com/g/phpCfdi/SatCatalogos/
-[sensiolabs]: https://insight.sensiolabs.com/projects/:INSIGHT_UUID
-[coverage]: https://scrutinizer-ci.com/g/phpCfdi/SatCatalogos/code-structure/master/code-coverage
-[downloads]: https://packagist.org/packages/PhpCfdi/SatCatalogos
-
-[badge-source]: http://img.shields.io/badge/source-phpCfdi/SatCatalogos-blue.svg?style=flat-square
-[badge-release]: https://img.shields.io/github/release/phpCfdi/SatCatalogos.svg?style=flat-square
-[badge-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[badge-build]: https://img.shields.io/travis/phpCfdi/SatCatalogos/master.svg?style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/phpCfdi/SatCatalogos/master.svg?style=flat-square
-[badge-sensiolabs]: https://insight.sensiolabs.com/projects/:INSIGHT_UUID/mini.png
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpCfdi/SatCatalogos/master.svg?style=flat-square
-[badge-downloads]: https://img.shields.io/packagist/dt/PhpCfdi/SatCatalogos.svg?style=flat-square
+[badge-source]: https://img.shields.io/badge/source-phpcfdi/sat--catalogos-blue?style=flat-square
+[badge-release]: https://img.shields.io/github/release/phpcfdi/sat-catalogos?style=flat-square
+[badge-license]: https://img.shields.io/github/license/phpcfdi/sat-catalogos?style=flat-square
+[badge-build]: https://img.shields.io/travis/com/phpcfdi/sat-catalogos/master?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/sat-catalogos/master?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpCfdi/sat-catalogos/master?style=flat-square
+[badge-downloads]: https://img.shields.io/packagist/dt/PhpCfdi/sat-catalogos?style=flat-square

@@ -17,9 +17,9 @@ class Patron
     /** @var string */
     private $alEstarVacio;
 
-    const VACIO_PERMITE_NADA = 'NADA';
+    public const VACIO_PERMITE_NADA = 'NADA';
 
-    const VACIO_PERMITE_TODO = 'TODO';
+    public const VACIO_PERMITE_TODO = 'TODO';
 
     public function __construct(string $origen, string $alEstarVacio = self::VACIO_PERMITE_TODO)
     {

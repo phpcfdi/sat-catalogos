@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 
 use PhpCfdi\SatCatalogos\CFDI\UsoCfdi;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
 class UsoCfdiTest extends TestCase
 {
-    public function testCreateInstance()
+    public function testCreateInstance(): void
     {
         $id = 'G02';
         $texto = 'Devoluciones, descuentos o bonificaciones';
@@ -21,7 +21,7 @@ class UsoCfdiTest extends TestCase
 
         $usoCfdi = new UsoCfdi($id, $texto, $aplicaFisica, $aplicaMoral, $vigenteDesde, $vigenteHasta);
 
-        $this->assertInstanceOf(EntryInterface::class, $usoCfdi);
+        $this->assertInstanceOf(EntryIdentifiable::class, $usoCfdi);
         $this->assertSame($id, $usoCfdi->id());
         $this->assertSame($texto, $usoCfdi->texto());
         $this->assertSame($aplicaFisica, $usoCfdi->aplicaFisica());
@@ -35,7 +35,7 @@ class UsoCfdiTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyAplicaFisica(bool $aplicaFisica)
+    public function testPropertyAplicaFisica(bool $aplicaFisica): void
     {
         $usoCfdi = new UsoCfdi('x', 'x', $aplicaFisica, false, 0, 0);
 
@@ -47,7 +47,7 @@ class UsoCfdiTest extends TestCase
      * @testWith [true]
      *           [false]
      */
-    public function testPropertyAplicaMoral(bool $aplicaMoral)
+    public function testPropertyAplicaMoral(bool $aplicaMoral): void
     {
         $usoCfdi = new UsoCfdi('x', 'x', false, $aplicaMoral, 0, 0);
 

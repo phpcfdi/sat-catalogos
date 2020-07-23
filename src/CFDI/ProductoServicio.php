@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
-use PhpCfdi\SatCatalogos\AbstractEntry;
-use PhpCfdi\SatCatalogos\EntryInterface;
+use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
-class ProductoServicio extends AbstractEntry implements EntryInterface
+class ProductoServicio extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
     /** @var bool */
     private $requiereIvaTrasladado;
@@ -24,6 +24,9 @@ class ProductoServicio extends AbstractEntry implements EntryInterface
     /** @var string */
     private $similares;
 
+    /** @var bool */
+    private $estimuloFrontera;
+
     public function __construct(
         string $id,
         string $texto,
@@ -31,6 +34,7 @@ class ProductoServicio extends AbstractEntry implements EntryInterface
         bool $requiereIepsTrasladado,
         string $complemento,
         string $similares,
+        bool $estimuloFrontera,
         int $vigenteDesde,
         int $vigenteHasta
     ) {
@@ -40,6 +44,7 @@ class ProductoServicio extends AbstractEntry implements EntryInterface
         $this->requiereComplemento = ('' !== $complemento);
         $this->complemento = $complemento;
         $this->similares = $similares;
+        $this->estimuloFrontera = $estimuloFrontera;
     }
 
     public function requiereIvaTrasladado(): bool
@@ -65,5 +70,10 @@ class ProductoServicio extends AbstractEntry implements EntryInterface
     public function similares(): string
     {
         return $this->similares;
+    }
+
+    public function estimuloFrontera(): bool
+    {
+        return $this->estimuloFrontera;
     }
 }

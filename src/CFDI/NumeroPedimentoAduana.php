@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
+use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
+use PhpCfdi\SatCatalogos\Common\EntryWithVigenciasTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
-use PhpCfdi\SatCatalogos\VigenciasInterface;
-use PhpCfdi\SatCatalogos\VigenciasTrait;
 
-class NumeroPedimentoAduana implements VigenciasInterface
+class NumeroPedimentoAduana implements EntryWithVigencias
 {
-    use VigenciasTrait;
+    use EntryWithVigenciasTrait;
 
     /** @var string */
     private $aduana;
@@ -42,7 +42,7 @@ class NumeroPedimentoAduana implements VigenciasInterface
             throw new SatCatalogosLogicException('El campo ejercicio no puede ser menor a cero');
         }
         if ($cantidad < 0) {
-            throw new SatCatalogosLogicException('El campo ejercicio no puede ser menor a cero');
+            throw new SatCatalogosLogicException('El campo cantidad no puede ser menor a cero');
         }
         $this->aduana = $aduana;
         $this->patente = $patente;

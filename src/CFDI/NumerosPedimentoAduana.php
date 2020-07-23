@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\CFDI;
 
+use PhpCfdi\SatCatalogos\Common\BaseCatalog;
+use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 use PhpCfdi\SatCatalogos\Repository;
-use PhpCfdi\SatCatalogos\WithRepositoryInterface;
-use PhpCfdi\SatCatalogos\WithRepositoryTrait;
 
-class NumerosPedimentoAduana implements WithRepositoryInterface
+class NumerosPedimentoAduana implements BaseCatalog
 {
-    use WithRepositoryTrait;
+    use BaseCatalogTrait;
 
     public function obtain(string $aduana, string $patente, int $ejercicio): NumeroPedimentoAduana
     {
@@ -22,6 +22,10 @@ class NumerosPedimentoAduana implements WithRepositoryInterface
         return $this->create($data);
     }
 
+    /**
+     * @param array<string, mixed> $data
+     * @return NumeroPedimentoAduana
+     */
     public function create(array $data): NumeroPedimentoAduana
     {
         return new NumeroPedimentoAduana(
