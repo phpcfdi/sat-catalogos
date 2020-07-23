@@ -1,7 +1,7 @@
 language: php
 
 # php compatibility
-php: ["7.1", "7.2", "7.3", "7.4", "nightly"]
+php: ["7.3", "7.4", "nightly"]
 
 matrix:
   allow_failures:
@@ -14,7 +14,6 @@ cache:
 before_script:
   - phpenv config-rm xdebug.ini || true
   - travis_retry composer install --no-interaction --prefer-dist
-  - mkdir -p build
 
 script:
   - vendor/bin/php-cs-fixer fix --verbose --dry-run
