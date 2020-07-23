@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+#
+# Command: create-catalogs-database [DESTINATION] [-r|--remove]
+#   DESTINATION: directory or filename to place the database
+#       If is not set uses current folder
+#       If is a folder, will use it as DESTINATION/catalogs-<version>.db
+#       If is a file, will create a the database with the given name
+#   -r|--remove: if file exists remove first
+# Example: bash bin/create-catalogs-database tests/catalogos.sqlite3 --remove
+# Descripion: Download sources from phpcfdi/resources-sat-catalogs and create a sqlite3 database
+#
+
+function print_syntax
+{
+    echo "Command: $0 DESTINATION [-r|--remove]"
+    echo "  DESTINATION: directory or filename to place the database"
+    echo "       If is not set uses current folder"
+    echo "       If is a folder, will use it as DESTINATION/catalogs-<version>.db"
+    echo "       If is a file, will create a the database with the given name"
+    echo "  -r|--remove: if file exists remove first"
+}
+
+DESTFILE=""
+REMOVEIFEXISTS=0
+
+while [ "$#" -gt 0 ]; do
+    if [ "$1" == "-h" -o "$1" == "--help" ]; then
+        print_syntax
+        exit 0
+    elif [ "-r" == "$1" -o "--remove" == "$1" ]; then
+        REMOVEIFEXISTS=1
+    elif [ -z "$DESTFILE" ]; then
+        DESTFILE="$1"
+    else
+        echo "$0: ERROR: Invalid argument: $1" 1>&2
+        exit 1
+    fi
+    shift;
+done
+
+if [ -z "$DESTFILE" ]; then
+    DESTFILE="."
+fi
+
+if [ -d "$DESTFILE" ]; then
+    CURRENTVERSION="$(curl -o - -s 'https://raw.githubusercontent.com/phpcfdi/resources-sat-catalogs/master/database/version.txt')"
+    DESTFILE="${DESTFILE}/catalogs-${CURRENTVERSION}.db"
+fi
+
+if [ -e "$DESTFILE" -a $REMOVEIFEXISTS -eq 0 ]; then
+    echo "Destination file $DESTFILE already exists" 1>&2
+    exit 1
+fi
+if [ -e "$DESTFILE" -a $REMOVEIFEXISTS -eq 1 ]; then
+    rm "$DESTFILE"
+fi
+
+TEMPDIR="$(mktemp -d)"
+ZIPFILE="$TEMPDIR/resources-sat-catalogs.zip"
+RESOURCE="https://github.com/phpcfdi/resources-sat-catalogs/archive/master.zip"
+
+curl -L -o "$ZIPFILE" -s "$RESOURCE"
+if [ $? -ne 0 ]; then
+    echo "Unable to download $RESOURCE into $ZIPFILE" 1>&2
+    exit 1
+fi
+
+unzip -q "$ZIPFILE" 'resources-sat-catalogs-master/database/*' -d "$TEMPDIR"
+if [ $? -ne 0 ]; then
+    echo "Unable to unzip $ZIPFILE" 1>&2
+    exit 1
+fi
+
+touch "$DESTFILE"
+if [ $? -ne 0 ]; then
+    echo "Unable to create file $DESTFILE" 1>&2
+    exit 1
+fi
+
+cat "${TEMPDIR}/resources-sat-catalogs-master/database/schemas/"*.sql \
+    "${TEMPDIR}/resources-sat-catalogs-master/database/data/"*.sql |
+    sqlite3 $DESTFILE
+if [ $? -ne 0 ]; then
+    echo "Unable import sql files into $DESTFILE" 1>&2
+    exit 1
+fi
+
+rm -rf "$TEMPDIR"
