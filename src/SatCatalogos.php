@@ -10,7 +10,6 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 /**
  * Class SatCatalogos
  *
- * @method Repository                   repository();
  * @method CFDI\Aduanas                 aduanas();
  * @method CFDI\ClavesUnidades          clavesUnidades();
  * @method CFDI\CodigosPostales         codigosPostales();
@@ -18,26 +17,29 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\Impuestos               impuestos();
  * @method CFDI\MetodosDePago           metodosDePago();
  * @method CFDI\Monedas                 monedas();
+ * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
  * @method CFDI\Paises                  paises();
+ * @method CFDI\PatentesAduanales       patentesAduanales();
  * @method CFDI\ProductosServicios      productosServicios();
  * @method CFDI\RegimenesFiscales       regimenesFiscales();
+ * @method CFDI\ReglasTasaCuota         reglasTasaCuota();
+ * @method CFDI\TiposComprobantes       tiposComprobantes();
+ * @method CFDI\TiposFactores           tiposFactores();
  * @method CFDI\TiposRelaciones         tiposRelaciones();
  * @method CFDI\UsosCfdi                usosCfdi();
- * @method CFDI\TiposFactores           tiposFactores();
- * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
- * @method CFDI\ReglasTasaCuota         reglasTasaCuota();
- * @method CFDI\PatentesAduanales       patentesAduanales();
- * @method CFDI\TiposComprobantes       tiposComprobantes();
 */
 class SatCatalogos
 {
     /** @var array<string, mixed> */
-    protected $container;
+    protected $cache;
+
+    /** @var Repository */
+    private $repository;
 
     public function __construct(Repository $repository)
     {
-        $this->container = [];
-        $this->container['repository'] = $repository;
+        $this->cache = [];
+        $this->repository = $repository;
     }
 
     /**
@@ -50,13 +52,13 @@ class SatCatalogos
      */
     public function __call(string $name, $arguments)
     {
-        if (isset($this->container[$name])) {
-            return $this->container[$name];
+        if (isset($this->cache[$name])) {
+            return $this->cache[$name];
         }
 
         $created = $this->create($name);
         if (null !== $created) {
-            $this->container[$name] = $created;
+            $this->cache[$name] = $created;
             return $created;
         }
 
@@ -67,7 +69,7 @@ class SatCatalogos
      * @param string $propertyName
      * @return BaseCatalog|null
      */
-    protected function create(string $propertyName)
+    private function create(string $propertyName)
     {
         foreach (['CFDI'] as $space) {
             $className = '\\' . __NAMESPACE__ . '\\' . $space . '\\' . ucfirst($propertyName);
@@ -79,7 +81,7 @@ class SatCatalogos
             }
             /** @var BaseCatalog $object */
             $object = new $className();
-            $object->withRepository($this->container['repository']);
+            $object->withRepository($this->repository);
             return $object;
         }
 
