@@ -128,5 +128,5 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [badge-license]: https://img.shields.io/github/license/phpcfdi/sat-catalogos?style=flat-square
 [badge-build]: https://img.shields.io/travis/com/phpcfdi/sat-catalogos/master?style=flat-square
 [badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/sat-catalogos/master?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpCfdi/sat-catalogos/master?style=flat-square
-[badge-downloads]: https://img.shields.io/packagist/dt/PhpCfdi/sat-catalogos?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/sat-catalogos/master?style=flat-square
+[badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/sat-catalogos?style=flat-square
