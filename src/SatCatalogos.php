@@ -10,7 +10,6 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 /**
  * Class SatCatalogos
  *
- * @method Repository                   repository();
  * @method CFDI\Aduanas                 aduanas();
  * @method CFDI\ClavesUnidades          clavesUnidades();
  * @method CFDI\CodigosPostales         codigosPostales();
@@ -18,16 +17,16 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\Impuestos               impuestos();
  * @method CFDI\MetodosDePago           metodosDePago();
  * @method CFDI\Monedas                 monedas();
+ * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
  * @method CFDI\Paises                  paises();
+ * @method CFDI\PatentesAduanales       patentesAduanales();
  * @method CFDI\ProductosServicios      productosServicios();
  * @method CFDI\RegimenesFiscales       regimenesFiscales();
+ * @method CFDI\ReglasTasaCuota         reglasTasaCuota();
+ * @method CFDI\TiposComprobantes       tiposComprobantes();
+ * @method CFDI\TiposFactores           tiposFactores();
  * @method CFDI\TiposRelaciones         tiposRelaciones();
  * @method CFDI\UsosCfdi                usosCfdi();
- * @method CFDI\TiposFactores           tiposFactores();
- * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
- * @method CFDI\ReglasTasaCuota         reglasTasaCuota();
- * @method CFDI\PatentesAduanales       patentesAduanales();
- * @method CFDI\TiposComprobantes       tiposComprobantes();
 */
 class SatCatalogos
 {

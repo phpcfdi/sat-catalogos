@@ -8,62 +8,35 @@ Y cada complemento además puede publicar sus propios catálogos.
 
 ## Actualizaciones
 
-Los catálogos son actualizados con regularidad.
-En estas actualizaciones se espera que únicamente cambien los datos aunque en la experiencia
-también ha cambiado la estructura (como la disposición de las columnas o nuevas columnas).
+Los catálogos utilizados son los que se recopilan en el proyecto
+[phpcfdi/resources-sat-catalogs](https://github.com/phpcfdi/resources-sat-catalogs),
+que es actualizado constantemente.
 
-Dado que el SAT no sigue una política estricta de publicación, entonces la versión
-de la librería estará atada con una fecha de publicación/actualización.
+En estas actualizaciones se espera que únicamente cambien los datos, aunque en la experiencia
+también ha cambiado la estructura, como la disposición de las columnas o nuevas columnas.
 
-## Archivo
+## Lista de catálogos implementados
 
-El archivo principal `catCFDI.xls` de los catálogos está en
-<http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI.xls>
-y está en formato xls (BIFF 8 / MS Excel 97).
+### CFDI
 
-## Origen de catálogos:
+Catálogos base de CFDI versión 3.3.
 
-- CFDI
-    * Catálogos base.
-- Complemento: Estado de cuenta de combustibles de monederos electrónicos
-    * Catálogo de combustibles
-- Complemento: Recibo de pago de nómina
-    * Catálogos propios simples
-    * Catálogos compartidos: CP, Estado, RegimenFiscal
-- Complemento: Consumo de combustibles
-    * Catálogo de combustibles (también en estado de cuenta de combustibles)
-- Complemento: Notarios públicos:
-    * Catálogos propios simples: Tipo de inmueble que enajena
-    * Catálogos compartidos:
-        * Catálogo de países
-        * Entidades Federativas
-- Complemento: Servicios parciales de construcción:
-    * Catálogos compartidos:
-        * Entidades Federativas
-- Complemento: Renovación y sustitución de vehículo
-    * Catálogos propios simples
-- Complemento: Certificado de destrucción
-    * Catálogos propios simples
-- Complemento: Obras de arte plásticas y antigüedades
-    * Catálogos propios simples
-- Complemento: INE
-    * Catálogo propios de estados (que incluye cosas que no son estados)
-- Complemento: Comercio exterior
-    * Catálogos propios
-    * Catálogos compartidos:
-        * Códigos postales
-        * Entidades o estados
-        * Moneda
-        * Países
-        * Régimen fiscal
-- Complemento: Recepción de pagos
-    * Catálogo propio: Tipo de la cadena de pago
-    * Catálogos compartidos:
-        * Forma de pago
-        * Impuesto
-        * Metodo de pago
-        * Moneda
-        * Tasa o cuota
-        * Tipo factor
-- Complemento de concepto: Acreditamiento del IEPS
-    * Catálogos simples
+| Catálogo               | Método                 |
+| ---------------------- | ---------------------- |
+| c_Aduana               | aduanas                |
+| c_ClaveUnidad          | clavesUnidades         |
+| c_CodigoPostal         | codigosPostales        |
+| c_FormaPago            | formasDePago           |
+| c_Impuesto             | impuestos              |
+| c_MetodoPago           | metodosDePago          |
+| c_Moneda               | monedas                |
+| c_NumPedimentoAduana   | numerosPedimentoAduana |
+| c_Pais                 | paises                 |
+| c_PatenteAduanal       | patentesAduanales      |
+| c_ClaveProdServ        | productosServicios     |
+| c_RegimenFiscal        | regimenesFiscales      |
+| c_TasaOCuota           | reglasTasaCuota        |
+| c_TipoComprobante      | tiposComprobantes      |
+| c_TipoFactor           | tiposFactores          |
+| c_TipoRelacion         | tiposRelaciones        |
+| c_UsoCFDI              | usosCfdi               |

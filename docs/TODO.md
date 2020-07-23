@@ -1,26 +1,31 @@
 # phpcfdi/sat-catalogos To Do List
 
-- Crear procedimiento/script para actualizar la base de datos actual, los datos sql están en
-  [phpcfdi/resources-sat-catalogs](https://github.com/phpcfdi/resources-sat-catalogs).
+## Catálogos disponibles aún no implementados
 
-- Poner docblocks en las clases a las que se tiene acceso.
+- Catálogos del Complemento de Pagos.
 
-- Poner docblock a metodos tal como en `ProductosServicios`.
+- Catálogos del Complemento de Nómina.
+
+- Catálogos del Complemento de Comercio Exterior.
+
+## Tareas pendientes
+
+- Poner phpdoc en las clases a las que se tiene acceso.
+
+- Poner phpdoc a metodos tal como en `ProductosServicios`.
 
 - Separar las clases de catálogos de las clases de entradas.
 
-- Documentar cómo se interpretan los catálogos y los catálogos especiales
+- Documentar cómo se interpretan los catálogos y los catálogos especiales.
 
-- Reorganizar el proyecto
-    - Mover las interfaces, abstracts y traits. La única clase de primer nivel debe ser SatCatalogos
-    - Mover los value object (objeto de entidad) a un nivel más abajo
+- Revisar el resultado del issue https://github.com/phpstan/phpstan/issues/1065 y modificar el código.
 
-- SatCatalogos no debe exponer el Repository.
+- Agregar funciones especiales como buscar productos por palabras similares.
+  Por ejemplo, ver la implementación de devolución de objetos en ReglasTasaCuota.
 
-- SatCatalogos no debe recibir obligadamente el Repository para su construcción.
+## Ideas a discutir
 
-- Revisar el resultado del issue https://github.com/phpstan/phpstan/issues/1065
-  y modificar el código
+- Mover las interfaces, abstracts y traits. La única clase de primer nivel debe ser SatCatalogos.
 
-- Agregar funciones especiales como por ejemplo, buscar productos por palabras similares
-  Por ejemplo, ver la implementación de devolución de objetos en ReglasTasaCuota
+- Mover los value object (objeto de entidad) a un nivel más abajo.
+
