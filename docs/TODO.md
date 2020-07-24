@@ -10,6 +10,8 @@
 
 ## Tareas pendientes
 
+- Verificar que todas las propiedades de los catálogos implementados se están exponiendo en sus clases.
+
 - Poner phpdoc en las clases a las que se tiene acceso.
 
 - Poner phpdoc a metodos tal como en `ProductosServicios`.
