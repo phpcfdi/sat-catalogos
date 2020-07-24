@@ -16,7 +16,7 @@ class HusoHorarioEstacionTest extends TestCase
         $this->assertSame('abril', $estacion->mes());
         $this->assertSame(4, $estacion->mesNumerico());
         $this->assertSame('primer domingo', $estacion->dia());
-        $this->assertSame('first sunday', $estacion->diaExpresion());
+        $this->assertSame('first sunday of this month', $estacion->diaExpresion());
         $this->assertSame('02:00', $estacion->hora());
         $this->assertSame(-5, $estacion->diferencia());
         $this->assertTrue($estacion->tieneCambioHorario());
@@ -28,7 +28,7 @@ class HusoHorarioEstacionTest extends TestCase
         $this->assertSame('abril', $estacion->mes());
         $this->assertSame(4, $estacion->mesNumerico());
         $this->assertSame('primer domingo', $estacion->dia());
-        $this->assertSame('first sunday', $estacion->diaExpresion());
+        $this->assertSame('first sunday of this month', $estacion->diaExpresion());
         $this->assertSame('02:00', $estacion->hora());
         $this->assertSame(-5, $estacion->diferencia());
         $this->assertTrue($estacion->tieneCambioHorario());
@@ -61,6 +61,28 @@ class HusoHorarioEstacionTest extends TestCase
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('La definición del momento del cambio de horario está incompleta');
         new HusoHorarioEstacion($mes, $dia, $hora, -5);
+    }
+
+    /**
+     * @param string $hour
+     * @testWith ["02:01"]
+     *           ["02:00 am"]
+     *           ["2:00"]
+     *           ["99:99"]
+     *           ["0200"]
+     */
+    public function testConstructInvalidHour(string $hour): void
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage("La hora a la que inicia el cambio de horario \"$hour\" no es válida");
+        new HusoHorarioEstacion('Abril', 'Primer domingo', $hour, -5);
+    }
+
+    public function testConstructInvalidHourGratherThan23(): void
+    {
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage('La hora a la que inicia el cambio de horario "24:00" no puede ser mayor a 23');
+        new HusoHorarioEstacion('Abril', 'Primer domingo', '24:00', -5);
     }
 
     /**

@@ -25,9 +25,9 @@ class HusoHorarioEstacion
     ];
 
     private const WEEK_DAYS = [
-        'primer domingo' => 'first sunday',
-        'segundo domingo' => 'second sunday',
-        'último domingo' => 'last sunday',
+        'primer domingo' => 'first sunday of this month',
+        'segundo domingo' => 'second sunday of this month',
+        'último domingo' => 'last sunday of this month',
     ];
 
     /** @var string */
@@ -43,19 +43,23 @@ class HusoHorarioEstacion
     private $weekDayToTime;
 
     /** @var string */
-    private $hour;
+    private $time;
+
+    /** @var int */
+    private $timeHour;
 
     /** @var int */
     private $utcDiff;
 
-    public function __construct(string $month, string $weekDay, string $hour, int $utcDiff)
+    public function __construct(string $month, string $weekDay, string $time, int $utcDiff)
     {
         $this->month = mb_strtolower($month);
         $this->weekDay = mb_strtolower($weekDay);
-        $this->hour = $hour;
+        $this->time = $time;
+        $this->timeHour = 0;
         $this->utcDiff = $utcDiff;
 
-        $empties = intval('' !== $month) + intval('' !== $weekDay) + intval('' !== $hour);
+        $empties = intval('' !== $month) + intval('' !== $weekDay) + intval('' !== $time);
         if (0 !== $empties && 3 !== $empties) {
             throw new SatCatalogosLogicException('La definición del momento del cambio de horario está incompleta');
         }
@@ -76,6 +80,20 @@ class HusoHorarioEstacion
             throw new SatCatalogosLogicException(
                 sprintf('El día de la semana del huso horario "%s" es desconocido', $weekDay)
             );
+        }
+
+        if ('' !== $this->time) {
+            if (! boolval(preg_match('/^\d\d:00$/', $this->time))) {
+                throw new SatCatalogosLogicException(
+                    sprintf('La hora a la que inicia el cambio de horario "%s" no es válida', $this->time)
+                );
+            }
+            $this->timeHour = intval(substr($this->time, 0, 2));
+            if ($this->timeHour > 23) {
+                throw new SatCatalogosLogicException(
+                    sprintf('La hora a la que inicia el cambio de horario "%s" no puede ser mayor a 23', $this->time)
+                );
+            }
         }
     }
 
@@ -101,7 +119,12 @@ class HusoHorarioEstacion
 
     public function hora(): string
     {
-        return $this->hour;
+        return $this->time;
+    }
+
+    public function horaNumero(): int
+    {
+        return $this->timeHour;
     }
 
     public function diferencia(): int
