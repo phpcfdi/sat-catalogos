@@ -76,7 +76,7 @@ class SatCatalogos
             if (! class_exists($className)) {
                 continue;
             }
-            if (! in_array(BaseCatalog::class, class_implements($className), true)) {
+            if (! in_array(BaseCatalog::class, class_implements($className) ?: [], true)) {
                 continue;
             }
             /** @var BaseCatalog $object */
