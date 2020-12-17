@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\SatCatalogos\CFDI;
 
 use DateTimeImmutable;
+use Exception;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 
 class HusoHorario
@@ -52,8 +53,16 @@ class HusoHorario
         return $this->invierno;
     }
 
-    public function convertToDateTime(string $partialDate): DateTimeImmutable
+    public function convertToDateTime(string $partialDateText): DateTimeImmutable
     {
+        try {
+            $partialDate = new DateTimeImmutable($partialDateText);
+        } catch (Exception $exception) {
+            throw new SatCatalogosLogicException(
+                sprintf('No se puede entender la fecha parcial "%s" como una fecha', $partialDateText)
+            );
+        }
+
         $date = $this->dateTimeFromPartial($partialDate, $this->invierno->diferencia());
 
         // time zone does not have DST
@@ -65,25 +74,24 @@ class HusoHorario
         $dstSince = $this->dstLimit($year, $this->verano, $this->invierno->diferencia());
         $dstUntil = $this->dstLimit($year, $this->invierno, $this->invierno->diferencia());
 
-        // is outside DST, nothing to change
+        // is outside DST, nothing to change: NOT $dstSince <= $date < $dstUntil
         if ($date < $dstSince || $date >= $dstUntil) {
             return $date;
         }
 
         // is DST
         $dstHoursDiff = $this->verano->diferencia() - $this->invierno->diferencia();
-        $dstSince = $dstSince->modify(sprintf('%d hours', $dstHoursDiff));
-        $altered = $this->dateTimeFromPartial($partialDate, $this->verano->diferencia());
-        if ($date < $dstSince) {
-            $altered = $altered->modify(sprintf('%d hours', $dstHoursDiff));
+        $dstSince = $dstSince->modify("{$dstHoursDiff} hours");
+        $summerDate = $this->dateTimeFromPartial($partialDate, $this->verano->diferencia());
+        if ($date < $dstSince) { // time is between a non-existent hour
+            $summerDate = $summerDate->modify("{$dstHoursDiff} hours");
         }
-        return $altered;
+        return $summerDate;
     }
 
-    private function dateTimeFromPartial(string $partialDate, int $hoursDiff): DateTimeImmutable
+    private function dateTimeFromPartial(DateTimeImmutable $partialDate, int $hoursDiff): DateTimeImmutable
     {
-        $sign = $hoursDiff < 0 ? '-' : '+';
-        $iso8601 = sprintf('%s%s%02d00', $partialDate, $sign, abs($hoursDiff));
+        $iso8601 = sprintf('%s%+02d00', $partialDate->format('Y-m-d\TH:i:s'), $hoursDiff);
         /** @noinspection PhpUnhandledExceptionInspection */
         return new DateTimeImmutable($iso8601);
     }
@@ -91,7 +99,7 @@ class HusoHorario
     private function dstLimit(int $year, HusoHorarioEstacion $limit, int $hoursDiff): DateTimeImmutable
     {
         /** @noinspection PhpUnhandledExceptionInspection */
-        $date = new DateTimeImmutable(sprintf('%04d-%02d-01 00:00:00 UTC', $year, $limit->mesNumerico()));
+        $date = new DateTimeImmutable(sprintf('%04d-%02d-01T00:00:00+000', $year, $limit->mesNumerico()));
         $date = $date->modify($limit->diaExpresion());
         $date = $date->modify(sprintf('%d hours', $limit->horaNumero() - $hoursDiff));
         return $date;
