@@ -63,12 +63,12 @@ class HusoHorario
             );
         }
 
-        $date = $this->dateTimeFromPartial($partialDate, $this->invierno->diferencia());
-
         // time zone does not have DST
         if (! $this->verano->tieneCambioHorario()) {
-            return $date;
+            return $partialDate;
         }
+
+        $date = $this->dateTimeFromPartial($partialDate, $this->invierno->diferencia());
 
         $year = (int) $date->format('Y');
         $dstSince = $this->dstLimit($year, $this->verano, $this->invierno->diferencia());
