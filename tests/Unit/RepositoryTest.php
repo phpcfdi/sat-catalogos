@@ -90,6 +90,12 @@ final class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->assertEquals($expected, array_intersect_key($data, $expected));
     }
 
+    public function testQueryRowsByFieldsWithoutFieldsAndLimit(): void
+    {
+        $data = $this->getRepository()->queryRowsByFields(Repository::CFDI_PAISES, [], 2);
+        $this->assertCount(2, $data, 'It was required only two records');
+    }
+
     public function testThrowExceptionWhenQueryRowByFieldAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);

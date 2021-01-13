@@ -17,6 +17,8 @@ Cambios al código:
 
 - Se incrementa el testeo sobre `HusoHorario` cuando no se le pasa un input de fecha correcta.
 - Se devuelve una fecha con la zona horaria default del sistema cuando el huso horario carece de definición.
+- Se incrementa el testeo agregando casos especiales y nuevos a:
+  `PhpCfdi\SatCatalogos\Factory` y `PhpCfdi\SatCatalogos\Repository`.
 
 Cambios al entorno de desarrollo:
 
