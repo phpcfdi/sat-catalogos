@@ -4,8 +4,16 @@ filter:
     - 'vendor/'
 
 build:
+  dependencies:
+    override:
+      # composer cannot be self updated since "/usr/bin/composer.phar" could not be written.
+      # - composer self-update --2 --no-interaction --no-progress
+      - composer remove squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan --dev --no-interaction --no-progress --no-update
+      - composer upgrade --no-interaction --prefer-dist
   nodes:
-    PhpBuild:
+    analysis:
+      project_setup:
+        override: true
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
