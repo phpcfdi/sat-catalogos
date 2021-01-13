@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpExpressionResultUnusedInspection */
+
 declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\Common;
@@ -9,7 +11,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Tests\Fixtures\EntryIdentifiableImplementation;
 use PHPUnit\Framework\TestCase;
 
-class AbstractEntryWithIdTest extends TestCase
+final class AbstractEntryWithIdTest extends TestCase
 {
     public function testCreateInstance(): void
     {

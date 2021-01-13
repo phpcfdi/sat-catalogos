@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogos\Tests\Fixtures\EntryIdentifiableImplementation;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class AbstractCatalogWithIdTest extends TestCase
+final class AbstractCatalogWithIdTest extends TestCase
 {
     /** @var MockObject&Repository $repository */
     protected $repository;

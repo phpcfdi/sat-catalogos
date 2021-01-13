@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\CFDI\HusoHorarioEstacion;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
-class HusoHorarioTest extends TestCase
+final class HusoHorarioTest extends TestCase
 {
     public function testConstructEmpty(): void
     {
@@ -88,5 +88,35 @@ class HusoHorarioTest extends TestCase
         $converted = $huso->convertToDateTime($partialDate);
 
         $this->assertSame($expected, $converted->format('c'));
+    }
+
+    public function testConvertToDateTimeWhenDoesNotHaveDailySavingTimesUseDefaultTimeZone(): void
+    {
+        $husoWithoutDst = new HusoHorario(
+            'Tiempo Sin DST de Verano',
+            new HusoHorarioEstacion('', '', '', 0),
+            new HusoHorarioEstacion('', '', '', 0),
+        );
+        $currentTimeZone = date_default_timezone_get();
+        date_default_timezone_set('America/Mexico_City');
+        try {
+            $converted = $husoWithoutDst->convertToDateTime('2021-01-13T14:15:16');
+            $this->assertSame('2021-01-13T14:15:16-06:00', $converted->format('c'));
+        } finally {
+            date_default_timezone_set($currentTimeZone);
+        }
+    }
+
+    public function testConvertToDateTimeWhenInputIsInvalidText(): void
+    {
+        $huso = new HusoHorario(
+            'Tiempo del Noroeste en Frontera',
+            new HusoHorarioEstacion('Marzo', 'Segundo domingo', '02:00', -7),
+            new HusoHorarioEstacion('Noviembre', 'Primer domingo', '02:00', -8),
+        );
+
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage('"foo"');
+        $huso->convertToDateTime('foo');
     }
 }

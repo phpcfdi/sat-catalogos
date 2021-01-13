@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\RegimenFiscal;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class RegimenFiscalTest extends TestCase
+final class RegimenFiscalTest extends TestCase
 {
     public function testCreateInstance(): void
     {

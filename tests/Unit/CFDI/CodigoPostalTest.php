@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
-class CodigoPostalTest extends TestCase
+final class CodigoPostalTest extends TestCase
 {
     private function createHusoHorario(): HusoHorario
     {

@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Fixtures;
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
-class CatalogIdentifiableImplementation extends AbstractCatalogIdentifiable
+final class CatalogIdentifiableImplementation extends AbstractCatalogIdentifiable
 {
     /**
      * @param array<string, mixed> $data

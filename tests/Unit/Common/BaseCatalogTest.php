@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Tests\Fixtures\BaseCatalogTraitImplementation;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class BaseCatalogTest extends TestCase
+final class BaseCatalogTest extends TestCase
 {
     public function testSetAndGetRepository(): void
     {

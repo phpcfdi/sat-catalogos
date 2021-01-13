@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Helpers\Patron;
 use PHPUnit\Framework\TestCase;
 
-class FormaDePagoTest extends TestCase
+final class FormaDePagoTest extends TestCase
 {
     /**
      * @param array<string, mixed> $values

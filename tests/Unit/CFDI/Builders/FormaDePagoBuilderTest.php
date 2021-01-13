@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\Builders\FormaDePagoBuilder;
 use PhpCfdi\SatCatalogos\CFDI\FormaDePago;
 use PHPUnit\Framework\TestCase;
 
-class FormaDePagoBuilderTest extends TestCase
+final class FormaDePagoBuilderTest extends TestCase
 {
     public function testBuilderCanCreateADefaultFormaDePago(): void
     {

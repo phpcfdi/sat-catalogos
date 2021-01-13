@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\PatenteAduanal;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class PatenteAduanalTest extends TestCase
+final class PatenteAduanalTest extends TestCase
 {
     public function testCreateInstance(): void
     {

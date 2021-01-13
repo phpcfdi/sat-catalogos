@@ -1,4 +1,4 @@
-# phpcfdi/sat-catalogos To Do List
+# phpcfdi/sat-catalogos lista de tareas pendientes
 
 ## Catálogos disponibles aún no implementados
 

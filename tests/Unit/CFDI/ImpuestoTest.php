@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\Impuesto;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class ImpuestoTest extends TestCase
+final class ImpuestoTest extends TestCase
 {
     public function testCreateInstance(): void
     {

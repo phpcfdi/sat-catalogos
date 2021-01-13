@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\HusoHorarioEstacion;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
-class HusoHorarioEstacionTest extends TestCase
+final class HusoHorarioEstacionTest extends TestCase
 {
     public function testConstructRegular(): void
     {

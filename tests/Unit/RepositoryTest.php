@@ -12,7 +12,7 @@ use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class RepositoryTest extends UsingTestingDatabaseTestCase
+final class RepositoryTest extends UsingTestingDatabaseTestCase
 {
     public function testQueryById(): void
     {
@@ -90,6 +90,12 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->assertEquals($expected, array_intersect_key($data, $expected));
     }
 
+    public function testQueryRowsByFieldsWithoutFieldsAndLimit(): void
+    {
+        $data = $this->getRepository()->queryRowsByFields(Repository::CFDI_PAISES, [], 2);
+        $this->assertCount(2, $data, 'It was required only two records');
+    }
+
     public function testThrowExceptionWhenQueryRowByFieldAndNotFound(): void
     {
         $this->expectException(SatCatalogosNotFoundException::class);
@@ -120,7 +126,6 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
 
     public function testQueryByIds(): void
     {
-        /** @var array[] $entries */
         $entries = $this->getRepository()->queryByIds(
             Repository::CFDI_PRODUCTOS_SERVICIOS,
             ['10101511', '10109999', '10122101'] // only 10101511 and 10122101 must exists

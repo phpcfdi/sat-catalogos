@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
-class NumeroPedimentoAduanaTest extends TestCase
+final class NumeroPedimentoAduanaTest extends TestCase
 {
     public function testCreateInstance(): void
     {

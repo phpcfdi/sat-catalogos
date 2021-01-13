@@ -59,16 +59,16 @@ class HusoHorario
             $partialDate = new DateTimeImmutable($partialDateText);
         } catch (Exception $exception) {
             throw new SatCatalogosLogicException(
-                sprintf('No se puede entender la fecha parcial "%s" como una fecha', $partialDateText)
+                sprintf('No se puede entender la fecha hora "%s" como tal', $partialDateText)
             );
         }
 
-        $date = $this->dateTimeFromPartial($partialDate, $this->invierno->diferencia());
-
         // time zone does not have DST
         if (! $this->verano->tieneCambioHorario()) {
-            return $date;
+            return $partialDate;
         }
+
+        $date = $this->dateTimeFromPartial($partialDate, $this->invierno->diferencia());
 
         $year = (int) $date->format('Y');
         $dstSince = $this->dstLimit($year, $this->verano, $this->invierno->diferencia());

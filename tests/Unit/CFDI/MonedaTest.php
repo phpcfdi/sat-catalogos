@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
-class MonedaTest extends TestCase
+final class MonedaTest extends TestCase
 {
     public function testCreateInstance(): void
     {

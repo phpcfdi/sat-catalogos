@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\ClaveUnidad;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class ClaveUnidadTest extends TestCase
+final class ClaveUnidadTest extends TestCase
 {
     public function testCreateInstance(): void
     {

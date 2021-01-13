@@ -50,12 +50,13 @@ class SatCatalogos
      * @return mixed
      * @throws SatCatalogosLogicException if cannot find a matching catalog with the method name
      */
-    public function __call(string $name, $arguments)
+    public function __call(string $name, array $arguments)
     {
         if (isset($this->cache[$name])) {
             return $this->cache[$name];
         }
 
+        /** @var mixed $created */
         $created = $this->create($name);
         if (null !== $created) {
             $this->cache[$name] = $created;
@@ -69,7 +70,7 @@ class SatCatalogos
      * @param string $propertyName
      * @return BaseCatalog|null
      */
-    private function create(string $propertyName)
+    private function create(string $propertyName): ?BaseCatalog
     {
         foreach (['CFDI'] as $space) {
             $className = '\\' . __NAMESPACE__ . '\\' . $space . '\\' . ucfirst($propertyName);
