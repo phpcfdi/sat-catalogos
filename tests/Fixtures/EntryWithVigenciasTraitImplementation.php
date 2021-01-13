@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Fixtures;
 
 use PhpCfdi\SatCatalogos\Common\EntryWithVigenciasTrait;
 
-class EntryWithVigenciasTraitImplementation
+final class EntryWithVigenciasTraitImplementation
 {
     use EntryWithVigenciasTrait;
 

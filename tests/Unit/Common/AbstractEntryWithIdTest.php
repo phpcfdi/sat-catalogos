@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Tests\Fixtures\EntryIdentifiableImplementation;
 use PHPUnit\Framework\TestCase;
 
-class AbstractEntryWithIdTest extends TestCase
+final class AbstractEntryWithIdTest extends TestCase
 {
     public function testCreateInstance(): void
     {

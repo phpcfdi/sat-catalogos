@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\TipoFactor;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class TipoFactorTest extends TestCase
+final class TipoFactorTest extends TestCase
 {
     public function testCreateInstance(): void
     {

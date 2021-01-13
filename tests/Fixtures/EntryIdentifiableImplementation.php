@@ -6,6 +6,6 @@ namespace PhpCfdi\SatCatalogos\Tests\Fixtures;
 
 use PhpCfdi\SatCatalogos\Common\AbstractEntryIdentifiable;
 
-class EntryIdentifiableImplementation extends AbstractEntryIdentifiable
+final class EntryIdentifiableImplementation extends AbstractEntryIdentifiable
 {
 }

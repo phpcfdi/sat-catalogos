@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\Aduana;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class AduanaTest extends TestCase
+final class AduanaTest extends TestCase
 {
     public function testCreateInstance(): void
     {

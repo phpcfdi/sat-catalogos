@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
 use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
-class ClavesUnidadesTest extends UsingTestingDatabaseTestCase
+final class ClavesUnidadesTest extends UsingTestingDatabaseTestCase
 {
     /** @var ClavesUnidades */
     protected $clavesUnidades;

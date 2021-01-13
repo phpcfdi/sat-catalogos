@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 use PhpCfdi\SatCatalogos\CFDI\CodigosPostales;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
-class CodigosPostalesTest extends UsingTestingDatabaseTestCase
+final class CodigosPostalesTest extends UsingTestingDatabaseTestCase
 {
     public function testObtainCodigoPostal00000(): void
     {

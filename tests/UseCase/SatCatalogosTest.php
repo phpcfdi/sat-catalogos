@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\SatCatalogos;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
-class SatCatalogosTest extends UsingTestingDatabaseTestCase
+final class SatCatalogosTest extends UsingTestingDatabaseTestCase
 {
     /** @var SatCatalogos */
     protected $satCatalogos;

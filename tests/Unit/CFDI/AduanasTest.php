@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Repository;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class AduanasTest extends TestCase
+final class AduanasTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [

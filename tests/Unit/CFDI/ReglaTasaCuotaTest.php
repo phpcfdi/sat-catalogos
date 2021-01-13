@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Common\EntryWithVigencias;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PHPUnit\Framework\TestCase;
 
-class ReglaTasaCuotaTest extends TestCase
+final class ReglaTasaCuotaTest extends TestCase
 {
     public function testCreateRango(): ReglaTasaCuota
     {

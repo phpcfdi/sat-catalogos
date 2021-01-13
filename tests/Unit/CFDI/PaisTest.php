@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PhpCfdi\SatCatalogos\Exceptions\PatronException;
 use PHPUnit\Framework\TestCase;
 
-class PaisTest extends TestCase
+final class PaisTest extends TestCase
 {
     public function testCreateInstance(): void
     {

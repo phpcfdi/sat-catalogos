@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogos\CFDI\ReglaTasaCuota;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 
-class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
+final class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
 {
     /** @var ReglasTasaCuota */
     private $reglas;

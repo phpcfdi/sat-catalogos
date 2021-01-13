@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\CFDI\TipoComprobante;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 use PHPUnit\Framework\TestCase;
 
-class TipoComprobanteTest extends TestCase
+final class TipoComprobanteTest extends TestCase
 {
     public function testCreateInstance(): void
     {

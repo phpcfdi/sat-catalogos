@@ -12,7 +12,7 @@ use PhpCfdi\SatCatalogos\Repository;
 use PhpCfdi\SatCatalogos\Tests\UsingTestingDatabaseTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class RepositoryTest extends UsingTestingDatabaseTestCase
+final class RepositoryTest extends UsingTestingDatabaseTestCase
 {
     public function testQueryById(): void
     {

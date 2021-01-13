@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 use PhpCfdi\SatCatalogos\Tests\Fixtures\EntryWithVigenciasTraitImplementation;
 use PHPUnit\Framework\TestCase;
 
-class EntryWithVigenciasTraitTest extends TestCase
+final class EntryWithVigenciasTraitTest extends TestCase
 {
     public function testSetupObject(): void
     {

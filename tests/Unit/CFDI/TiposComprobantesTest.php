@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI;
 use PhpCfdi\SatCatalogos\CFDI\TiposComprobantes;
 use PHPUnit\Framework\TestCase;
 
-class TiposComprobantesTest extends TestCase
+final class TiposComprobantesTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [

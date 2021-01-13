@@ -8,7 +8,7 @@ use PDO;
 use PhpCfdi\SatCatalogos\Repository;
 use PHPUnit\Framework\TestCase;
 
-class UsingTestingDatabaseTestCase extends TestCase
+abstract class UsingTestingDatabaseTestCase extends TestCase
 {
     /** @var PDO */
     private $pdo;

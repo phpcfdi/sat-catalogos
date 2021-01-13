@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogos\Exceptions\PatronException;
 use PhpCfdi\SatCatalogos\Helpers\Patron;
 use PHPUnit\Framework\TestCase;
 
-class PatronTest extends TestCase
+final class PatronTest extends TestCase
 {
     public function testPatronCreate(): void
     {

@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogos\Tests\Fixtures;
 
 use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 
-class BaseCatalogTraitImplementation
+final class BaseCatalogTraitImplementation
 {
     use BaseCatalogTrait;
 }
