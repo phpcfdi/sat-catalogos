@@ -16,7 +16,7 @@ class Repository
     /** @var PDO */
     private $pdo;
 
-    /** @var PDOStatement[] */
+    /** @var PDOStatement<mixed>[] */
     private $statements = [];
 
     public const CFDI_ADUANAS = 'cfdi_aduanas';
@@ -222,7 +222,7 @@ class Repository
      * with the corresponding message (if working on silent mode)
      * @param string $query
      * @param mixed[] $arguments
-     * @return PDOStatement
+     * @return PDOStatement<mixed>
      */
     private function query(string $query, array $arguments = []): PDOStatement
     {
@@ -265,7 +265,7 @@ class Repository
      * Cache or create a prepared statement
      *
      * @param string $query
-     * @return PDOStatement
+     * @return PDOStatement<mixed>
      */
     private function statement(string $query): PDOStatement
     {
@@ -277,7 +277,7 @@ class Repository
         try {
             /**
              * @noinspection PhpUsageOfSilenceOperatorInspection
-             * @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE
+             * @var PDOStatement<mixed>|false $statement phpstan does not know that prepare can return FALSE
              */
             $statement = @$this->pdo->prepare($query);
         } catch (PDOException $exception) {
