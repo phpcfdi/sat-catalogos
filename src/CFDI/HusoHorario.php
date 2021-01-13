@@ -59,7 +59,7 @@ class HusoHorario
             $partialDate = new DateTimeImmutable($partialDateText);
         } catch (Exception $exception) {
             throw new SatCatalogosLogicException(
-                sprintf('No se puede entender la fecha parcial "%s" como una fecha', $partialDateText)
+                sprintf('No se puede entender la fecha hora "%s" como tal', $partialDateText)
             );
         }
 

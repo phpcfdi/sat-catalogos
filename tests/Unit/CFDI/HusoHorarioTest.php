@@ -106,4 +106,17 @@ class HusoHorarioTest extends TestCase
             date_default_timezone_set($currentTimeZone);
         }
     }
+
+    public function testConvertToDateTimeWhenInputIsInvalidText(): void
+    {
+        $huso = new HusoHorario(
+            'Tiempo del Noroeste en Frontera',
+            new HusoHorarioEstacion('Marzo', 'Segundo domingo', '02:00', -7),
+            new HusoHorarioEstacion('Noviembre', 'Primer domingo', '02:00', -8),
+        );
+
+        $this->expectException(SatCatalogosLogicException::class);
+        $this->expectExceptionMessage('"foo"');
+        $huso->convertToDateTime('foo');
+    }
 }
