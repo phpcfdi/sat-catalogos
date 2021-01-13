@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Exceptions;
 
-class SatCatalogosNotFoundException extends \RuntimeException
+use RuntimeException;
+
+class SatCatalogosNotFoundException extends RuntimeException
 {
 }

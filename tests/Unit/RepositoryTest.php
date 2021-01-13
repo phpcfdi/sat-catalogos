@@ -120,7 +120,6 @@ class RepositoryTest extends UsingTestingDatabaseTestCase
 
     public function testQueryByIds(): void
     {
-        /** @var array[] $entries */
         $entries = $this->getRepository()->queryByIds(
             Repository::CFDI_PRODUCTOS_SERVICIOS,
             ['10101511', '10109999', '10122101'] // only 10101511 and 10122101 must exists

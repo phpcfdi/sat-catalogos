@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpExpressionResultUnusedInspection */
+
 declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\Common;

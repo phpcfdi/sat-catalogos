@@ -14,7 +14,7 @@ class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
     /** @var ReglasTasaCuota */
     private $reglas;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->reglas = new ReglasTasaCuota();

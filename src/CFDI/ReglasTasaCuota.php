@@ -38,30 +38,22 @@ class ReglasTasaCuota implements BaseCatalog
         if (self::USO_TRASLADO !== $uso && self::USO_RETENCION !== $uso) {
             throw new SatCatalogosLogicException('El campo uso no tiene uno de los valores permitidos');
         }
+
         $filters = [
             'impuesto' => $impuesto,
             'factor' => $factor,
             $uso => true,
         ];
 
-        $rules = array_map(
+        return array_map(
             function (array $data): ReglaTasaCuota {
                 return $this->createRule($data);
             },
             $this->repository()->queryRowsByFields(Repository::CFDI_REGLAS_TASA_CUOTA, $filters)
         );
-
-        return $rules;
     }
 
-    /**
-     * @param string $impuesto
-     * @param string $factor
-     * @param string $uso
-     * @param string $valor
-     * @return ReglaTasaCuota|null
-     */
-    public function findMatchingRule(string $impuesto, string $factor, string $uso, string $valor)
+    public function findMatchingRule(string $impuesto, string $factor, string $uso, string $valor): ?ReglaTasaCuota
     {
         $rules = $this->obtainRules($impuesto, $factor, $uso);
 

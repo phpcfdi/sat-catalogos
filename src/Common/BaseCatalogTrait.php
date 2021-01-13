@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Common;
 
+use LogicException;
 use PhpCfdi\SatCatalogos\Repository;
 
 trait BaseCatalogTrait
@@ -21,7 +22,7 @@ trait BaseCatalogTrait
         }
 
         if (null !== $this->repository) {
-            throw new \LogicException(
+            throw new LogicException(
                 sprintf('This instance of %s already contains a repository', get_class($this))
             );
         }
@@ -32,7 +33,7 @@ trait BaseCatalogTrait
     public function repository(): Repository
     {
         if (null === $this->repository) {
-            throw new \LogicException(
+            throw new LogicException(
                 sprintf('This instance of %s does not contains a repository', get_class($this))
             );
         }

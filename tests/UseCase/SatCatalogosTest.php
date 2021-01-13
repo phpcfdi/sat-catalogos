@@ -13,7 +13,7 @@ class SatCatalogosTest extends UsingTestingDatabaseTestCase
     /** @var SatCatalogos */
     protected $satCatalogos;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->satCatalogos = new SatCatalogos($this->getRepository());

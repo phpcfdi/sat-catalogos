@@ -62,6 +62,7 @@ class Patron
 
     public function expresionEsValida(string $expresion): bool
     {
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
         return (false !== @preg_match($expresion, ''));
     }
 
