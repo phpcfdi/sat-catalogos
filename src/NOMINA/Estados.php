@@ -4,31 +4,33 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\NOMINA;
 
-use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
-use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Common\BaseCatalog;
+use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
+use PhpCfdi\SatCatalogos\NOMINA\Estado;
 use PhpCfdi\SatCatalogos\Repository;
 
-/**
- * Class Estados
- * @method Estado obtain($estado, $pais, $texto)
- */
-class Estados extends AbstractCatalogIdentifiable
+class Estados implements BaseCatalog
 {
-    protected function catalogName(): string
+    use BaseCatalogTrait;
+
+    public function obtain(string $estado, string $pais): Estado
     {
-        return Repository::NOMINA_ESTADOS;
+        $data = $this->repository()->queryRowByFields(Repository::NOMINA_ESTADOS, [
+            'estado' => $estado,
+            'pais' => $pais,
+        ]);
+        return $this->create($data);
     }
 
     /**
      * @param array<string, mixed> $data
      * @return Estado
      */
-    public function create(array $data): EntryIdentifiable
+    public function create(array $data): Estado
     {
         return new Estado(
-            $data['estado'],
-            $data['pais'],
-            $data['texto']
+            (string) $data['estado'],
+            (string) $data['pais']
         );
     }
 }

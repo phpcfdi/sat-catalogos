@@ -180,8 +180,8 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentNominaEstado(): void
     {
-        $estado = $this->satCatalogos->nEstados()->obtain('AGU');
-        $this->assertSame('AGU', $estado->estado);
+        $estado = $this->satCatalogos->nEstados()->obtain('Aguascalientes', 'México');
+        $this->assertSame('Aguascalientes', $estado->estado);
     }
 
     public function testCanObtainExistentnOrigenRecurso(): void

@@ -9,10 +9,15 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
 class Estado extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
-    public function __construct(string $estado, string $pais, string $texto)
+    /** @var string */
+    public $estado;
+
+    /** @var string */
+    public $pais;
+
+    public function __construct(string $estado, string $pais)
     {
         $this->estado   = $estado;
         $this->pais     = $pais;
-        $this->texto    = $texto;
     }
 }
