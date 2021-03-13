@@ -26,8 +26,20 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\TiposComprobantes       tiposComprobantes();
  * @method CFDI\TiposFactores           tiposFactores();
  * @method CFDI\TiposRelaciones         tiposRelaciones();
- * @method CFDI\UsosCfdi                usosCfdi();
-*/
+ * @method NOMINA\TiposNominas          tiposNominas();
+ * @method NOMINA\TiposJornadas         tiposJornadas();
+ * @method NOMINA\Estados               nEstados();
+ * @method NOMINA\OrigenesRecursos      nOrigenesRecursos();
+ * @method NOMINA\Bancos                nBancos();
+ * @method NOMINA\PeriodicidadesPagos   nPeriodicidadesPagos();
+ * @method NOMINA\RiesgosPuestos        nRiesgosPuestos();
+ * @method NOMINA\TiposDeducciones      nTiposDeducciones();
+ * @method NOMINA\TiposHoras            nTiposHoras();
+ * @method NOMINA\TiposIncapacidades    nTiposIncapacidades();
+ * @method NOMINA\TiposOtrosPagos       nTiposOtrosPagos();
+ * @method NOMINA\TiposPercepciones     nTiposPercepciones();
+ * @method NOMINA\TiposRegimenes        nTiposRegimenes();
+ */
 class SatCatalogos
 {
     /** @var array<string, mixed> */
@@ -74,15 +86,16 @@ class SatCatalogos
     {
         foreach (['CFDI'] as $space) {
             $className = '\\' . __NAMESPACE__ . '\\' . $space . '\\' . ucfirst($propertyName);
-            if (! class_exists($className)) {
+            if (!class_exists($className)) {
                 continue;
             }
-            if (! in_array(BaseCatalog::class, class_implements($className) ?: [], true)) {
+            if (!in_array(BaseCatalog::class, class_implements($className) ?: [], true)) {
                 continue;
             }
             /** @var BaseCatalog $object */
             $object = new $className();
             $object->withRepository($this->repository);
+
             return $object;
         }
 

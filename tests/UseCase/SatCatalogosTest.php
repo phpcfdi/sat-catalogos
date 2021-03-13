@@ -166,6 +166,36 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('I', $tipoComprobante->id());
     }
 
+    public function testCanObtainExistentTipoNomina(): void
+    {
+        $tipoNomina = $this->satCatalogos->tiposNominas()->obtain('O');
+        $this->assertSame('O', $tipoNomina->id());
+    }
+
+    public function testCanObtainExistentTipoJornada(): void
+    {
+        $tipoJornada = $this->satCatalogos->tiposJornadas()->obtain('01');
+        $this->assertSame('01', $tipoJornada->id());
+    }
+
+    public function testCanObtainExistentNominaEstado(): void
+    {
+        $estado = $this->satCatalogos->nEstados()->obtain('AGU');
+        $this->assertSame('AGU', $estado->estado);
+    }
+
+    public function testCanObtainExistentnOrigenRecurso(): void
+    {
+        $origenRecurso = $this->satCatalogos->nOrigenesRecursos()->obtain('IP');
+        $this->assertSame('IP', $origenRecurso->id());
+    }
+
+    public function testCanObtainExistentTipoRegimen(): void
+    {
+        $tipoRegimen = $this->satCatalogos->nTiposRegimenes()->obtain('02');
+        $this->assertSame('02', $tipoRegimen->id());
+    }
+
     public function testSearchProductosServicios(): void
     {
         // seed database has 2 records, real database has more than 2
