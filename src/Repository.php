@@ -53,7 +53,7 @@ class Repository
 
     public const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
 
-    public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nomina';
+    public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nominas';
 
     public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
 
@@ -130,7 +130,7 @@ class Repository
             . ' from ' . $this->catalogName($catalog)
             . ' where (id = :id);';
         $data = $this->queryRow($sql, ['id' => $id]);
-        if (!count($data)) {
+        if (! count($data)) {
             throw $this->createSatCatalogosNotFoundException($catalog, ['id' => $id]);
         }
 
@@ -251,7 +251,7 @@ class Repository
 
     public function catalogName(string $catalog): string
     {
-        if (!in_array($catalog, self::CATALOGS, true)) {
+        if (! in_array($catalog, self::CATALOGS, true)) {
             throw new SatCatalogosLogicException("The catalog name $catalog is not recognized by the repository");
         }
 

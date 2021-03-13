@@ -26,19 +26,20 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\TiposComprobantes       tiposComprobantes();
  * @method CFDI\TiposFactores           tiposFactores();
  * @method CFDI\TiposRelaciones         tiposRelaciones();
- * @method NOMINA\TiposNominas          tiposNominas();
- * @method NOMINA\TiposJornadas         tiposJornadas();
- * @method NOMINA\Estados               nEstados();
- * @method NOMINA\OrigenesRecursos      nOrigenesRecursos();
- * @method NOMINA\Bancos                nBancos();
- * @method NOMINA\PeriodicidadesPagos   nPeriodicidadesPagos();
- * @method NOMINA\RiesgosPuestos        nRiesgosPuestos();
- * @method NOMINA\TiposDeducciones      nTiposDeducciones();
- * @method NOMINA\TiposHoras            nTiposHoras();
- * @method NOMINA\TiposIncapacidades    nTiposIncapacidades();
- * @method NOMINA\TiposOtrosPagos       nTiposOtrosPagos();
- * @method NOMINA\TiposPercepciones     nTiposPercepciones();
- * @method NOMINA\TiposRegimenes        nTiposRegimenes();
+ * @method Cfdi\UsosCfdi                usosCFDI();
+ * @method Nomina\TiposNominas          tiposNominas();
+ * @method Nomina\TiposJornadas         tiposJornadas();
+ * @method Nomina\Estados               nEstados();
+ * @method Nomina\OrigenesRecursos      nOrigenesRecursos();
+ * @method Nomina\Bancos                nBancos();
+ * @method Nomina\PeriodicidadesPagos   nPeriodicidadesPagos();
+ * @method Nomina\RiesgosPuestos        nRiesgosPuestos();
+ * @method Nomina\TiposDeducciones      nTiposDeducciones();
+ * @method Nomina\TiposHoras            nTiposHoras();
+ * @method Nomina\TiposIncapacidades    nTiposIncapacidades();
+ * @method Nomina\TiposOtrosPagos       nTiposOtrosPagos();
+ * @method Nomina\TiposPercepciones     nTiposPercepciones();
+ * @method Nomina\TiposRegimenes        nTiposRegimenes();
  */
 class SatCatalogos
 {
@@ -84,12 +85,13 @@ class SatCatalogos
      */
     private function create(string $propertyName): ?BaseCatalog
     {
-        foreach (['CFDI'] as $space) {
+        foreach (['CFDI', 'Nomina'] as $space) {
             $className = '\\' . __NAMESPACE__ . '\\' . $space . '\\' . ucfirst($propertyName);
-            if (!class_exists($className)) {
+
+            if (! class_exists($className)) {
                 continue;
             }
-            if (!in_array(BaseCatalog::class, class_implements($className) ?: [], true)) {
+            if (! in_array(BaseCatalog::class, class_implements($className) ?: [], true)) {
                 continue;
             }
             /** @var BaseCatalog $object */
