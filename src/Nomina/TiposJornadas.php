@@ -16,7 +16,7 @@ class TiposJornadas extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
-        return Repository::NOMINA_TIPOS_NOMINAS;
+        return Repository::NOMINA_TIPOS_JORNADAS;
     }
 
     /**

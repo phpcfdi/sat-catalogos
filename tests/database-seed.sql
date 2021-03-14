@@ -343,4 +343,7 @@ INSERT INTO cfdi_tipos_relaciones VALUES('05','Traslados de mercancias facturado
 INSERT INTO cfdi_usos_cfdi VALUES('G01','Adquisición de mercancias',1,1,'2017-01-01','');
 INSERT INTO cfdi_usos_cfdi VALUES('G02','Devoluciones, descuentos o bonificaciones',1,1,'2017-01-01','');
 INSERT INTO cfdi_usos_cfdi VALUES('G03','Gastos en general',1,1,'2017-01-01','');
+INSERT INTO nomina_tipos_nominas VALUES('E', 'Nómina extraordinaria');
+INSERT INTO nomina_tipos_jornadas VALUES('01', 'Diurna');
+INSERT INTO nomina_origenes_recursos VALUES('IP', 'Ingresos propios.');
 COMMIT;

@@ -6,7 +6,6 @@ namespace PhpCfdi\SatCatalogos\Nomina;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
-use PhpCfdi\SatCatalogos\Nomina\Banco;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**

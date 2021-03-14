@@ -178,21 +178,15 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('01', $tipoJornada->id());
     }
 
-    public function testCanObtainExistentNominaEstado(): void
+    public function testCanObtainExistentOrigenRecurso(): void
     {
-        $estado = $this->satCatalogos->nEstados()->obtain('Aguascalientes', 'MEX');
-        $this->assertSame('Aguascalientes', $estado->texto());
-    }
-
-    public function testCanObtainExistentnOrigenRecurso(): void
-    {
-        $origenRecurso = $this->satCatalogos->nOrigenesRecursos()->obtain('IP');
+        $origenRecurso = $this->satCatalogos->origenesRecursos()->obtain('IP');
         $this->assertSame('IP', $origenRecurso->id());
     }
 
     public function testCanObtainExistentTipoRegimen(): void
     {
-        $tipoRegimen = $this->satCatalogos->nTiposRegimenes()->obtain('02');
+        $tipoRegimen = $this->satCatalogos->tiposRegimenes()->obtain('02');
         $this->assertSame('02', $tipoRegimen->id());
     }
 

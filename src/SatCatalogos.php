@@ -29,17 +29,16 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method Cfdi\UsosCfdi                usosCFDI();
  * @method Nomina\TiposNominas          tiposNominas();
  * @method Nomina\TiposJornadas         tiposJornadas();
- * @method Nomina\Estados               nEstados();
- * @method Nomina\OrigenesRecursos      nOrigenesRecursos();
- * @method Nomina\Bancos                nBancos();
- * @method Nomina\PeriodicidadesPagos   nPeriodicidadesPagos();
- * @method Nomina\RiesgosPuestos        nRiesgosPuestos();
- * @method Nomina\TiposDeducciones      nTiposDeducciones();
- * @method Nomina\TiposHoras            nTiposHoras();
- * @method Nomina\TiposIncapacidades    nTiposIncapacidades();
- * @method Nomina\TiposOtrosPagos       nTiposOtrosPagos();
- * @method Nomina\TiposPercepciones     nTiposPercepciones();
- * @method Nomina\TiposRegimenes        nTiposRegimenes();
+ * @method Nomina\OrigenesRecursos      origenesRecursos();
+ * @method Nomina\Bancos                bancos();
+ * @method Nomina\PeriodicidadesPagos   periodicidadesPagos();
+ * @method Nomina\RiesgosPuestos        piesgosPuestos();
+ * @method Nomina\TiposDeducciones      tiposDeducciones();
+ * @method Nomina\TiposHoras            tiposHoras();
+ * @method Nomina\TiposIncapacidades    tiposIncapacidades();
+ * @method Nomina\TiposOtrosPagos       tiposOtrosPagos();
+ * @method Nomina\TiposPercepciones     tiposPercepciones();
+ * @method Nomina\TiposRegimenes        tiposRegimenes();
  */
 class SatCatalogos
 {
