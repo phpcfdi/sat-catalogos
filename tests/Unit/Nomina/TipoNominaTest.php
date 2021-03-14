@@ -14,7 +14,7 @@ final class TipoNominaTest extends TestCase
     {
         $id = 'O';
         $texto = 'Nómina ordinaria';
-        $vigenteDesde = strtotime('2017-01-01');
+        $vigenteDesde = 0;
         $vigenteHasta = 0;
 
         $tipoNomina = new TipoNomina($id, $texto, $vigenteDesde, $vigenteHasta);

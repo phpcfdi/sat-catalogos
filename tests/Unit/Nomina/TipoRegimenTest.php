@@ -14,7 +14,7 @@ final class TipoRegimenTest extends TestCase
     {
         $id = '02';
         $texto = 'Sueldos (Incluye ingresos señalados en la fracción I del artículo 94 de LISR)';
-        $vigenteDesde = strtotime('2017-01-01');
+        $vigenteDesde = 0;
         $vigenteHasta = 0;
 
         $tipoRegimen = new TipoRegimen($id, $texto, $vigenteDesde, $vigenteHasta);

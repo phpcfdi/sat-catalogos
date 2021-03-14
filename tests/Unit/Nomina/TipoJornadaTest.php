@@ -14,7 +14,7 @@ final class TipoJornadaTest extends TestCase
     {
         $id = '01';
         $texto = 'Diurna';
-        $vigenteDesde = strtotime('2017-01-01');
+        $vigenteDesde = 0;
         $vigenteHasta = 0;
 
         $tipoJornada = new TipoJornada($id, $texto, $vigenteDesde, $vigenteHasta);

@@ -13,7 +13,7 @@ final class TiposNominasTest extends TestCase
     protected $validRow = [
         'id' => 'O',
         'texto' => 'Nómina ordinaria',
-        'vigencia_desde' => '2017-07-29',
+        'vigencia_desde' => '01-01-1970',
         'vigencia_hasta' => 0,
     ];
 

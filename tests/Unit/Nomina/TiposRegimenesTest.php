@@ -13,7 +13,7 @@ final class TiposRegimenesTest extends TestCase
     protected $validRow = [
         'id' => '02',
         'texto' => 'Sueldos (Incluye ingresos señalados en la fracción I del artículo 94 de LISR)',
-        'vigencia_desde' => '2017-07-29',
+        'vigencia_desde' => '01-01-1970',
         'vigencia_hasta' => 0,
     ];
 

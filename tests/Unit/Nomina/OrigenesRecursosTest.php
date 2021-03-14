@@ -13,7 +13,7 @@ final class OrigenesRecursosTest extends TestCase
     protected $validRow = [
         'id' => 'IP',
         'texto' => 'Ingresos propios',
-        'vigencia_desde' => '2017-07-29',
+        'vigencia_desde' => '01-01-1970',
         'vigencia_hasta' => 0,
     ];
 

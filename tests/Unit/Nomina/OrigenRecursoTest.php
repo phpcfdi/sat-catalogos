@@ -14,7 +14,7 @@ final class OrigenRecursoTest extends TestCase
     {
         $id = '01';
         $texto = 'Diurna';
-        $vigenteDesde = strtotime('2017-01-01');
+        $vigenteDesde = 0;
         $vigenteHasta = 0;
 
         $origenRecurso = new OrigenRecurso($id, $texto, $vigenteDesde, $vigenteHasta);
