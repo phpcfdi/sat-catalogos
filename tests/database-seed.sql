@@ -346,4 +346,5 @@ INSERT INTO cfdi_usos_cfdi VALUES('G03','Gastos en general',1,1,'2017-01-01','')
 INSERT INTO nomina_tipos_nominas VALUES('E', 'Nómina extraordinaria');
 INSERT INTO nomina_tipos_jornadas VALUES('01', 'Diurna');
 INSERT INTO nomina_origenes_recursos VALUES('IP', 'Ingresos propios.');
+INSERT INTO nomina_tipos_regimenes VALUES('02', 'Sueldos', '2017-01-01', '');
 COMMIT;
