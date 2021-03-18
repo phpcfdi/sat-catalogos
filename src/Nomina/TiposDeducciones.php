@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de deducciones
- * @method TiposDeducciones obtain(string $id)
+ * @method TipoDeduccion obtain(string $id)
  */
 class TiposDeducciones extends AbstractCatalogIdentifiable
 {

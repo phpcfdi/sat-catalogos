@@ -172,6 +172,60 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('E', $tipoNomina->id());
     }
 
+    public function testCanObtainExistentTipoHora(): void
+    {
+        $tipoHora = $this->satCatalogos->tiposHoras()->obtain('01');
+        $this->assertSame('01', $tipoHora->id());
+    }
+
+    public function testCanObtainExistentTipoIncapacidad(): void
+    {
+        $tipoIncapacidad = $this->satCatalogos->tiposIncapacidades()->obtain('01');
+        $this->assertSame('01', $tipoIncapacidad->id());
+    }
+
+    public function testCanObtainExistentTipoOtroPago(): void
+    {
+        $tipoOtroPago = $this->satCatalogos->tiposOtrosPagos()->obtain('001');
+        $this->assertSame('001', $tipoOtroPago->id());
+    }
+
+    public function testCanObtainExistentTipoPercepcion(): void
+    {
+        $tipoPercepcion = $this->satCatalogos->tiposPercepciones()->obtain('001');
+        $this->assertSame('001', $tipoPercepcion->id());
+    }
+
+    public function testCanObtainExistentBanco(): void
+    {
+        $banco = $this->satCatalogos->bancos()->obtain('002');
+        $this->assertSame('002', $banco->id());
+    }
+
+    public function testCanObtainExistentPeriodicidad(): void
+    {
+        $periodicidad = $this->satCatalogos->periodicidadesPagos()->obtain('01');
+        $this->assertSame('01', $periodicidad->id());
+    }
+
+    public function testCanObtainExistentRiesgoPuesto(): void
+    {
+        $riesgoPuesto = $this->satCatalogos->riesgosPuestos()->obtain('1');
+        $this->assertSame('1', $riesgoPuesto->id());
+    }
+
+    public function testCanObtainExistentTipoContrato(): void
+    {
+        $tipoContrato = $this->satCatalogos->tiposContratos()->obtain('01');
+        $this->assertSame('01', $tipoContrato->id());
+    }
+
+    public function testCanObtainExistentTipoDeduccion(): void
+    {
+        $tipoDeduccion = $this->satCatalogos->tiposDeducciones()->obtain('001');
+        $this->assertSame('001', $tipoDeduccion->id());
+    }
+
     public function testCanObtainExistentTipoJornada(): void
     {
         $tipoJornada = $this->satCatalogos->tiposJornadas()->obtain('01');

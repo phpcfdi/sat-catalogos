@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Periodicidades Pagos
- * @method PeriodicidadesPagos obtain(string $id, string $texto)
+ * @method PeriodicidadPago obtain(string $id)
  */
 class PeriodicidadesPagos extends AbstractCatalogIdentifiable
 {

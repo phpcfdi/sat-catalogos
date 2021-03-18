@@ -57,8 +57,6 @@ class Repository
 
     public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
 
-    public const NOMINA_ESTADOS = 'nomina_estados';
-
     public const NOMINA_ORIGENES_RECURSOS = 'nomina_origenes_recursos';
 
     public const NOMINA_BANCOS = 'nomina_bancos';
@@ -101,7 +99,6 @@ class Repository
         self::CFDI_TIPOS_COMPROBANTES,
         self::NOMINA_TIPOS_NOMINAS,
         self::NOMINA_TIPOS_JORNADAS,
-        self::NOMINA_ESTADOS,
         self::NOMINA_ORIGENES_RECURSOS,
         self::NOMINA_BANCOS,
         self::NOMINA_PERIODICIDADES_PAGOS,

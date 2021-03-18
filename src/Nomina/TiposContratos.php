@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de contratos
- * @method TiposContratos obtain(string $id)
+ * @method TipoContrato obtain(string $id)
  */
 class TiposContratos extends AbstractCatalogIdentifiable
 {
@@ -28,8 +28,8 @@ class TiposContratos extends AbstractCatalogIdentifiable
         return new TipoContrato(
             $data['id'],
             $data['texto'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            0,
+            0
         );
     }
 }

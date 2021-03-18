@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\Nomina;
 
-use PhpCfdi\SatCatalogos\Nomina\OrigenesRecursos;
+use PhpCfdi\SatCatalogos\Nomina\RiesgosPuestos;
 use PHPUnit\Framework\TestCase;
 
-final class OrigenesRecursosTest extends TestCase
+final class RiesgosPuestosTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [
-        'id' => 'IP',
-        'texto' => 'Ingresos propios',
-        'vigencia_desde' => '01-01-1970',
+        'id' => '1',
+        'texto' => 'Clase I',
+        'vigencia_desde' => '2017-01-01',
         'vigencia_hasta' => 0,
     ];
 
     public function testCreate(): void
     {
-        $origenesRecursos = new OrigenesRecursos();
-        $created = $origenesRecursos->create($this->validRow);
+        $riesgosPuestos = new RiesgosPuestos();
+        $created = $riesgosPuestos->create($this->validRow);
 
         $this->assertSame($created->id(), $this->validRow['id']);
         $this->assertSame($created->texto(), $this->validRow['texto']);

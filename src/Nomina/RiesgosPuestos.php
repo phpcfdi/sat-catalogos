@@ -10,13 +10,13 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Riesgos Puestos
- * @method RiesgosPuestos obtain(string $id, string $texto)
+ * @method RiesgoPuesto obtain(string $id)
  */
 class RiesgosPuestos extends AbstractCatalogIdentifiable
 {
     protected function catalogName(): string
     {
-        return Repository::NOMINA_PERIODICIDADES_PAGOS;
+        return Repository::NOMINA_RIESGOS_PUESTOS;
     }
 
     /**

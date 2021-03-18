@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos otros pagos
- * @method TiposOtrosPagos obtain(string $id)
+ * @method TipoOtroPago obtain(string $id)
  */
 class TiposOtrosPagos extends AbstractCatalogIdentifiable
 {

@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Bancos
- * @method Bancos obtain(int $id, string $texto, string $razon_social, string $vigencia_desde, string $vigencia_hasta)
+ * @method Banco obtain(int $id)
  */
 class Bancos extends AbstractCatalogIdentifiable
 {

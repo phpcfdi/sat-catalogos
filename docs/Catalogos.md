@@ -42,8 +42,7 @@ Catálogos base de CFDI versión 3.3.
 | c_UsoCFDI              | usosCfdi               |
 | n_TipoNomina           | tiposNominas           |
 | n_TipoJornada          | tiposJornadas          |
-| n_Estados              | nEstados               |
-| n_OrigenesRecursos     | nOrigenesRecursos      |
+| n_OrigenesRecursos     | nominaOrigenesRecursos |
 | n_Bancos               | nBancos                |
 | n_PeriodicidadesPagos  | nPeriodicidadesPagos   |
 | n_RiesgosPuestos       | nRiesgosPuestos        |

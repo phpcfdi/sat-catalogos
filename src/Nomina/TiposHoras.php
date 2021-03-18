@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de horas
- * @method TiposHoras obtain(string $id)
+ * @method TipoHora obtain(string $id)
  */
 class TiposHoras extends AbstractCatalogIdentifiable
 {
@@ -28,8 +28,8 @@ class TiposHoras extends AbstractCatalogIdentifiable
         return new TipoHora(
             $data['id'],
             $data['texto'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            0,
+            0
         );
     }
 }

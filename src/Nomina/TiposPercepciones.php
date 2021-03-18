@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de percepciones
- * @method TiposPercepciones obtain(string $id)
+ * @method TipoPercepcion obtain(string $id)
  */
 class TiposPercepciones extends AbstractCatalogIdentifiable
 {

@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Tipos de incapacidades
- * @method TiposIncapacidades obtain(string $id)
+ * @method TipoIncapacidad obtain(string $id)
  */
 class TiposIncapacidades extends AbstractCatalogIdentifiable
 {
@@ -28,8 +28,8 @@ class TiposIncapacidades extends AbstractCatalogIdentifiable
         return new TipoIncapacidad(
             $data['id'],
             $data['texto'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            0,
+            0
         );
     }
 }
