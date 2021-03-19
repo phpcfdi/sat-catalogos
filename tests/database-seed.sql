@@ -55,6 +55,8 @@ CREATE TABLE IF NOT EXISTS "cce_tipos_operacion"(
 CREATE TABLE IF NOT EXISTS "cce_unidades_medida"(
   "id" text not null,
   "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
   PRIMARY KEY("id")
 );
 CREATE TABLE IF NOT EXISTS "cfdi_aduanas"(
@@ -329,7 +331,7 @@ INSERT INTO cfdi_productos_servicios VALUES('43231500','Software funcional espec
 INSERT INTO cfdi_regimenes_fiscales VALUES('601','General de Ley Personas Morales','',1,'2016-11-12','');
 INSERT INTO cfdi_reglas_tasa_cuota VALUES('Fijo','','0.000000','IVA','Tasa',1,'','2017-01-01','');
 INSERT INTO cfdi_reglas_tasa_cuota VALUES('Fijo','','0.160000','IVA','Tasa',1,'','2017-01-01','');
-INSERT INTO cfdi_reglas_tasa_cuota VALUES('Rango','0.000000','50.320000','IEPS','Cuota',1,1,'2020-01-01','');
+INSERT INTO cfdi_reglas_tasa_cuota VALUES('Rango','0.000000','55.085200','IEPS','Cuota',1,1,'2021-01-01','');
 INSERT INTO cfdi_reglas_tasa_cuota VALUES('Rango','0.000000','0.350000','ISR','Tasa','',1,'2017-01-01','');
 INSERT INTO cfdi_tipos_comprobantes VALUES('I','Ingreso','999999999999999999.999999','2017-07-29','');
 INSERT INTO cfdi_tipos_comprobantes VALUES('E','Egreso','999999999999999999.999999','2017-07-29','');
@@ -343,17 +345,46 @@ INSERT INTO cfdi_tipos_relaciones VALUES('05','Traslados de mercancias facturado
 INSERT INTO cfdi_usos_cfdi VALUES('G01','Adquisición de mercancias',1,1,'2017-01-01','');
 INSERT INTO cfdi_usos_cfdi VALUES('G02','Devoluciones, descuentos o bonificaciones',1,1,'2017-01-01','');
 INSERT INTO cfdi_usos_cfdi VALUES('G03','Gastos en general',1,1,'2017-01-01','');
-INSERT INTO nomina_bancos VALUES('002','BANAMEX','Banco Nacional de México, S.A., Institución de Banca Múltiple, Grupo Financiero Banamex','2017-01-01', '');
-INSERT INTO nomina_origenes_recursos VALUES('IP', 'Ingresos propios.');
-INSERT INTO nomina_periodicidades_pagos VALUES('01', 'Diario', '2016-11-01', '');
-INSERT INTO nomina_riesgos_puestos VALUES('1', 'Clase I', '2017-01-01', '');
-INSERT INTO nomina_tipos_deducciones VALUES('001', 'Seguridad social', '2016-11-01', '');
-INSERT INTO nomina_tipos_horas VALUES('01', 'Dobles');
-INSERT INTO nomina_tipos_incapacidades VALUES('01', 'Riesgo de trabajo.');
-INSERT INTO nomina_tipos_jornadas VALUES('01', 'Diurna');
-INSERT INTO nomina_tipos_nominas VALUES('E', 'Nómina extraordinaria');
-INSERT INTO nomina_tipos_otros_pagos VALUES('001', 'Reintegro de ISR pagado en exceso (siempre que no haya sido enterado al SAT).', '2017-01-01', '');
-INSERT INTO nomina_tipos_percepciones VALUES('001', 'Sueldos, Salarios  Rayas y Jornales', '2016-11-01', '');
-INSERT INTO nomina_tipos_regimenes VALUES('02', 'Sueldos', '2017-01-01', '');
-INSERT INTO nomina_tipos_contratos VALUES('01', 'Contrato de trabajo por tiempo indeterminado');
+INSERT INTO nomina_bancos VALUES('002','BANAMEX','Banco Nacional de México, S.A., Institución de Banca Múltiple, Grupo Financiero Banamex','2017-01-01','');
+INSERT INTO nomina_bancos VALUES('006','BANCOMEXT','Banco Nacional de Comercio Exterior, Sociedad Nacional de Crédito, Institución de Banca de Desarrollo','2017-01-01','');
+INSERT INTO nomina_bancos VALUES('009','BANOBRAS','Banco Nacional de Obras y Servicios Públicos, Sociedad Nacional de Crédito, Institución de Banca de Desarrollo','2017-01-01','');
+INSERT INTO nomina_origenes_recursos VALUES('IP','Ingresos propios.');
+INSERT INTO nomina_origenes_recursos VALUES('IF','Ingreso federales.');
+INSERT INTO nomina_origenes_recursos VALUES('IM','Ingresos mixtos.');
+INSERT INTO nomina_periodicidades_pagos VALUES('01','Diario','2016-11-01','');
+INSERT INTO nomina_periodicidades_pagos VALUES('04','Quincenal','2016-11-01','');
+INSERT INTO nomina_riesgos_puestos VALUES('1','Clase I','2017-01-01','');
+INSERT INTO nomina_riesgos_puestos VALUES('2','Clase II','2017-01-01','');
+INSERT INTO nomina_riesgos_puestos VALUES('3','Clase III','2017-01-01','');
+INSERT INTO nomina_riesgos_puestos VALUES('4','Clase IV','2017-01-01','');
+INSERT INTO nomina_riesgos_puestos VALUES('5','Clase V','2017-01-01','');
+INSERT INTO nomina_riesgos_puestos VALUES('99','No aplica','2017-08-13','');
+INSERT INTO nomina_tipos_deducciones VALUES('001','Seguridad social','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('002','ISR','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('003','Aportaciones a retiro, cesantía en edad avanzada y vejez.','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('004','Otros','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('005','Aportaciones a Fondo de vivienda','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('006','Descuento por incapacidad','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('007','Pensión alimenticia','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('008','Renta','2016-11-01','');
+INSERT INTO nomina_tipos_deducciones VALUES('009','Préstamos provenientes del Fondo Nacional de la Vivienda para los Trabajadores','2016-11-01','');
+INSERT INTO nomina_tipos_horas VALUES('01','Dobles');
+INSERT INTO nomina_tipos_horas VALUES('02','Triples');
+INSERT INTO nomina_tipos_horas VALUES('03','Simples');
+INSERT INTO nomina_tipos_incapacidades VALUES('01','Riesgo de trabajo.');
+INSERT INTO nomina_tipos_incapacidades VALUES('02','Enfermedad en general.');
+INSERT INTO nomina_tipos_incapacidades VALUES('03','Maternidad.');
+INSERT INTO nomina_tipos_incapacidades VALUES('04','Licencia por cuidados médicos de hijos diagnosticados con cáncer.');
+INSERT INTO nomina_tipos_jornadas VALUES('01','Diurna');
+INSERT INTO nomina_tipos_jornadas VALUES('02','Nocturna');
+INSERT INTO nomina_tipos_nominas VALUES('O','Nómina ordinaria');
+INSERT INTO nomina_tipos_nominas VALUES('E','Nómina extraordinaria');
+INSERT INTO nomina_tipos_otros_pagos VALUES('001','Reintegro de ISR pagado en exceso (siempre que no haya sido enterado al SAT).','2017-01-01','');
+INSERT INTO nomina_tipos_otros_pagos VALUES('999','Pagos distintos a los listados y que no deben considerarse como ingreso por sueldos, salarios o ingresos asimilados.','2017-01-01','');
+INSERT INTO nomina_tipos_percepciones VALUES('001','Sueldos, Salarios  Rayas y Jornales','2016-11-01','');
+INSERT INTO nomina_tipos_percepciones VALUES('050','Viáticos','2017-01-06','');
+INSERT INTO nomina_tipos_regimenes VALUES('02','Sueldos (Incluye ingresos señalados en la fracción I del artículo 94 de LISR)','2017-01-01','');
+INSERT INTO nomina_tipos_regimenes VALUES('99','Otro Regimen','2017-01-01','');
+INSERT INTO nomina_tipos_contratos VALUES('01','Contrato de trabajo por tiempo indeterminado');
+INSERT INTO nomina_tipos_contratos VALUES('99','Otro contrato');
 COMMIT;

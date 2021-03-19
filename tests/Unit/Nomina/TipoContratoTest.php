@@ -17,7 +17,7 @@ final class TipoContratoTest extends TestCase
         $vigenteDesde = 0;
         $vigenteHasta = 0;
 
-        $tipoContrato = new TipoContrato($id, $texto, $vigenteDesde, $vigenteHasta);
+        $tipoContrato = new TipoContrato($id, $texto);
 
         $this->assertInstanceOf(EntryIdentifiable::class, $tipoContrato);
         $this->assertSame($id, $tipoContrato->id());

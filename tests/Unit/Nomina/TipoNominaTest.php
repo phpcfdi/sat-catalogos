@@ -17,7 +17,7 @@ final class TipoNominaTest extends TestCase
         $vigenteDesde = 0;
         $vigenteHasta = 0;
 
-        $tipoNomina = new TipoNomina($id, $texto, $vigenteDesde, $vigenteHasta);
+        $tipoNomina = new TipoNomina($id, $texto);
 
         $this->assertInstanceOf(EntryIdentifiable::class, $tipoNomina);
         $this->assertSame($id, $tipoNomina->id());

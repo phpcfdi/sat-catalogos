@@ -109,7 +109,7 @@ class Repository
         self::NOMINA_TIPOS_INCAPACIDADES,
         self::NOMINA_TIPOS_OTROS_PAGOS,
         self::NOMINA_TIPOS_PERCEPCIONES,
-        self::NOMINA_TIPOS_REGIMENES
+        self::NOMINA_TIPOS_REGIMENES,
     ];
 
     public function __construct(PDO $pdo)

@@ -202,7 +202,7 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('002', $banco->id());
     }
 
-    public function testCanObtainExistentPeriodicidad(): void
+    public function testCanObtainExistentPeriodicidadPago(): void
     {
         $periodicidad = $this->satCatalogos->periodicidadesPagos()->obtain('01');
         $this->assertSame('01', $periodicidad->id());

@@ -28,8 +28,6 @@ class TiposIncapacidades extends AbstractCatalogIdentifiable
         return new TipoIncapacidad(
             $data['id'],
             $data['texto'],
-            0,
-            0
         );
     }
 }

@@ -28,8 +28,6 @@ class TiposContratos extends AbstractCatalogIdentifiable
         return new TipoContrato(
             $data['id'],
             $data['texto'],
-            0,
-            0
         );
     }
 }

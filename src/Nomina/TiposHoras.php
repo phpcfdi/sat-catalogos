@@ -28,8 +28,6 @@ class TiposHoras extends AbstractCatalogIdentifiable
         return new TipoHora(
             $data['id'],
             $data['texto'],
-            0,
-            0
         );
     }
 }

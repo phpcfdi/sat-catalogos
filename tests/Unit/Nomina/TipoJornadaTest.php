@@ -17,7 +17,7 @@ final class TipoJornadaTest extends TestCase
         $vigenteDesde = 0;
         $vigenteHasta = 0;
 
-        $tipoJornada = new TipoJornada($id, $texto, $vigenteDesde, $vigenteHasta);
+        $tipoJornada = new TipoJornada($id, $texto);
 
         $this->assertInstanceOf(EntryIdentifiable::class, $tipoJornada);
         $this->assertSame($id, $tipoJornada->id());

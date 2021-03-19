@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Catálogo de Origenes Recursos
- * @method OrigenRecurso obtain(string $id, string $texto)
+ * @method OrigenRecurso obtain(string $id)
  */
 class OrigenesRecursos extends AbstractCatalogIdentifiable
 {

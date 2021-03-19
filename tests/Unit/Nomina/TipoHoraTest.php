@@ -17,7 +17,7 @@ final class TipoHoraTest extends TestCase
         $vigenteDesde = 0;
         $vigenteHasta = 0;
 
-        $tipoHora = new TipoHora($id, $texto, $vigenteDesde, $vigenteHasta);
+        $tipoHora = new TipoHora($id, $texto);
 
         $this->assertInstanceOf(EntryIdentifiable::class, $tipoHora);
         $this->assertSame($id, $tipoHora->id());

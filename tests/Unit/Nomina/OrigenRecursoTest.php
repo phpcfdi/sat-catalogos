@@ -17,7 +17,7 @@ final class OrigenRecursoTest extends TestCase
         $vigenteDesde = 0;
         $vigenteHasta = 0;
 
-        $origenRecurso = new OrigenRecurso($id, $texto, $vigenteDesde, $vigenteHasta);
+        $origenRecurso = new OrigenRecurso($id, $texto);
 
         $this->assertInstanceOf(EntryIdentifiable::class, $origenRecurso);
         $this->assertSame($id, $origenRecurso->id());

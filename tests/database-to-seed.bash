@@ -54,6 +54,25 @@ grep_insert_table_values cfdi_tipos_comprobantes
 grep_insert_table_values cfdi_tipos_factores
 grep_insert_table_values cfdi_tipos_relaciones "'05'"
 grep_insert_table_values cfdi_usos_cfdi "'G0.'"
+grep_insert_table_values nomina_bancos "'00.'"
+grep_insert_table_values nomina_origenes_recursos
+grep_insert_table_values nomina_periodicidades_pagos "'01'"
+grep_insert_table_values nomina_periodicidades_pagos "'04'"
+grep_insert_table_values nomina_riesgos_puestos
+grep_insert_table_values nomina_tipos_deducciones "'00.'"
+grep_insert_table_values nomina_tipos_horas
+grep_insert_table_values nomina_tipos_incapacidades
+grep_insert_table_values nomina_tipos_jornadas "'01'"
+grep_insert_table_values nomina_tipos_jornadas "'02'"
+grep_insert_table_values nomina_tipos_nominas
+grep_insert_table_values nomina_tipos_otros_pagos "'001'"
+grep_insert_table_values nomina_tipos_otros_pagos "'999'"
+grep_insert_table_values nomina_tipos_percepciones "'001'"
+grep_insert_table_values nomina_tipos_percepciones "'050'"
+grep_insert_table_values nomina_tipos_regimenes "'02'"
+grep_insert_table_values nomina_tipos_regimenes "'99'"
+grep_insert_table_values nomina_tipos_contratos "'01'"
+grep_insert_table_values nomina_tipos_contratos "'99'"
 echo "COMMIT;"
 
 rm -rf "$DUMPFILE"
