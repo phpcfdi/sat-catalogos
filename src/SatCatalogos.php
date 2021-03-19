@@ -27,6 +27,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\TiposFactores           tiposFactores();
  * @method CFDI\TiposRelaciones         tiposRelaciones();
  * @method CFDI\UsosCfdi                usosCfdi();
+ * 
  * @method Nomina\TiposContratos        tiposContratos();
  * @method Nomina\TiposNominas          tiposNominas();
  * @method Nomina\TiposJornadas         tiposJornadas();
