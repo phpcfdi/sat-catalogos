@@ -4,9 +4,6 @@
 
 - Catálogos del Complemento de Pagos.
 
-- Catálogos del Complemento de Nómina. Faltan:
-  - `c_Estado / nomina_estados`.
-
 - Catálogos del Complemento de Comercio Exterior.
 
 ## Tareas pendientes

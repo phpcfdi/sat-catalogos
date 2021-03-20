@@ -61,6 +61,8 @@ class Repository
 
     public const NOMINA_BANCOS = 'nomina_bancos';
 
+    public const NOMINA_ESTADOS = 'nomina_estados';
+
     public const NOMINA_PERIODICIDADES_PAGOS = 'nomina_periodicidades_pagos';
 
     public const NOMINA_RIESGOS_PUESTOS = 'nomina_riesgos_puestos';
@@ -101,6 +103,7 @@ class Repository
         self::NOMINA_TIPOS_JORNADAS,
         self::NOMINA_ORIGENES_RECURSOS,
         self::NOMINA_BANCOS,
+        self::NOMINA_ESTADOS,
         self::NOMINA_PERIODICIDADES_PAGOS,
         self::NOMINA_RIESGOS_PUESTOS,
         self::NOMINA_TIPOS_CONTRATOS,

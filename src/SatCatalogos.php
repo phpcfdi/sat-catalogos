@@ -34,6 +34,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method Nomina\TiposJornadas         tiposJornadas();
  * @method Nomina\OrigenesRecursos      origenesRecursos();
  * @method Nomina\Bancos                bancos();
+ * @method Nomina\Estados               estados();
  * @method Nomina\PeriodicidadesPagos   periodicidadesPagos();
  * @method Nomina\RiesgosPuestos        riesgosPuestos();
  * @method Nomina\TiposDeducciones      tiposDeducciones();
@@ -71,6 +72,7 @@ class SatCatalogos
         'tiposJornadas' => Nomina\TiposJornadas::class,
         'origenesRecursos' => Nomina\OrigenesRecursos::class,
         'bancos' => Nomina\Bancos::class,
+        'estados' => Nomina\Estados::class,
         'periodicidadesPagos' => Nomina\PeriodicidadesPagos::class,
         'riesgosPuestos' => Nomina\RiesgosPuestos::class,
         'tiposDeducciones' => Nomina\TiposDeducciones::class,

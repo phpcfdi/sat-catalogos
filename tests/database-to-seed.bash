@@ -55,6 +55,7 @@ grep_insert_table_values cfdi_tipos_factores
 grep_insert_table_values cfdi_tipos_relaciones "'05'"
 grep_insert_table_values cfdi_usos_cfdi "'G0.'"
 grep_insert_table_values nomina_bancos "'00.'"
+grep_insert_table_values nomina_estados "'M.*?','(MEX|USA|CAN)'"
 grep_insert_table_values nomina_origenes_recursos
 grep_insert_table_values nomina_periodicidades_pagos "'01'"
 grep_insert_table_values nomina_periodicidades_pagos "'04'"

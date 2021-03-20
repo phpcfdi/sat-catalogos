@@ -48,6 +48,7 @@ Catálogos del Complemento de Nómina 1.2.
 | Catálogo               | Método                |
 | ---------------------- | --------------------- |
 | c_Banco                | bancos                |
+| c_Estados              | estados               |
 | c_OrigenRecurso        | origenesRecursos      |
 | c_PeriodicidadPago     | periodicidadesPagos   |
 | c_RiesgoPuesto         | riesgosPuestos        |

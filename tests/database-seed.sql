@@ -348,6 +348,18 @@ INSERT INTO cfdi_usos_cfdi VALUES('G03','Gastos en general',1,1,'2017-01-01','')
 INSERT INTO nomina_bancos VALUES('002','BANAMEX','Banco Nacional de México, S.A., Institución de Banca Múltiple, Grupo Financiero Banamex','2017-01-01','');
 INSERT INTO nomina_bancos VALUES('006','BANCOMEXT','Banco Nacional de Comercio Exterior, Sociedad Nacional de Crédito, Institución de Banca de Desarrollo','2017-01-01','');
 INSERT INTO nomina_bancos VALUES('009','BANOBRAS','Banco Nacional de Obras y Servicios Públicos, Sociedad Nacional de Crédito, Institución de Banca de Desarrollo','2017-01-01','');
+INSERT INTO nomina_estados VALUES('MEX','MEX','Estado de México');
+INSERT INTO nomina_estados VALUES('MIC','MEX','Michoacán');
+INSERT INTO nomina_estados VALUES('MOR','MEX','Morelos');
+INSERT INTO nomina_estados VALUES('ME','USA','Maine');
+INSERT INTO nomina_estados VALUES('MD','USA','Maryland');
+INSERT INTO nomina_estados VALUES('MA','USA','Massachusetts');
+INSERT INTO nomina_estados VALUES('MI','USA','Míchigan');
+INSERT INTO nomina_estados VALUES('MN','USA','Minnesota');
+INSERT INTO nomina_estados VALUES('MS','USA','Misisipi');
+INSERT INTO nomina_estados VALUES('MO','USA','Misuri');
+INSERT INTO nomina_estados VALUES('MT','USA','Montana');
+INSERT INTO nomina_estados VALUES('MB','CAN','Manitoba');
 INSERT INTO nomina_origenes_recursos VALUES('IP','Ingresos propios.');
 INSERT INTO nomina_origenes_recursos VALUES('IF','Ingreso federales.');
 INSERT INTO nomina_origenes_recursos VALUES('IM','Ingresos mixtos.');
