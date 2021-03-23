@@ -53,6 +53,34 @@ class Repository
 
     public const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
 
+    public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nominas';
+
+    public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
+
+    public const NOMINA_ORIGENES_RECURSOS = 'nomina_origenes_recursos';
+
+    public const NOMINA_BANCOS = 'nomina_bancos';
+
+    public const NOMINA_ESTADOS = 'nomina_estados';
+
+    public const NOMINA_PERIODICIDADES_PAGOS = 'nomina_periodicidades_pagos';
+
+    public const NOMINA_RIESGOS_PUESTOS = 'nomina_riesgos_puestos';
+
+    public const NOMINA_TIPOS_CONTRATOS = 'nomina_tipos_contratos';
+
+    public const NOMINA_TIPOS_DEDUCCIONES = 'nomina_tipos_deducciones';
+
+    public const NOMINA_TIPOS_HORAS = 'nomina_tipos_horas';
+
+    public const NOMINA_TIPOS_INCAPACIDADES = 'nomina_tipos_incapacidades';
+
+    public const NOMINA_TIPOS_OTROS_PAGOS = 'nomina_tipos_otros_pagos';
+
+    public const NOMINA_TIPOS_PERCEPCIONES = 'nomina_tipos_percepciones';
+
+    public const NOMINA_TIPOS_REGIMENES = 'nomina_tipos_regimenes';
+
     public const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
@@ -71,6 +99,20 @@ class Repository
         self::CFDI_REGLAS_TASA_CUOTA,
         self::CFDI_PATENTES_ADUANALES,
         self::CFDI_TIPOS_COMPROBANTES,
+        self::NOMINA_TIPOS_NOMINAS,
+        self::NOMINA_TIPOS_JORNADAS,
+        self::NOMINA_ORIGENES_RECURSOS,
+        self::NOMINA_BANCOS,
+        self::NOMINA_ESTADOS,
+        self::NOMINA_PERIODICIDADES_PAGOS,
+        self::NOMINA_RIESGOS_PUESTOS,
+        self::NOMINA_TIPOS_CONTRATOS,
+        self::NOMINA_TIPOS_DEDUCCIONES,
+        self::NOMINA_TIPOS_HORAS,
+        self::NOMINA_TIPOS_INCAPACIDADES,
+        self::NOMINA_TIPOS_OTROS_PAGOS,
+        self::NOMINA_TIPOS_PERCEPCIONES,
+        self::NOMINA_TIPOS_REGIMENES,
     ];
 
     public function __construct(PDO $pdo)

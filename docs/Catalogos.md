@@ -40,3 +40,24 @@ Catálogos base de CFDI versión 3.3.
 | c_TipoFactor           | tiposFactores          |
 | c_TipoRelacion         | tiposRelaciones        |
 | c_UsoCFDI              | usosCfdi               |
+
+### Nómina
+
+Catálogos del Complemento de Nómina 1.2.
+
+| Catálogo               | Método                |
+| ---------------------- | --------------------- |
+| c_Banco                | bancos                |
+| c_Estados              | estados               |
+| c_OrigenRecurso        | origenesRecursos      |
+| c_PeriodicidadPago     | periodicidadesPagos   |
+| c_RiesgoPuesto         | riesgosPuestos        |
+| c_TipoContrato         | tiposContratos        |
+| c_TipoDeduccion        | tiposDeducciones      |
+| c_TipoHoras            | tiposHoras            |
+| c_TipoIncapacidad      | tiposIncapacidades    |
+| c_TipoJornada          | tiposJornadas         |
+| c_TipoNomina           | tiposNominas          |
+| c_TipoOtroPago         | tiposOtrosPagos       |
+| c_TipoPercepcion       | tiposPercepciones     |
+| c_TipoRegimen          | tiposRegimenes        |
