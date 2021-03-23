@@ -168,31 +168,31 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentTipoNomina(): void
     {
-        $tipoNomina = $this->satCatalogos->tiposNominas()->obtain('E');
+        $tipoNomina = $this->satCatalogos->nominas()->obtain('E');
         $this->assertSame('E', $tipoNomina->id());
     }
 
     public function testCanObtainExistentTipoHora(): void
     {
-        $tipoHora = $this->satCatalogos->tiposHoras()->obtain('01');
+        $tipoHora = $this->satCatalogos->horasExtras()->obtain('01');
         $this->assertSame('01', $tipoHora->id());
     }
 
     public function testCanObtainExistentTipoIncapacidad(): void
     {
-        $tipoIncapacidad = $this->satCatalogos->tiposIncapacidades()->obtain('01');
+        $tipoIncapacidad = $this->satCatalogos->incapacidades()->obtain('01');
         $this->assertSame('01', $tipoIncapacidad->id());
     }
 
     public function testCanObtainExistentTipoOtroPago(): void
     {
-        $tipoOtroPago = $this->satCatalogos->tiposOtrosPagos()->obtain('001');
+        $tipoOtroPago = $this->satCatalogos->otrosTipoPago()->obtain('001');
         $this->assertSame('001', $tipoOtroPago->id());
     }
 
     public function testCanObtainExistentTipoPercepcion(): void
     {
-        $tipoPercepcion = $this->satCatalogos->tiposPercepciones()->obtain('001');
+        $tipoPercepcion = $this->satCatalogos->percepciones()->obtain('001');
         $this->assertSame('001', $tipoPercepcion->id());
     }
 
@@ -223,19 +223,19 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentTipoContrato(): void
     {
-        $tipoContrato = $this->satCatalogos->tiposContratos()->obtain('01');
+        $tipoContrato = $this->satCatalogos->contratos()->obtain('01');
         $this->assertSame('01', $tipoContrato->id());
     }
 
     public function testCanObtainExistentTipoDeduccion(): void
     {
-        $tipoDeduccion = $this->satCatalogos->tiposDeducciones()->obtain('001');
+        $tipoDeduccion = $this->satCatalogos->deducciones()->obtain('001');
         $this->assertSame('001', $tipoDeduccion->id());
     }
 
     public function testCanObtainExistentTipoJornada(): void
     {
-        $tipoJornada = $this->satCatalogos->tiposJornadas()->obtain('01');
+        $tipoJornada = $this->satCatalogos->jornadas()->obtain('01');
         $this->assertSame('01', $tipoJornada->id());
     }
 
@@ -247,7 +247,7 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
 
     public function testCanObtainExistentTipoRegimen(): void
     {
-        $tipoRegimen = $this->satCatalogos->tiposRegimenes()->obtain('02');
+        $tipoRegimen = $this->satCatalogos->regimenesContratacion()->obtain('02');
         $this->assertSame('02', $tipoRegimen->id());
     }
 

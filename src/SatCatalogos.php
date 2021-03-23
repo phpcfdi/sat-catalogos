@@ -29,20 +29,20 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\TiposRelaciones         tiposRelaciones();
  * @method CFDI\UsosCfdi                usosCfdi();
  *
- * @method Nomina\TiposContratos        tiposContratos();
- * @method Nomina\TiposNominas          tiposNominas();
- * @method Nomina\TiposJornadas         tiposJornadas();
- * @method Nomina\OrigenesRecursos      origenesRecursos();
  * @method Nomina\Bancos                bancos();
+ * @method Nomina\TiposContratos        contratos();
+ * @method Nomina\TiposDeducciones      deducciones();
  * @method Nomina\Estados               estados();
+ * @method Nomina\TiposHoras            horasExtras();
+ * @method Nomina\TiposIncapacidades    incapacidades();
+ * @method Nomina\TiposJornadas         jornadas();
+ * @method Nomina\TiposNominas          nominas();
+ * @method Nomina\OrigenesRecursos      origenesRecursos();
+ * @method Nomina\TiposOtrosPagos       otrosTipoPago();
+ * @method Nomina\TiposPercepciones     percepciones();
  * @method Nomina\PeriodicidadesPagos   periodicidadesPagos();
+ * @method Nomina\TiposRegimenes        regimenesContratacion();
  * @method Nomina\RiesgosPuestos        riesgosPuestos();
- * @method Nomina\TiposDeducciones      tiposDeducciones();
- * @method Nomina\TiposHoras            tiposHoras();
- * @method Nomina\TiposIncapacidades    tiposIncapacidades();
- * @method Nomina\TiposOtrosPagos       tiposOtrosPagos();
- * @method Nomina\TiposPercepciones     tiposPercepciones();
- * @method Nomina\TiposRegimenes        tiposRegimenes();
  */
 class SatCatalogos
 {
@@ -67,20 +67,20 @@ class SatCatalogos
         'tiposRelaciones' => CFDI\TiposRelaciones::class,
         'usosCfdi' => CFDI\UsosCfdi::class,
         // Nominas
-        'tiposContratos' => Nomina\TiposContratos::class,
-        'tiposNominas' => Nomina\TiposNominas::class,
-        'tiposJornadas' => Nomina\TiposJornadas::class,
+        'contratos' => Nomina\TiposContratos::class,
+        'nominas' => Nomina\TiposNominas::class,
+        'jornadas' => Nomina\TiposJornadas::class,
         'origenesRecursos' => Nomina\OrigenesRecursos::class,
         'bancos' => Nomina\Bancos::class,
         'estados' => Nomina\Estados::class,
         'periodicidadesPagos' => Nomina\PeriodicidadesPagos::class,
         'riesgosPuestos' => Nomina\RiesgosPuestos::class,
-        'tiposDeducciones' => Nomina\TiposDeducciones::class,
-        'tiposHoras' => Nomina\TiposHoras::class,
-        'tiposIncapacidades' => Nomina\TiposIncapacidades::class,
-        'tiposOtrosPagos' => Nomina\TiposOtrosPagos::class,
-        'tiposPercepciones' => Nomina\TiposPercepciones::class,
-        'tiposRegimenes' => Nomina\TiposRegimenes::class,
+        'deducciones' => Nomina\TiposDeducciones::class,
+        'horasExtras' => Nomina\TiposHoras::class,
+        'incapacidades' => Nomina\TiposIncapacidades::class,
+        'otrosTipoPago' => Nomina\TiposOtrosPagos::class,
+        'percepciones' => Nomina\TiposPercepciones::class,
+        'regimenesContratacion' => Nomina\TiposRegimenes::class,
     ];
 
     /** @var Repository */
