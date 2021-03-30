@@ -11,16 +11,27 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 ## Listado de cambios
 
-### UNRELEASED 2021-01-13
+### UNRELEASED
 
-Cambios al código:
+No hay cambios sin liberación.
+
+### Versión 0.2.0
+
+Se integraron los catálogos de Nómina, gracias al esfuerzo de @AndreyPootMay.
+
+Se cambió la clase de entrada `SatCatalogos` para que los métodos no necesiten tener
+exactamente el mismo nombre que sus clases.
+
+Se agrega GitHub Actions y se deja de usar Travis-CI. ¡Gracias Travis!
+
+Cambios al código en la rama principal desde 2021-01-13:
 
 - Se incrementa el testeo sobre `HusoHorario` cuando no se le pasa un input de fecha correcta.
 - Se devuelve una fecha con la zona horaria default del sistema cuando el huso horario carece de definición.
 - Se incrementa el testeo agregando casos especiales y nuevos a:
   `PhpCfdi\SatCatalogos\Factory` y `PhpCfdi\SatCatalogos\Repository`.
 
-Cambios al entorno de desarrollo:
+Cambios al entorno de desarrollo en la rama principal desde 2021-01-13:
 
 - Incluir PHP 8.0 en la matriz de construcción.
 - Actualización del año en la licencia, feliz 2021 desde PhpCfdi.
