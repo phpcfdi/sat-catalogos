@@ -49,7 +49,7 @@
         "dev:test": [
             "@dev:check-style",
             "@php vendor/bin/phpunit --testdox --verbose --stop-on-failure",
-            "@php vendor/bin/phpstan analyse --verbose --no-progress --level max src/ tests/"
+            "@php vendor/bin/phpstan analyse --verbose --no-progress"
         ],
         "dev:coverage": [
             "@php -dzend_extension=xdebug.so vendor/bin/phpunit --verbose --coverage-html build/coverage/html/"
