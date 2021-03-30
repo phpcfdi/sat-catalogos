@@ -118,7 +118,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [source]: https://github.com/phpcfdi/sat-catalogos
 [release]: https://github.com/phpcfdi/sat-catalogos/releases
 [license]: https://github.com/phpcfdi/sat-catalogos/blob/master/LICENSE
-[build]: https://travis-ci.com/phpcfdi/sat-catalogos?branch=master
+[build]: https://github.com/phpcfdi/sat-catalogos/actions/workflows/build.yml?query=branch:master
 [quality]: https://scrutinizer-ci.com/g/phpcfdi/sat-catalogos/
 [coverage]: https://scrutinizer-ci.com/g/phpcfdi/sat-catalogos/code-structure/master/code-coverage
 [downloads]: https://packagist.org/packages/phpcfdi/sat-catalogos
@@ -126,7 +126,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [badge-source]: https://img.shields.io/badge/source-phpcfdi/sat--catalogos-blue?style=flat-square
 [badge-release]: https://img.shields.io/github/release/phpcfdi/sat-catalogos?style=flat-square
 [badge-license]: https://img.shields.io/github/license/phpcfdi/sat-catalogos?style=flat-square
-[badge-build]: https://img.shields.io/travis/com/phpcfdi/sat-catalogos/master?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/sat-catalogos/build/master?style=flat-square
 [badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/sat-catalogos/master?style=flat-square
 [badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/sat-catalogos/master?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/sat-catalogos?style=flat-square
