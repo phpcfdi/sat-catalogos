@@ -29,6 +29,24 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI\TiposRelaciones         tiposRelaciones();
  * @method CFDI\UsosCfdi                usosCfdi();
  *
+ * @method CFDI40\Aduanas                 aduanas40();
+ * @method CFDI40\ClavesUnidades          clavesUnidades40();
+ * @method CFDI40\CodigosPostales         codigosPostales40();
+ * @method CFDI40\FormasDePago            formasDePago40();
+ * @method CFDI40\Impuestos               impuestos40();
+ * @method CFDI40\MetodosDePago           metodosDePago40();
+ * @method CFDI40\Monedas                 monedas40();
+ * @method CFDI40\NumerosPedimentoAduana  numerosPedimentoAduana40();
+ * @method CFDI40\Paises                  paises40();
+ * @method CFDI40\PatentesAduanales       patentesAduanales40();
+ * @method CFDI40\ProductosServicios      productosServicios40();
+ * @method CFDI40\RegimenesFiscales       regimenesFiscales40();
+ * @method CFDI40\ReglasTasaCuota         reglasTasaCuota40();
+ * @method CFDI40\TiposComprobantes       tiposComprobantes40();
+ * @method CFDI40\TiposFactores           tiposFactores40();
+ * @method CFDI40\TiposRelaciones         tiposRelaciones40();
+ * @method CFDI40\UsosCfdi                usosCfdi40();
+ *
  * @method Nomina\Bancos                bancos();
  * @method Nomina\TiposContratos        contratos();
  * @method Nomina\TiposDeducciones      deducciones();
@@ -66,6 +84,24 @@ class SatCatalogos
         'tiposFactores' => CFDI\TiposFactores::class,
         'tiposRelaciones' => CFDI\TiposRelaciones::class,
         'usosCfdi' => CFDI\UsosCfdi::class,
+        // CFDI40
+        'aduanas40' => CFDI40\Aduanas::class,
+        'clavesUnidades40' => CFDI40\ClavesUnidades::class,
+        'codigosPostales40' => CFDI40\CodigosPostales::class,
+        'formasDePago40' => CFDI40\FormasDePago::class,
+        'impuestos40' => CFDI40\Impuestos::class,
+        'metodosDePago40' => CFDI40\MetodosDePago::class,
+        'monedas40' => CFDI40\Monedas::class,
+        'numerosPedimentoAduana40' => CFDI40\NumerosPedimentoAduana::class,
+        'paises40' => CFDI40\Paises::class,
+        'patentesAduanales40' => CFDI40\PatentesAduanales::class,
+        'productosServicios40' => CFDI40\ProductosServicios::class,
+        'regimenesFiscales40' => CFDI40\RegimenesFiscales::class,
+        'reglasTasaCuota40' => CFDI40\ReglasTasaCuota::class,
+        'tiposComprobantes40' => CFDI40\TiposComprobantes::class,
+        'tiposFactores40' => CFDI40\TiposFactores::class,
+        'tiposRelaciones40' => CFDI40\TiposRelaciones::class,
+        'usosCfdi40' => CFDI40\UsosCfdi::class,
         // Nominas
         'contratos' => Nomina\TiposContratos::class,
         'nominas' => Nomina\TiposNominas::class,

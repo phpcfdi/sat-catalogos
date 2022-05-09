@@ -53,6 +53,40 @@ class Repository
 
     public const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
 
+    public const CFDI_40_ADUANAS = 'cfdi_40_aduanas';
+
+    public const CFDI_40_CLAVES_UNIDADES = 'cfdi_40_claves_unidades';
+
+    public const CFDI_40_PRODUCTOS_SERVICIOS = 'cfdi_40_productos_servicios';
+
+    public const CFDI_40_CODIGOS_POSTALES = 'cfdi_40_codigos_postales';
+
+    public const CFDI_40_IMPUESTOS = 'cfdi_40_impuestos';
+
+    public const CFDI_40_FORMAS_PAGO = 'cfdi_40_formas_pago';
+
+    public const CFDI_40_METODOS_PAGO = 'cfdi_40_metodos_pago';
+
+    public const CFDI_40_MONEDAS = 'cfdi_40_monedas';
+
+    public const CFDI_40_PAISES = 'cfdi_40_paises';
+
+    public const CFDI_40_REGIMENES_FISCALES = 'cfdi_40_regimenes_fiscales';
+
+    public const CFDI_40_TIPOS_RELACIONES = 'cfdi_40_tipos_relaciones';
+
+    public const CFDI_40_USOS_CFDI = 'cfdi_40_usos_cfdi';
+
+    public const CFDI_40_TIPOS_FACTORES = 'cfdi_40_tipos_factores';
+
+    public const CFDI_40_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_40_numeros_pedimento_aduana';
+
+    public const CFDI_40_REGLAS_TASA_CUOTA = 'cfdi_40_reglas_tasa_cuota';
+
+    public const CFDI_40_PATENTES_ADUANALES = 'cfdi_40_patentes_aduanales';
+
+    public const CFDI_40_TIPOS_COMPROBANTES = 'cfdi_40_tipos_comprobantes';
+
     public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nominas';
 
     public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
@@ -99,6 +133,23 @@ class Repository
         self::CFDI_REGLAS_TASA_CUOTA,
         self::CFDI_PATENTES_ADUANALES,
         self::CFDI_TIPOS_COMPROBANTES,
+        self::CFDI_40_ADUANAS,
+        self::CFDI_40_CLAVES_UNIDADES,
+        self::CFDI_40_PRODUCTOS_SERVICIOS,
+        self::CFDI_40_CODIGOS_POSTALES,
+        self::CFDI_40_IMPUESTOS,
+        self::CFDI_40_FORMAS_PAGO,
+        self::CFDI_40_METODOS_PAGO,
+        self::CFDI_40_MONEDAS,
+        self::CFDI_40_PAISES,
+        self::CFDI_40_REGIMENES_FISCALES,
+        self::CFDI_40_TIPOS_RELACIONES,
+        self::CFDI_40_USOS_CFDI,
+        self::CFDI_40_TIPOS_FACTORES,
+        self::CFDI_40_NUMEROS_PEDIMENTO_ADUANA,
+        self::CFDI_40_REGLAS_TASA_CUOTA,
+        self::CFDI_40_PATENTES_ADUANALES,
+        self::CFDI_40_TIPOS_COMPROBANTES,
         self::NOMINA_TIPOS_NOMINAS,
         self::NOMINA_TIPOS_JORNADAS,
         self::NOMINA_ORIGENES_RECURSOS,

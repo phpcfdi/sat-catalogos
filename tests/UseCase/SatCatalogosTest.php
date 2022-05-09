@@ -53,9 +53,21 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('24', $aduana->id());
     }
 
+    public function testCanObtainExistentAduana40(): void
+    {
+        $aduana = $this->satCatalogos->aduanas40()->obtain('24');
+        $this->assertSame('24', $aduana->id());
+    }
+
     public function testCanObtainExistentClaveUnidad(): void
     {
         $claveUnidad = $this->satCatalogos->clavesUnidades()->obtain('MTK');
+        $this->assertSame('MTK', $claveUnidad->id());
+    }
+
+    public function testCanObtainExistentClaveUnidad40(): void
+    {
+        $claveUnidad = $this->satCatalogos->clavesUnidades40()->obtain('MTK');
         $this->assertSame('MTK', $claveUnidad->id());
     }
 
@@ -65,9 +77,21 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('10101511', $productoServicio->id());
     }
 
+    public function testCanObtainExistentProductoServicio40(): void
+    {
+        $productoServicio = $this->satCatalogos->productosServicios40()->obtain('10101511');
+        $this->assertSame('10101511', $productoServicio->id());
+    }
+
     public function testCanObtainExistentCodigoPostal(): void
     {
         $productoServicio = $this->satCatalogos->codigosPostales()->obtain('52000');
+        $this->assertSame('52000', $productoServicio->id());
+    }
+
+    public function testCanObtainExistentCodigoPostal40(): void
+    {
+        $productoServicio = $this->satCatalogos->codigosPostales40()->obtain('52000');
         $this->assertSame('52000', $productoServicio->id());
     }
 
@@ -77,9 +101,21 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('002', $impuesto->id());
     }
 
+    public function testCanObtainExistentImpuesto40(): void
+    {
+        $impuesto = $this->satCatalogos->impuestos40()->obtain('002');
+        $this->assertSame('002', $impuesto->id());
+    }
+
     public function testCanObtainExistentFormaDePago(): void
     {
         $formaDePago = $this->satCatalogos->formasDePago()->obtain('03');
+        $this->assertSame('03', $formaDePago->id());
+    }
+
+    public function testCanObtainExistentFormaDePago40(): void
+    {
+        $formaDePago = $this->satCatalogos->formasDePago40()->obtain('03');
         $this->assertSame('03', $formaDePago->id());
     }
 
@@ -89,15 +125,33 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('PUE', $metodoDePago->id());
     }
 
+    public function testCanObtainExistentMetodoDePago40(): void
+    {
+        $metodoDePago = $this->satCatalogos->metodosDePago40()->obtain('PUE');
+        $this->assertSame('PUE', $metodoDePago->id());
+    }
+
     public function testCanObtainExistentMoneda(): void
     {
         $moneda = $this->satCatalogos->monedas()->obtain('MXN');
         $this->assertSame('MXN', $moneda->id());
     }
 
+    public function testCanObtainExistentMoneda40(): void
+    {
+        $moneda = $this->satCatalogos->monedas40()->obtain('MXN');
+        $this->assertSame('MXN', $moneda->id());
+    }
+
     public function testCanObtainExistentPais(): void
     {
         $pais = $this->satCatalogos->paises()->obtain('MEX');
+        $this->assertSame('MEX', $pais->id());
+    }
+
+    public function testCanObtainExistentPais40(): void
+    {
+        $pais = $this->satCatalogos->paises40()->obtain('MEX');
         $this->assertSame('MEX', $pais->id());
     }
 
@@ -119,9 +173,27 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('G02', $usoCfdi->id());
     }
 
+    public function testCanObtainExistentTipoRelacion40(): void
+    {
+        $tipoRelacion = $this->satCatalogos->tiposRelaciones40()->obtain('05');
+        $this->assertSame('05', $tipoRelacion->id());
+    }
+
+    public function testCanObtainExistentUsoCfdi40(): void
+    {
+        $usoCfdi = $this->satCatalogos->usosCfdi40()->obtain('G02');
+        $this->assertSame('G02', $usoCfdi->id());
+    }
+
     public function testCanObtainExistentTipoFactor(): void
     {
         $tipoFactor = $this->satCatalogos->tiposFactores()->obtain('Tasa');
+        $this->assertSame('Tasa', $tipoFactor->id());
+    }
+
+    public function testCanObtainExistentTipoFactor40(): void
+    {
+        $tipoFactor = $this->satCatalogos->tiposFactores40()->obtain('Tasa');
         $this->assertSame('Tasa', $tipoFactor->id());
     }
 
@@ -132,6 +204,24 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $ejercicio = 2018; // pedimento: 18
 
         $pedimentoAduanaPatente = $this->satCatalogos->numerosPedimentoAduana()->obtain(
+            $aduana,
+            $patente,
+            $ejercicio
+        );
+
+        $this->assertSame($aduana, $pedimentoAduanaPatente->aduana());
+        $this->assertSame($patente, $pedimentoAduanaPatente->patente());
+        $this->assertSame($ejercicio, $pedimentoAduanaPatente->ejercicio());
+        $this->assertSame(999999, $pedimentoAduanaPatente->cantidad());
+    }
+
+    public function testCanObtainExistentNumeroPedimentoAduana40(): void
+    {
+        $aduana = '43'; // 43 -> c_Aduanas
+        $patente = '3420'; // 3420 -> c_PatenteAduanal
+        $ejercicio = 2018; // pedimento: 18
+
+        $pedimentoAduanaPatente = $this->satCatalogos->numerosPedimentoAduana40()->obtain(
             $aduana,
             $patente,
             $ejercicio
@@ -154,15 +244,38 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         );
     }
 
+    public function testCanFindMatchingReglaTasaCuota40(): void
+    {
+        $rules = $this->satCatalogos->reglasTasaCuota40();
+        $this->assertTrue(
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.160000')
+        );
+        $this->assertFalse(
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.16')
+        );
+    }
+
     public function testCanObtainExistentPatenteAduanal(): void
     {
         $patenteAduanal = $this->satCatalogos->patentesAduanales()->obtain('9039');
         $this->assertSame('9039', $patenteAduanal->id());
     }
 
+    public function testCanObtainExistentPatenteAduanal40(): void
+    {
+        $patenteAduanal = $this->satCatalogos->patentesAduanales40()->obtain('9039');
+        $this->assertSame('9039', $patenteAduanal->id());
+    }
+
     public function testCanObtainExistentTipoComprobante(): void
     {
         $tipoComprobante = $this->satCatalogos->tiposComprobantes()->obtain('I');
+        $this->assertSame('I', $tipoComprobante->id());
+    }
+
+    public function testCanObtainExistentTipoComprobante40(): void
+    {
+        $tipoComprobante = $this->satCatalogos->tiposComprobantes40()->obtain('I');
         $this->assertSame('I', $tipoComprobante->id());
     }
 
@@ -255,6 +368,13 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
     {
         // seed database has 2 records, real database has more than 2
         $searchResults = $this->satCatalogos->productosServicios()->searchByText('%cerdo%');
+        $this->assertGreaterThanOrEqual(2, count($searchResults));
+    }
+
+    public function testSearchProductosServicios40(): void
+    {
+        // seed database has 2 records, real database has more than 2
+        $searchResults = $this->satCatalogos->productosServicios40()->searchByText('%cerdo%');
         $this->assertGreaterThanOrEqual(2, count($searchResults));
     }
 }

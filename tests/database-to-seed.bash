@@ -54,6 +54,32 @@ grep_insert_table_values cfdi_tipos_comprobantes
 grep_insert_table_values cfdi_tipos_factores
 grep_insert_table_values cfdi_tipos_relaciones "'05'"
 grep_insert_table_values cfdi_usos_cfdi "'G0.'"
+grep_insert_table_values cfdi_40_aduanas "'24'"
+grep_insert_table_values cfdi_40_claves_unidades "'MTK'"
+grep_insert_table_values cfdi_40_codigos_postales "'52000'"
+grep_insert_table_values cfdi_40_formas_pago "'03'"
+grep_insert_table_values cfdi_40_impuestos "'002'"
+grep_insert_table_values cfdi_40_metodos_pago
+grep_insert_table_values cfdi_40_monedas "'CLP'"
+grep_insert_table_values cfdi_40_monedas "'MXN'"
+grep_insert_table_values cfdi_40_monedas "'USD'"
+grep_insert_table_values cfdi_40_monedas "'XXX'"
+grep_insert_table_values cfdi_40_numeros_pedimento_aduana "'43','3420',2018"
+grep_insert_table_values cfdi_40_paises "'CHL'"
+grep_insert_table_values cfdi_40_paises "'MEX'"
+grep_insert_table_values cfdi_40_paises "'USA'"
+grep_insert_table_values cfdi_40_patentes_aduanales "'9039'"
+grep_insert_table_values cfdi_40_productos_servicios "'10101511'"
+grep_insert_table_values cfdi_40_productos_servicios "'10122101'"
+grep_insert_table_values cfdi_40_productos_servicios "'43231500'"
+grep_insert_table_values cfdi_40_regimenes_fiscales "'601'"
+grep_insert_table_values cfdi_40_reglas_tasa_cuota "'Fijo'.*?'IVA'"
+grep_insert_table_values cfdi_40_reglas_tasa_cuota "'Rango'.*?'IEPS'"
+grep_insert_table_values cfdi_40_reglas_tasa_cuota "'Rango'.*?'ISR'"
+grep_insert_table_values cfdi_40_tipos_comprobantes
+grep_insert_table_values cfdi_40_tipos_factores
+grep_insert_table_values cfdi_40_tipos_relaciones "'05'"
+grep_insert_table_values cfdi_40_usos_cfdi "'G0.'"
 grep_insert_table_values nomina_bancos "'00.'"
 grep_insert_table_values nomina_estados "'M.*?','(MEX|USA|CAN)'"
 grep_insert_table_values nomina_origenes_recursos
