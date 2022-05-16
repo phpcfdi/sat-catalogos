@@ -53,13 +53,13 @@ echo $aduana->texto(); // NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.
 el cambio no se encuentra publicado por favor abra un nuevo Issue describiendo lo encontrado**
 
 Los catálogos en realidad son objetos que permiten obtener entradas.
-Hay catálogos cuyas entradas con mínimas, pero hay catálogos que tienen miles de registros.
+Hay catálogos cuyas entradas son mínimas, pero hay catálogos que tienen miles de registros.
 
 Usted no debería modificar la base de datos, esto equivale a modificar el código fuente.
 
 Esta librería no contiene métodos para manipular la base de datos.
 La base de datos es simplemente un repositorio de datos de lectura.
-Bien podría tratarse de datos en formato JSON, sin embargo al desarrolar la librería
+Bien podría tratarse de datos en formato JSON, sin embargo al desarrollar la librería
 no encontramos una forma ágil y de pocos recursos para leer en un formato diferente.
 
 ## Versionado de la librería
