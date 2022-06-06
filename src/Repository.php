@@ -87,6 +87,22 @@ class Repository
 
     public const CFDI_40_TIPOS_COMPROBANTES = 'cfdi_40_tipos_comprobantes';
 
+    public const CFDI_40_EXPORTACIONES = 'cfdi_40_exportaciones';
+
+    public const CFDI_40_PERIODICIDADES = 'cfdi_40_periodicidades';
+
+    public const CFDI_40_MESES = 'cfdi_40_meses';
+
+    public const CFDI_40_COLONIAS = 'cfdi_40_colonias';
+
+    public const CFDI_40_ESTADOS = 'cfdi_40_estados';
+
+    public const CFDI_40_LOCALIDADES = 'cfdi_40_localidades';
+
+    public const CFDI_40_MUNICIPIOS = 'cfdi_40_municipios';
+
+    public const CFDI_40_OBJETOS_IMPUESTOS = 'cfdi_40_objetos_impuestos';
+
     public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nominas';
 
     public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
@@ -182,7 +198,7 @@ class Repository
             . ' from ' . $this->catalogName($catalog)
             . ' where (id = :id);';
         $data = $this->queryRow($sql, ['id' => $id]);
-        if (! count($data)) {
+        if (!count($data)) {
             throw $this->createSatCatalogosNotFoundException($catalog, ['id' => $id]);
         }
 
@@ -303,7 +319,7 @@ class Repository
 
     public function catalogName(string $catalog): string
     {
-        if (! in_array($catalog, self::CATALOGS, true)) {
+        if (!in_array($catalog, self::CATALOGS, true)) {
             throw new SatCatalogosLogicException("The catalog name $catalog is not recognized by the repository");
         }
 
