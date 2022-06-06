@@ -198,7 +198,7 @@ class Repository
             . ' from ' . $this->catalogName($catalog)
             . ' where (id = :id);';
         $data = $this->queryRow($sql, ['id' => $id]);
-        if (!count($data)) {
+        if (! count($data)) {
             throw $this->createSatCatalogosNotFoundException($catalog, ['id' => $id]);
         }
 
@@ -319,7 +319,7 @@ class Repository
 
     public function catalogName(string $catalog): string
     {
-        if (!in_array($catalog, self::CATALOGS, true)) {
+        if (! in_array($catalog, self::CATALOGS, true)) {
             throw new SatCatalogosLogicException("The catalog name $catalog is not recognized by the repository");
         }
 
