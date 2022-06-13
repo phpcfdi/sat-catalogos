@@ -379,6 +379,7 @@ CREATE TABLE IF NOT EXISTS "cfdi_40_usos_cfdi"(
   "aplica_moral" int not null,
   "vigencia_desde" text not null,
   "vigencia_hasta" text not null,
+  "regimenes_fiscales_receptores" text not null,
   PRIMARY KEY("id")
 );
 CREATE TABLE IF NOT EXISTS "nomina_bancos"(
@@ -542,9 +543,9 @@ INSERT INTO cfdi_40_tipos_factores VALUES('Tasa','2022-01-01','');
 INSERT INTO cfdi_40_tipos_factores VALUES('Cuota','2022-01-01','');
 INSERT INTO cfdi_40_tipos_factores VALUES('Exento','2022-01-01','');
 INSERT INTO cfdi_40_tipos_relaciones VALUES('05','Traslados de mercancias facturados previamente','2017-01-01','');
-INSERT INTO cfdi_40_usos_cfdi VALUES('G01','Adquisición de mercancias',1,1,'2017-01-01','');
-INSERT INTO cfdi_40_usos_cfdi VALUES('G02','Devoluciones, descuentos o bonificaciones',1,1,'2017-01-01','');
-INSERT INTO cfdi_40_usos_cfdi VALUES('G03','Gastos en general',1,1,'2017-01-01','');
+INSERT INTO cfdi_40_usos_cfdi VALUES('G01','Adquisición de mercancías.',1,1,'2022-01-01','','601, 603, 606, 612, 620, 621, 622, 623, 624, 625,626');
+INSERT INTO cfdi_40_usos_cfdi VALUES('G02','Devoluciones, descuentos o bonificaciones.',1,1,'2022-01-01','','601, 603, 606, 612, 620, 621, 622, 623, 624, 625,626');
+INSERT INTO cfdi_40_usos_cfdi VALUES('G03','Gastos en general.',1,1,'2022-01-01','','601, 603, 606, 612, 620, 621, 622, 623, 624, 625, 626');
 INSERT INTO nomina_bancos VALUES('002','BANAMEX','Banco Nacional de México, S.A., Institución de Banca Múltiple, Grupo Financiero Banamex','2017-01-01','');
 INSERT INTO nomina_bancos VALUES('006','BANCOMEXT','Banco Nacional de Comercio Exterior, Sociedad Nacional de Crédito, Institución de Banca de Desarrollo','2017-01-01','');
 INSERT INTO nomina_bancos VALUES('009','BANOBRAS','Banco Nacional de Obras y Servicios Públicos, Sociedad Nacional de Crédito, Institución de Banca de Desarrollo','2017-01-01','');
