@@ -276,7 +276,8 @@ CREATE TABLE IF NOT EXISTS "cfdi_40_impuestos"(
   "retencion" int not null,
   "traslado" int not null,
   "ambito" text not null,
-  "entidad" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
   PRIMARY KEY("id")
 );
 CREATE TABLE IF NOT EXISTS "cfdi_40_metodos_pago"(
@@ -507,7 +508,7 @@ INSERT INTO cfdi_40_aduanas VALUES('24','NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.
 INSERT INTO cfdi_40_claves_unidades VALUES('MTK','Metro cuadrado','Es la unidad básica de superficie en el Sistema Internacional de Unidades. Si a esta unidad se antepone un prefijo del Sistema Internacional se crea un múltiplo o submúltiplo de esta.','','2017-01-01','','m²');
 INSERT INTO cfdi_40_codigos_postales VALUES('52000','MEX','051','','','2019-01-07','','Tiempo del Centro','Abril','Primer domingo','02:00','-5','Octubre','Último domingo','02:00','-6');
 INSERT INTO cfdi_40_formas_pago VALUES('03','Transferencia electrónica de fondos',1,'',1,1,'[0-9]{10}|[0-9]{16}|[0-9]{18}',1,1,'[0-9]{10}|[0-9]{18}',1,1,'2017-01-01','');
-INSERT INTO cfdi_40_impuestos VALUES('002','IVA',1,1,'Federal','');
+INSERT INTO cfdi_40_impuestos VALUES('002','IVA',1,1,'Federal','2022-01-01','');
 INSERT INTO cfdi_40_metodos_pago VALUES('PUE','Pago en una sola exhibición','2017-01-01','');
 INSERT INTO cfdi_40_metodos_pago VALUES('PPD','Pago en parcialidades o diferido','2017-01-01','');
 INSERT INTO cfdi_40_monedas VALUES('CLP','Peso chileno',0,5,'2017-08-14','');

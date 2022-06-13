@@ -17,22 +17,19 @@ class Impuesto extends AbstractEntryIdentifiable
     /** @var string */
     private $ambito;
 
-    /** @var string */
-    private $entidad;
-
     public function __construct(
         string $id,
         string $texto,
         bool $retencion,
         bool $traslado,
         string $ambito,
-        string $entidad
+        int $vigenteDesde,
+        int $vigenteHasta
     ) {
-        parent::__construct($id, $texto, 0, 0);
+        parent::__construct($id, $texto, $vigenteDesde, $vigenteHasta);
         $this->retencion = $retencion;
         $this->traslado = $traslado;
         $this->ambito = $ambito;
-        $this->entidad = $entidad;
     }
 
     public function retencion(): bool
@@ -48,10 +45,5 @@ class Impuesto extends AbstractEntryIdentifiable
     public function ambito(): string
     {
         return $this->ambito;
-    }
-
-    public function entidad(): string
-    {
-        return $this->entidad;
     }
 }

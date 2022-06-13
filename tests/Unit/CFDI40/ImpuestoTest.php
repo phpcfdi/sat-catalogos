@@ -17,11 +17,10 @@ final class ImpuestoTest extends TestCase
         $retencion = true;
         $traslado = true;
         $ambito = 'Federal';
-        $entidad = '';
-        $vigenteDesde = 0;
-        $vigenteHasta = 0;
+        $vigenteDesde = strtotime('2022-01-01');
+        $vigenteHasta = strtotime('2022-12-31');
 
-        $impuesto = new Impuesto($id, $texto, $retencion, $traslado, $ambito, $entidad);
+        $impuesto = new Impuesto($id, $texto, $retencion, $traslado, $ambito, $vigenteDesde, $vigenteHasta);
 
         $this->assertInstanceOf(EntryIdentifiable::class, $impuesto);
         $this->assertSame($id, $impuesto->id());
@@ -29,7 +28,6 @@ final class ImpuestoTest extends TestCase
         $this->assertSame($retencion, $impuesto->retencion());
         $this->assertSame($traslado, $impuesto->traslado());
         $this->assertSame($ambito, $impuesto->ambito());
-        $this->assertSame($entidad, $impuesto->entidad());
         $this->assertSame($vigenteDesde, $impuesto->vigenteDesde());
         $this->assertSame($vigenteHasta, $impuesto->vigenteHasta());
     }
@@ -41,7 +39,7 @@ final class ImpuestoTest extends TestCase
      */
     public function testPropertyTraslado(bool $traslado): void
     {
-        $impuesto = new Impuesto('x', 'x', false, $traslado, '', '');
+        $impuesto = new Impuesto('x', 'x', false, $traslado, '', 0, 0);
 
         $this->assertSame($traslado, $impuesto->traslado());
     }
@@ -53,7 +51,7 @@ final class ImpuestoTest extends TestCase
      */
     public function testPropertyRetencion(bool $retencion): void
     {
-        $impuesto = new Impuesto('x', 'x', $retencion, false, '', '');
+        $impuesto = new Impuesto('x', 'x', $retencion, false, '', 0, 0);
 
         $this->assertSame($retencion, $impuesto->retencion());
     }
