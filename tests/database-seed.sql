@@ -782,6 +782,7 @@ INSERT INTO cfdi_40_claves_unidades VALUES('MTK','Metro cuadrado','Es la unidad 
 INSERT INTO cfdi_40_codigos_postales VALUES('52000','MEX','051','','','2022-01-01','','Tiempo del Centro','Abril','Primer domingo','02:00','-5','Octubre','Último domingo','02:00','-6');
 INSERT INTO cfdi_40_formas_pago VALUES('03','Transferencia electrónica de fondos',1,'',1,1,'[0-9]{10}|[0-9]{16}|[0-9]{18}',1,1,'[0-9]{10}|[0-9]{18}',1,1,'2022-01-01','');
 INSERT INTO cfdi_40_impuestos VALUES('002','IVA',1,1,'Federal','2022-01-01','');
+INSERT INTO cfdi_40_meses VALUES('01','Enero','2022-01-01','');
 INSERT INTO cfdi_40_metodos_pago VALUES('PUE','Pago en una sola exhibición','2022-01-01','');
 INSERT INTO cfdi_40_metodos_pago VALUES('PPD','Pago en parcialidades o diferido','2022-01-01','');
 INSERT INTO cfdi_40_monedas VALUES('CLP','Peso chileno',0,5,'2022-01-01','');

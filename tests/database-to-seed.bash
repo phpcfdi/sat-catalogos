@@ -59,6 +59,7 @@ grep_insert_table_values cfdi_40_claves_unidades "'MTK'"
 grep_insert_table_values cfdi_40_codigos_postales "'52000'"
 grep_insert_table_values cfdi_40_formas_pago "'03'"
 grep_insert_table_values cfdi_40_impuestos "'002'"
+grep_insert_table_values cfdi_40_meses "'01'"
 grep_insert_table_values cfdi_40_metodos_pago
 grep_insert_table_values cfdi_40_monedas "'CLP'"
 grep_insert_table_values cfdi_40_monedas "'MXN'"

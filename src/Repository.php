@@ -155,6 +155,7 @@ class Repository
         self::CFDI_40_CODIGOS_POSTALES,
         self::CFDI_40_IMPUESTOS,
         self::CFDI_40_FORMAS_PAGO,
+        self::CFDI_40_MESES,
         self::CFDI_40_METODOS_PAGO,
         self::CFDI_40_MONEDAS,
         self::CFDI_40_PAISES,
