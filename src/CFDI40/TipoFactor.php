@@ -9,8 +9,8 @@ use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
 
 class TipoFactor extends AbstractEntryIdentifiable implements EntryIdentifiable
 {
-    public function __construct(string $id)
+    public function __construct(string $id, int $vigenteDesde, int $vigenteHasta)
     {
-        parent::__construct($id, $id, 0, 0);
+        parent::__construct($id, $id, $vigenteDesde, $vigenteHasta);
     }
 }

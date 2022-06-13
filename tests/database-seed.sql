@@ -359,7 +359,12 @@ CREATE TABLE IF NOT EXISTS "cfdi_40_tipos_comprobantes"(
   "vigencia_hasta" text not null,
   PRIMARY KEY("id")
 );
-CREATE TABLE IF NOT EXISTS "cfdi_40_tipos_factores"("id" text not null, PRIMARY KEY("id"));
+CREATE TABLE IF NOT EXISTS "cfdi_40_tipos_factores"(
+  "id" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
 CREATE TABLE IF NOT EXISTS "cfdi_40_tipos_relaciones"(
   "id" text not null,
   "texto" text not null,
@@ -533,9 +538,9 @@ INSERT INTO cfdi_40_tipos_comprobantes VALUES('E','Egreso','999999999999999999.9
 INSERT INTO cfdi_40_tipos_comprobantes VALUES('T','Traslado','0','2017-01-01','');
 INSERT INTO cfdi_40_tipos_comprobantes VALUES('N','Nómina','999999999999999999.999999','','');
 INSERT INTO cfdi_40_tipos_comprobantes VALUES('P','Pago','999999999999999999.999999','2017-07-29','');
-INSERT INTO cfdi_40_tipos_factores VALUES('Tasa');
-INSERT INTO cfdi_40_tipos_factores VALUES('Cuota');
-INSERT INTO cfdi_40_tipos_factores VALUES('Exento');
+INSERT INTO cfdi_40_tipos_factores VALUES('Tasa','2022-01-01','');
+INSERT INTO cfdi_40_tipos_factores VALUES('Cuota','2022-01-01','');
+INSERT INTO cfdi_40_tipos_factores VALUES('Exento','2022-01-01','');
 INSERT INTO cfdi_40_tipos_relaciones VALUES('05','Traslados de mercancias facturados previamente','2017-01-01','');
 INSERT INTO cfdi_40_usos_cfdi VALUES('G01','Adquisición de mercancias',1,1,'2017-01-01','');
 INSERT INTO cfdi_40_usos_cfdi VALUES('G02','Devoluciones, descuentos o bonificaciones',1,1,'2017-01-01','');
