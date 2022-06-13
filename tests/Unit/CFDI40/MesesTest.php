@@ -13,8 +13,8 @@ final class MesesTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [
-        'id' => '0000',
-        'texto' => '0000',
+        'id' => '01',
+        'texto' => 'Enero',
         'vigencia_desde' => '2000-01-01',
         'vigencia_hasta' => '',
     ];
@@ -28,8 +28,8 @@ final class MesesTest extends TestCase
         $meses = new Meses();
         $meses->withRepository($repository);
 
-        $patenteAduanal = $meses->obtain('0000');
-        $this->assertStringContainsString('0000', $patenteAduanal->texto());
+        $mes = $meses->obtain('01');
+        $this->assertSame('Enero', $mes->texto());
     }
 
     public function testCreate(): void

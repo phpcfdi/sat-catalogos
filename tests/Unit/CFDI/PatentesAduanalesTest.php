@@ -14,7 +14,6 @@ final class PatentesAduanalesTest extends TestCase
     /** @var array<string, mixed> */
     protected $validRow = [
         'id' => '0000',
-        'texto' => '0000',
         'vigencia_desde' => '2000-01-01',
         'vigencia_hasta' => '',
     ];
@@ -38,7 +37,7 @@ final class PatentesAduanalesTest extends TestCase
         $created = $patentesAduanales->create($this->validRow);
 
         $this->assertSame($created->id(), $this->validRow['id']);
-        $this->assertSame($created->texto(), $this->validRow['texto']);
+        $this->assertSame($created->texto(), $this->validRow['id']);
         $this->assertSame($created->vigenteDesde(), strtotime($this->validRow['vigencia_desde']));
         $this->assertSame($created->vigenteHasta(), 0);
     }

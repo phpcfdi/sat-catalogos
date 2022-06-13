@@ -13,8 +13,8 @@ final class ObjetosImpuestosTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [
-        'id' => '0000',
-        'texto' => '0000',
+        'id' => '02',
+        'texto' => 'Sí objeto de impuesto.',
         'vigencia_desde' => '2000-01-01',
         'vigencia_hasta' => '',
     ];
@@ -28,8 +28,8 @@ final class ObjetosImpuestosTest extends TestCase
         $objetosImpuestos = new ObjetosImpuestos();
         $objetosImpuestos->withRepository($repository);
 
-        $patenteAduanal = $objetosImpuestos->obtain('0000');
-        $this->assertStringContainsString('0000', $patenteAduanal->texto());
+        $objetoImpuestos = $objetosImpuestos->obtain('02');
+        $this->assertStringContainsString('Sí objeto de impuesto.', $objetoImpuestos->texto());
     }
 
     public function testCreate(): void

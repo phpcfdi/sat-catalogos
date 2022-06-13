@@ -13,8 +13,8 @@ final class ExportacionesTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [
-        'id' => '0000',
-        'texto' => '0000',
+        'id' => '02',
+        'texto' => 'Definitiva con clave A1',
         'vigencia_desde' => '2000-01-01',
         'vigencia_hasta' => '',
     ];
@@ -28,8 +28,8 @@ final class ExportacionesTest extends TestCase
         $exportaciones = new Exportaciones();
         $exportaciones->withRepository($repository);
 
-        $patenteAduanal = $exportaciones->obtain('0000');
-        $this->assertStringContainsString('0000', $patenteAduanal->texto());
+        $exportacion = $exportaciones->obtain('02');
+        $this->assertSame('Definitiva con clave A1', $exportacion->texto());
     }
 
     public function testCreate(): void
