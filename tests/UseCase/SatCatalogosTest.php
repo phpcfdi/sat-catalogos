@@ -286,6 +286,12 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('601', $regimenFiscal->id());
     }
 
+    public function testCanObtainExistentRegimenFiscal40(): void
+    {
+        $regimenFiscal = $this->satCatalogos->regimenesFiscales40()->obtain('601');
+        $this->assertSame('601', $regimenFiscal->id());
+    }
+
     public function testCanObtainExistentRiesgoPuesto(): void
     {
         $riesgoPuesto = $this->satCatalogos->riesgosPuestos()->obtain('1');
