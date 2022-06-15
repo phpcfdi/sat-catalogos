@@ -785,6 +785,18 @@ INSERT INTO cfdi_40_colonias VALUES('0009','86008','Secretaria de La Reforma Agr
 INSERT INTO cfdi_40_colonias VALUES('1477','86000','Centro Delegacional 6');
 INSERT INTO cfdi_40_claves_unidades VALUES('MTK','Metro cuadrado','Es la unidad básica de superficie en el Sistema Internacional de Unidades. Si a esta unidad se antepone un prefijo del Sistema Internacional se crea un múltiplo o submúltiplo de esta.','','2022-01-01','','m²');
 INSERT INTO cfdi_40_codigos_postales VALUES('52000','MEX','051','','','2022-01-01','','Tiempo del Centro','Abril','Primer domingo','02:00','-5','Octubre','Último domingo','02:00','-6');
+INSERT INTO cfdi_40_estados VALUES('MEX','MEX','Estado de México','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MIC','MEX','Michoacán','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MOR','MEX','Morelos','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('ME','USA','Maine','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MD','USA','Maryland','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MA','USA','Massachusetts','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MI','USA','Míchigan','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MN','USA','Minnesota','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MS','USA','Misisipi','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MO','USA','Misuri','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MT','USA','Montana','2022-01-01','');
+INSERT INTO cfdi_40_estados VALUES('MB','CAN','Manitoba','2022-01-01','');
 INSERT INTO cfdi_40_formas_pago VALUES('03','Transferencia electrónica de fondos',1,'',1,1,'[0-9]{10}|[0-9]{16}|[0-9]{18}',1,1,'[0-9]{10}|[0-9]{18}',1,1,'2022-01-01','');
 INSERT INTO cfdi_40_impuestos VALUES('002','IVA',1,1,'Federal','2022-01-01','');
 INSERT INTO cfdi_40_meses VALUES('01','Enero','2022-01-01','');

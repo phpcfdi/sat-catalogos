@@ -335,6 +335,13 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('MEX', $estado->pais());
     }
 
+    public function testCanObtainExistentEstado40(): void
+    {
+        $estado = $this->satCatalogos->estados40()->obtain('MOR', 'MEX');
+        $this->assertSame('MOR', $estado->codigo());
+        $this->assertSame('MEX', $estado->pais());
+    }
+
     public function testCanObtainExistentPeriodicidadPago(): void
     {
         $periodicidad = $this->satCatalogos->periodicidadesPagos()->obtain('01');
