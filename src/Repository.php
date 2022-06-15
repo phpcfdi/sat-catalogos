@@ -158,6 +158,7 @@ class Repository
         self::CFDI_40_ESTADOS,
         self::CFDI_40_EXPORTACIONES,
         self::CFDI_40_FORMAS_PAGO,
+        self::CFDI_40_LOCALIDADES,
         self::CFDI_40_MESES,
         self::CFDI_40_METODOS_PAGO,
         self::CFDI_40_MONEDAS,

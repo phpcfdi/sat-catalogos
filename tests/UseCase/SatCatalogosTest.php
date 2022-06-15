@@ -126,6 +126,13 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('03', $formaDePago->id());
     }
 
+    public function testCanObtainExistentLocalidad40(): void
+    {
+        $localidad = $this->satCatalogos->localidades40()->obtain('55', 'OAX');
+        $this->assertSame('55', $localidad->codigo());
+        $this->assertSame('OAX', $localidad->estado());
+    }
+
     public function testCanObtainExistentMes40(): void
     {
         $metodoDePago = $this->satCatalogos->meses40()->obtain('01');
