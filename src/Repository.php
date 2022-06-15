@@ -162,6 +162,7 @@ class Repository
         self::CFDI_40_MESES,
         self::CFDI_40_METODOS_PAGO,
         self::CFDI_40_MONEDAS,
+        self::CFDI_40_MUNICIPIOS,
         self::CFDI_40_PAISES,
         self::CFDI_40_REGIMENES_FISCALES,
         self::CFDI_40_TIPOS_RELACIONES,
