@@ -71,6 +71,12 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('MTK', $claveUnidad->id());
     }
 
+    public function testCanObtainExistentObjetoImpuesto40(): void
+    {
+        $productoServicio = $this->satCatalogos->objetosImpuestos40()->obtain('02');
+        $this->assertSame('02', $productoServicio->id());
+    }
+
     public function testCanObtainExistentProductoServicio(): void
     {
         $productoServicio = $this->satCatalogos->productosServicios()->obtain('10101511');

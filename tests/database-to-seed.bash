@@ -74,6 +74,7 @@ grep_insert_table_values cfdi_40_municipios "'.*?','BCN'"
 grep_insert_table_values cfdi_40_localidades "'55'"
 grep_insert_table_values cfdi_40_localidades "'.*?','QUE'"
 grep_insert_table_values cfdi_40_numeros_pedimento_aduana "'43','3420',2018"
+grep_insert_table_values cfdi_40_objetos_impuestos
 grep_insert_table_values cfdi_40_paises "'CHL'"
 grep_insert_table_values cfdi_40_paises "'MEX'"
 grep_insert_table_values cfdi_40_paises "'USA'"

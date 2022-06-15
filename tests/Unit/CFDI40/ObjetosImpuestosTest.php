@@ -15,7 +15,7 @@ final class ObjetosImpuestosTest extends TestCase
     protected $validRow = [
         'id' => '02',
         'texto' => 'Sí objeto de impuesto.',
-        'vigencia_desde' => '2000-01-01',
+        'vigencia_desde' => '2022-01-01',
         'vigencia_hasta' => '',
     ];
 

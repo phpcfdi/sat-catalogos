@@ -12,8 +12,8 @@ final class ObjetoImpuestoTest extends TestCase
 {
     public function testCreateInstance(): void
     {
-        $id = '01';
-        $texto = 'No aplica';
+        $id = '02';
+        $texto = 'Sí objeto de impuesto.';
         $vigenteDesde = strtotime('2022-01-01');
         $vigenteHasta = 0;
 
