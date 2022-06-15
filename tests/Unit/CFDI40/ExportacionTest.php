@@ -12,8 +12,8 @@ final class ExportacionTest extends TestCase
 {
     public function testCreateInstance(): void
     {
-        $id = '01';
-        $texto = 'No aplica';
+        $id = '02';
+        $texto = 'Definitiva con clave A1';
         $vigenteDesde = strtotime('2022-01-01');
         $vigenteHasta = 0;
 

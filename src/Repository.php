@@ -87,8 +87,6 @@ class Repository
 
     public const CFDI_40_TIPOS_COMPROBANTES = 'cfdi_40_tipos_comprobantes';
 
-    public const CFDI_40_EXPORTACIONES = 'cfdi_40_exportaciones';
-
     public const CFDI_40_PERIODICIDADES = 'cfdi_40_periodicidades';
 
     public const CFDI_40_MESES = 'cfdi_40_meses';
@@ -96,6 +94,8 @@ class Repository
     public const CFDI_40_COLONIAS = 'cfdi_40_colonias';
 
     public const CFDI_40_ESTADOS = 'cfdi_40_estados';
+
+    public const CFDI_40_EXPORTACIONES = 'cfdi_40_exportaciones';
 
     public const CFDI_40_LOCALIDADES = 'cfdi_40_localidades';
 
@@ -156,6 +156,7 @@ class Repository
         self::CFDI_40_COLONIAS,
         self::CFDI_40_IMPUESTOS,
         self::CFDI_40_ESTADOS,
+        self::CFDI_40_EXPORTACIONES,
         self::CFDI_40_FORMAS_PAGO,
         self::CFDI_40_MESES,
         self::CFDI_40_METODOS_PAGO,
