@@ -23,73 +23,41 @@ class Repository
 
     public const CFDI_CLAVES_UNIDADES = 'cfdi_claves_unidades';
 
-    public const CFDI_PRODUCTOS_SERVICIOS = 'cfdi_productos_servicios';
-
     public const CFDI_CODIGOS_POSTALES = 'cfdi_codigos_postales';
 
-    public const CFDI_IMPUESTOS = 'cfdi_impuestos';
-
     public const CFDI_FORMAS_PAGO = 'cfdi_formas_pago';
+
+    public const CFDI_IMPUESTOS = 'cfdi_impuestos';
 
     public const CFDI_METODOS_PAGO = 'cfdi_metodos_pago';
 
     public const CFDI_MONEDAS = 'cfdi_monedas';
 
+    public const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
+
     public const CFDI_PAISES = 'cfdi_paises';
 
+    public const CFDI_PATENTES_ADUANALES = 'cfdi_patentes_aduanales';
+
+    public const CFDI_PRODUCTOS_SERVICIOS = 'cfdi_productos_servicios';
+
     public const CFDI_REGIMENES_FISCALES = 'cfdi_regimenes_fiscales';
+
+    public const CFDI_REGLAS_TASA_CUOTA = 'cfdi_reglas_tasa_cuota';
+
+    public const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
+
+    public const CFDI_TIPOS_FACTORES = 'cfdi_tipos_factores';
 
     public const CFDI_TIPOS_RELACIONES = 'cfdi_tipos_relaciones';
 
     public const CFDI_USOS_CFDI = 'cfdi_usos_cfdi';
 
-    public const CFDI_TIPOS_FACTORES = 'cfdi_tipos_factores';
-
-    public const CFDI_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_numeros_pedimento_aduana';
-
-    public const CFDI_REGLAS_TASA_CUOTA = 'cfdi_reglas_tasa_cuota';
-
-    public const CFDI_PATENTES_ADUANALES = 'cfdi_patentes_aduanales';
-
-    public const CFDI_TIPOS_COMPROBANTES = 'cfdi_tipos_comprobantes';
-
     public const CFDI_40_ADUANAS = 'cfdi_40_aduanas';
 
     public const CFDI_40_CLAVES_UNIDADES = 'cfdi_40_claves_unidades';
 
-    public const CFDI_40_PRODUCTOS_SERVICIOS = 'cfdi_40_productos_servicios';
-
     public const CFDI_40_CODIGOS_POSTALES = 'cfdi_40_codigos_postales';
-
-    public const CFDI_40_IMPUESTOS = 'cfdi_40_impuestos';
-
-    public const CFDI_40_FORMAS_PAGO = 'cfdi_40_formas_pago';
-
-    public const CFDI_40_METODOS_PAGO = 'cfdi_40_metodos_pago';
-
-    public const CFDI_40_MONEDAS = 'cfdi_40_monedas';
-
-    public const CFDI_40_PAISES = 'cfdi_40_paises';
-
-    public const CFDI_40_REGIMENES_FISCALES = 'cfdi_40_regimenes_fiscales';
-
-    public const CFDI_40_TIPOS_RELACIONES = 'cfdi_40_tipos_relaciones';
-
-    public const CFDI_40_USOS_CFDI = 'cfdi_40_usos_cfdi';
-
-    public const CFDI_40_TIPOS_FACTORES = 'cfdi_40_tipos_factores';
-
-    public const CFDI_40_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_40_numeros_pedimento_aduana';
-
-    public const CFDI_40_REGLAS_TASA_CUOTA = 'cfdi_40_reglas_tasa_cuota';
-
-    public const CFDI_40_PATENTES_ADUANALES = 'cfdi_40_patentes_aduanales';
-
-    public const CFDI_40_TIPOS_COMPROBANTES = 'cfdi_40_tipos_comprobantes';
-
-    public const CFDI_40_PERIODICIDADES = 'cfdi_40_periodicidades';
-
-    public const CFDI_40_MESES = 'cfdi_40_meses';
 
     public const CFDI_40_COLONIAS = 'cfdi_40_colonias';
 
@@ -97,21 +65,49 @@ class Repository
 
     public const CFDI_40_EXPORTACIONES = 'cfdi_40_exportaciones';
 
+    public const CFDI_40_FORMAS_PAGO = 'cfdi_40_formas_pago';
+
+    public const CFDI_40_IMPUESTOS = 'cfdi_40_impuestos';
+
     public const CFDI_40_LOCALIDADES = 'cfdi_40_localidades';
+
+    public const CFDI_40_MESES = 'cfdi_40_meses';
+
+    public const CFDI_40_METODOS_PAGO = 'cfdi_40_metodos_pago';
+
+    public const CFDI_40_MONEDAS = 'cfdi_40_monedas';
 
     public const CFDI_40_MUNICIPIOS = 'cfdi_40_municipios';
 
+    public const CFDI_40_NUMEROS_PEDIMENTO_ADUANA = 'cfdi_40_numeros_pedimento_aduana';
+
     public const CFDI_40_OBJETOS_IMPUESTOS = 'cfdi_40_objetos_impuestos';
 
-    public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nominas';
+    public const CFDI_40_PAISES = 'cfdi_40_paises';
 
-    public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
+    public const CFDI_40_PATENTES_ADUANALES = 'cfdi_40_patentes_aduanales';
 
-    public const NOMINA_ORIGENES_RECURSOS = 'nomina_origenes_recursos';
+    public const CFDI_40_PERIODICIDADES = 'cfdi_40_periodicidades';
+
+    public const CFDI_40_PRODUCTOS_SERVICIOS = 'cfdi_40_productos_servicios';
+
+    public const CFDI_40_REGIMENES_FISCALES = 'cfdi_40_regimenes_fiscales';
+
+    public const CFDI_40_REGLAS_TASA_CUOTA = 'cfdi_40_reglas_tasa_cuota';
+
+    public const CFDI_40_TIPOS_COMPROBANTES = 'cfdi_40_tipos_comprobantes';
+
+    public const CFDI_40_TIPOS_FACTORES = 'cfdi_40_tipos_factores';
+
+    public const CFDI_40_TIPOS_RELACIONES = 'cfdi_40_tipos_relaciones';
+
+    public const CFDI_40_USOS_CFDI = 'cfdi_40_usos_cfdi';
 
     public const NOMINA_BANCOS = 'nomina_bancos';
 
     public const NOMINA_ESTADOS = 'nomina_estados';
+
+    public const NOMINA_ORIGENES_RECURSOS = 'nomina_origenes_recursos';
 
     public const NOMINA_PERIODICIDADES_PAGOS = 'nomina_periodicidades_pagos';
 
@@ -125,6 +121,10 @@ class Repository
 
     public const NOMINA_TIPOS_INCAPACIDADES = 'nomina_tipos_incapacidades';
 
+    public const NOMINA_TIPOS_JORNADAS = 'nomina_tipos_jornadas';
+
+    public const NOMINA_TIPOS_NOMINAS = 'nomina_tipos_nominas';
+
     public const NOMINA_TIPOS_OTROS_PAGOS = 'nomina_tipos_otros_pagos';
 
     public const NOMINA_TIPOS_PERCEPCIONES = 'nomina_tipos_percepciones';
@@ -134,57 +134,57 @@ class Repository
     public const CATALOGS = [
         self::CFDI_ADUANAS,
         self::CFDI_CLAVES_UNIDADES,
-        self::CFDI_PRODUCTOS_SERVICIOS,
         self::CFDI_CODIGOS_POSTALES,
-        self::CFDI_IMPUESTOS,
         self::CFDI_FORMAS_PAGO,
+        self::CFDI_IMPUESTOS,
         self::CFDI_METODOS_PAGO,
         self::CFDI_MONEDAS,
+        self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
         self::CFDI_PAISES,
+        self::CFDI_PATENTES_ADUANALES,
+        self::CFDI_PRODUCTOS_SERVICIOS,
         self::CFDI_REGIMENES_FISCALES,
+        self::CFDI_REGLAS_TASA_CUOTA,
+        self::CFDI_TIPOS_COMPROBANTES,
+        self::CFDI_TIPOS_FACTORES,
         self::CFDI_TIPOS_RELACIONES,
         self::CFDI_USOS_CFDI,
-        self::CFDI_TIPOS_FACTORES,
-        self::CFDI_NUMEROS_PEDIMENTO_ADUANA,
-        self::CFDI_REGLAS_TASA_CUOTA,
-        self::CFDI_PATENTES_ADUANALES,
-        self::CFDI_TIPOS_COMPROBANTES,
         self::CFDI_40_ADUANAS,
         self::CFDI_40_CLAVES_UNIDADES,
-        self::CFDI_40_PRODUCTOS_SERVICIOS,
         self::CFDI_40_CODIGOS_POSTALES,
         self::CFDI_40_COLONIAS,
-        self::CFDI_40_IMPUESTOS,
         self::CFDI_40_ESTADOS,
         self::CFDI_40_EXPORTACIONES,
         self::CFDI_40_FORMAS_PAGO,
+        self::CFDI_40_IMPUESTOS,
         self::CFDI_40_LOCALIDADES,
         self::CFDI_40_MESES,
         self::CFDI_40_METODOS_PAGO,
         self::CFDI_40_MONEDAS,
         self::CFDI_40_MUNICIPIOS,
+        self::CFDI_40_NUMEROS_PEDIMENTO_ADUANA,
         self::CFDI_40_OBJETOS_IMPUESTOS,
         self::CFDI_40_PAISES,
-        self::CFDI_40_REGIMENES_FISCALES,
-        self::CFDI_40_TIPOS_RELACIONES,
-        self::CFDI_40_USOS_CFDI,
-        self::CFDI_40_TIPOS_FACTORES,
-        self::CFDI_40_NUMEROS_PEDIMENTO_ADUANA,
-        self::CFDI_40_REGLAS_TASA_CUOTA,
         self::CFDI_40_PATENTES_ADUANALES,
         self::CFDI_40_PERIODICIDADES,
+        self::CFDI_40_PRODUCTOS_SERVICIOS,
+        self::CFDI_40_REGIMENES_FISCALES,
+        self::CFDI_40_REGLAS_TASA_CUOTA,
         self::CFDI_40_TIPOS_COMPROBANTES,
-        self::NOMINA_TIPOS_NOMINAS,
-        self::NOMINA_TIPOS_JORNADAS,
-        self::NOMINA_ORIGENES_RECURSOS,
+        self::CFDI_40_TIPOS_FACTORES,
+        self::CFDI_40_TIPOS_RELACIONES,
+        self::CFDI_40_USOS_CFDI,
         self::NOMINA_BANCOS,
         self::NOMINA_ESTADOS,
+        self::NOMINA_ORIGENES_RECURSOS,
         self::NOMINA_PERIODICIDADES_PAGOS,
         self::NOMINA_RIESGOS_PUESTOS,
         self::NOMINA_TIPOS_CONTRATOS,
         self::NOMINA_TIPOS_DEDUCCIONES,
         self::NOMINA_TIPOS_HORAS,
         self::NOMINA_TIPOS_INCAPACIDADES,
+        self::NOMINA_TIPOS_JORNADAS,
+        self::NOMINA_TIPOS_NOMINAS,
         self::NOMINA_TIPOS_OTROS_PAGOS,
         self::NOMINA_TIPOS_PERCEPCIONES,
         self::NOMINA_TIPOS_REGIMENES,

@@ -11,23 +11,23 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
 /**
  * Class SatCatalogos
  *
- * @method CFDI\Aduanas                 aduanas();
- * @method CFDI\ClavesUnidades          clavesUnidades();
- * @method CFDI\CodigosPostales         codigosPostales();
- * @method CFDI\FormasDePago            formasDePago();
- * @method CFDI\Impuestos               impuestos();
- * @method CFDI\MetodosDePago           metodosDePago();
- * @method CFDI\Monedas                 monedas();
- * @method CFDI\NumerosPedimentoAduana  numerosPedimentoAduana();
- * @method CFDI\Paises                  paises();
- * @method CFDI\PatentesAduanales       patentesAduanales();
- * @method CFDI\ProductosServicios      productosServicios();
- * @method CFDI\RegimenesFiscales       regimenesFiscales();
- * @method CFDI\ReglasTasaCuota         reglasTasaCuota();
- * @method CFDI\TiposComprobantes       tiposComprobantes();
- * @method CFDI\TiposFactores           tiposFactores();
- * @method CFDI\TiposRelaciones         tiposRelaciones();
- * @method CFDI\UsosCfdi                usosCfdi();
+ * @method CFDI\Aduanas                   aduanas();
+ * @method CFDI\ClavesUnidades            clavesUnidades();
+ * @method CFDI\CodigosPostales           codigosPostales();
+ * @method CFDI\FormasDePago              formasDePago();
+ * @method CFDI\Impuestos                 impuestos();
+ * @method CFDI\MetodosDePago             metodosDePago();
+ * @method CFDI\Monedas                   monedas();
+ * @method CFDI\NumerosPedimentoAduana    numerosPedimentoAduana();
+ * @method CFDI\Paises                    paises();
+ * @method CFDI\PatentesAduanales         patentesAduanales();
+ * @method CFDI\ProductosServicios        productosServicios();
+ * @method CFDI\RegimenesFiscales         regimenesFiscales();
+ * @method CFDI\ReglasTasaCuota           reglasTasaCuota();
+ * @method CFDI\TiposComprobantes         tiposComprobantes();
+ * @method CFDI\TiposFactores             tiposFactores();
+ * @method CFDI\TiposRelaciones           tiposRelaciones();
+ * @method CFDI\UsosCfdi                  usosCfdi();
  *
  * @method CFDI40\Aduanas                 aduanas40();
  * @method CFDI40\ClavesUnidades          clavesUnidades40();
@@ -55,20 +55,20 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI40\TiposRelaciones         tiposRelaciones40();
  * @method CFDI40\UsosCfdi                usosCfdi40();
  *
- * @method Nomina\Bancos                bancos();
- * @method Nomina\TiposContratos        contratos();
- * @method Nomina\TiposDeducciones      deducciones();
- * @method Nomina\Estados               estados();
- * @method Nomina\TiposHoras            horasExtras();
- * @method Nomina\TiposIncapacidades    incapacidades();
- * @method Nomina\TiposJornadas         jornadas();
- * @method Nomina\TiposNominas          nominas();
- * @method Nomina\OrigenesRecursos      origenesRecursos();
- * @method Nomina\TiposOtrosPagos       otrosTipoPago();
- * @method Nomina\TiposPercepciones     percepciones();
- * @method Nomina\PeriodicidadesPagos   periodicidadesPagos();
- * @method Nomina\TiposRegimenes        regimenesContratacion();
- * @method Nomina\RiesgosPuestos        riesgosPuestos();
+ * @method Nomina\Bancos                  bancos();
+ * @method Nomina\Estados                 estados();
+ * @method Nomina\OrigenesRecursos        origenesRecursos();
+ * @method Nomina\PeriodicidadesPagos     periodicidadesPagos();
+ * @method Nomina\RiesgosPuestos          riesgosPuestos();
+ * @method Nomina\TiposContratos          contratos();
+ * @method Nomina\TiposDeducciones        deducciones();
+ * @method Nomina\TiposHoras              horasExtras();
+ * @method Nomina\TiposIncapacidades      incapacidades();
+ * @method Nomina\TiposJornadas           jornadas();
+ * @method Nomina\TiposNominas            nominas();
+ * @method Nomina\TiposOtrosPagos         otrosTipoPago();
+ * @method Nomina\TiposPercepciones       percepciones();
+ * @method Nomina\TiposRegimenes          regimenesContratacion();
  */
 class SatCatalogos
 {
@@ -119,20 +119,20 @@ class SatCatalogos
         'tiposRelaciones40' => CFDI40\TiposRelaciones::class,
         'usosCfdi40' => CFDI40\UsosCfdi::class,
         // Nominas
-        'contratos' => Nomina\TiposContratos::class,
-        'nominas' => Nomina\TiposNominas::class,
-        'jornadas' => Nomina\TiposJornadas::class,
-        'origenesRecursos' => Nomina\OrigenesRecursos::class,
         'bancos' => Nomina\Bancos::class,
-        'estados' => Nomina\Estados::class,
-        'periodicidadesPagos' => Nomina\PeriodicidadesPagos::class,
-        'riesgosPuestos' => Nomina\RiesgosPuestos::class,
+        'contratos' => Nomina\TiposContratos::class,
         'deducciones' => Nomina\TiposDeducciones::class,
+        'estados' => Nomina\Estados::class,
         'horasExtras' => Nomina\TiposHoras::class,
         'incapacidades' => Nomina\TiposIncapacidades::class,
+        'jornadas' => Nomina\TiposJornadas::class,
+        'nominas' => Nomina\TiposNominas::class,
+        'origenesRecursos' => Nomina\OrigenesRecursos::class,
         'otrosTipoPago' => Nomina\TiposOtrosPagos::class,
         'percepciones' => Nomina\TiposPercepciones::class,
+        'periodicidadesPagos' => Nomina\PeriodicidadesPagos::class,
         'regimenesContratacion' => Nomina\TiposRegimenes::class,
+        'riesgosPuestos' => Nomina\RiesgosPuestos::class,
     ];
 
     /** @var Repository */
