@@ -13,9 +13,9 @@ final class PeriodicidadesTest extends TestCase
 {
     /** @var array<string, mixed> */
     protected $validRow = [
-        'id' => '01',
-        'texto' => 'Diario',
-        'vigencia_desde' => '2000-01-01',
+        'id' => '03',
+        'texto' => 'Quincenal',
+        'vigencia_desde' => '2022-01-01',
         'vigencia_hasta' => '',
     ];
 
@@ -28,8 +28,8 @@ final class PeriodicidadesTest extends TestCase
         $periodicidades = new Periodicidades();
         $periodicidades->withRepository($repository);
 
-        $periodicidad = $periodicidades->obtain('01');
-        $this->assertSame('Diario', $periodicidad->texto());
+        $periodicidad = $periodicidades->obtain('03');
+        $this->assertSame('Quincenal', $periodicidad->texto());
     }
 
     public function testCreate(): void

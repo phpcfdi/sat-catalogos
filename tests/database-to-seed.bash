@@ -78,6 +78,7 @@ grep_insert_table_values cfdi_40_paises "'CHL'"
 grep_insert_table_values cfdi_40_paises "'MEX'"
 grep_insert_table_values cfdi_40_paises "'USA'"
 grep_insert_table_values cfdi_40_patentes_aduanales "'9039'"
+grep_insert_table_values cfdi_40_periodicidades
 grep_insert_table_values cfdi_40_productos_servicios "'10101511'"
 grep_insert_table_values cfdi_40_productos_servicios "'10122101'"
 grep_insert_table_values cfdi_40_productos_servicios "'43231500'"

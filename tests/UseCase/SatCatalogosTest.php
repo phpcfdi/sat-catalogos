@@ -182,6 +182,12 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('MEX', $pais->id());
     }
 
+    public function testCanObtainExistentPeriodicidades40(): void
+    {
+        $pais = $this->satCatalogos->periodicidades40()->obtain('03');
+        $this->assertSame('03', $pais->id());
+    }
+
     public function testCanObtainExistentRegimenFiscal(): void
     {
         $regimenFiscal = $this->satCatalogos->regimenesFiscales()->obtain('601');

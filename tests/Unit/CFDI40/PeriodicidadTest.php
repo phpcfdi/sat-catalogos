@@ -12,8 +12,8 @@ final class PeriodicidadTest extends TestCase
 {
     public function testCreateInstance(): void
     {
-        $id = '01';
-        $texto = 'Enero';
+        $id = '03';
+        $texto = 'Quincenal';
         $vigenteDesde = strtotime('2022-01-01');
         $vigenteHasta = 0;
 

@@ -171,6 +171,7 @@ class Repository
         self::CFDI_40_NUMEROS_PEDIMENTO_ADUANA,
         self::CFDI_40_REGLAS_TASA_CUOTA,
         self::CFDI_40_PATENTES_ADUANALES,
+        self::CFDI_40_PERIODICIDADES,
         self::CFDI_40_TIPOS_COMPROBANTES,
         self::NOMINA_TIPOS_NOMINAS,
         self::NOMINA_TIPOS_JORNADAS,
