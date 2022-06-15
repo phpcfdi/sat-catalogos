@@ -153,6 +153,7 @@ class Repository
         self::CFDI_40_CLAVES_UNIDADES,
         self::CFDI_40_PRODUCTOS_SERVICIOS,
         self::CFDI_40_CODIGOS_POSTALES,
+        self::CFDI_40_COLONIAS,
         self::CFDI_40_IMPUESTOS,
         self::CFDI_40_FORMAS_PAGO,
         self::CFDI_40_MESES,

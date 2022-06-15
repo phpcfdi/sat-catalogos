@@ -778,6 +778,11 @@ INSERT INTO cfdi_usos_cfdi VALUES('G01','Adquisición de mercancías',1,1,'2017-
 INSERT INTO cfdi_usos_cfdi VALUES('G02','Devoluciones, descuentos o bonificaciones',1,1,'2017-01-01','');
 INSERT INTO cfdi_usos_cfdi VALUES('G03','Gastos en general',1,1,'2017-01-01','');
 INSERT INTO cfdi_40_aduanas VALUES('24','NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.','2022-01-01','');
+INSERT INTO cfdi_40_colonias VALUES('2793','04510','Universidad Nacional Autónoma de México');
+INSERT INTO cfdi_40_colonias VALUES('0001','86000','Portal Del Agua');
+INSERT INTO cfdi_40_colonias VALUES('0002','86000','Villahermosa Centro');
+INSERT INTO cfdi_40_colonias VALUES('0009','86008','Secretaria de La Reforma Agraria');
+INSERT INTO cfdi_40_colonias VALUES('1477','86000','Centro Delegacional 6');
 INSERT INTO cfdi_40_claves_unidades VALUES('MTK','Metro cuadrado','Es la unidad básica de superficie en el Sistema Internacional de Unidades. Si a esta unidad se antepone un prefijo del Sistema Internacional se crea un múltiplo o submúltiplo de esta.','','2022-01-01','','m²');
 INSERT INTO cfdi_40_codigos_postales VALUES('52000','MEX','051','','','2022-01-01','','Tiempo del Centro','Abril','Primer domingo','02:00','-5','Octubre','Último domingo','02:00','-6');
 INSERT INTO cfdi_40_formas_pago VALUES('03','Transferencia electrónica de fondos',1,'',1,1,'[0-9]{10}|[0-9]{16}|[0-9]{18}',1,1,'[0-9]{10}|[0-9]{18}',1,1,'2022-01-01','');

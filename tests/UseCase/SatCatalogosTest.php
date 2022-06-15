@@ -95,6 +95,13 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('52000', $productoServicio->id());
     }
 
+    public function testCanObtainExistentColonias40(): void
+    {
+        $productoServicio = $this->satCatalogos->colonias40()->obtain('2793', '04510');
+        $this->assertSame('2793', $productoServicio->colonia());
+        $this->assertSame('04510', $productoServicio->codigoPostal());
+    }
+
     public function testCanObtainExistentImpuesto(): void
     {
         $impuesto = $this->satCatalogos->impuestos()->obtain('002');

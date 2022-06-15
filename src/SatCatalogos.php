@@ -32,6 +32,7 @@ use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
  * @method CFDI40\Aduanas                 aduanas40();
  * @method CFDI40\ClavesUnidades          clavesUnidades40();
  * @method CFDI40\CodigosPostales         codigosPostales40();
+ * @method CFDI40\Colonias                colonias40();
  * @method CFDI40\FormasDePago            formasDePago40();
  * @method CFDI40\Impuestos               impuestos40();
  * @method CFDI40\Meses                   meses40();
@@ -89,6 +90,7 @@ class SatCatalogos
         'aduanas40' => CFDI40\Aduanas::class,
         'clavesUnidades40' => CFDI40\ClavesUnidades::class,
         'codigosPostales40' => CFDI40\CodigosPostales::class,
+        'colonias40' => CFDI40\Colonias::class,
         'formasDePago40' => CFDI40\FormasDePago::class,
         'impuestos40' => CFDI40\Impuestos::class,
         'meses40' => CFDI40\Meses::class,

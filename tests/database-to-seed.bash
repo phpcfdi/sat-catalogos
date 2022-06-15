@@ -55,6 +55,8 @@ grep_insert_table_values cfdi_tipos_factores
 grep_insert_table_values cfdi_tipos_relaciones "'05'"
 grep_insert_table_values cfdi_usos_cfdi "'G0.'"
 grep_insert_table_values cfdi_40_aduanas "'24'"
+grep_insert_table_values cfdi_40_colonias "'2793','04510'"
+grep_insert_table_values cfdi_40_colonias "'.{4}','8600.'"
 grep_insert_table_values cfdi_40_claves_unidades "'MTK'"
 grep_insert_table_values cfdi_40_codigos_postales "'52000'"
 grep_insert_table_values cfdi_40_formas_pago "'03'"
