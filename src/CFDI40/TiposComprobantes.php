@@ -30,7 +30,7 @@ class TiposComprobantes extends AbstractCatalogIdentifiable
             $data['texto'],
             $data['valor_maximo'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

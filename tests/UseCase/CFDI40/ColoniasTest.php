@@ -43,7 +43,7 @@ final class ColoniasTest extends UsingTestingDatabaseTestCase
             function (Colonia $colonia): string {
                 return $colonia->colonia();
             },
-            $colonias
+            $colonias,
         );
         $this->assertContains('0001', $codesFound);
         $this->assertContains('0002', $codesFound);
@@ -58,7 +58,7 @@ final class ColoniasTest extends UsingTestingDatabaseTestCase
             function (Colonia $colonia): string {
                 return $colonia->colonia();
             },
-            $colonias
+            $colonias,
         );
         $this->assertContains('0001', $codesFound);
         $this->assertContains('0002', $codesFound);
@@ -73,7 +73,7 @@ final class ColoniasTest extends UsingTestingDatabaseTestCase
             function (Colonia $colonia): string {
                 return $colonia->colonia();
             },
-            $colonias
+            $colonias,
         );
         $this->assertContains('0002', $codesFound);
         $this->assertNotContains('0001', $codesFound);

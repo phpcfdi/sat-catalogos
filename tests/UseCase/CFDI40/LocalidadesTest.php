@@ -45,7 +45,7 @@ class LocalidadesTest extends UsingTestingDatabaseTestCase
             function (Localidad $localidad): string {
                 return $localidad->estado();
             },
-            $this->localidades->search('55')
+            $this->localidades->search('55'),
         );
         $this->assertContains('JAL', $estados);
         $this->assertContains('OAX', $estados);
@@ -58,7 +58,7 @@ class LocalidadesTest extends UsingTestingDatabaseTestCase
             function (Localidad $localidad): string {
                 return $localidad->codigo();
             },
-            $this->localidades->search('%', 'QUE')
+            $this->localidades->search('%', 'QUE'),
         );
         $this->assertContains('01', $codigos);
         $this->assertContains('02', $codigos);
@@ -71,7 +71,7 @@ class LocalidadesTest extends UsingTestingDatabaseTestCase
             function (Localidad $localidad): string {
                 return sprintf('%s-%s', $localidad->codigo(), $localidad->estado());
             },
-            $this->localidades->search('%', '%', '%domingo%')
+            $this->localidades->search('%', '%', '%domingo%'),
         );
         $this->assertContains('55-OAX', $codigosEstados);
     }

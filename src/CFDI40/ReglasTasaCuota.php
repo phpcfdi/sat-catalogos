@@ -49,7 +49,7 @@ class ReglasTasaCuota implements BaseCatalog
             function (array $data): ReglaTasaCuota {
                 return $this->createRule($data);
             },
-            $this->repository()->queryRowsByFields(Repository::CFDI_40_REGLAS_TASA_CUOTA, $filters)
+            $this->repository()->queryRowsByFields(Repository::CFDI_40_REGLAS_TASA_CUOTA, $filters),
         );
     }
 
@@ -88,7 +88,7 @@ class ReglasTasaCuota implements BaseCatalog
             $data['minimo'],
             $data['valor'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

@@ -162,7 +162,6 @@ class SatCatalogos
         }
 
         try {
-            /** @var mixed $created */
             $created = $this->create($this->map[$methodName]);
         } catch (LogicException $exception) {
             throw new SatCatalogosLogicException("No se pudo encontrar el catálogo '$methodName'", 0, $exception);

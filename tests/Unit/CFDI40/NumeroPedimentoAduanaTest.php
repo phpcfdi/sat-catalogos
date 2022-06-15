@@ -26,7 +26,7 @@ final class NumeroPedimentoAduanaTest extends TestCase
             $ejercicio,
             $cantidad,
             $vigenteDesde,
-            $vigenteHasta
+            $vigenteHasta,
         );
 
         $this->assertInstanceOf(EntryWithVigencias::class, $numeroPedimentoAduana);

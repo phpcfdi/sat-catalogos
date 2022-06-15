@@ -26,7 +26,7 @@ class TiposFactores extends AbstractCatalogIdentifiable
     public function create(array $data): EntryIdentifiable
     {
         return new TipoFactor(
-            $data['id']
+            $data['id'],
         );
     }
 }

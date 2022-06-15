@@ -21,7 +21,7 @@ class Localidades implements BaseCatalog
         $localidad = $this->find($codigo, $estado);
         if (null === $localidad) {
             throw new SatCatalogosNotFoundException(
-                "No se encontró una localidad con código $codigo y estado $estado"
+                "No se encontró una localidad con código $codigo y estado $estado",
             );
         }
         return $localidad;
@@ -58,7 +58,7 @@ class Localidades implements BaseCatalog
             function (array $data): Localidad {
                 return $this->create($data);
             },
-            $this->repository()->queryRowsByFields(Repository::CFDI_40_LOCALIDADES, $filters, 0, false)
+            $this->repository()->queryRowsByFields(Repository::CFDI_40_LOCALIDADES, $filters, 0, false),
         );
     }
 
@@ -73,7 +73,7 @@ class Localidades implements BaseCatalog
             (string) $data['estado'],
             (string) $data['texto'],
             intval(($data['vigencia_desde']) ? strtotime((string) $data['vigencia_desde']) : 0),
-            intval(($data['vigencia_hasta']) ? strtotime((string) $data['vigencia_hasta']) : 0)
+            intval(($data['vigencia_hasta']) ? strtotime((string) $data['vigencia_hasta']) : 0),
         );
     }
 }

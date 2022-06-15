@@ -16,7 +16,7 @@ class Repository
     /** @var PDO */
     private $pdo;
 
-    /** @var PDOStatement<mixed>[] */
+    /** @var array<string, PDOStatement> */
     private $statements = [];
 
     public const CFDI_ADUANAS = 'cfdi_aduanas';
@@ -198,7 +198,7 @@ class Repository
     /**
      * @param string $catalog
      * @param string $id
-     * @return array<string, mixed>
+     * @return array<string, scalar>
      */
     public function queryById(string $catalog, string $id): array
     {
@@ -216,7 +216,7 @@ class Repository
     /**
      * @param string $catalog
      * @param string[] $ids
-     * @return array<array<string, mixed>>
+     * @return array<array<string, scalar>>
      */
     public function queryByIds(string $catalog, array $ids): array
     {
@@ -226,8 +226,8 @@ class Repository
     /**
      * @param string $catalog
      * @param string $fieldName
-     * @param mixed[] $values
-     * @return array<int, array<string, mixed>>
+     * @param scalar[] $values
+     * @return array<int, array<string, scalar>>
      */
     public function queryRowsInField(string $catalog, string $fieldName, array $values): array
     {
@@ -238,6 +238,7 @@ class Repository
             . ' where ' . $this->escapeName($fieldName) . ' IN (' . $questionMarks . ')'
             . ';';
         $stmt = $this->query($sql, $values);
+        /** @var array<int, array<string, scalar>>|false $data phpstan does not know that fetchAll can return FALSE */
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return (is_array($data)) ? $data : [];
@@ -245,10 +246,10 @@ class Repository
 
     /**
      * @param string $catalog
-     * @param array<string, mixed> $values
+     * @param array<string, scalar> $values
      * @param int $limit
      * @param bool $exactSearch
-     * @return array<int, array<string, mixed>>
+     * @return array<int, array<string, scalar>>
      */
     public function queryRowsByFields(string $catalog, array $values, int $limit = 0, bool $exactSearch = true): array
     {
@@ -267,14 +268,15 @@ class Repository
             . (($limit > 0) ? ' limit ' . $limit : '')
             . ';';
         $stmt = $this->query($sql, $values);
+        /** @var array<int, array<string, scalar>>|false $data phpstan does not know that fetchAll can return FALSE */
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return (is_array($data)) ? $data : [];
     }
 
     /**
      * @param string $catalog
-     * @param array<string, mixed> $values
-     * @return array<string, mixed>
+     * @param array<string, scalar> $values
+     * @return array<string, scalar>
      */
     public function queryRowByFields(string $catalog, array $values): array
     {
@@ -288,7 +290,7 @@ class Repository
 
     /**
      * @param string $catalog
-     * @param array<string, mixed> $values
+     * @param array<string, scalar> $values
      * @return SatCatalogosNotFoundException
      */
     private function createSatCatalogosNotFoundException(string $catalog, array $values): SatCatalogosNotFoundException
@@ -300,10 +302,10 @@ class Repository
                 'Cannot found %s using (%s) with values (%s)',
                 $catalog,
                 implode(', ', $keys),
-                implode(', ', $values)
+                implode(', ', $values),
             );
         } elseif (1 === $valuesCount) {
-            $exMessage = sprintf('Cannot found %s using %s \'%s\'', $catalog, $keys[0], $values[$keys[0]]);
+            $exMessage = sprintf("Cannot found %s using %s '%s'", $catalog, $keys[0], $values[$keys[0]]);
         } else {
             $exMessage = sprintf('Cannot found any %s without filter', $catalog);
         }
@@ -338,8 +340,8 @@ class Repository
      * Execute a sql statement, it will use the preparedStatements cache, set the arguments and throw an exception
      * with the corresponding message (if working on silent mode)
      * @param string $query
-     * @param mixed[] $arguments
-     * @return PDOStatement<mixed>
+     * @param scalar[] $arguments
+     * @return PDOStatement
      */
     private function query(string $query, array $arguments = []): PDOStatement
     {
@@ -353,22 +355,25 @@ class Repository
      * NOTICE: Do not use this function for boolean values
      *
      * @param string $query
-     * @param mixed[] $arguments
-     * @param mixed $defaultValue
-     * @return mixed
+     * @param scalar[] $arguments
+     * @param scalar|null $defaultValue
+     * @return scalar|null
      */
     private function queryValue(string $query, array $arguments = [], $defaultValue = null)
     {
         $stmt = $this->query($query, $arguments);
+        /** @var scalar|null $value phpstan does not know that fetchAll can return FALSE */
         $value = $stmt->fetchColumn(0);
-
-        return (false !== $value) ? $value : $defaultValue;
+        if (null === $value) {
+            return $defaultValue;
+        }
+        return $value;
     }
 
     /**
      * @param string $query
-     * @param mixed[] $arguments
-     * @return array<string, mixed>
+     * @param scalar[] $arguments
+     * @return array<string, scalar>
      */
     private function queryRow(string $query, array $arguments = []): array
     {
@@ -382,7 +387,7 @@ class Repository
      * Cache or create a prepared statement
      *
      * @param string $query
-     * @return PDOStatement<mixed>
+     * @return PDOStatement
      */
     private function statement(string $query): PDOStatement
     {
@@ -394,7 +399,7 @@ class Repository
         try {
             /**
              * @noinspection PhpUsageOfSilenceOperatorInspection
-             * @var PDOStatement<mixed>|false $statement phpstan does not know that prepare can return FALSE
+             * @var PDOStatement|false $statement phpstan does not know that prepare can return FALSE
              */
             $statement = @$this->pdo->prepare($query);
         } catch (PDOException $exception) {

@@ -2,11 +2,13 @@
 * text=auto
 
 # Do not put this files on a distribution package (by .gitignore)
+/tools/              export-ignore
 /vendor/             export-ignore
 /composer.lock       export-ignore
 
 # Do not put this files on a distribution package
 /.github/            export-ignore
+/.phive/             export-ignore
 /build/              export-ignore
 /tests/              export-ignore
 /.gitattributes      export-ignore

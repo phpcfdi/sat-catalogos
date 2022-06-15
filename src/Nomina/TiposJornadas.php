@@ -27,7 +27,7 @@ class TiposJornadas extends AbstractCatalogIdentifiable
     {
         return new TipoJornada(
             $data['id'],
-            $data['texto']
+            $data['texto'],
         );
     }
 }

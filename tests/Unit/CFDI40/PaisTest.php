@@ -26,7 +26,7 @@ final class PaisTest extends TestCase
             $patronCodigoPostal,
             $patronIdentidadTributaria,
             $validacionIdentidadTributaria,
-            $agrupaciones
+            $agrupaciones,
         );
 
         $this->assertInstanceOf(EntryIdentifiable::class, $pais);

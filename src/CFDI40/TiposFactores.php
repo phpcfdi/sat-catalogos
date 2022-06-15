@@ -28,7 +28,7 @@ class TiposFactores extends AbstractCatalogIdentifiable
         return new TipoFactor(
             $data['id'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

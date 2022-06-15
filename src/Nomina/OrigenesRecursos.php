@@ -27,7 +27,7 @@ class OrigenesRecursos extends AbstractCatalogIdentifiable
     {
         return new OrigenRecurso(
             $data['id'],
-            $data['texto']
+            $data['texto'],
         );
     }
 }

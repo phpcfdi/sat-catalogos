@@ -18,7 +18,7 @@ final class CodigoPostalTest extends TestCase
         return new HusoHorario(
             'Tiempo del Centro',
             new HusoHorarioEstacion('Abril', 'Primer domingo', '02:00', -5),
-            new HusoHorarioEstacion('Octubre', 'Último domingo', '02:00', -6)
+            new HusoHorarioEstacion('Octubre', 'Último domingo', '02:00', -6),
         );
     }
 
@@ -42,7 +42,7 @@ final class CodigoPostalTest extends TestCase
             $estimuloFrontera,
             $husoHorario,
             $vigenteDesde,
-            $vigenteHasta
+            $vigenteHasta,
         );
 
         $this->assertInstanceOf(EntryIdentifiable::class, $codigoPostal);

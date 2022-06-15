@@ -31,7 +31,7 @@ class Impuestos extends AbstractCatalogIdentifiable
             (bool) $data['retencion'],
             (bool) $data['traslado'],
             $data['ambito'],
-            $data['entidad']
+            $data['entidad'],
         );
     }
 }

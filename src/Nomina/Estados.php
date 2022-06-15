@@ -49,7 +49,7 @@ class Estados implements BaseCatalog
             function (array $data): Estado {
                 return $this->createEstado($data);
             },
-            $this->repository()->queryRowsByFields(Repository::NOMINA_ESTADOS, $filters)
+            $this->repository()->queryRowsByFields(Repository::NOMINA_ESTADOS, $filters),
         );
     }
 
@@ -71,7 +71,7 @@ class Estados implements BaseCatalog
             function (array $data): Estado {
                 return $this->createEstado($data);
             },
-            $this->repository()->queryRowsByFields(Repository::NOMINA_ESTADOS, $filters, 0, false)
+            $this->repository()->queryRowsByFields(Repository::NOMINA_ESTADOS, $filters, 0, false),
         );
     }
 

@@ -193,7 +193,7 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $pedimentoAduanaPatente = $this->satCatalogos->numerosPedimentoAduana()->obtain(
             $aduana,
             $patente,
-            $ejercicio
+            $ejercicio,
         );
 
         $this->assertSame($aduana, $pedimentoAduanaPatente->aduana());
@@ -211,7 +211,7 @@ final class SatCatalogosTest extends UsingTestingDatabaseTestCase
         $pedimentoAduanaPatente = $this->satCatalogos->numerosPedimentoAduana40()->obtain(
             $aduana,
             $patente,
-            $ejercicio
+            $ejercicio,
         );
 
         $this->assertSame($aduana, $pedimentoAduanaPatente->aduana());

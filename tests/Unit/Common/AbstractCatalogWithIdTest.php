@@ -99,9 +99,9 @@ final class AbstractCatalogWithIdTest extends TestCase
                 return array_values(
                     array_filter($content, function (array $row) use ($ids): bool {
                         return in_array($row['id'], $ids, true);
-                    })
+                    }),
                 );
-            }
+            },
         );
 
         $this->assertCount(0, $this->catalog->obtainByIds(['none']));

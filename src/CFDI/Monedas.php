@@ -31,7 +31,7 @@ class Monedas extends AbstractCatalogIdentifiable
             (int) $data['decimales'],
             (int) $data['porcentaje_variacion'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

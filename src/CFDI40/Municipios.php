@@ -21,7 +21,7 @@ class Municipios implements BaseCatalog
         $municipio = $this->find($codigo, $estado);
         if (null === $municipio) {
             throw new SatCatalogosNotFoundException(
-                "No se encontró un municipio con código $codigo y estado $estado"
+                "No se encontró un municipio con código $codigo y estado $estado",
             );
         }
         return $municipio;
@@ -58,7 +58,7 @@ class Municipios implements BaseCatalog
             function (array $data): Municipio {
                 return $this->create($data);
             },
-            $this->repository()->queryRowsByFields(Repository::CFDI_40_MUNICIPIOS, $filters, 0, false)
+            $this->repository()->queryRowsByFields(Repository::CFDI_40_MUNICIPIOS, $filters, 0, false),
         );
     }
 
@@ -73,7 +73,7 @@ class Municipios implements BaseCatalog
             (string) $data['estado'],
             (string) $data['texto'],
             intval(($data['vigencia_desde']) ? strtotime((string) $data['vigencia_desde']) : 0),
-            intval(($data['vigencia_hasta']) ? strtotime((string) $data['vigencia_hasta']) : 0)
+            intval(($data['vigencia_hasta']) ? strtotime((string) $data['vigencia_hasta']) : 0),
         );
     }
 }

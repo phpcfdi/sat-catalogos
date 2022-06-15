@@ -66,7 +66,7 @@ class HusoHorarioEstacion
 
         if (abs($utcDiff) > 12) {
             throw new SatCatalogosLogicException(
-                'La definición de diferencia de horario absoluta no puede ser mayor a 12'
+                'La definición de diferencia de horario absoluta no puede ser mayor a 12',
             );
         }
 
@@ -78,20 +78,20 @@ class HusoHorarioEstacion
         $this->weekDayToTime = self::WEEK_DAYS[$this->weekDay] ?? '';
         if ('' === $this->weekDayToTime && '' !== $weekDay) {
             throw new SatCatalogosLogicException(
-                sprintf('El día de la semana del huso horario "%s" es desconocido', $weekDay)
+                sprintf('El día de la semana del huso horario "%s" es desconocido', $weekDay),
             );
         }
 
         if ('' !== $this->time) {
             if (! boolval(preg_match('/^\d\d:00$/', $this->time))) {
                 throw new SatCatalogosLogicException(
-                    sprintf('La hora a la que inicia el cambio de horario "%s" no es válida', $this->time)
+                    sprintf('La hora a la que inicia el cambio de horario "%s" no es válida', $this->time),
                 );
             }
             $this->timeHour = intval(substr($this->time, 0, 2));
             if ($this->timeHour > 23) {
                 throw new SatCatalogosLogicException(
-                    sprintf('La hora a la que inicia el cambio de horario "%s" no puede ser mayor a 23', $this->time)
+                    sprintf('La hora a la que inicia el cambio de horario "%s" no puede ser mayor a 23', $this->time),
                 );
             }
         }

@@ -32,7 +32,7 @@ class UsosCfdi extends AbstractCatalogIdentifiable
             (bool) $data['aplica_moral'],
             $data['regimenes_fiscales_receptores'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

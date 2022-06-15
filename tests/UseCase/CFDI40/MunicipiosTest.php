@@ -45,7 +45,7 @@ class MunicipiosTest extends UsingTestingDatabaseTestCase
             function (Municipio $municipio): string {
                 return $municipio->estado();
             },
-            $this->municipios->search('210')
+            $this->municipios->search('210'),
         );
         $this->assertContains('OAX', $estados);
         $this->assertContains('PUE', $estados);
@@ -58,7 +58,7 @@ class MunicipiosTest extends UsingTestingDatabaseTestCase
             function (Municipio $municipio): string {
                 return $municipio->codigo();
             },
-            $this->municipios->search('%', 'BCN')
+            $this->municipios->search('%', 'BCN'),
         );
         $this->assertContains('001', $codigos);
         $this->assertContains('002', $codigos);
@@ -73,7 +73,7 @@ class MunicipiosTest extends UsingTestingDatabaseTestCase
             function (Municipio $municipio): string {
                 return sprintf('%s-%s', $municipio->codigo(), $municipio->estado());
             },
-            $this->municipios->search('%', '%', 'Tijuana')
+            $this->municipios->search('%', '%', 'Tijuana'),
         );
         $this->assertContains('004-BCN', $codigosEstados);
     }

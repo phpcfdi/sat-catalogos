@@ -36,17 +36,17 @@ class CodigosPostales extends AbstractCatalogIdentifiable
                     $data['huso_verano_mes_inicio'],
                     $data['huso_verano_dia_inicio'],
                     $data['huso_verano_hora_inicio'],
-                    intval($data['huso_verano_diferencia'])
+                    intval($data['huso_verano_diferencia']),
                 ),
                 new HusoHorarioEstacion(
                     $data['huso_invierno_mes_inicio'],
                     $data['huso_invierno_dia_inicio'],
                     $data['huso_invierno_hora_inicio'],
-                    intval($data['huso_invierno_diferencia'])
-                )
+                    intval($data['huso_invierno_diferencia']),
+                ),
             ),
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 

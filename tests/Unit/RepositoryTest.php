@@ -128,7 +128,7 @@ final class RepositoryTest extends UsingTestingDatabaseTestCase
     {
         $entries = $this->getRepository()->queryByIds(
             Repository::CFDI_PRODUCTOS_SERVICIOS,
-            ['10101511', '10109999', '10122101'] // only 10101511 and 10122101 must exist
+            ['10101511', '10109999', '10122101'], // only 10101511 and 10122101 must exist
         );
         $this->assertCount(2, $entries);
         $this->assertSame('10101511', $entries[0]['id']);

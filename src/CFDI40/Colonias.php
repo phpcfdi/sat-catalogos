@@ -21,7 +21,7 @@ class Colonias implements BaseCatalog
         $found = $this->find($colonia, $codigoPostal);
         if (null === $found) {
             throw new SatCatalogosNotFoundException(
-                "No se encontró una colonia $colonia con código postal $codigoPostal"
+                "No se encontró una colonia $colonia con código postal $codigoPostal",
             );
         }
         return $found;
@@ -58,7 +58,7 @@ class Colonias implements BaseCatalog
             function (array $data): Colonia {
                 return $this->create($data);
             },
-            $this->repository()->queryRowsByFields(Repository::CFDI_40_COLONIAS, $filters, 0, false)
+            $this->repository()->queryRowsByFields(Repository::CFDI_40_COLONIAS, $filters, 0, false),
         );
     }
 

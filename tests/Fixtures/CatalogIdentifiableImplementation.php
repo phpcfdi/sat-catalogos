@@ -19,7 +19,7 @@ final class CatalogIdentifiableImplementation extends AbstractCatalogIdentifiabl
             $data['id'],
             $data['texto'],
             strtotime($data['vigencia_desde']),
-            strtotime($data['vigencia_hasta'])
+            strtotime($data['vigencia_hasta']),
         );
     }
 

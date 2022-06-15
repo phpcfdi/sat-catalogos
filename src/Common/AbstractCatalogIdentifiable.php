@@ -34,7 +34,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
     public function obtainByIds(array $ids): array
     {
         return $this->arrayToEntries(
-            $this->repository()->queryByIds($this->catalogName(), $ids)
+            $this->repository()->queryByIds($this->catalogName(), $ids),
         );
     }
 
@@ -44,7 +44,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
             $this->catalogName(),
             [$fieldName => $search],
             $limit,
-            false
+            false,
         );
 
         return $this->arrayToEntries($results);

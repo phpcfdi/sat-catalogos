@@ -31,7 +31,7 @@ class UsosCfdi extends AbstractCatalogIdentifiable
             (bool) $data['aplica_fisica'],
             (bool) $data['aplica_moral'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

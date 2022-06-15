@@ -31,7 +31,7 @@ class Paises extends AbstractCatalogIdentifiable
             $data['patron_codigo_postal'],
             $data['patron_identidad_tributaria'],
             $data['validacion_identidad_tributaria'],
-            $data['agrupaciones']
+            $data['agrupaciones'],
         );
     }
 }

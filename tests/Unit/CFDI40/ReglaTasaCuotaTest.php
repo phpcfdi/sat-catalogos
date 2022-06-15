@@ -32,7 +32,7 @@ final class ReglaTasaCuotaTest extends TestCase
             $minimo,
             $valor,
             $vigenteDesde,
-            $vigenteHasta
+            $vigenteHasta,
         );
 
         $this->assertInstanceOf(EntryWithVigencias::class, $reglaTasaCuota);
@@ -144,7 +144,7 @@ final class ReglaTasaCuotaTest extends TestCase
         foreach ($values as $case => $value) {
             $this->assertTrue(
                 $reglaTasaCuota->valorIsValid($value),
-                sprintf('The value %s in case %s was expected to be valid', $value, $case)
+                sprintf('The value %s in case %s was expected to be valid', $value, $case),
             );
         }
     }
@@ -168,7 +168,7 @@ final class ReglaTasaCuotaTest extends TestCase
         foreach ($values as $case => $value) {
             $this->assertFalse(
                 $reglaTasaCuota->valorIsValid($value),
-                sprintf('The value %s in case %s was expected to be valid', $value, $case)
+                sprintf('The value %s in case %s was expected to be valid', $value, $case),
             );
         }
     }

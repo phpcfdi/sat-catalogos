@@ -23,7 +23,7 @@ trait BaseCatalogTrait
 
         if (null !== $this->repository) {
             throw new LogicException(
-                sprintf('This instance of %s already contains a repository', get_class($this))
+                sprintf('This instance of %s already contains a repository', get_class($this)),
             );
         }
 
@@ -34,7 +34,7 @@ trait BaseCatalogTrait
     {
         if (null === $this->repository) {
             throw new LogicException(
-                sprintf('This instance of %s does not contains a repository', get_class($this))
+                sprintf('This instance of %s does not contains a repository', get_class($this)),
             );
         }
 

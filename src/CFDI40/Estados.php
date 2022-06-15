@@ -49,7 +49,7 @@ class Estados implements BaseCatalog
             function (array $data): Estado {
                 return $this->createEstado($data);
             },
-            $this->repository()->queryRowsByFields(Repository::CFDI_40_ESTADOS, $filters)
+            $this->repository()->queryRowsByFields(Repository::CFDI_40_ESTADOS, $filters),
         );
     }
 
@@ -71,7 +71,7 @@ class Estados implements BaseCatalog
             function (array $data): Estado {
                 return $this->createEstado($data);
             },
-            $this->repository()->queryRowsByFields(Repository::CFDI_40_ESTADOS, $filters, 0, false)
+            $this->repository()->queryRowsByFields(Repository::CFDI_40_ESTADOS, $filters, 0, false),
         );
     }
 
@@ -88,7 +88,7 @@ class Estados implements BaseCatalog
             $data['pais'],
             $data['texto'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

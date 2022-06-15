@@ -40,7 +40,7 @@ final class HusoHorarioTest extends TestCase
 
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage(
-            'No se puede crear un huso horario con estaciones donde solo una tiene cambio de horario'
+            'No se puede crear un huso horario con estaciones donde solo una tiene cambio de horario',
         );
         new HusoHorario('', $verano, $invierno);
     }
@@ -52,7 +52,7 @@ final class HusoHorarioTest extends TestCase
 
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage(
-            'El huso horario no tiene cambio de horario de verano pero tiene no tiene la misma diferencia horaria'
+            'El huso horario no tiene cambio de horario de verano pero tiene no tiene la misma diferencia horaria',
         );
         new HusoHorario('', $verano, $invierno);
     }

@@ -53,7 +53,7 @@ final class FormaDePagoTest extends TestCase
             $permiteTipoCadenaPago,
             $requiereBancoOrdenanteNombreExt,
             $vigenteDesde,
-            $vigenteHasta
+            $vigenteHasta,
         );
         $this->assertInstanceOf(EntryIdentifiable::class, $formaDePago);
 
@@ -104,10 +104,10 @@ final class FormaDePagoTest extends TestCase
     public function testPermiteBancoBeneficiarioRfc(): void
     {
         $this->assertTrue(
-            $this->makeFormaDePago(['permiteBancoBeneficiarioRfc' => true])->permiteBancoBeneficiarioRfc()
+            $this->makeFormaDePago(['permiteBancoBeneficiarioRfc' => true])->permiteBancoBeneficiarioRfc(),
         );
         $this->assertFalse(
-            $this->makeFormaDePago(['permiteBancoBeneficiarioRfc' => false])->permiteBancoBeneficiarioRfc()
+            $this->makeFormaDePago(['permiteBancoBeneficiarioRfc' => false])->permiteBancoBeneficiarioRfc(),
         );
     }
 
@@ -138,10 +138,10 @@ final class FormaDePagoTest extends TestCase
     public function testRequiereBancoOrdenanteNombreExt(): void
     {
         $this->assertTrue(
-            $this->makeFormaDePago(['requiereBancoOrdenanteNombreExt' => true])->requiereBancoOrdenanteNombreExt()
+            $this->makeFormaDePago(['requiereBancoOrdenanteNombreExt' => true])->requiereBancoOrdenanteNombreExt(),
         );
         $this->assertFalse(
-            $this->makeFormaDePago(['requiereBancoOrdenanteNombreExt' => false])->requiereBancoOrdenanteNombreExt()
+            $this->makeFormaDePago(['requiereBancoOrdenanteNombreExt' => false])->requiereBancoOrdenanteNombreExt(),
         );
     }
 }

@@ -39,7 +39,7 @@ class FormasDePago extends AbstractCatalogIdentifiable
             (bool) $data['permite_tipo_cadena_pago'],
             (bool) $data['requiere_banco_ordenante_nombre_ext'],
             ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0
+            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
         );
     }
 }

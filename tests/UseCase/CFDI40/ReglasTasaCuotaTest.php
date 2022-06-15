@@ -23,10 +23,10 @@ final class ReglasTasaCuotaTest extends UsingTestingDatabaseTestCase
     {
         $rules = $this->reglasTasaCuota;
         $this->assertTrue(
-            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.160000')
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.160000'),
         );
         $this->assertFalse(
-            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.16')
+            $rules->hasMatchingRule($rules::IMPUESTO_IVA, $rules::FACTOR_TASA, $rules::USO_TRASLADO, '0.16'),
         );
     }
 }
