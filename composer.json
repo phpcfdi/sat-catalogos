@@ -52,7 +52,7 @@
             "@php vendor/bin/phpstan analyse --verbose --no-progress"
         ],
         "dev:coverage": [
-            "@php -dzend_extension=xdebug.so vendor/bin/phpunit --verbose --coverage-html build/coverage/html/"
+            "@php -dzend_extension=xdebug.so -dxdebug.mode=coverage vendor/bin/phpunit --verbose --coverage-html build/coverage/html/"
         ]
     },
     "scripts-descriptions": {
