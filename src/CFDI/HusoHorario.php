@@ -27,13 +27,13 @@ class HusoHorario
 
         if ($verano->tieneCambioHorario() !== $invierno->tieneCambioHorario()) {
             throw new SatCatalogosLogicException(
-                'No se puede crear un huso horario con estaciones donde solo una tiene cambio de horario'
+                'No se puede crear un huso horario con estaciones donde solo una tiene cambio de horario',
             );
         }
 
         if (! $verano->tieneCambioHorario() and $verano->diferencia() !== $invierno->diferencia()) {
             throw new SatCatalogosLogicException(
-                'El huso horario no tiene cambio de horario de verano pero tiene no tiene la misma diferencia horaria'
+                'El huso horario no tiene cambio de horario de verano pero tiene no tiene la misma diferencia horaria',
             );
         }
     }
@@ -59,7 +59,7 @@ class HusoHorario
             $partialDate = new DateTimeImmutable($partialDateText);
         } catch (Exception $exception) {
             throw new SatCatalogosLogicException(
-                sprintf('No se puede entender la fecha hora "%s" como tal', $partialDateText)
+                sprintf('No se puede entender la fecha hora "%s" como tal', $partialDateText),
             );
         }
 

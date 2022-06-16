@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\Nomina;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -20,14 +21,15 @@ class TiposIncapacidades extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return TipoIncapacidad
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new TipoIncapacidad(
-            $data['id'],
-            $data['texto'],
+            $values->string('id'),
+            $values->string('texto'),
         );
     }
 }

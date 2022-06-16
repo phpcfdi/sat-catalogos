@@ -64,7 +64,8 @@ class ReglaTasaCuota implements EntryWithVigencias
         if (self::TIPO_FIJO !== $tipo && self::TIPO_RANGO !== $tipo) {
             throw new SatCatalogosLogicException('El campo tipo no tiene uno de los valores permitidos');
         }
-        if (ReglasTasaCuota::IMPUESTO_IEPS !== $impuesto
+        if (
+            ReglasTasaCuota::IMPUESTO_IEPS !== $impuesto
             && ReglasTasaCuota::IMPUESTO_IVA !== $impuesto
             && ReglasTasaCuota::IMPUESTO_ISR !== $impuesto
         ) {
@@ -146,7 +147,7 @@ class ReglaTasaCuota implements EntryWithVigencias
 
         /** @codeCoverageIgnore This is a safeguard since the object cannot be constructed with other type */
         throw new LogicException(
-            "Don't know how to compare the current rule, it is not TIPO_FIJO or TIPO_RANGO"
+            "Don't know how to compare the current rule, it is not TIPO_FIJO or TIPO_RANGO",
         );
     }
 }

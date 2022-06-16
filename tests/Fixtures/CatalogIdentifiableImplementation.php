@@ -6,20 +6,22 @@ namespace PhpCfdi\SatCatalogos\Tests\Fixtures;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 
 final class CatalogIdentifiableImplementation extends AbstractCatalogIdentifiable
 {
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return EntryIdentifiable
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new EntryIdentifiableImplementation(
-            $data['id'],
-            $data['texto'],
-            strtotime($data['vigencia_desde']),
-            strtotime($data['vigencia_hasta'])
+            $values->string('id'),
+            $values->string('texto'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 

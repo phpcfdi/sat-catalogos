@@ -24,7 +24,7 @@ final class RepositoryTest extends UsingTestingDatabaseTestCase
         $this->assertArrayHasKey('vigencia_desde', $data);
         $this->assertArrayHasKey('vigencia_hasta', $data);
 
-        // this are valid values as of 2018-06-05
+        // these are valid values as of 2018-06-05
         $expected = [
             'id' => '24',
             'texto' => 'NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.',
@@ -59,7 +59,7 @@ final class RepositoryTest extends UsingTestingDatabaseTestCase
     {
         /*
          * This test produces the error on query by id to CFDI_NUMEROS_PEDIMENTO_ADUANA
-         * since the table does not contains id
+         * since the table does not contain id
          */
         $pdo = new PDO('sqlite::memory:', '', '', [
             PDO::ATTR_ERRMODE => $mode,
@@ -128,7 +128,7 @@ final class RepositoryTest extends UsingTestingDatabaseTestCase
     {
         $entries = $this->getRepository()->queryByIds(
             Repository::CFDI_PRODUCTOS_SERVICIOS,
-            ['10101511', '10109999', '10122101'] // only 10101511 and 10122101 must exists
+            ['10101511', '10109999', '10122101'], // only 10101511 and 10122101 must exist
         );
         $this->assertCount(2, $entries);
         $this->assertSame('10101511', $entries[0]['id']);

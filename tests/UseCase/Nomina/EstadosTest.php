@@ -28,7 +28,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('MOR', $estado->codigo());
         $this->assertSame('MEX', $estado->pais());
         $this->assertSame('Morelos', $estado->texto());
-        $this->assertSame(0, $estado->vigenteDesde());
+        $this->assertSame(strtotime('2017-01-01'), $estado->vigenteDesde());
         $this->assertSame(0, $estado->vigenteHasta());
     }
 
@@ -45,7 +45,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
             function (Estado $estado): string {
                 return $estado->codigo();
             },
-            $this->estados->obtainEstadosByPais('MEX')
+            $this->estados->obtainEstadosByPais('MEX'),
         );
         $this->assertContains('MEX', $codes);
         $this->assertContains('MIC', $codes);
@@ -58,7 +58,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
             function (Estado $estado): string {
                 return $estado->codigo();
             },
-            $this->estados->searchEstados()
+            $this->estados->searchEstados(),
         );
         $this->assertContains('MEX', $codes); // MEX México
         $this->assertContains('MI', $codes);  // US Michigan
@@ -71,7 +71,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
             function (Estado $estado): string {
                 return $estado->texto();
             },
-            $this->estados->searchEstados('M%', '%')
+            $this->estados->searchEstados('M%', '%'),
         ));
         $textsNotStartWithM = array_filter($texts, function (string $code): bool {
             return 'M' !== substr($code, 0, 1);
@@ -87,7 +87,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
             function (Estado $estado): string {
                 return $estado->pais();
             },
-            $this->estados->searchEstados('%', 'M%')
+            $this->estados->searchEstados('%', 'M%'),
         ));
         $countriesNotStartWithM = array_filter($countries, function (string $code): bool {
             return 'M' !== substr($code, 0, 1);
@@ -103,7 +103,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
             function (Estado $estado): string {
                 return $estado->codigo();
             },
-            $this->estados->searchEstados('%', '%', 'M%')
+            $this->estados->searchEstados('%', '%', 'M%'),
         );
         $codesNotStartWithM = array_filter($codes, function (string $code): bool {
             return 'M' !== substr($code, 0, 1);

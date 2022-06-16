@@ -29,7 +29,7 @@ final class ClavesUnidadesTest extends UsingTestingDatabaseTestCase
         $this->assertSame('Metro cuadrado', $claveUnidad->texto());
         $this->assertStringContainsString(
             'unidad básica de superficie en el Sistema Internacional',
-            $claveUnidad->descripcion()
+            $claveUnidad->descripcion(),
         );
         $this->assertSame('', $claveUnidad->nota());
         $this->assertSame('m²', $claveUnidad->simbolo());

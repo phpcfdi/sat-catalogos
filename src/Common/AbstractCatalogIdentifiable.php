@@ -9,7 +9,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
     use BaseCatalogTrait;
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return EntryIdentifiable
      */
     abstract public function create(array $data): EntryIdentifiable;
@@ -34,7 +34,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
     public function obtainByIds(array $ids): array
     {
         return $this->arrayToEntries(
-            $this->repository()->queryByIds($this->catalogName(), $ids)
+            $this->repository()->queryByIds($this->catalogName(), $ids),
         );
     }
 
@@ -44,7 +44,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
             $this->catalogName(),
             [$fieldName => $search],
             $limit,
-            false
+            false,
         );
 
         return $this->arrayToEntries($results);
@@ -56,7 +56,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
     }
 
     /**
-     * @param array<array<string, mixed>> $entries
+     * @param array<array<string, scalar>> $entries
      * @return EntryIdentifiable[]
      */
     private function arrayToEntries(array $entries): array

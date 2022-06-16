@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class TiposRegimenesTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'id' => '02',
         'texto' => 'Sueldos (Incluye ingresos señalados en la fracción I del artículo 94 de LISR)',
@@ -24,7 +24,7 @@ final class TiposRegimenesTest extends TestCase
 
         $this->assertSame($created->id(), $this->validRow['id']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
-        $this->assertSame($created->vigenteDesde(), strtotime($this->validRow['vigencia_desde']));
+        $this->assertSame($created->vigenteDesde(), strtotime((string) $this->validRow['vigencia_desde']));
         $this->assertSame($created->vigenteHasta(), 0);
     }
 }

@@ -32,7 +32,7 @@ final class ProductoServicioTest extends TestCase
             $similares,
             $estimuloFrontera,
             $vigenteDesde,
-            $vigenteHasta
+            $vigenteHasta,
         );
 
         $this->assertInstanceOf(EntryIdentifiable::class, $productoServicio);
