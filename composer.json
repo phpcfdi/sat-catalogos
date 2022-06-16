@@ -1,6 +1,6 @@
 {
     "name": "phpcfdi/sat-catalogos",
-    "description": "Catálogos de SAT para CFDI 3.3",
+    "description": "Catálogos de SAT para CFDI 3.3, CFDI 4.0 y Nómina 1.2",
     "keywords": ["sat", "cfdi", "catalogos"],
     "homepage": "https://github.com/phpcfdi/sat-catalogos",
     "license": "MIT",
