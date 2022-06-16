@@ -15,6 +15,18 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 No hay cambios sin liberación.
 
+### Versión 0.3.0
+
+Se integraron los catálogos de CFDI 4.0, gracias al esfuerzo de @AndreyPootMay.
+
+Se mejoró y garantizó el control de tipos de datos leídos desde los catálogos
+y utilizados para generar los objetos específicos.
+
+Se actualizaron las dependencias de desarrollo y ahora se utiliza Phive para gestionarlas.
+De igual forma, se hicieron muchos otros cambios al entorno de desarrollo para mejorar
+el flujo de trabajo de GitHub y las herramientas de desarrollo.
+
+
 ### Versión 0.2.0
 
 Se integraron los catálogos de Nómina, gracias al esfuerzo de @AndreyPootMay.
