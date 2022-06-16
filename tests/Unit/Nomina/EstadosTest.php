@@ -14,6 +14,8 @@ final class EstadosTest extends TestCase
         'estado' => 'MOR',
         'pais' => 'MEX',
         'texto' => 'Morelos',
+        'vigencia_desde' => '2017-01-01',
+        'vigencia_hasta' => '',
     ];
 
     public function testCreate(): void
@@ -24,5 +26,7 @@ final class EstadosTest extends TestCase
         $this->assertSame($created->codigo(), $this->validRow['estado']);
         $this->assertSame($created->pais(), $this->validRow['pais']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
+        $this->assertSame($created->vigenteDesde(), strtotime((string) $this->validRow['vigencia_desde']));
+        $this->assertSame($created->vigenteHasta(), 0);
     }
 }

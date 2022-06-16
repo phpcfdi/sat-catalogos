@@ -28,7 +28,7 @@ class EstadosTest extends UsingTestingDatabaseTestCase
         $this->assertSame('MOR', $estado->codigo());
         $this->assertSame('MEX', $estado->pais());
         $this->assertSame('Morelos', $estado->texto());
-        $this->assertSame(0, $estado->vigenteDesde());
+        $this->assertSame(strtotime('2017-01-01'), $estado->vigenteDesde());
         $this->assertSame(0, $estado->vigenteHasta());
     }
 

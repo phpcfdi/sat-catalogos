@@ -15,12 +15,16 @@ final class EstadoTest extends TestCase
         $codigo = 'MOR';
         $pais = 'MEX';
         $texto = 'Morelos';
+        $vigenteDesde = strtotime('2017-01-01');
+        $vigenteHasta = 0;
 
-        $estado = new Estado($codigo, $pais, $texto);
+        $estado = new Estado($codigo, $pais, $texto, $vigenteDesde, $vigenteHasta);
 
         $this->assertInstanceOf(EntryWithVigencias::class, $estado);
         $this->assertSame($codigo, $estado->codigo());
         $this->assertSame($pais, $estado->pais());
         $this->assertSame($texto, $estado->texto());
+        $this->assertSame($vigenteDesde, $estado->vigenteDesde());
+        $this->assertSame($vigenteHasta, $estado->vigenteHasta());
     }
 }

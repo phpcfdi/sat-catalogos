@@ -89,6 +89,8 @@ class Estados implements BaseCatalog
             $values->string('estado'),
             $values->string('pais'),
             $values->string('texto'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

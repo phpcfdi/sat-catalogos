@@ -20,22 +20,17 @@ class Estado implements EntryWithVigencias
     /** @var string */
     private $texto;
 
-    /**
-     * Estado constructor.
-     *
-     * @param string $codigo
-     * @param string $pais
-     * @param string $texto
-     */
     public function __construct(
         string $codigo,
         string $pais,
-        string $texto
+        string $texto,
+        int $vigenteDesde = 0,
+        int $vigenteHasta = 0
     ) {
         $this->codigo = $codigo;
         $this->pais = $pais;
         $this->texto = $texto;
-        $this->setUpVigencias(0, 0);
+        $this->setUpVigencias($vigenteDesde, $vigenteHasta);
     }
 
     public function codigo(): string
