@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -20,26 +21,27 @@ class FormasDePago extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return FormaDePago
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new FormaDePago(
-            $data['id'],
-            $data['texto'],
-            (bool) $data['es_bancarizado'],
-            (bool) $data['requiere_numero_operacion'],
-            (bool) $data['permite_banco_ordenante_rfc'],
-            (bool) $data['permite_cuenta_ordenante'],
-            (string) $data['patron_cuenta_ordenante'],
-            (bool) $data['permite_banco_beneficiario_rfc'],
-            (bool) $data['permite_cuenta_beneficiario'],
-            (string) $data['patron_cuenta_beneficiario'],
-            (bool) $data['permite_tipo_cadena_pago'],
-            (bool) $data['requiere_banco_ordenante_nombre_ext'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+            $values->string('id'),
+            $values->string('texto'),
+            $values->bool('es_bancarizado'),
+            $values->bool('requiere_numero_operacion'),
+            $values->bool('permite_banco_ordenante_rfc'),
+            $values->bool('permite_cuenta_ordenante'),
+            $values->string('patron_cuenta_ordenante'),
+            $values->bool('permite_banco_beneficiario_rfc'),
+            $values->bool('permite_cuenta_beneficiario'),
+            $values->string('patron_cuenta_beneficiario'),
+            $values->bool('permite_tipo_cadena_pago'),
+            $values->bool('requiere_banco_ordenante_nombre_ext'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

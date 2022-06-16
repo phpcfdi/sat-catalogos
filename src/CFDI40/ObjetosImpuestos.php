@@ -6,11 +6,12 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
  * Class ObjetosImpuestos
- * @method Mes obtain(string $id)
+ * @method ObjetoImpuesto obtain(string $id)
  */
 class ObjetosImpuestos extends AbstractCatalogIdentifiable
 {
@@ -20,16 +21,17 @@ class ObjetosImpuestos extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
-     * @return Mes
+     * @param array<string, scalar> $data
+     * @return ObjetoImpuesto
      */
     public function create(array $data): EntryIdentifiable
     {
-        return new Mes(
-            $data['id'],
-            $data['texto'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+        $values = new ScalarValues($data);
+        return new ObjetoImpuesto(
+            $values->string('id'),
+            $values->string('texto'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

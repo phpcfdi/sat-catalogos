@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -19,34 +20,35 @@ class CodigosPostales extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return CodigoPostal
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new CodigoPostal(
-            $data['id'],
-            $data['estado'],
-            $data['municipio'],
-            $data['localidad'],
-            boolval($data['estimulo_frontera']),
+            $values->string('id'),
+            $values->string('estado'),
+            $values->string('municipio'),
+            $values->string('localidad'),
+            $values->bool('estimulo_frontera'),
             new HusoHorario(
-                $data['huso_descripcion'],
+                $values->string('huso_descripcion'),
                 new HusoHorarioEstacion(
-                    $data['huso_verano_mes_inicio'],
-                    $data['huso_verano_dia_inicio'],
-                    $data['huso_verano_hora_inicio'],
-                    intval($data['huso_verano_diferencia']),
+                    $values->string('huso_verano_mes_inicio'),
+                    $values->string('huso_verano_dia_inicio'),
+                    $values->string('huso_verano_hora_inicio'),
+                    $values->int('huso_verano_diferencia'),
                 ),
                 new HusoHorarioEstacion(
-                    $data['huso_invierno_mes_inicio'],
-                    $data['huso_invierno_dia_inicio'],
-                    $data['huso_invierno_hora_inicio'],
-                    intval($data['huso_invierno_diferencia']),
+                    $values->string('huso_invierno_mes_inicio'),
+                    $values->string('huso_invierno_dia_inicio'),
+                    $values->string('huso_invierno_hora_inicio'),
+                    $values->int('huso_invierno_diferencia'),
                 ),
             ),
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 

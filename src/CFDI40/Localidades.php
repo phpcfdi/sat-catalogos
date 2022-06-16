@@ -7,6 +7,7 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 use PhpCfdi\SatCatalogos\Common\BaseCatalog;
 use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -68,12 +69,13 @@ class Localidades implements BaseCatalog
      */
     public function create(array $data): Localidad
     {
+        $values = new ScalarValues($data);
         return new Localidad(
-            (string) $data['localidad'],
-            (string) $data['estado'],
-            (string) $data['texto'],
-            intval(($data['vigencia_desde']) ? strtotime((string) $data['vigencia_desde']) : 0),
-            intval(($data['vigencia_hasta']) ? strtotime((string) $data['vigencia_hasta']) : 0),
+            $values->string('localidad'),
+            $values->string('estado'),
+            $values->string('texto'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

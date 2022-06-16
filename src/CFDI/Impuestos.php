@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -20,18 +21,19 @@ class Impuestos extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return Impuesto
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new Impuesto(
-            $data['id'],
-            $data['texto'],
-            (bool) $data['retencion'],
-            (bool) $data['traslado'],
-            $data['ambito'],
-            $data['entidad'],
+            $values->string('id'),
+            $values->string('texto'),
+            $values->bool('retencion'),
+            $values->bool('traslado'),
+            $values->string('ambito'),
+            $values->string('entidad'),
         );
     }
 }

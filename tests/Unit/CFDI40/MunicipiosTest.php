@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class MunicipiosTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'municipio' => '004',
         'estado' => 'TAB',
@@ -26,7 +26,7 @@ final class MunicipiosTest extends TestCase
         $this->assertSame($created->codigo(), $this->validRow['municipio']);
         $this->assertSame($created->estado(), $this->validRow['estado']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
-        $this->assertSame($created->vigenteDesde(), strtotime($this->validRow['vigencia_desde']));
+        $this->assertSame($created->vigenteDesde(), strtotime((string) $this->validRow['vigencia_desde']));
         $this->assertSame($created->vigenteHasta(), 0);
     }
 }

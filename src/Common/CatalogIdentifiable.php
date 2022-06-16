@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogos\Common;
 interface CatalogIdentifiable extends BaseCatalog
 {
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return EntryIdentifiable
      */
     public function create(array $data): EntryIdentifiable;

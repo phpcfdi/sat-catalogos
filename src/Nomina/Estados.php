@@ -7,6 +7,7 @@ namespace PhpCfdi\SatCatalogos\Nomina;
 use PhpCfdi\SatCatalogos\Common\BaseCatalog;
 use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 class Estados implements BaseCatalog
@@ -78,15 +79,16 @@ class Estados implements BaseCatalog
     /**
      * Create a Estado based on the array values
      *
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return Estado
      */
     public function createEstado(array $data): Estado
     {
+        $values = new ScalarValues($data);
         return new Estado(
-            $data['estado'],
-            $data['pais'],
-            $data['texto'],
+            $values->string('estado'),
+            $values->string('pais'),
+            $values->string('texto'),
         );
     }
 }

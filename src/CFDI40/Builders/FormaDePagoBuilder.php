@@ -10,7 +10,7 @@ class FormaDePagoBuilder
 {
     /**
      * @param string $id
-     * @param array<string, mixed> $values
+     * @param array<string, scalar> $values
      * @return FormaDePago
      */
     public function make(string $id, array $values): FormaDePago
@@ -34,8 +34,8 @@ class FormaDePagoBuilder
             'vigenteHasta' => 0,
         ];
 
-        $values = array_intersect_key(array_merge($defaults, $values), $defaults);
+        $values = array_values(array_intersect_key(array_merge($defaults, $values), $defaults));
 
-        return new FormaDePago(...array_values($values));
+        return new FormaDePago(...$values); /** @phpstan-ignore-line */
     }
 }

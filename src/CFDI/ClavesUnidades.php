@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -20,19 +21,20 @@ class ClavesUnidades extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return ClaveUnidad
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new ClaveUnidad(
-            $data['id'],
-            $data['texto'],
-            $data['descripcion'],
-            $data['notas'],
-            $data['simbolo'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+            $values->string('id'),
+            $values->string('texto'),
+            $values->string('descripcion'),
+            $values->string('notas'),
+            $values->string('simbolo'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

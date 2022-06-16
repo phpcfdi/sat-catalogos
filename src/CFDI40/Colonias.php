@@ -7,6 +7,7 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 use PhpCfdi\SatCatalogos\Common\BaseCatalog;
 use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosNotFoundException;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -68,10 +69,11 @@ class Colonias implements BaseCatalog
      */
     public function create(array $data): Colonia
     {
+        $values = new ScalarValues($data);
         return new Colonia(
-            (string) $data['colonia'],
-            (string) $data['codigo_postal'],
-            (string) $data['texto'],
+            $values->string('colonia'),
+            $values->string('codigo_postal'),
+            $values->string('texto'),
         );
     }
 }

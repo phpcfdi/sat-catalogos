@@ -9,7 +9,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
     use BaseCatalogTrait;
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return EntryIdentifiable
      */
     abstract public function create(array $data): EntryIdentifiable;
@@ -56,7 +56,7 @@ abstract class AbstractCatalogIdentifiable implements CatalogIdentifiable
     }
 
     /**
-     * @param array<array<string, mixed>> $entries
+     * @param array<array<string, scalar>> $entries
      * @return EntryIdentifiable[]
      */
     private function arrayToEntries(array $entries): array

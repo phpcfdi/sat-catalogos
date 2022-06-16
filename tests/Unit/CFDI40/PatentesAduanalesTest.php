@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PatentesAduanalesTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'id' => '0000',
         'texto' => '0000',
@@ -39,7 +39,7 @@ final class PatentesAduanalesTest extends TestCase
 
         $this->assertSame($created->id(), $this->validRow['id']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
-        $this->assertSame($created->vigenteDesde(), strtotime($this->validRow['vigencia_desde']));
+        $this->assertSame($created->vigenteDesde(), strtotime((string) $this->validRow['vigencia_desde']));
         $this->assertSame($created->vigenteHasta(), 0);
     }
 }

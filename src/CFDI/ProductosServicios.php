@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -24,21 +25,22 @@ class ProductosServicios extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return ProductoServicio
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new ProductoServicio(
-            $data['id'],
-            $data['texto'],
-            (bool) $data['iva_trasladado'],
-            (bool) $data['ieps_trasladado'],
-            $data['complemento'],
-            $data['similares'],
-            (bool) $data['estimulo_frontera'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+            $values->string('id'),
+            $values->string('texto'),
+            $values->bool('iva_trasladado'),
+            $values->bool('ieps_trasladado'),
+            $values->string('complemento'),
+            $values->string('similares'),
+            $values->bool('estimulo_frontera'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

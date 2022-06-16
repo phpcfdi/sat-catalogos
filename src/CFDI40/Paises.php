@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 
 use PhpCfdi\SatCatalogos\Common\AbstractCatalogIdentifiable;
 use PhpCfdi\SatCatalogos\Common\EntryIdentifiable;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 /**
@@ -20,18 +21,19 @@ class Paises extends AbstractCatalogIdentifiable
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return Pais
      */
     public function create(array $data): EntryIdentifiable
     {
+        $values = new ScalarValues($data);
         return new Pais(
-            $data['id'],
-            $data['texto'],
-            $data['patron_codigo_postal'],
-            $data['patron_identidad_tributaria'],
-            $data['validacion_identidad_tributaria'],
-            $data['agrupaciones'],
+            $values->string('id'),
+            $values->string('texto'),
+            $values->string('patron_codigo_postal'),
+            $values->string('patron_identidad_tributaria'),
+            $values->string('validacion_identidad_tributaria'),
+            $values->string('agrupaciones'),
         );
     }
 }

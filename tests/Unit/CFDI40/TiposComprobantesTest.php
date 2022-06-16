@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class TiposComprobantesTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'id' => 'I',
         'texto' => 'Ingreso',
@@ -26,7 +26,7 @@ final class TiposComprobantesTest extends TestCase
         $this->assertSame($created->id(), $this->validRow['id']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
         $this->assertSame($created->valorMaximo(), $this->validRow['valor_maximo']);
-        $this->assertSame($created->vigenteDesde(), strtotime($this->validRow['vigencia_desde']));
+        $this->assertSame($created->vigenteDesde(), strtotime((string) $this->validRow['vigencia_desde']));
         $this->assertSame($created->vigenteHasta(), 0);
     }
 }

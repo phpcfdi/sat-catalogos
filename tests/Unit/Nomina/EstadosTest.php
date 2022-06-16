@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EstadosTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'estado' => 'MOR',
         'pais' => 'MEX',

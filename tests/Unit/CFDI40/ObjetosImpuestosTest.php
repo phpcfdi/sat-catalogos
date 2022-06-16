@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogos\Tests\Unit\CFDI40;
 
+use PhpCfdi\SatCatalogos\CFDI40\ObjetoImpuesto;
 use PhpCfdi\SatCatalogos\CFDI40\ObjetosImpuestos;
 use PhpCfdi\SatCatalogos\Repository;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -11,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ObjetosImpuestosTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'id' => '02',
         'texto' => 'Sí objeto de impuesto.',
@@ -28,8 +29,9 @@ final class ObjetosImpuestosTest extends TestCase
         $objetosImpuestos = new ObjetosImpuestos();
         $objetosImpuestos->withRepository($repository);
 
-        $objetoImpuestos = $objetosImpuestos->obtain('02');
-        $this->assertStringContainsString('Sí objeto de impuesto.', $objetoImpuestos->texto());
+        $objetoImpuesto = $objetosImpuestos->obtain('02');
+        $this->assertInstanceOf(ObjetoImpuesto::class, $objetoImpuesto);
+        $this->assertStringContainsString('Sí objeto de impuesto.', $objetoImpuesto->texto());
     }
 
     public function testCreate(): void
@@ -37,9 +39,10 @@ final class ObjetosImpuestosTest extends TestCase
         $objetosImpuestos = new ObjetosImpuestos();
         $created = $objetosImpuestos->create($this->validRow);
 
+        $this->assertInstanceOf(ObjetoImpuesto::class, $created);
         $this->assertSame($created->id(), $this->validRow['id']);
         $this->assertSame($created->texto(), $this->validRow['texto']);
-        $this->assertSame($created->vigenteDesde(), strtotime($this->validRow['vigencia_desde']));
+        $this->assertSame($created->vigenteDesde(), strtotime((string) $this->validRow['vigencia_desde']));
         $this->assertSame($created->vigenteHasta(), 0);
     }
 }

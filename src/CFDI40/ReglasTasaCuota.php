@@ -7,6 +7,7 @@ namespace PhpCfdi\SatCatalogos\CFDI40;
 use PhpCfdi\SatCatalogos\Common\BaseCatalog;
 use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
 use PhpCfdi\SatCatalogos\Exceptions\SatCatalogosLogicException;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 class ReglasTasaCuota implements BaseCatalog
@@ -74,21 +75,22 @@ class ReglasTasaCuota implements BaseCatalog
     /**
      * Create a ReglaTasaCuota based on the array values
      *
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return ReglaTasaCuota
      */
     public function createRule(array $data): ReglaTasaCuota
     {
+        $values = new ScalarValues($data);
         return new ReglaTasaCuota(
-            $data['tipo'],
-            $data['impuesto'],
-            $data['factor'],
-            (bool) $data['traslado'],
-            (bool) $data['retencion'],
-            $data['minimo'],
-            $data['valor'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+            $values->string('tipo'),
+            $values->string('impuesto'),
+            $values->string('factor'),
+            $values->bool('traslado'),
+            $values->bool('retencion'),
+            $values->string('minimo'),
+            $values->string('valor'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }

@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ColoniasTest extends TestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, scalar> */
     protected $validRow = [
         'colonia' => '2793',
         'codigo_postal' => '04510',

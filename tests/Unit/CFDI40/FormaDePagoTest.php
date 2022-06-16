@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 final class FormaDePagoTest extends TestCase
 {
     /**
-     * @param array<string, mixed> $values
+     * @param array<string, scalar> $values
      * @param string $id
      * @return FormaDePago
      */

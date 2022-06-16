@@ -6,6 +6,7 @@ namespace PhpCfdi\SatCatalogos\CFDI;
 
 use PhpCfdi\SatCatalogos\Common\BaseCatalog;
 use PhpCfdi\SatCatalogos\Common\BaseCatalogTrait;
+use PhpCfdi\SatCatalogos\Helpers\ScalarValues;
 use PhpCfdi\SatCatalogos\Repository;
 
 class NumerosPedimentoAduana implements BaseCatalog
@@ -23,18 +24,19 @@ class NumerosPedimentoAduana implements BaseCatalog
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, scalar> $data
      * @return NumeroPedimentoAduana
      */
     public function create(array $data): NumeroPedimentoAduana
     {
+        $values = new ScalarValues($data);
         return new NumeroPedimentoAduana(
-            (string) $data['aduana'],
-            (string) $data['patente'],
-            (int) $data['ejercicio'],
-            (int) $data['cantidad'],
-            ($data['vigencia_desde']) ? strtotime($data['vigencia_desde']) : 0,
-            ($data['vigencia_hasta']) ? strtotime($data['vigencia_hasta']) : 0,
+            $values->string('aduana'),
+            $values->string('patente'),
+            $values->int('ejercicio'),
+            $values->int('cantidad'),
+            $values->timestamp('vigencia_desde'),
+            $values->timestamp('vigencia_hasta'),
         );
     }
 }
