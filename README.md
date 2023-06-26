@@ -59,7 +59,7 @@ Usted no debería modificar la base de datos, esto equivale a modificar el códi
 
 Esta librería no contiene métodos para manipular la base de datos.
 La base de datos es simplemente un repositorio de datos de lectura.
-Bien podría tratarse de datos en formato JSON, sin embargo al desarrollar la librería
+Bien podría tratarse de datos en formato JSON, sin embargo, al desarrollar la librería
 no encontramos una forma ágil y de pocos recursos para leer en un formato diferente.
 
 ## Versionado de la librería
