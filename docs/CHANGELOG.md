@@ -11,9 +11,9 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 ## Listado de cambios
 
-### UNRELEASED
+### Mantenimimento 2023-06-26
 
-No hay cambios sin liberación.
+- Actualizar archivo de licencia.
 
 ### Versión 0.3.0
 
