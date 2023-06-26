@@ -15,7 +15,8 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 - Actualizar archivo de licencia.
 - Se corrige la liga al proyecto del archivo `CONTRIBUTING.md`.
-- Se corrige el archivo de configuración de la herramienta `php-cs-fixer`.
+- Se corrigen las reglas deprecadas de `php-cs-fixer`.
+- Se actualizan los archivos de configuración de las herramientas de corrección de estilo.
 - Se corrige la insignia de construcción.
 - Se modifica el flujo de trabajo de construcción en GitHub:
   - Se agrega PHP 8.2 a la matriz de pruebas.
