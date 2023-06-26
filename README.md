@@ -8,9 +8,12 @@
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
-> Catálogos de SAT para CFDI 3.3
+> Catálogos de SAT para CFDI 3.3, CFDI 4.0 y Nómina 1.2.
 
-Esta librería permite usar los catálogos del SAT para CFDI version 3.3.
+Esta librería permite usar los catálogos del SAT para:
+  - CFDI 3.3.
+  - CFDI 4.0.
+  - Nómina 1.2.
 
 Vea la [Información general de catálogos](docs/Catalogos.md) para mayor información.
 
