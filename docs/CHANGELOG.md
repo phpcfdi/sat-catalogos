@@ -14,6 +14,7 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 ### Mantenimimento 2023-06-26
 
 - Actualizar archivo de licencia.
+- Se corrige la liga al proyecto del archivo `CONTRIBUTING.md`.
 - Se corrige el archivo de configuración de la herramienta `php-cs-fixer`.
 - Se corrige la insignia de construcción.
 - Se actualizan las herramientas de desarrollo.
