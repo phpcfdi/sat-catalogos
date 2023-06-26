@@ -17,6 +17,8 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 - Se corrige la liga al proyecto del archivo `CONTRIBUTING.md`.
 - Se corrige el archivo de configuración de la herramienta `php-cs-fixer`.
 - Se corrige la insignia de construcción.
+- Se modifica el flujo de trabajo de construcción en GitHub:
+  - Se agrega PHP 8.2 a la matriz de pruebas.
 - Se actualizan las herramientas de desarrollo.
 
 ### Versión 0.3.0
