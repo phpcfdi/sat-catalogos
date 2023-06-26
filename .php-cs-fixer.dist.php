@@ -46,7 +46,7 @@ return (new PhpCsFixer\Config())
         'self_accessor' => true,
         // contrib
         'not_operator_with_successor_space' => true,
-        'single_blank_line_before_namespace' => true,
+        'blank_lines_before_namespace' => true,
         'blank_line_after_opening_tag' => true,
         'ordered_imports' => true,
         'array_syntax' => ['syntax' => 'short'],
