@@ -21,6 +21,7 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
   - Se agrega PHP 8.2 a la matriz de pruebas.
   - Las herramientas de desarrollo se ejecutan en PHP 8.2.
   - Se permite ejecutar el flujo a petición.
+  - Se sustituye la directiva `::set-output` con `$GITHUB_OUTPUT`.
 - Se actualizan las herramientas de desarrollo.
 
 ### Versión 0.3.0
