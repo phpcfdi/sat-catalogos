@@ -11,9 +11,19 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 ## Listado de cambios
 
-### UNRELEASED
+### Mantenimimento 2023-06-26
 
-No hay cambios sin liberación.
+- Actualizar archivo de licencia.
+- Se corrige la liga al proyecto del archivo `CONTRIBUTING.md`.
+- Se corrigen las reglas deprecadas de `php-cs-fixer`.
+- Se actualizan los archivos de configuración de las herramientas de corrección de estilo.
+- Se corrige la insignia de construcción.
+- Se modifica el flujo de trabajo de construcción en GitHub:
+  - Se agrega PHP 8.2 a la matriz de pruebas.
+  - Las herramientas de desarrollo se ejecutan en PHP 8.2.
+  - Se permite ejecutar el flujo a petición.
+  - Se sustituye la directiva `::set-output` con `$GITHUB_OUTPUT`.
+- Se actualizan las herramientas de desarrollo.
 
 ### Versión 0.3.0
 
