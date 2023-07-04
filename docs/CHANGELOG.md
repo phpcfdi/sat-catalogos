@@ -11,11 +11,11 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 ## Listado de cambios
 
-### Version 0.3.1 2023-06-04
+### Versión 0.3.1 2023-06-04
 
-- Se corrige la propiedad `estimuloFrontera` de `CFDI\CodigoPostal` y `CFDI40\CodigoPostal`, 
+- Se corrige la propiedad `CFDI\CodigoPostal::estimuloFrontera()` y `CFDI40\CodigoPostal::estimuloFrontera()`, 
   anteriormente era un boleano y ahora es un entero.
-- Se agrega el método `hasEstímuloFrontera(): bool` de `CFDI\CodigoPostal` y `CFDI40\CodigoPostal` 
+- Se agrega el método `CFDI\CodigoPostal::hasEstímuloFrontera()` y `CFDI40\CodigoPostal::hasEstímuloFrontera()`,  
   que retorna si el código postal tiene estímulo fronterizo.
 
 Los siguientes cambios son de mantenimiento:
@@ -24,7 +24,7 @@ Los siguientes cambios son de mantenimiento:
 - Se actualiza la herramienta para crear el archivo de creación de base de datos para pruebas.
 - Se actualizan las herramientas de desarrollo
 
-### Mantenimimento 2023-06-26
+Los siguientes cambios de mantenimiento se aplicaron en 2023-06-26:
 
 - Actualizar archivo de licencia.
 - Se corrige la liga al proyecto del archivo `CONTRIBUTING.md`.
