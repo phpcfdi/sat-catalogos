@@ -114,17 +114,17 @@ CREATE TABLE IF NOT EXISTS "ccp_20_configuraciones_maritimas"(
   "vigencia_hasta" text not null,
   PRIMARY KEY("id")
 );
-CREATE TABLE IF NOT EXISTS "ccp_20_contenedores_maritimos"(
-  "id" text not null,
-  "texto" text not null,
-  "vigencia_desde" text not null,
-  "vigencia_hasta" text not null,
-  PRIMARY KEY("id")
-);
 CREATE TABLE IF NOT EXISTS "ccp_20_contenedores"(
   "id" text not null,
   "texto" text not null,
   "descripcion" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ccp_20_contenedores_maritimos"(
+  "id" text not null,
+  "texto" text not null,
   "vigencia_desde" text not null,
   "vigencia_hasta" text not null,
   PRIMARY KEY("id")
@@ -740,10 +740,83 @@ CREATE TABLE IF NOT EXISTS "pagos_tipos_cadena_pago"(
   "texto" text not null,
   PRIMARY KEY("id")
 );
+CREATE TABLE IF NOT EXISTS "ret_20_claves_retencion"(
+  "id" text not null,
+  "texto" text not null,
+  "nombre_complemento" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_ejercicios"(
+  "id" int not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_entidades_federativas"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_paises"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_periodicidades"(
+  "id" text not null,
+  "texto" text not null,
+  "nombre_complemento" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_periodos"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_contribuyentes"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_dividendos_utilidades"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_impuestos"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_pago_retencion"(
+  "id" text not null,
+  "texto" text not null,
+  "tipo_impuesto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
 BEGIN;
 INSERT INTO cfdi_aduanas VALUES('24','NUEVO LAREDO, NUEVO LAREDO, TAMAULIPAS.','2017-01-01','');
 INSERT INTO cfdi_claves_unidades VALUES('MTK','Metro cuadrado','Es la unidad básica de superficie en el Sistema Internacional de Unidades. Si a esta unidad se antepone un prefijo del Sistema Internacional se crea un múltiplo o submúltiplo de esta.','','2017-01-01','','m²');
-INSERT INTO cfdi_codigos_postales VALUES('52000','MEX','051','','','2019-01-07','','Tiempo del Centro','Abril','Primer domingo','02:00','-5','Octubre','Último domingo','02:00','-6');
+INSERT INTO cfdi_codigos_postales VALUES('52000','MEX','051','',0,'2019-01-07','','Tiempo del Centro','','','','-6','','','','-6');
 INSERT INTO cfdi_formas_pago VALUES('03','Transferencia electrónica de fondos',1,'',1,1,'[0-9]{10}|[0-9]{16}|[0-9]{18}',1,1,'[0-9]{10}|[0-9]{18}',1,1,'2017-01-01','');
 INSERT INTO cfdi_impuestos VALUES('002','IVA',1,1,'Federal','');
 INSERT INTO cfdi_metodos_pago VALUES('PUE','Pago en una sola exhibición','2017-01-01','');
@@ -784,7 +857,7 @@ INSERT INTO cfdi_40_colonias VALUES('0002','86000','Villahermosa Centro');
 INSERT INTO cfdi_40_colonias VALUES('0009','86008','Secretaria de La Reforma Agraria');
 INSERT INTO cfdi_40_colonias VALUES('1477','86000','Centro Delegacional 6');
 INSERT INTO cfdi_40_claves_unidades VALUES('MTK','Metro cuadrado','Es la unidad básica de superficie en el Sistema Internacional de Unidades. Si a esta unidad se antepone un prefijo del Sistema Internacional se crea un múltiplo o submúltiplo de esta.','','2022-01-01','','m²');
-INSERT INTO cfdi_40_codigos_postales VALUES('52000','MEX','051','','','2022-01-01','','Tiempo del Centro','Abril','Primer domingo','02:00','-5','Octubre','Último domingo','02:00','-6');
+INSERT INTO cfdi_40_codigos_postales VALUES('52000','MEX','051','',0,'2019-01-07','','Tiempo del Centro','','','','-6','','','','-6');
 INSERT INTO cfdi_40_estados VALUES('MEX','MEX','Estado de México','2022-01-01','');
 INSERT INTO cfdi_40_estados VALUES('MIC','MEX','Michoacán','2022-01-01','');
 INSERT INTO cfdi_40_estados VALUES('MOR','MEX','Morelos','2022-01-01','');
@@ -828,6 +901,7 @@ INSERT INTO cfdi_40_numeros_pedimento_aduana VALUES('43','3420',2018,999999,'201
 INSERT INTO cfdi_40_objetos_impuestos VALUES('01','No objeto de impuesto.','2022-01-01','');
 INSERT INTO cfdi_40_objetos_impuestos VALUES('02','Sí objeto de impuesto.','2022-01-01','');
 INSERT INTO cfdi_40_objetos_impuestos VALUES('03','Sí objeto del impuesto y no obligado al desglose.','2022-01-01','');
+INSERT INTO cfdi_40_objetos_impuestos VALUES('04','Sí objeto del impuesto y no causa impuesto.','2022-10-07','');
 INSERT INTO cfdi_40_paises VALUES('CHL','Chile','','','','');
 INSERT INTO cfdi_40_paises VALUES('MEX','México','[0-9]{5}','[A-Z&Ñ]{3,4}[0-9]{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])[A-Z0-9]{2}[0\n-9A]','Lista del SAT','TLCAN');
 INSERT INTO cfdi_40_paises VALUES('USA','Estados Unidos (los)','[0-9]{5}(-[0-9]{4})?','[0-9]{9}','','TLCAN');

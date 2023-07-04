@@ -24,9 +24,13 @@ function grep_insert_table_values()
 DB="$1"
 DUMPFILE="$(mktemp)"
 
-sqlite3 $DB ".schema --indent"
-sqlite3 $DB ".dump" > "$DUMPFILE"
+TABLES=( $(sqlite3 $DB "SELECT name FROM sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%' ORDER BY name;") )
+for TABLE in "${TABLES[@]}"; do
+    sqlite3 $DB ".schema --indent $TABLE"
+done
 
+
+sqlite3 $DB ".dump" > "$DUMPFILE"
 echo "BEGIN;"
 grep_insert_table_values cfdi_aduanas "'24'"
 grep_insert_table_values cfdi_claves_unidades "'MTK'"

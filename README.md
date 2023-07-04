@@ -8,9 +8,12 @@
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
-> Catálogos de SAT para CFDI 3.3
+> Catálogos de SAT para CFDI 3.3, CFDI 4.0 y Nómina 1.2.
 
-Esta librería permite usar los catálogos del SAT para CFDI version 3.3.
+Esta librería permite usar los catálogos del SAT para:
+  - CFDI 3.3.
+  - CFDI 4.0.
+  - Nómina 1.2.
 
 Vea la [Información general de catálogos](docs/Catalogos.md) para mayor información.
 
@@ -59,7 +62,7 @@ Usted no debería modificar la base de datos, esto equivale a modificar el códi
 
 Esta librería no contiene métodos para manipular la base de datos.
 La base de datos es simplemente un repositorio de datos de lectura.
-Bien podría tratarse de datos en formato JSON, sin embargo al desarrollar la librería
+Bien podría tratarse de datos en formato JSON, sin embargo, al desarrollar la librería
 no encontramos una forma ágil y de pocos recursos para leer en un formato diferente.
 
 ## Versionado de la librería

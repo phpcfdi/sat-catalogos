@@ -19,7 +19,7 @@ class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiabl
     /** @var string */
     private $localidad;
 
-    /** @var bool */
+    /** @var int */
     private $estimuloFrontera;
 
     /** @var HusoHorario */
@@ -30,7 +30,7 @@ class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiabl
         string $estado,
         string $municipio,
         string $localidad,
-        bool $estimuloFrontera,
+        int $estimuloFrontera,
         HusoHorario $husoHorario,
         int $vigenteDesde,
         int $vigenteHasta
@@ -61,9 +61,14 @@ class CodigoPostal extends AbstractEntryIdentifiable implements EntryIdentifiabl
         return $this->localidad;
     }
 
-    public function estimuloFrontera(): bool
+    public function estimuloFrontera(): int
     {
         return $this->estimuloFrontera;
+    }
+
+    public function hasEstimuloFrontera(): bool
+    {
+        return 0 !== $this->estimuloFrontera;
     }
 
     public function husoHorario(): HusoHorario

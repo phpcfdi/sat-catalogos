@@ -6,12 +6,25 @@ Usamos [Versionado Semántico 2.0.0](SEMVER.md) por lo que puedes usar esta libr
 
 ## Cambios no liberados en una versión
 
-Pueden aparecer cambios no liberados que se integran a la rama principal pero no ameritan una nueva liberación de
+Pueden aparecer cambios no liberados que se integran a la rama principal, pero no ameritan una nueva liberación de
 versión aunque sí su incorporación en la rama principal de trabajo, generalmente se tratan de cambios en el desarrollo.
 
 ## Listado de cambios
 
-### Mantenimimento 2023-06-26
+### Versión 0.3.1 2023-06-04
+
+- Se corrige la propiedad `CFDI\CodigoPostal::estimuloFrontera()` y `CFDI40\CodigoPostal::estimuloFrontera()`, 
+  anteriormente era un boleano y ahora es un entero.
+- Se agrega el método `CFDI\CodigoPostal::hasEstímuloFrontera()` y `CFDI40\CodigoPostal::hasEstímuloFrontera()`,  
+  que retorna si el código postal tiene estímulo fronterizo.
+
+Los siguientes cambios son de mantenimiento:
+
+- Se actualiza el archivo de creación de base de datos para pruebas.
+- Se actualiza la herramienta para crear el archivo de creación de base de datos para pruebas.
+- Se actualizan las herramientas de desarrollo
+
+Los siguientes cambios de mantenimiento se aplicaron en 2023-06-26:
 
 - Actualizar archivo de licencia.
 - Se corrige la liga al proyecto del archivo `CONTRIBUTING.md`.
