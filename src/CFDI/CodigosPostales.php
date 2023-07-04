@@ -31,7 +31,7 @@ class CodigosPostales extends AbstractCatalogIdentifiable
             $values->string('estado'),
             $values->string('municipio'),
             $values->string('localidad'),
-            $values->bool('estimulo_frontera'),
+            $values->int('estimulo_frontera'),
             new HusoHorario(
                 $values->string('huso_descripcion'),
                 new HusoHorarioEstacion(

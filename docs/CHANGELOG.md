@@ -11,6 +11,13 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 
 ## Listado de cambios
 
+### Version 0.3.1 2023-06-04
+
+- Se corrige la propiedad `estimuloFrontera` de `CFDI\CodigoPostal` y `CFDI40\CodigoPostal`, 
+  anteriormente era un boleano y ahora es un entero.
+- Se agrega el método `hasEstímuloFrontera(): bool` de `CFDI\CodigoPostal` y `CFDI40\CodigoPostal` 
+  que retorna si el código postal tiene estímulo fronterizo.
+
 ### Mantenimimento 2023-06-26
 
 - Actualizar archivo de licencia.

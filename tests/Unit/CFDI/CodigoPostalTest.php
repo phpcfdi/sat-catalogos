@@ -29,7 +29,7 @@ final class CodigoPostalTest extends TestCase
         $estado = 'MEX';
         $municipio = '051';
         $localidad = '';
-        $estimuloFrontera = false;
+        $estimuloFrontera = 0;
         $husoHorario = $this->createHusoHorario();
         $vigenteDesde = 0;
         $vigenteHasta = strtotime('2019-01-13');
@@ -61,18 +61,19 @@ final class CodigoPostalTest extends TestCase
     {
         $this->expectException(SatCatalogosLogicException::class);
         $this->expectExceptionMessage('El campo estado no puede ser una cadena de caracteres vacía');
-        new CodigoPostal('52000', '', '', '', false, $this->createHusoHorario(), 0, 0);
+        new CodigoPostal('52000', '', '', '', 0, $this->createHusoHorario(), 0, 0);
     }
 
     /**
-     * @param bool $estimuloFrontera
-     * @testWith [true]
-     *           [false]
+     * @testWith [0, false]
+     *           [1, true]
+     *           [2, true]
      */
-    public function testPropertyEstimuloFrontera(bool $estimuloFrontera): void
+    public function testPropertyEstimuloFrontera(int $estimuloFrontera, bool $hasEstimuloFrontera): void
     {
         $husoHorario = $this->createHusoHorario();
         $codigoPostal = new CodigoPostal('52000', 'MEX', '051', '', $estimuloFrontera, $husoHorario, 0, 0);
         $this->assertSame($estimuloFrontera, $codigoPostal->estimuloFrontera());
+        $this->assertSame($hasEstimuloFrontera, $codigoPostal->hasEstimuloFrontera());
     }
 }
