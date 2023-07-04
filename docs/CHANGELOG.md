@@ -22,6 +22,7 @@ Los siguientes cambios son de mantenimiento:
 
 - Se actualiza el archivo de creación de base de datos para pruebas.
 - Se actualiza la herramienta para crear el archivo de creación de base de datos para pruebas.
+- Se actualizan las herramientas de desarrollo
 
 ### Mantenimimento 2023-06-26
 
