@@ -114,17 +114,17 @@ CREATE TABLE IF NOT EXISTS "ccp_20_configuraciones_maritimas"(
   "vigencia_hasta" text not null,
   PRIMARY KEY("id")
 );
-CREATE TABLE IF NOT EXISTS "ccp_20_contenedores_maritimos"(
-  "id" text not null,
-  "texto" text not null,
-  "vigencia_desde" text not null,
-  "vigencia_hasta" text not null,
-  PRIMARY KEY("id")
-);
 CREATE TABLE IF NOT EXISTS "ccp_20_contenedores"(
   "id" text not null,
   "texto" text not null,
   "descripcion" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ccp_20_contenedores_maritimos"(
+  "id" text not null,
+  "texto" text not null,
   "vigencia_desde" text not null,
   "vigencia_hasta" text not null,
   PRIMARY KEY("id")
@@ -738,6 +738,79 @@ CREATE TABLE IF NOT EXISTS "nomina_tipos_regimenes"(
 CREATE TABLE IF NOT EXISTS "pagos_tipos_cadena_pago"(
   "id" text not null,
   "texto" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_claves_retencion"(
+  "id" text not null,
+  "texto" text not null,
+  "nombre_complemento" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_ejercicios"(
+  "id" int not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_entidades_federativas"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_paises"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_periodicidades"(
+  "id" text not null,
+  "texto" text not null,
+  "nombre_complemento" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_periodos"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_contribuyentes"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_dividendos_utilidades"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_impuestos"(
+  "id" text not null,
+  "texto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
+  PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "ret_20_tipos_pago_retencion"(
+  "id" text not null,
+  "texto" text not null,
+  "tipo_impuesto" text not null,
+  "vigencia_desde" text not null,
+  "vigencia_hasta" text not null,
   PRIMARY KEY("id")
 );
 BEGIN;

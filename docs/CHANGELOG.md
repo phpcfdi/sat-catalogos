@@ -18,6 +18,11 @@ versión aunque sí su incorporación en la rama principal de trabajo, generalme
 - Se agrega el método `hasEstímuloFrontera(): bool` de `CFDI\CodigoPostal` y `CFDI40\CodigoPostal` 
   que retorna si el código postal tiene estímulo fronterizo.
 
+Los siguientes cambios son de mantenimiento:
+
+- Se actualiza el archivo de creación de base de datos para pruebas.
+- Se actualiza la herramienta para crear el archivo de creación de base de datos para pruebas.
+
 ### Mantenimimento 2023-06-26
 
 - Actualizar archivo de licencia.
